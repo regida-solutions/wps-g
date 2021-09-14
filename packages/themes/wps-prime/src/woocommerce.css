@@ -1,0 +1,100 @@
+/**
+* Wps Woocommerce
+*/
+@import "./css/config/config-media-queries.css";
+@import "./css-woo/config/config-woo.css";
+@import "./css-woo/mixins/mixin-loader.css";
+@import "./css-woo/mixins/mixin-icons.css";
+
+/* Layout */
+@import "./css-woo/layouts/layout-general.css";
+@import "./css-woo/layouts/layout-single.css";
+@import "./css-woo/layouts/layout-cart.css";
+@import "./css-woo/layouts/layout-checkout.css";
+
+/* Components */
+
+@import "./css-woo/components/components-block-ui.css";
+@import "./css-woo/components/components-loader.css";
+@import "./css-woo/components/components-remove-link.css";
+@import "./css-woo/components/components-note.css";
+@import "./css-woo/components/components-breadcrumb.css";
+@import "./css-woo/components/components-quantity.css";
+@import "./css-woo/components/components-on-sale.css";
+@import "./css-woo/components/components-result-count.css";
+@import "./css-woo/components/components-ordering.css";
+@import "./css-woo/components/components-pagination.css";
+
+/* Buttons */
+@import "./css-woo/components/components-buttons.css";
+
+/* Product loops*/
+@import "./css-woo/components/components-product-loops.css";
+
+/* Reviews */
+@import "./css-woo/components/components-reviews.css";
+
+/* Ratings*/
+@import "./css-woo/components/components-rating.css";
+
+/* Tables */
+@import "./css-woo/components/components-tables.css";
+
+/* Cart sidebar */
+@import "./css-woo/components/components-cart-sidebar.css";
+
+/* Forms */
+@import "./css-woo/components/components-forms.css";
+@import "./css-woo/components/components-form-login.css";
+@import "./css-woo/components/components-rtl.css";
+@import "./css-woo/components/components-no-js.css";
+@import "./css-woo/components/components-store-notice.css";
+@import "./css-woo/components/components-messages.css";
+@import "./css-woo/components/components-term-description.css";
+@import "./css-woo/components/components-terms-and-cond.css";
+@import "./css-woo/components/components-select2.css";
+@import "./css-woo/components/components-prettyPhoto.css";
+@import "./css-woo/components/components-header-cart.css";
+@import "./css-woo/components/components-head-utility.css";
+@import "./css-woo/components/components-single-image-gallery.css";
+@import "./css-woo/components/components-tabs.css";
+
+/* Password strength meter */
+@import "./css-woo/components/components-password.css";
+@import "./css-woo/components/components-privacy.css";
+
+
+/*   Widgets */
+
+/* cart sidebar */
+@import "./css-woo/components/components-widget-cart.css";
+
+/* Layered nav */
+@import "./css-woo/components/components-widget-layered-nav.css";
+
+/* Price filter widget */
+@import "./css-woo/components/components-widget-price-filter.css";
+
+/* Rating Filter Widget */
+@import "./css-woo/components/components-widget-rating-filter.css";
+@import "./css-woo/components/components-widget-network-order.css";
+@import "./css-woo/components/components-widget-product-categories.css";
+
+
+/**
+*   Pages
+*/
+
+/* Product Page*/
+@import "./css-woo/pages/pages-product-page.css";
+@import "./css-woo/pages/pages-order-page.css";
+@import "./css-woo/pages/pages-single-product.css";
+
+/* Account page */
+@import "./css-woo/pages/pages-account-page.css";
+
+/* Cart */
+@import "./css-woo/pages/pages-cart-page.css";
+
+/* Cart/checkout page */
+@import "./css-woo/pages/pages-cart-checkout-page.css";

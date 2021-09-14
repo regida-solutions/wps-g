@@ -1,0 +1,101 @@
+.woo-head-utility-wrapper {
+	display: flex;
+	font-family: var(--menu-font);
+	margin-left: var(--spacing-base);
+
+	@media (--viewport-mobile) {
+		margin-right: var(--spacing-base);
+	}
+}
+
+.woo-head-utility {
+	position: relative;
+
+	.woo-head-utility__symbol {
+		color: var(--woo-head-utility-symbol-color);
+		font-size: var(--woo-head-utility-font-size);
+		position: relative;
+	}
+
+	.woo-head-utility__cart-count {
+		background-color: var(--woo-head-cart-count-background);
+		border-radius: 100%;
+		box-sizing: content-box;
+		color: var(--woo-head-cart-count-text-color);
+		font-size: 13px;
+		height: 1.1em;
+		line-height: 1.1;
+		padding: 3px;
+		position: absolute;
+		right: -1em;
+		text-align: center;
+		top: -0.3em;
+		width: 1.1em;
+	}
+}
+
+.site-header-user__list {
+	/* left: calc(var(--header-user-position) * -1); */
+	background-color: var(--woo-head-utility-background);
+	display: block;
+	left: -999em;
+	list-style: none;
+	margin: 0;
+	max-width: var(--header-user-width);
+	position: absolute;
+	top: 100%;
+	width: 15rem;
+	z-index: 999999;
+
+	a {
+		color: var(--woo-head-utility-text-color);
+		display: block;
+		overflow: hidden;
+		padding: var(--spacing-tiny) var(--spacing-small);
+		position: relative;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&::before {
+			border-bottom: 1px solid var(--woo-head-utility-background-h);
+			content: "";
+			display: block;
+			height: 100%;
+			left: 0;
+
+			position: absolute;
+			top: 0;
+			transform: translateX(-100%);
+			transition: var(--global-transition);
+			transition-timing-function: ease-in;
+			width: 100%;
+		}
+
+		&:hover::before {
+			border-bottom: 1px solid var(--woo-head-utility-background-h);
+			transform: translateX(0);
+			transition: var(--global-transition);
+			transition-timing-function: ease-out;
+		}
+	}
+}
+
+.site-header-user {
+	--header-user-width: 150px;
+	--header-user-position: calc(var(--header-user-width) / 2 - 1rem);
+	position: relative;
+
+	&:hover {
+		cursor: pointer;
+
+		& .site-header-user__list {
+			animation-duration: 0.3s;
+			animation-fill-mode: both;
+			animation-name: fadeInDownSmaller;
+			box-shadow: var(--nav-dropshadow);
+			left: calc(var(--header-user-position) * -1);
+		}
+	}
+}

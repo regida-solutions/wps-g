@@ -1,0 +1,96 @@
+/*------------------------------------*\
+    #BASE TYPE
+\*------------------------------------*/
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+/**
+ * Emboldened elements.
+ */
+
+strong,
+b,
+dt {
+	font-weight: 900;
+}
+
+/**
+ * Code-like elements.
+ */
+code,
+kbd,
+samp {
+	color: var(--text-color-code);
+	font-family: Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+pre {
+	background-color: var(--background-color-pre);
+	border-radius: var(--global-radius);
+	overflow: auto;
+	padding: var(--spacing-small);
+	white-space: pre;
+	word-wrap: normal;
+
+	& code,
+	& kbd,
+	& samp {
+		color: var(--text-color-invert);
+	}
+
+}
+
+/**
+ * Horizontal rules.
+ */
+hr {
+	border: none;
+	border-bottom: 1px solid var(--color-gray-ui);
+	margin-bottom: calc(var(--spacing-base) - 1px);
+}
+
+/**
+ * Highlighted text.
+ */
+pre mark {
+	background: none;
+	border-bottom: 1px solid;
+	color: inherit;
+}
+
+/**
+* Blockquote
+*/
+blockquote {
+	font-style: italic;
+	padding: var(--spacing-base) calc(var(--spacing-base) * 1.5);
+	position: relative;
+
+	&::after,
+	&::before {
+		color: var(--color-gray-ui);
+		content: '"';
+		display: inline-block;
+		font-size: 2em;
+		font-style: normal;
+		font-weight: 900;
+		line-height: 1;
+		position: absolute;
+	}
+
+	&::before {
+		left: 0.3em;
+		top: var(--spacing-small);
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0.3em;
+	}
+
+	& p {
+		margin-bottom: 0;
+	}
+}

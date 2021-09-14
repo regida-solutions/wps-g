@@ -1,0 +1,19 @@
+/* ==========================================================================
+   #WP NAVIGATION LINKS
+   ========================================================================== */
+
+.nav-links {
+	border-top: 1px solid var(--color-gray-ui);
+	margin-bottom: var(--spacing-base);
+	padding: var(--spacing-small) 0;
+}
+
+@media (--viewport-lap-and-up) {
+	.nav-previous {
+		float: left;
+	}
+
+	.nav-next {
+		float: right;
+	}
+}

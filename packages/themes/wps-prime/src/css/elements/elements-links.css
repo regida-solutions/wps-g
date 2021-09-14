@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #BASE LINKS
+\*------------------------------------*/
+
+a {
+	color: var(--text-color-link);
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		text-decoration: underline;
+	}
+
+}

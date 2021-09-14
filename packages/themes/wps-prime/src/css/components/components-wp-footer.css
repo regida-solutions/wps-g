@@ -1,0 +1,24 @@
+/* ==========================================================================
+   #WP FOOTER
+   ========================================================================== */
+
+.site-footer {
+	padding: var(--spacing-base) 0;
+}
+
+.site-footer .widget-area-container {
+	display: grid;
+	grid-gap: var(--spacing-base);
+	grid-template-columns: repeat(var(--footer-widget-list-number), 1fr);
+	margin: 0 auto;
+	max-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
+	--footer-widget-list-number: 1;
+
+	@media (--viewport-lap) {
+		--footer-widget-list-number: 2;
+	}
+
+	@media (--viewport-desktop) {
+		--footer-widget-list-number: 4;
+	}
+}

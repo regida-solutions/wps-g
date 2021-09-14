@@ -1,0 +1,11 @@
+:root {
+	--site-width: 1280px;
+	--content-width: 960px;
+	--site-spacing: 40px;
+	--spacing-tiny: 6px;
+	--spacing-small: 12px;
+	--spacing-base: 24px;
+	--spacing-large: 48px;
+	--spacing-huge: 84px;
+	--base-spacing-unit: 24px;
+}

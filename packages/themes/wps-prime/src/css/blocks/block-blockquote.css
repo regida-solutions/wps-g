@@ -1,0 +1,6 @@
+.wp-block-quote {
+	border: none;
+	margin-left: auto;
+	margin-right: auto;
+	padding: var(--spacing-base) calc(var(--spacing-base) * 1.5);
+}

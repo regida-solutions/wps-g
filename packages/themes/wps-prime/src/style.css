@@ -1,0 +1,47 @@
+/* Woocommerce fonts */
+@import "./css/config/config-woo-fonts.css";
+
+/* Config */
+@import "./css/config/_config.css";
+
+/* Generic */
+@import "./css/generic/_generic.css";
+
+/* Elements */
+@import "./css/elements/_elements.css";
+
+/* Objects */
+@import "./css/objects/_objects.css";
+
+/* Wordpress Generated */
+@import "./css/components/components-wp-screen-reader.css";
+@import "./css/components/components-wp-page.css";
+@import "./css/components/components-wp-header.css";
+@import "./css/components/components-wp-header-skin.css";
+@import "./css/components/components-wp-nav-links.css";
+@import "./css/components/components-wp-footer.css";
+@import "./css/components/components-wp-footer-skin.css";
+@import "./css/components/components-wp-post.css";
+@import "./css/components/components-wp-images.css";
+@import "./css/components/components-wp-widget.css";
+@import "./css/components/components-wp-galleries.css";
+@import "./css/components/components-wp-post-page-navigation.css";
+
+/* Custom Components*/
+@import "./css/components/components-side-navigation.css";
+@import "./css/components/components-main-navigation.css"; /* TODO */
+@import "./css/components/components-icons.css";
+@import "./css/components/components-social-list.css";
+@import "./css/components/components-head-utility.css";
+@import "./css/components/components-page-micro.css";
+
+/* Blocks */
+@import "./css/blocks/_blocks.css";
+
+/* Utilities */
+@import "./css/utilities/_utilities.css";
+
+/**
+TODO
+@import "./css/components/components-swiper-slider.css";
+*/

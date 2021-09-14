@@ -1,0 +1,20 @@
+@define-mixin loader {
+	&::before {
+		animation: spin 1s ease-in-out infinite;
+		background: url(../assets/icons/woo/icons/loader.svg) center center;
+		background-size: cover;
+		color: rgba(0, 0, 0, 0.75);
+		content: "";
+		display: block;
+		font-size: 2em;
+		height: 1em;
+		left: 50%;
+		line-height: 1;
+		margin-left: -0.5em;
+		margin-top: -0.5em;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		width: 1em;
+	}
+}

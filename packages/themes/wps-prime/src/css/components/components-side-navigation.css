@@ -1,0 +1,369 @@
+/* ==========================================================================
+   #COMPONENTS SIDE NAVIGATION
+   ========================================================================== */
+
+.c-slide-nav,
+.c-slide-nav-toggler,
+.c-slide-nav-mask {
+	@media (--viewport-desktop) {
+		display: none;
+	}
+}
+
+.c-slide-nav {
+	background-color: var(--main-nav-side-background);
+	font-family: var(--menu-font);
+	padding: 0 var(--spacing-small);
+	position: fixed;
+	transition: transform var(--global-transition);
+	z-index: 1000;
+	--main-nav-text-color: var(--main-nav-side-text-color);
+	--main-nav-text-color-h: var(--main-nav-side-text-color);
+	--main-nav-submenu-text-color-h: var(--main-nav-side-text-color);
+	--menu-width: 30%;
+
+	& .side-nav-menu-toggler .c-slide-nav-close {
+		color: var(--main-nav-text-color);
+	}
+
+	& .show-submenu {
+		color: var(--main-nav-text-color);
+		font-size: var(--wp--preset--font-size--small);
+		padding: 0.7em;
+	}
+
+	& .site-nav__link {
+		--main-nav-text-color: var(--main-nav-side-text-color);
+	}
+
+	& .menu-item--show-submenu .site-nav__link,
+	& .menu-item--show-submenu {
+		cursor: pointer;
+	}
+
+	& .menu-item:hover .show-submenu {
+		--main-nav-text-color: var(--main-nav-side-text-color);
+	}
+
+	& .site-nav__list,
+	& .site-mobile-nav__list {
+		list-style: none;
+		margin-bottom: 0;
+		margin-left: 0;
+	}
+
+	& .menu-item-has-children .sub-menu .site-nav__link {
+		padding: 0.3rem 0.7rem 0.3rem 2.3rem;
+	}
+
+	& .c-slide-nav__items {
+		list-style: none;
+		margin: 0;
+	}
+
+	.c-slide-nav__item.menu-item-has-children {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		position: relative;
+
+		& > .show-submenu {
+			width: 15%;
+		}
+
+		& > .site-nav__link {
+			display: inline-block;
+			width: 85%;
+		}
+
+		& > .sub-menu {
+			max-height: 0;
+			overflow-y: hidden;
+			transition: all 600ms, visibility 600ms;
+			width: 100%;
+
+			&.expanded {
+				max-height: 1000px;
+			}
+		}
+
+		& .show-submenu {
+			& .site-nav__icon {
+				transform: rotate(0deg);
+				transition: transform var(--global-transition) ease-in-out;
+			}
+
+			&.show .site-nav__icon {
+				transform: rotate(-90deg);
+			}
+
+		}
+
+	}
+}
+
+.c-slide-nav__nav-wrapper {
+	display: flex;
+	flex: 1;
+	flex-flow: column nowrap;
+	min-height: 100%;
+
+	& > * {
+		height: auto;
+		width: 100%;
+	}
+
+	& .menu-main-nav-bottom-container {
+		margin-bottom: 12px;
+		margin-top: auto;
+	}
+}
+
+.c-slide-nav-toggler-label {
+	display: none;
+	font-family: var(--menu-font);
+}
+
+.c-slide-nav-close,
+.c-slide-nav-toggler {
+	background-color: transparent;
+	border: none;
+	border-radius: var(--global-radius);
+	color: var(--main-nav-text-color);
+	outline: none;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.c-slide-nav-toggler {
+	cursor: pointer;
+}
+
+.header-light .site-header .c-slide-nav-toggler {
+	color: var(--text-color-body);
+}
+
+.header-dark .site-header .c-slide-nav-toggler {
+	color: var(--text-color-invert);
+}
+
+/* Hamburger menu icon */
+.c-slide-nav-toggler-icon {
+	cursor: pointer;
+	display: inline-block;
+	height: 24px;
+	position: relative;
+	transform: rotate(0deg);
+	transition: var(--global-transition) ease-in-out;
+	vertical-align: middle;
+	width: 30px;
+
+	& span {
+		background: currentColor;
+		display: block;
+		height: 3px;
+		left: 0;
+		opacity: 1;
+		position: absolute;
+
+		transform: rotate(0deg);
+
+		transition: var(--global-transition) ease-in-out;
+		width: 100%;
+
+		&:nth-child(1) {
+			top: 0;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 8px;
+		}
+
+		&:nth-child(4) {
+			top: 16px;
+		}
+	}
+}
+
+.has-active-menu .c-slide-nav-toggler-icon span:nth-child(1) {
+	left: 50%;
+	top: 8px;
+	width: 0;
+}
+
+.has-active-menu .c-slide-nav-toggler-icon span:nth-child(2) {
+
+	transform: rotate(45deg);
+}
+
+.has-active-menu .c-slide-nav-toggler-icon span:nth-child(3) {
+
+	transform: rotate(-45deg);
+}
+
+.has-active-menu .c-slide-nav-toggler-icon span:nth-child(4) {
+	left: 50%;
+	top: 8px;
+	width: 0;
+}
+
+.c-slide-nav-toggler__label {
+	color: currentColor;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	margin-right: 0.5em;
+}
+
+/**
+ * Left and right menus
+ */
+.c-slide-nav--slide-right {
+	height: 100%;
+	overflow-y: auto;
+	right: 0;
+	top: 0;
+	transform: translateX(100%);
+	width: 100%;
+
+	@media (--viewport-lap-and-up) {
+		width: 38%;
+	}
+
+	@media only screen and (min-width: 1239px) and (max-width: 1400px) {
+		width: 28%;
+	}
+
+	@media only screen and (min-width: 1401px) and (max-width: 1600px) {
+		width: 25%;
+	}
+
+	@media only screen and (min-width: 1601px) {
+		width: 23%;
+	}
+
+	&::-webkit-scrollbar {
+		width: 0.752rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.5);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--color-gray-ui);
+		outline: none;
+	}
+
+}
+
+.logged-in .c-slide-nav--slide-right {
+	height: calc(100% - 29px);
+}
+
+.c-slide-nav--slide-right .c-slide-nav__link {
+	color: var(--text-color-invert);
+	display: block;
+	padding: var(--spacing-small) var(--spacing-base);
+}
+
+/**
+ * Slide/Push Menu Right.
+ */
+.c-slide-nav--slide-right.is-active {
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	transform: translateX(0);
+}
+
+/* Compensate logged in admin bar height */
+.logged-in .c-slide-nav--slide-right,
+.logged-in .c-slide-nav--slide-right.is-active {
+	top: 32px;
+}
+
+/**
+ * Wrapper states.
+ *
+ * Various wrapper states occur depending on if a menu is pushing into view, in
+ * which case, the wrapper has to be pushed by the respective distance.
+ */
+
+.site.has-push-left {
+	transform: translateX(100%);
+
+	@media (--viewport-desktop) {
+		transform: translateX(var(--menu-width));
+	}
+}
+
+/**
+ * Body states.
+ *
+ * When a menu is active, we want to hide the overflows on the body to prevent
+ * awkward document scrolling.
+ */
+
+body.has-active-menu {
+	overflow: hidden;
+}
+
+/**
+   * Close button resets.
+   */
+.c-slide-nav-close,
+.c-slide-nav__close {
+	appearance: none;
+	cursor: pointer;
+}
+
+.c-slide-nav__close {
+	padding: var(--spacing-base) var(--spacing-small);
+	text-align: right;
+}
+
+.c-slide-nav__close:focus {
+	outline: none;
+}
+
+/**
+  * MASK COMPONENT
+  */
+
+.c-slide-nav-mask {
+	background-color: #000;
+	height: 0;
+	left: 0;
+	opacity: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	transition: opacity var(--global-transition), width 0s var(--global-transition), height 0s var(--global-transition);
+	width: 0;
+	z-index: 999;
+}
+
+.c-slide-nav-mask.is-active {
+	height: 100%;
+	opacity: 0.7;
+	transition: opacity var(--global-transition);
+	width: 100%;
+}
+
+.c-slide-nav__social-list {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: var(--spacing-small);
+}
+
+.contact-data {
+	color: var(--text-color-invert);
+	padding: var(--spacing-small) 0;
+
+	& .contact-data__item {
+		color: inherit;
+		display: block;
+		margin-bottom: var(--spacing-small);
+	}
+}

@@ -1,0 +1,70 @@
+/* ==========================================================================
+   #WP HEADER
+   ========================================================================== */
+
+.header-on-content .sticky-wrapper {
+	position: absolute;
+	width: 100%;
+	z-index: 999;
+}
+
+.site-header {
+	background-color: var(--header-background);
+	padding: var(--spacing-small) 0;
+	position: relative;
+	transition: background-color 0.3s linear;
+	width: 100%;
+	z-index: 999;
+
+}
+
+.masthead-layout {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	margin: 0 auto;
+	max-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
+}
+
+.site-header__left {
+	grid-column: 1/4;
+}
+
+.site-header__right {
+	grid-column: 4/13;
+
+}
+
+.header-items-wrapper {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+	justify-content: flex-end;
+}
+
+.site-branding-logo {
+	--branding-logo-height: 70px;
+	display: block;
+}
+
+.site-branding-logo,
+.site-branding-logo svg {
+	max-height: var(--branding-logo-height);
+	width: auto;
+}
+
+.brand-logo {
+	@media (--viewport-mobile) {
+		display: block;
+	}
+}
+
+.site-title,
+.site-description {
+	margin: 0;
+}
+
+.site-title {
+	font-size: 1.125em;
+	line-height: 1;
+}

@@ -1,0 +1,302 @@
+<?php
+/**
+ * The header components setup
+ *
+ * @package WpsPrime
+ */
+
+declare( strict_types=1 );
+
+namespace WpsPrime\Setup\Layout;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Silence is golden.' );
+}
+// Setup Main menu location.
+$menu_type     = get_theme_mod( 'main_menu_position', 'in_header' );
+$menu_location = 'under_header' === $menu_type ? 'after_header' : 'theme_header_right';
+
+/**
+	* Hook up components in theme
+	*/
+add_action( 'theme_header', __NAMESPACE__ . '\\header_layout' );
+add_action( 'theme_header_left', __NAMESPACE__ . '\\theme_site_logo' );
+add_action( $menu_location, __NAMESPACE__ . '\\main_menu' );
+add_action( 'theme_header_right', __NAMESPACE__ . '\\header_free_content');
+add_action( 'theme_header_right', __NAMESPACE__ . '\\header_contact' );
+add_action( 'theme_header_right', __NAMESPACE__ . '\\main_menu_toggle', 99 );
+add_action( 'after_header', __NAMESPACE__ . '\\side_menu' );
+add_action( 'wp_footer', __NAMESPACE__ . '\\side_menu_mask' );
+add_action( 'menu_main_side_end', __NAMESPACE__ . '\\side_menu_meta_data' );
+add_action( 'footer_content', __NAMESPACE__ . '\\footer_layout' );
+
+/**
+	* Add CSS classes to key areas
+	*/
+add_filter( 'body_class', __NAMESPACE__ . '\\body_class' );
+add_filter( 'wps_header_class', __NAMESPACE__ . '\\main_header_class' );
+add_filter( 'wps_header_left_class', __NAMESPACE__ . '\\main_header_left_class' );
+add_filter( 'wps_header_right_class', __NAMESPACE__ . '\\main_header_right_class' );
+add_filter( 'wps_nav_class', __NAMESPACE__ . '\\main_nav_class' );
+add_filter( 'wps_mobile_nav_class', __NAMESPACE__ . '\\main_mobile_nav_class' );
+add_filter( 'wps_main_content_class', __NAMESPACE__ . '\\main_content_class' );
+add_filter( 'wps_main_sidebar_class', __NAMESPACE__ . '\\main_sidebar_class' );
+add_filter( 'wps_entry_content_class', __NAMESPACE__ . '\\entry_content_class' );
+add_filter( 'wps_footer_class', __NAMESPACE__ . '\\footer_class' );
+
+/**
+ * Hook up main header layout.
+ */
+function header_layout() {
+	get_template_part( 'template-parts/header/header-layout' );
+}
+
+/**
+ * Add the main logo to header.
+ */
+function theme_site_logo() {
+	get_template_part( 'template-parts/header/header-site-logo' );
+}
+
+/**
+ * Add the main menu toggle icon.
+ */
+function main_menu_toggle() {
+	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	if ( ! $hide_menu ) {
+		get_template_part( 'template-parts/header/menu/menu-main-toggle' );
+	}
+}
+
+/**
+ * Add the main menu.
+ */
+function main_menu() {
+	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	if ( ! $hide_menu ) {
+		get_template_part( 'template-parts/header/menu/menu-main-mega' );
+	}
+}
+
+/**
+ * Add the side menu.
+ */
+function side_menu() {
+	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	if ( ! $hide_menu ) {
+		get_template_part( 'template-parts/header/menu/menu-main-side' );
+	}
+}
+
+/**
+	* Add the main menu.
+	*/
+function header_contact() {
+		get_template_part( 'template-parts/header/header-contact' );
+}
+
+/**
+	* Add utility header free content area.
+	*/
+function header_free_content() {
+	get_template_part( 'template-parts/header/header-utility-content' );
+}
+
+/**
+ * Add extra utility parts to header.
+ */
+function side_menu_meta_data() {
+	get_template_part( 'template-parts/components/component-social-list' );
+	get_template_part( 'template-parts/components/component-contact-data' );
+	get_template_part( 'template-parts/components/component-wpml-switcher' );
+}
+
+/**
+ * Add footer layout.
+ */
+function footer_layout() {
+	get_template_part( 'template-parts/footer/colophon' );
+	get_template_part( 'template-parts/footer/footer-micro-copy' );
+}
+
+/**
+ * Add side menu mask to footer.
+ */
+function side_menu_mask() {
+	get_template_part( 'template-parts/header/menu/menu-main-side-mask' );
+}
+
+/**
+ * Setup custom css classes
+ */
+
+/**
+ * Add classes to body
+ *
+ * @param array $classes List of custom css classes.
+ * @return array
+ */
+function body_class( array $classes ):array {
+
+	$post_id = get_the_ID();
+
+	$header_bg_color        = get_theme_mod( 'wps_header_background', '#ffffff' );
+	$header_use_sticky      = get_theme_mod( 'header_use_sticky', false );
+	$header_sticky_bg_color = get_theme_mod( 'wps_header_background_sticky', '#000000' );
+	$single_has_sidebar     = get_option( 'wps_article_has_sidebar', false );
+	$swap_sidebar           = get_option( 'wps_article_swap_sidebar_position', false );
+	$bg_color               = \WpsPrime\Helpers\contrast_color( $header_bg_color );
+	$sticky_bg_color        = \WpsPrime\Helpers\contrast_color( $header_sticky_bg_color );
+
+	if ( is_page() || is_404() ) {
+		$page_id = get_option( 'wps_404_custom_page' );
+		$pid     = $post_id ? $post_id : $page_id;
+
+		$title_vis = get_post_meta( $pid, '_wps_prime_hide_title', true );
+		$get_mt    = get_post_meta( $pid, '_wps_prime_page_margin_top_reset', true );
+		$get_mb    = get_post_meta( $pid, '_wps_prime_page_margin_bottom_reset', true );
+
+		if ( $get_mt && ! $get_mb ) {
+			$classes[] = 'reset-space-top';
+		}
+
+		if ( $get_mb && ! $get_mt ) {
+			$classes[] = 'reset-space-bottom';
+		}
+
+		if ( $get_mt && $get_mb ) {
+			$classes[] = 'reset-space-vertical';
+		}
+		if ( $title_vis ) {
+			$classes[] = 'hide-page-title';
+		}
+	}
+
+	// Check header bg color.
+	if ( 'light' === $bg_color ) {
+		$classes[] = 'has-header-light';
+	} elseif ( 'dark' === $bg_color ) {
+		$classes[] = 'has-header-dark';
+	}
+
+	// Check stricky header bg color.
+	if ( $header_use_sticky ) {
+		if ( 'light' === $sticky_bg_color ) {
+			$classes[] = 'has-sticky-header-light';
+		} elseif ( 'dark' === $sticky_bg_color ) {
+			$classes[] = 'has-sticky-header-dark';
+		}
+	}
+
+	// Single articles have sidebar.
+	if ( $single_has_sidebar && is_single() ) {
+		$classes[] = 'has-sidebar';
+
+		if ( $swap_sidebar ) {
+			$classes[] = 'has-sidebar-inverted';
+		}
+	}
+
+	return $classes;
+}
+
+/**
+ * CSS for header
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_header_class( array $classes ):array {
+	$classes[] = 'site-header';
+	return $classes;
+}
+
+/**
+ * CSS for header left side
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_header_left_class( array $classes ):array {
+	$classes[] = 'site-header__left';
+	return $classes;
+}
+
+/**
+ * CSS for header right side
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_header_right_class( array $classes ):array {
+	$classes[] = 'site-header__right';
+	return $classes;
+}
+
+/**
+ * CSS for the main menu
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_nav_class( array $classes ):array {
+	$classes[] = 'site-nav';
+	return $classes;
+}
+
+/**
+ * CSS for the main side nav
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_mobile_nav_class( array $classes ):array {
+	$classes[] = 'site-nav-mobile c-slide-nav c-slide-nav--slide-right';
+	return $classes;
+}
+
+/**
+ * CSS for main content
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_content_class( array $classes ):array {
+	$classes[] = 'site-content';
+	return $classes;
+}
+
+/**
+ * CSS for main sidebar
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function main_sidebar_class( array $classes ):array {
+	$classes[] = 'main-sidebar';
+	$classes[] = 'widget-area';
+	return $classes;
+}
+
+/**
+ * CSS for main content area
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function entry_content_class( array $classes ):array {
+	$classes[] = 'content-area';
+	return $classes;
+}
+
+/**
+ * CSS for footer
+ *
+ * @param array $classes Add classes to markup.
+ * @return array
+ */
+function footer_class( array $classes ):array {
+	$classes[] = 'site-footer';
+	return $classes;
+}
+

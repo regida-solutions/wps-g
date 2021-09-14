@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+
+table {
+	width: 100%;
+
+	& caption {
+		background-color: var(--color-gray-ui);
+		padding: var(--spacing-small);
+	}
+
+	& th {
+		font-weight: 600;
+		text-align: left;
+	}
+
+	& th,
+	& td {
+		border: 1px solid var(--color-gray-ui);
+		padding: var(--spacing-small);
+	}
+}

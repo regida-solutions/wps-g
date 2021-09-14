@@ -1,0 +1,74 @@
+@define-mixin icon $glyph: "\e001" {
+	content: $glyph;
+	font-family: "WooCommerce";
+	font-variant: normal;
+	font-weight: normal;
+	height: 100%;
+	left: 0;
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	speak: none;
+	text-align: center;
+	text-indent: 0;
+	text-transform: none;
+	top: 0;
+	width: 100%;
+}
+
+@define-mixin icon_dashicons $glyph: "\f333" {
+	content: $glyph;
+	font-family: "Dashicons";
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: normal;
+	height: 100%;
+	left: 0;
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	speak: none;
+	text-align: center;
+	text-indent: 0;
+	text-transform: none;
+	top: 0;
+	width: 100%;
+}
+
+@define-mixin iconbefore $glyph: "\e001" {
+	content: $glyph;
+	font-family: "WooCommerce";
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	margin-right: 0.618em;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@define-mixin iconbeforedashicons $glyph: "\f333" {
+	content: $glyph;
+	font-family: "Dashicons";
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+}
+
+@define-mixin iconafter $glyph: "\e001" {
+	content: $glyph;
+	font-family: "WooCommerce";
+	-webkit-font-smoothing: antialiased;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 1;
+	margin-left: 0.618em;
+	speak: none;
+	text-decoration: none;
+	text-transform: none;
+}

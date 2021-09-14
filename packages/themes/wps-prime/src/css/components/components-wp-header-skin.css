@@ -1,0 +1,46 @@
+/* ==========================================================================
+   #WP HEADER SKIN
+   ========================================================================== */
+.has-custom-content-background .site-content {
+	background-color: var(--background-color-custom);
+}
+
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+/* Sticky style */
+.header-on-content .sticky-wrapper {
+	position: absolute;
+	width: 100%;
+	z-index: 999;
+}
+
+.sticky-wrapper.is-sticky > * {
+	top: 0;
+	z-index: 999;
+}
+
+.is-sticky .site-header {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	--header-background: var(--header-background-sticky);
+}
+
+body:not(.header-on-content) .site-header {
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.is-sticky .site-header:hover {
+	--header-background: var(--header-background-sticky-h);
+}
+
+.is-sticky,
+.page-chroma-white {
+	--head-utility-color: #fff;
+	--head-utility-color-h: #fff;
+
+	& .site-branding,
+	& .head-utility  svg {
+		filter: brightness(0) invert(1);
+	}
+}

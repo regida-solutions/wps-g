@@ -1,0 +1,13 @@
+.wp-block-pullquote {
+	border: 0;
+
+	&.alignleft,
+	&.alignright {
+		max-width: var(--content-width);
+		padding: 0;
+
+		& blockquote {
+			max-width: 420px;
+		}
+	}
+}

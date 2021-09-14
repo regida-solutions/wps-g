@@ -1,0 +1,61 @@
+/* ==========================================================================
+   #COMPONENTS HEAD UTILITY
+   ========================================================================== */
+
+.head-utility,
+.head-utility-content {
+	color: var(--head-utility-color);
+	font-family: var(--menu-font);
+}
+
+.head-utility {
+	display: none;
+
+	@media (--viewport-desktop) {
+		display: block;
+		margin-left: var(--spacing-small);
+	}
+
+	& .head-utility__link {
+		color: var(--head-utility-color);
+		margin-left: var(--spacing-small);
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			text-decoration: none;
+			--head-utility-color: var(--head-utility-color-h);
+		}
+	}
+
+}
+
+.head-utility-social {
+	display: inline-block;
+	margin-left: var(--spacing-small);
+
+	&::before {
+		color: var(--head-utility-color);
+		content: "|";
+		display: inline-block;
+		padding-right: var(--spacing-small);
+
+	}
+
+	& .c-social-list {
+		display: inline-block;
+		margin: 0;
+	}
+
+	& .c-social-list__item {
+		display: inline;
+	}
+
+	& .c-social-list__link {
+		color: var(--head-utility-color);
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			--head-utility-color: var(--head-utility-color-h);
+		}
+	}
+}
