@@ -199,10 +199,12 @@ function register( object $wp_customize ):void {
 		]
 	);
 
+	$wp_customize->get_setting( 'header_utility_content' )->transport   = 'postMessage';
 	$wp_customize->selective_refresh->add_partial(
 		'header_utility_content',
 		[
 			'selector' => '.head-utility-content',
+			'render_callback' => '\WpsPrime\Setup\Layout\header_free_content',
 		]
 	);
 

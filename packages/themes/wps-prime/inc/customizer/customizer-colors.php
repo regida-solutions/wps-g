@@ -72,7 +72,6 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_panel(
 		'theme_colors_panel',
 		[
-			'priority'       => 10,
 			'capability'     => 'edit_theme_options',
 			'theme_supports' => '',
 			'title'          => 'Theme Colors',
@@ -111,7 +110,6 @@ function register( object $wp_customize ):void {
 			'default'    => parse_defaults( 'text_color_body' ),
 			'type'       => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
 		]
 	);
 
@@ -135,7 +133,6 @@ function register( object $wp_customize ):void {
 			'default'    => parse_defaults( 'text_color_link' ),
 			'type'       => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
 		]
 	);
 
@@ -159,7 +156,6 @@ function register( object $wp_customize ):void {
 			'default'    => parse_defaults( 'text_color_heading' ),
 			'type'       => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
 		]
 	);
 
@@ -217,7 +213,6 @@ function register( object $wp_customize ):void {
 			'default'    => parse_defaults( 'button_color_default' ),
 			'type'       => 'theme_mod',
 			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
 		]
 	);
 
@@ -240,8 +235,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '-0.2',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'refresh',
+			'capability' => 'edit_theme_options'
 		]
 	);
 

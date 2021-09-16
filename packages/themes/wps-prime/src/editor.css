@@ -13,8 +13,11 @@
 @import "./css/elements/elements-images.css";
 @import "./css/elements/elements-form.css";
 
-/* Elements */
+/* Blocks */
 @import "./css/blocks/_blocks.css";
+
+/* Components */
+@import "./css/components/components-buttons.css";
 
 .block-editor .wp-block {
 	max-width: var(--content-width);

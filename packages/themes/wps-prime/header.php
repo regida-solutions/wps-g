@@ -26,19 +26,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 </head>
 
 <body <?php body_class(); ?>>
-<?php do_action( 'body_start' ); ?>
+<?php do_action( 'wps_body_start' ); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wps-prime' ); ?></a>
-	<?php do_action( 'before_header' ); ?>
+	<?php do_action( 'wps_before_header' ); ?>
 
 	<header id="masthead"<?php wps_header_class(); ?> role="banner">
-		<?php do_action( 'mast_head_start' ); ?>
+		<?php do_action( 'wps_mast_head_start' ); ?>
 		<div class="masthead-layout">
-		<?php do_action( 'theme_header' ); ?>
+		<?php do_action( 'wps_theme_header' ); ?>
 		</div>
-		<?php do_action( 'mast_head_end' ); ?>
+		<?php do_action( 'wps_mast_head_end' ); ?>
 	</header><!-- #masthead -->
-	<?php do_action( 'after_header' ); ?>
-	<?php do_action( 'before_content' ); ?>
+	<?php do_action( 'wps_after_header' ); ?>
+	<?php do_action( 'wps_before_content' ); ?>
 	<div id="content"<?php wps_main_content_class(); ?>>
-		<?php do_action( 'content_start' ); ?>
+		<?php do_action( 'wps_content_start' ); ?>

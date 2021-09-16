@@ -37,11 +37,8 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_panel(
 		'theme_site_content_panel',
 		[
-			'priority'       => 122,
-			'capability'     => 'edit_theme_options',
-			'theme_supports' => '',
-			'title'          => 'Site content',
-			'description'    => '',
+			'capability' => 'edit_theme_options',
+			'title'      => 'Site content',
 		]
 	);
 
@@ -92,7 +89,7 @@ function register( object $wp_customize ):void {
 
 	// SETTING.
 	$wp_customize->add_setting(
-		'wps_global_after_header_area',
+		'wps_global_before_content_area',
 		[
 			'default'    => '',
 			'type'       => 'option',
@@ -103,34 +100,11 @@ function register( object $wp_customize ):void {
 
 	// CONTROL.
 	$wp_customize->add_control(
-		'wps_global_after_header_area',
-		[
-			'type'        => 'textarea',
-			'label'       => __( 'Global after header', 'wps-prime' ),
-			'description' => __( 'Area visible after header just before the main content.', 'wps-prime' ),
-			'priority'    => 10,
-			'section'     => 'site_content_section',
-		]
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_global_main_content_start_area',
-		[
-			'default'    => '',
-			'type'       => 'option',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'refresh',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		'wps_global_main_content_start_area',
+		'wps_global_before_content_area',
 		[
 			'type'        => 'textarea',
 			'label'       => __( 'Global before main content', 'wps-prime' ),
-			'description' => __( 'Area visible at the start of the main content right after the header.', 'wps-prime' ),
+			'description' => __( 'Area visible before the main content right after the header.', 'wps-prime' ),
 			'priority'    => 10,
 			'section'     => 'site_content_section',
 		]
@@ -320,27 +294,33 @@ function register( object $wp_customize ):void {
 	);
 
 	$wp_customize->get_setting( 'wps_global_content_start_area' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'wps_global_content_end_area' )->transport   = 'postMessage';
+	$wp_customize->selective_refresh->add_partial(
+		'wps_global_content_start_area',
+		[
+			'selector'        => '.site-global-content-start',
+			'render_callback' => '\WpsPrime\Setup\Layout\global_content_start_area',
+		]
+	);
 
-	$wp_customize->get_setting( 'wps_article_meta_visibility' )->transport = 'refresh';
-	$wp_customize->get_setting( 'wps_meta_u_time_visibility' )->transport  = 'refresh';
+	$wp_customize->get_setting( 'wps_global_before_content_area' )->transport = 'postMessage';
+	$wp_customize->selective_refresh->add_partial(
+		'wps_global_before_content_area',
+		[
+			'selector'        => '.site-global-before-content',
+			'render_callback' => '\WpsPrime\Setup\Layout\global_before_content_area',
+		]
+	);
 
+	$wp_customize->get_setting( 'wps_global_content_end_area' )->transport = 'postMessage';
 	$wp_customize->selective_refresh->add_partial(
 		'wps_global_content_end_area',
 		[
 			'selector'        => '.site-global-content-end',
-			'render_callback' => 'wps_theme_global_content_end_area',
+			'render_callback' => '\WpsPrime\Setup\Layout\global_content_end_area',
 		]
 	);
 
-	$wp_customize->selective_refresh->add_partial(
-		'wps_global_content_end_area',
-		[
-			'selector'        => '.site-global-content-start',
-			'render_callback' => 'wps_theme_global_content_start_area',
-		]
-	);
-
+	$wp_customize->get_setting( 'wps_article_meta_visibility' )->transport = 'refresh';
 	$wp_customize->selective_refresh->add_partial(
 		'wps_article_meta_visibility',
 		[
@@ -349,6 +329,7 @@ function register( object $wp_customize ):void {
 		]
 	);
 
+	$wp_customize->get_setting( 'wps_meta_u_time_visibility' )->transport = 'refresh';
 	$wp_customize->selective_refresh->add_partial(
 		'wps_meta_u_time_visibility',
 		[

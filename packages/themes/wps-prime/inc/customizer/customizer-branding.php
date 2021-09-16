@@ -29,7 +29,6 @@ function register( object $wp_customize ):void {
 		'company_social_media_section',
 		[
 			'title'      => __( 'Social Media', 'wps-prime' ),
-			'priority'   => 21,
 			'capability' => 'edit_theme_options',
 		]
 	);

@@ -20,13 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 function load_customizer_sections() {
 	$sections = [
 		'branding',
-		'colors-header',
-		'colors',
-		'tweaks',
-		'footer',
 		'header',
 		'content',
+		'footer',
 		'typography',
+		'colors',
+		'colors-header',
+		'colors-footer',
 		'wpml',
 		'woo-category',
 		'woo-shop',
@@ -35,6 +35,7 @@ function load_customizer_sections() {
 		'woo-colors-checkout',
 		'woo-colors-header-utility',
 		'woo-colors-shop',
+		'tweaks',
 	];
 
 	foreach ( $sections as $section ) {

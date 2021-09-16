@@ -29,134 +29,8 @@ function register( object $wp_customize ):void {
 		'footer_setup_section',
 		[
 			'title'      => __( 'Footer', 'wps-prime' ),
-			'priority'   => 123,
 			'capability' => 'edit_theme_options',
 		]
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_footer_text_color',
-		[
-			'default'    => '#ffffff',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_footer_text_color',
-			[
-				'label'    => __( 'Footer text color', 'wps-prime' ),
-				'settings' => 'wps_footer_text_color',
-				'priority' => 10,
-				'section'  => 'footer_setup_section',
-			]
-		)
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_footer_heading_color',
-		[
-			'default'    => '#ffffff',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_footer_heading_color',
-			[
-				'label'    => __( 'Footer headings color', 'wps-prime' ),
-				'settings' => 'wps_footer_heading_color',
-				'priority' => 10,
-				'section'  => 'footer_setup_section',
-			]
-		)
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_footer_link_color',
-		[
-			'default'    => '#ffffff',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_footer_link_color',
-			[
-				'label'    => __( 'Footer link color', 'wps-prime' ),
-				'settings' => 'wps_footer_link_color',
-				'priority' => 10,
-				'section'  => 'footer_setup_section',
-			]
-		)
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_footer_background_color',
-		[
-			'default'    => '#000000',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_footer_background_color',
-			[
-				'label'    => __( 'Footer background color', 'wps-prime' ),
-				'settings' => 'wps_footer_background_color',
-				'priority' => 10,
-				'section'  => 'footer_setup_section',
-			]
-		)
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_footer_micro_background_color',
-		[
-			'default'    => '#333333',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_footer_micro_background_color',
-			[
-				'label'    => __( 'Footer micro-copy background ', 'wps-prime' ),
-				'settings' => 'wps_footer_micro_background_color',
-				'priority' => 10,
-				'section'  => 'footer_setup_section',
-			]
-		)
 	);
 
 	$wp_customize->add_setting(
@@ -221,6 +95,15 @@ function register( object $wp_customize ):void {
 			'description' => __( 'Create a custom footer', 'wps-prime' ),
 			'priority'    => 10,
 			'section'     => 'footer_setup_section',
+		]
+	);
+
+	$wp_customize->get_setting( 'footer_custom_content' )->transport = 'postMessage';
+	$wp_customize->selective_refresh->add_partial(
+		'footer_custom_content',
+		[
+			'selector'        => '.site-footer',
+			'render_callback' => '\WpsPrime\Setup\Layout\footer_layout',
 		]
 	);
 }

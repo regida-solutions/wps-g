@@ -20,12 +20,12 @@ $custom_footer_content = get_option( 'footer_custom_content', false );
 ?>
 <?php 	if ( $show_footer ) : ?>
 	<footer id="colophon"<?php wps_footer_class(); ?> role="contentinfo">
-		<?php do_action( 'footer_start' ); ?>
+		<?php do_action( 'wps_footer_start' ); ?>
 		<?php if ( ! $custom_footer ) : ?>
 			<?php get_sidebar( 'footer' ); ?>
 		<?php else : ?>
 			<?php echo wp_kses_post(do_shortcode( $custom_footer_content )); ?>
 		<?php endif; ?>
-		<?php do_action( 'footer_end' ); ?>
+		<?php do_action( 'wps_footer_end' ); ?>
 	</footer><!-- #colophon -->
 <?php endif; ?>

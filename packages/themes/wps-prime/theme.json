@@ -160,6 +160,9 @@
 			"core/button": {
 				"border": {
 					"customRadius": false
+				},
+				"color": {
+					"palette": []
 				}
 			},
 			"core/image": {

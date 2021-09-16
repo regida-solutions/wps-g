@@ -21,12 +21,12 @@ $email_main = get_option( 'wps_email_address' );
 $has_social  = get_theme_mod( 'header_utility_show_social', false );
 $show_labels = get_theme_mod( 'header_contact_show_labels', false );
 
-$allowed_tags    = apply_filters( 'wps_allowed_html_attributes_with_svg', 'post' );
+$allowed_tags = apply_filters( 'wps_allowed_html_attributes_with_svg', 'post' );
 
-$social  = '';
+$social = '';
 $phone  = '';
 $email  = '';
-$class = '';
+$class  = '';
 
 // Cleanup phone nr.
 $phone_main_formatted = preg_replace( '/\s+/', '', $phone_main );
@@ -51,4 +51,4 @@ if ( ( $phone || $email ) && $social ) {
 	$class = ' head-utility-has-social';
 }
 ?>
-<div class="head-utility<?php echo esc_attr( $class  ); ?>"><?php echo wp_kses( $phone, $allowed_tags  ); ?> <?php echo wp_kses( $email, $allowed_tags  ); ?> <?php echo wp_kses( $social, $allowed_tags  ); ?></div>
+<div class="head-utility<?php echo esc_attr( $class ); ?>"><?php echo wp_kses( $phone, $allowed_tags ); ?> <?php echo wp_kses( $email, $allowed_tags ); ?> <?php echo wp_kses( $social, $allowed_tags ); ?></div>

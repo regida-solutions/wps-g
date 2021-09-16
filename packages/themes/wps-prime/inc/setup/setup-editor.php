@@ -144,5 +144,7 @@ function allowed_block_types() : array {
 		'core/quote',
 		'core/table',
 		'core/video',
+		'core/columns',
+		'core/column'
 	];
 }

@@ -49,6 +49,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<footer class="entry-footer">
 		<?php get_template_part( 'template-parts/components', 'entry-footer' ); ?>
-		<?php do_action( 'single_entry_footer' ); ?>
+		<?php do_action( 'wps_single_entry_footer' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

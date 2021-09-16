@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-add_action( 'theme_header_right', __NAMESPACE__ . '\\header_cart', 20, 2 );
+add_action( 'wps_theme_header_right', __NAMESPACE__ . '\\header_cart', 20, 2 );
 
 if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
 		add_filter( 'woocommerce_add_to_cart_fragments', __NAMESPACE__ . '\\cart_link_fragment' );

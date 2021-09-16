@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 ?>
-	<?php do_action( 'content_end' ); ?>
+	<?php do_action( 'wps_content_end' ); ?>
 	</div><!-- #content -->
-	<?php do_action( 'after_content' ); ?>
-	<?php do_action( 'before_footer' ); ?>
-		<?php do_action( 'footer_content' ); ?>
-	<?php do_action( 'after_footer' ); ?>
+	<?php do_action( 'wps_after_content' ); ?>
+	<?php do_action( 'wps_before_footer' ); ?>
+		<?php do_action( 'wps_footer_content' ); ?>
+	<?php do_action( 'wps_after_footer' ); ?>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

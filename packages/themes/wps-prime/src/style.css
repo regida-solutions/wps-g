@@ -28,6 +28,7 @@
 @import "./css/components/components-wp-post-page-navigation.css";
 
 /* Custom Components*/
+@import "./css/components/components-buttons.css";
 @import "./css/components/components-side-navigation.css";
 @import "./css/components/components-main-navigation.css"; /* TODO */
 @import "./css/components/components-icons.css";

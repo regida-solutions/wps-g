@@ -36,6 +36,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		] );
 		?>
 	<?php endif; ?>
-	<?php do_action( 'menu_main_side_end' ); ?>
+	<?php do_action( 'wps_menu_main_side_end' ); ?>
 	</div>
 </nav>

@@ -14,18 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
 	* If hook doesn't have action hide the html
 	*/
-if ( true === has_action( 'theme_header_left' ) ) : ?>
+if ( true === has_action( 'wps_theme_header_left' ) ) : ?>
 	<div <?php wps_header_left_class(); ?>>
-		<?php do_action( 'theme_header_left' ); ?>
+		<?php do_action( 'wps_theme_header_left' ); ?>
 	</div>
 	<?php
 endif;
 
-if ( true === has_action( 'theme_header_right' ) ) :
+if ( true === has_action( 'wps_theme_header_right' ) ) :
 	?>
 	<div<?php wps_header_right_class(); ?>>
 		<div class="header-items-wrapper">
-			<?php do_action( 'theme_header_right' ); ?>
+			<?php do_action( 'wps_theme_header_right' ); ?>
 		</div>
 	</div>
 	<?php

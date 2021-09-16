@@ -13,5 +13,4 @@ if ( ! $area ) {
 	return;
 }
 ?>
-
 <section class="head-utility-content"><?php echo do_shortcode( $area ); //phpcs:ignore ?></section>

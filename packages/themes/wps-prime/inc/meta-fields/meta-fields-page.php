@@ -24,10 +24,10 @@ function page_post_meta():void {
 		*/
 
 	$field_ids = [
-		'_wps_prime_hide_title',
-		'_wps_prime_page_margin_top_reset',
-		'_wps_prime_page_margin_bottom_reset',
-		'_wps_prime_hide_footer',
+		'_wps_has_visible_title',
+		'_wps_page_margin_top_reset',
+		'_wps_page_margin_bottom_reset',
+		'_wps_hide_footer',
 	];
 
 	foreach ( $field_ids as $field_id ) {
