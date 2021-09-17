@@ -1,10 +1,10 @@
 <?php
 /**
- *   Custom Comment list
- *
- * @link https://codex.wordpress.org/Function_Reference/wp_list_comments
- * @package WpsPrime
- */
+	*   Custom Comment list
+	*
+	* @link https://codex.wordpress.org/Function_Reference/wp_list_comments
+	* @package WpsPrime
+	*/
 
 declare( strict_types=1 );
 
@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Function to generate comment list
- *
- * @param array $comment Array obtained by get_comments query.
- * @param array $args The options for the function.
- * @param int   $depth  The depth of the new comment. Must be greater than 0 and less than the value of the 'thread_comments_depth' option set in Settings > Discussion. Default 0.
- */
-function comment_list( array $comment, array $args, int $depth ):string {
+	* Function to generate comment list
+	*
+	* @param array $comment Array obtained by get_comments query.
+	* @param array $args The options for the function.
+	* @param int   $depth  The depth of the new comment. Must be greater than 0 and less than the value of the 'thread_comments_depth' option set in Settings > Discussion. Default 0.
+	*/
+function comment_list( $comment, $args, $depth ):void { // phpcs:ignore
 	$GLOBALS['comment'] = $comment; // phpcs:ignore
 	extract( $args, EXTR_SKIP ); // phpcs:ignore
 
@@ -56,10 +56,10 @@ function comment_list( array $comment, array $args, int $depth ):string {
 			/* translators: 1: date, 2: time */
 			printf( esc_html_x( '%1$s at %2$s', '', 'wps-prime' ), esc_html( get_comment_date() ), esc_html( get_comment_time() ) );
 			?>
-			</a>
-			<?php
-			edit_comment_link( __( '(Edit)', 'wps-prime' ), '  ', '' );
-			?>
+		</a>
+		<?php
+		edit_comment_link( __( '(Edit)', 'wps-prime' ), '  ', '' );
+		?>
 	</small>
 
 	<?php comment_text(); ?>
