@@ -1,7 +1,22 @@
 name: PHP CodeSniffer
 
 on:
+    push:
+        branches: [main]
     pull_request:
+        branches: [main]
+        paths:
+            - '**.php'
+            - 'composer.lock'
+            - '**.json'
+            - '**.yml'
+
+# Cancels all previous workflow runs for pull requests that have not completed.
+concurrency:
+    # The concurrency group contains the workflow name and the branch name for pull requests
+    # or the commit hash for any other events.
+    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+    cancel-in-progress: true
 
 jobs:
     phpcs:
@@ -35,7 +50,7 @@ jobs:
               run: |
                   php --version
                   composer --version
-            - name: Install Composer dependencies
+            - name: Install Composer dependencies             
               run: |
                   composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
                   echo "vendor/bin" >> $GITHUB_PATH
