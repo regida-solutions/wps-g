@@ -21,11 +21,10 @@
 		"browser-sync": "^2.27.5",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"components": "file:packages/lib/components",
-		"wps-css-viewports": "file:packages/lib/css-viewports",
-		"wps-css-wodpress": "file:packages/lib/css-wordpress",
 		"cssnano": "5.0.7",
 		"dotenv": "^10.0.0",
 		"fast-glob": "3.2.7",
+		"husky": "^7.0.2",
 		"postcss": "^8.3.6",
 		"postcss-custom-media": "8.0.0",
 		"postcss-extend-rule": "^3.0.0",
@@ -33,7 +32,9 @@
 		"postcss-import": "14.0.2",
 		"postcss-media-minmax": "5.0.0",
 		"postcss-mixins": "8.1.0",
-		"postcss-nested": "^5.0.6"
+		"postcss-nested": "^5.0.6",
+		"wps-css-viewports": "file:packages/lib/css-viewports",
+		"wps-css-wodpress": "file:packages/lib/css-wordpress"
 	},
 	"scripts": {
 		"start": "wp-scripts start",
@@ -41,6 +42,16 @@
 		"check-engines": "wp-scripts check-engines",
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js"
+		"lint:js": "wp-scripts lint-js",
+		"lint-staged": "lint-staged"
+	},
+	"lint-staged": {
+		"*.css": [
+			"wp-scripts lint-style"
+		],
+		"*.{js,ts,tsx}": [
+			"wp-scripts format",
+			"wp-scripts lint-js"
+		]
 	}
 }
