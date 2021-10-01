@@ -24,7 +24,7 @@
 		"cssnano": "5.0.7",
 		"dotenv": "^10.0.0",
 		"fast-glob": "3.2.7",
-		"husky": "^7.0.2",
+		"husky": "^4.3.8",
 		"postcss": "^8.3.6",
 		"postcss-custom-media": "8.0.0",
 		"postcss-extend-rule": "^3.0.0",
@@ -37,8 +37,10 @@
 		"wps-css-wodpress": "file:packages/lib/css-wordpress"
 	},
 	"scripts": {
+		"prepare": "husky install",
 		"start": "wp-scripts start",
 		"build": "wp-scripts build",
+		"format": "wp-scripts format .",
 		"check-engines": "wp-scripts check-engines",
 		"lint": "npm run lint:js && npm run lint:css",
 		"lint:css": "wp-scripts lint-style",
