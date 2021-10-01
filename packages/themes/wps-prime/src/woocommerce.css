@@ -1,7 +1,7 @@
 /**
 * Wps Woocommerce
 */
-@import "./css/config/config-media-queries.css";
+@import "wps-css-viewports";
 @import "./css-woo/config/config-woo.css";
 @import "./css-woo/mixins/mixin-loader.css";
 @import "./css-woo/mixins/mixin-icons.css";

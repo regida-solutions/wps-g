@@ -1,17 +1,14 @@
 /* Config */
-@import "./css/config/config-media-queries.css";
+
+@import "wps-css-viewports";
 @import "./css/config/config-spacing.css";
 @import "./css/config/config-typography.css";
+@import "./css/config/config-typography-headers-editor.css";
 @import "./css/config/config-colors.css";
 
 /* Elements */
-@import "./css/elements/elements-page.css";
-@import "./css/elements/elements-type.css";
-@import "./css/elements/elements-links.css";
-@import "./css/elements/elements-lists.css";
-@import "./css/elements/elements-table.css";
-@import "./css/elements/elements-images.css";
-@import "./css/elements/elements-form.css";
+@import "./css/elements/elements-editor.css";
+
 
 /* Blocks */
 @import "./css/blocks/_blocks.css";
@@ -19,10 +16,9 @@
 /* Components */
 @import "./css/components/components-buttons.css";
 
+.block-editor-block-list__layout .wp-block-heading,
 .block-editor .wp-block {
 	max-width: var(--content-width);
-
-	@extend %typo-body;
 
 	&[data-align="full"] {
 		max-width: none;
@@ -33,33 +29,8 @@
 	}
 }
 
-.block-editor .wp-block-heading {
-	@extend %typo-heading;
-}
-
-.block-editor h1.wp-block {
-	line-height: var(--wp--custom--line-height--heading-1);
-}
-
-.block-editor h2.wp-block {
-
-	line-height: var(--wp--custom--line-height--heading-2);
-}
-
-.block-editor h3.wp-block {
-	line-height: var(--wp--custom--line-height--heading-3);
-}
-
-.block-editor h4.wp-block {
-	line-height: var(--wp--custom--line-height--heading-4);
-}
-
-.block-editor h5.wp-block {
-	line-height: var(--wp--custom--line-height--heading-5);
-}
-
-.block-editor h6.wp-block {
-	line-height: var(--wp--custom--line-height--h6);
+.block-editor .wp-block {
+	@extend %typo-body;
 }
 
 /* Customize title blocks */
@@ -76,21 +47,55 @@
 	padding: 20px;
 }
 
-/* Fix aligned left/right blocks go outside the content area */
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container {
-	& > [data-align="right"] {
-		float: none !important;
-
-		& > * {
-			float: right;
-		}
+.editor-styles-wrapper {
+	& .edit-post-visual-editor__post-title-wrapper > *,
+	& .block-editor-block-list__layout.is-root-container > * {
+		margin: var(--site-block-spacing) auto;
 	}
+	/* stylelint-disable no-descending-specificity */
+	& .edit-post-visual-editor__post-title-wrapper,
+	& .block-editor-block-list__layout.is-root-container {
+		& > h1 + *,
+		& > h2 + *,
+		& > h3 + *,
+		& > h4 + *,
+		& > h5 + *,
+		& > h6 + *,
+		& > ol + p,
+		& > p + ol,
+		& > p + p,
+		& > p + .wp-block-quote,
+		& > .wp-block-quote + p,
+		& > .wp-block-quote + ol,
+		& > .wp-block-quote + ul,
+		& > p + ul:not(.wp-block-gallery),
+		& > ul:not(.wp-block-gallery) + p {
+			margin-top: var(--site-block-negative-spacing);
+		}
 
-	& > [data-align="left"] {
-		float: none !important;
+		& > *:first-child {
+			margin-top: 0;
+		}
 
-		& > * {
-			float: left;
+	}
+	/* stylelint-enable */
+
+	/* Fix aligned left/right blocks go outside the content area */
+	& .block-editor-block-list__layout.is-root-container {
+		& > [data-align="right"] {
+			float: none !important;
+
+			& > * {
+				float: right;
+			}
+		}
+
+		& > [data-align="left"] {
+			float: none !important;
+
+			& > * {
+				float: left;
+			}
 		}
 	}
 }

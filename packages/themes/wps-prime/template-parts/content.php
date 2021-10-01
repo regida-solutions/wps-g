@@ -14,7 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'wps-post' ); ?>>
-	<div class="entry-wrapper">
 		<?php
 		if ( has_post_thumbnail() ) :
 			?>
@@ -29,8 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 		</header><!-- .entry-header -->
 		<div class="entry-content">
-			<?php echo wp_kses_post( WpsPrime\Setup\Excerpt\excerpt( 120 ) ); ?>
+			<p><?php echo wp_kses_post( WpsPrime\Setup\Excerpt\excerpt( 120 ) ); ?></p>
 		</div><!-- .entry-content -->
 		<a class="read-more-link" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'More', 'wps-prime' ); ?></a>
-	</div><!-- .entry-wrapper -->
 </article><!-- #post-## -->

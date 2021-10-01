@@ -1,0 +1,288 @@
+/* ==========================================================================
+   #PAGE
+   ========================================================================== */
+
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
+
+html {
+	font-size: var(--wp--custom--font-size--base);
+
+	/* [1] */
+	line-height: var(--wp--custom--line-height--global);
+
+	/* [2] */
+	min-height: 100%;
+
+	/* [1] */
+	overflow-y: scroll;
+
+	/* [3] */
+}
+
+/* ==========================================================================
+      #BASE LINKS
+   ========================================================================== */
+a {
+	color: var(--text-color-link);
+	text-decoration: none;
+
+	&:hover,
+	&:active {
+		text-decoration: underline;
+	}
+
+}
+
+/* ==========================================================================
+     #LIST
+   ========================================================================== */
+dl {
+	border: 3px double var(--color-gray-ui);
+	padding: var(--spacing-small);
+}
+
+dt {
+	font-weight: 600;
+}
+
+/* ==========================================================================
+    #BASE TYPE
+   ========================================================================== */
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+/**
+ * Emboldened elements.
+ */
+
+strong,
+b,
+dt {
+	font-weight: var(--wp--custom--font-weight--bold);
+}
+
+/**
+ * Code-like elements.
+ */
+code,
+kbd,
+samp {
+	color: var(--text-color-code);
+	font-family: Inconsolata, Monaco, Consolas, "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+}
+
+pre {
+	background-color: var(--background-color-pre);
+	border-radius: var(--global-radius);
+	overflow: auto;
+	padding: var(--spacing-small);
+	white-space: pre;
+	word-wrap: normal;
+
+	& code,
+	& kbd,
+	& samp {
+		color: var(--text-color-invert);
+	}
+
+}
+
+/**
+ * Horizontal rules.
+ */
+hr {
+	border: none;
+	border-bottom: 1px solid var(--color-gray-ui);
+	margin-bottom: calc(var(--spacing-base) - 1px);
+}
+
+/**
+ * Highlighted text.
+ */
+pre mark {
+	background: none;
+	border-bottom: 1px solid;
+	color: inherit;
+}
+
+/**
+* Blockquote
+*/
+blockquote {
+	font-style: italic;
+	padding: var(--spacing-base) calc(var(--spacing-base) * 1.5);
+	position: relative;
+
+	&::after,
+	&::before {
+		color: var(--color-gray-ui);
+		content: '"';
+		display: inline-block;
+		font-size: 2em;
+		font-style: normal;
+		font-weight: 900;
+		line-height: 1;
+		position: absolute;
+	}
+
+	&::before {
+		left: 0.3em;
+		top: var(--spacing-small);
+	}
+
+	&::after {
+		bottom: 0;
+		right: 0.3em;
+	}
+
+	& p {
+		margin-bottom: 0;
+	}
+}
+
+
+
+/* ==========================================================================
+   #TABLE
+   ========================================================================== */
+table {
+	width: 100%;
+
+	& caption {
+		background-color: var(--color-gray-ui);
+		padding: var(--spacing-small);
+	}
+
+	& th {
+		font-weight: 600;
+		text-align: left;
+	}
+
+	& th,
+	& td {
+		border: 1px solid var(--color-gray-ui);
+		padding: var(--spacing-small);
+	}
+}
+
+/* ==========================================================================
+   #IMAGES
+   ========================================================================== */
+
+/**
+ * 1. Fluid images for responsive purposes.
+ * 2. Offset `alt` text from surrounding copy.
+ * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+ *    elements when they are dropped into a page as-is. Safer alternative to
+ *    using `display: block;`.
+ */
+
+img {
+	font-style: italic; /* [2] */
+	height: auto;
+	max-width: 100%; /* [1] */
+	vertical-align: middle; /* [3] */
+}
+
+
+/**
+ * 1. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+
+/**
+* img[width],
+* img[height] {
+* 	  max-width: none;max-width
+* }
+*/
+
+
+/* ==========================================================================
+    #Generic Input Fields
+   ========================================================================== */
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="password"],
+select,
+textarea {
+	border: var(--form-border-width) solid var(--color-gray-ui);
+	border-radius: var(--global-radius);
+	line-height: calc(var(--wp--custom--line-height--global) - 2px); /* input fields compensate border */
+	margin-bottom: var(--form-fields-spacing);
+	padding: var(--form-fields-padding);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin-right: 0.3em;
+	width: auto;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: 0;
+	padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+::-webkit-input-placeholder,
+	/* Chrome/Opera/Safari */
+::-moz-placeholder,
+	/* Firefox 19+ */
+:-ms-input-placeholder,
+	/* IE 10+ */
+:-moz-placeholder {
+	/* Firefox 18- */
+	color: var(--color-gray-ui-light);
+}
+
+[type="reset"],
+[type="submit"],
+button,
+html [type="button"] {
+	outline: none;
+}
+
+iframe {
+	max-width: 100%;
+}
+
+::placeholder {
+	color: #888;
+}

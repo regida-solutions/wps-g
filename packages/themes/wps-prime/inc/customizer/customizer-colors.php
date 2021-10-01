@@ -163,7 +163,7 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_control(
 		new \WP_Customize_Color_Control(
 			$wp_customize,
-			'wps_theme_color_heading',
+			'wps_text_color_heading',
 			[
 				'label'    => __( 'Headings color', 'wps-prime' ),
 				'settings' => 'wps_text_color_heading',

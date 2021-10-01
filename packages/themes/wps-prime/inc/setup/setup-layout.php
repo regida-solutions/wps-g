@@ -193,19 +193,19 @@ function body_class( array $classes ):array {
 		$pid     = $post_id ? $post_id : $page_id;
 
 		$title_vis = get_post_meta( $pid, '_wps_prime_hide_title', true );
-		$get_mt    = get_post_meta( $pid, '_wps_prime_page_margin_top_reset', true );
-		$get_mb    = get_post_meta( $pid, '_wps_prime_page_margin_bottom_reset', true );
+		$get_mt    = get_post_meta( $pid, '_wps_reset_page_top_space', true );
+		$get_mb    = get_post_meta( $pid, '_wps_reset_page_bottom_space', true );
 
 		if ( $get_mt && ! $get_mb ) {
-			$classes[] = 'reset-space-top';
+			$classes[] = 'content-reset-space-top';
 		}
 
 		if ( $get_mb && ! $get_mt ) {
-			$classes[] = 'reset-space-bottom';
+			$classes[] = 'content-reset-space-bottom';
 		}
 
 		if ( $get_mt && $get_mb ) {
-			$classes[] = 'reset-space-vertical';
+			$classes[] = 'content-reset-space-vertical';
 		}
 		if ( $title_vis ) {
 			$classes[] = 'hide-page-title';

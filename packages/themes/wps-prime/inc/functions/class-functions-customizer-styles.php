@@ -44,6 +44,7 @@ class Functions_Customizer_Styles {
 	private function __construct() {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'customizer_style' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'customizer_editor_style' ] );
 
 	}
 
@@ -62,6 +63,9 @@ class Functions_Customizer_Styles {
 
 		$settings_theme = [
 			// Theme.
+			'--text-color-heading'            => 'wps_text_color_heading',
+			'--text-color-body'               => 'wps_text_color_body',
+			'--text-color-link'               => 'wps_text_color_link',
 			'--header-background'             => 'wps_header_background',
 			'--main-nav-background-color'     => 'wps_mega_menu_background',
 			'--main-nav-text-color'           => 'wps_main_nav_text_color',
@@ -134,6 +138,13 @@ class Functions_Customizer_Styles {
 	public function customizer_style():void {
 		wp_add_inline_style( 'wps-prime', $this->generate_styles() );
 	}
+	/**
+		* Add styles to editor
+		*/
+	public function customizer_editor_style():void {
+		wp_add_inline_style( 'wps-prime-editor', $this->generate_styles() );
+	}
+
 
 	/**
 	 * Generate CSS compatible string from theme mod

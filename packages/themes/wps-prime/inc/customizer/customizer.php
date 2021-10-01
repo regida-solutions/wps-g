@@ -39,7 +39,7 @@ function load_customizer_sections() {
 	];
 
 	foreach ( $sections as $section ) {
-		include_once __DIR__ . './customizer-' . $section . '.php';
+		include_once __DIR__ . '/customizer-' . $section . '.php';
 	}
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "roots/bedrock",
+  "name": "wpshapers/base",
   "type": "project",
   "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
   "homepage": "https://wps-prime.pw/",
@@ -40,10 +40,10 @@
 	 "type": "vcs",
 	 "url": "https://github.com/Zsolt-R/wps-gutenberg-blocks/"
 	},
-			"dekode-packages": {
-				"type": "composer",
-				"url": "https://packages.dekodes.no"
-			}
+	"dekode-packages": {
+		"type": "composer",
+		"url": "https://packages.dekodes.no"
+	}
   },
   "require": {
     "php": ">=7.2",
@@ -52,22 +52,23 @@
     "boxuk/wp-muplugin-loader": "~1.5.0",
     "symfony/dotenv": "~5.3.0",
     "wpackagist-theme/twentytwentyone":"*",
-				"wpshapers/wps-prime": "@dev",
-			 "wpackagist-plugin/woocommerce": "^5.6.0",
-			 "wpackagist-plugin/fakerpress":"0.5.1",
-			 "wpackagist-plugin/safe-svg":"1.9.9",
-				"wpshapers/wps-prime-gutenberg-old": "dev-main"
+	"wpshapers/wps-prime": "@dev",
+	"wpackagist-plugin/woocommerce": "^5.6.0",
+	"wpackagist-plugin/fakerpress":"0.5.1",
+	"wpackagist-plugin/safe-svg":"1.9.9",
+	"wpshapers/wps-prime-gutenberg-old": "dev-main"
   },
   "require-dev": {
     "wp-cli/i18n-command": "2.2.9",
-			 "dekode/coding-standards": "4.0.0",
+	"dekode/coding-standards": "4.0.0",
     "roave/security-advisories": "dev-master",
-			 "wpackagist-plugin/debug-bar":"1.1.2",
-			 "wpackagist-plugin/debug-bar-actions-and-filters-addon":"1.5.4"
+	"wpackagist-plugin/debug-bar":"1.1.2",
+	"wpackagist-plugin/debug-bar-actions-and-filters-addon":"1.5.4"
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+	"sort-packages": true
   },
   "extra": {
     "wordpress-install-dir": "public/wp",

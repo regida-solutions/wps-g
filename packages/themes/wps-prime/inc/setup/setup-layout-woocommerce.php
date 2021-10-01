@@ -18,8 +18,8 @@ if ( ! \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated() ) {
 }
 
 /**
-	* Disable Woo styles.
-	* add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+* Disable Woo styles.
+* add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 	*/
 
 // Remove woocommerce Select2.
@@ -35,11 +35,12 @@ function dequeue_select2() {
 }
 
 // Setup woo.
-require_once __DIR__ . '/woo-layout-setup/woo-layout-single.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-my-account.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-cart.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-checkout.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-general.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-header-utility.php';
-require_once __DIR__ . '/woo-layout-setup/woo-layout-category.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-single.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-my-account.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-cart.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-checkout.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-general.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-header-utility.php';
+	require_once __DIR__ . '/woo-layout-setup/woo-layout-category.php';
+
 

@@ -15,25 +15,6 @@ body {
 	margin-top: var(--spacing-large);
 }
 
-.reset-space-top {
-	& .site-content {
-		margin-top: 0;
-	}
-}
-
-.reset-space-bottom {
-	& .site-content {
-		margin-bottom: 0;
-	}
-}
-
-.reset-space-vertical {
-	& .site-content {
-		margin-bottom: 0;
-		margin-top: 0;
-	}
-}
-
 /* ==========================================================================
    #WP PAGE CONTENT
    ========================================================================== */
@@ -52,8 +33,7 @@ body {
 .entry-content,
 .comments-area {
 	& > * {
-		margin-left: auto;
-		margin-right: auto;
+		margin: var(--site-block-spacing) auto;
 		max-width: var(--content-width);
 	}
 }
@@ -114,6 +94,42 @@ body {
 	}
 }
 
+/* Reset spacing */
+.content-reset-space-top {
+	& .site-content {
+		margin-top: 0;
+	}
+
+	& .entry-content > *:first-child {
+		margin-top: 0;
+	}
+}
+
+.content-reset-space-bottom {
+	& .site-content {
+		margin-bottom: 0;
+	}
+
+	& .entry-content > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.content-reset-space-vertical {
+	& .site-content {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	& .entry-content > *:first-child {
+		margin-top: 0;
+	}
+
+	& .entry-content > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
 /* Layout with sidebar */
 @media (--viewport-lap-and-up) {
 	.has-sidebar .site-content {
@@ -144,10 +160,6 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: calc(100% - var(--site-spacing) * 2);
-}
-
-.comment-list {
-	margin-left: 0;
 }
 
 .comment-respond {

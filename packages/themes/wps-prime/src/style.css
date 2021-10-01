@@ -1,14 +1,20 @@
+/* Wordpress content general style */
+@import "wps-css-viewports";
+
 /* Woocommerce fonts */
 @import "./css/config/config-woo-fonts.css";
 
 /* Config */
 @import "./css/config/_config.css";
 
+/* Base wordpress */
+@import "wps-css-wodpress";
+
 /* Generic */
 @import "./css/generic/_generic.css";
 
 /* Elements */
-@import "./css/elements/_elements.css";
+@import "css/elements/elements.css";
 
 /* Objects */
 @import "./css/objects/_objects.css";
@@ -41,8 +47,3 @@
 
 /* Utilities */
 @import "./css/utilities/_utilities.css";
-
-/**
-TODO
-@import "./css/components/components-swiper-slider.css";
-*/

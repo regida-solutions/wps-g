@@ -1,5 +1,5 @@
 {
-	"name": "@dekode/wps-base",
+	"name": "@wpshapers/wps-base",
 	"private": true,
 	"engines": {
 		"node": "14",
@@ -15,10 +15,14 @@
 	"devDependencies": {
 		"@dekode/eslint-plugin": "0.0.1",
 		"@dekode/stylelint-config": "1.0.1",
+		"@wordpress/eslint-plugin": "9.1.1",
 		"@wordpress/scripts": "17.1.0",
 		"autoprefixer": "10.3.1",
 		"browser-sync": "^2.27.5",
 		"browser-sync-webpack-plugin": "^2.3.0",
+		"components": "file:packages/lib/components",
+		"wps-css-viewports": "file:packages/lib/css-viewports",
+		"wps-css-wodpress": "file:packages/lib/css-wordpress",
 		"cssnano": "5.0.7",
 		"dotenv": "^10.0.0",
 		"fast-glob": "3.2.7",

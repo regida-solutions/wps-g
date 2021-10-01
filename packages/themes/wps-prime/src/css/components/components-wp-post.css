@@ -29,29 +29,25 @@
 		display: flex;
 		font-weight: 600;
 		margin-bottom: var(--spacing-small);
-		padding: 0 var(--spacing-base);
 	}
 
 	& .entry-meta__author {
 		color: var(--text-color-light);
-		font-size: var( --wp--preset--font-size--tiny);
+		font-size: var(--wp--preset--font-size--tiny);
 		font-style: italic;
 		margin-left: auto;
 	}
 
-	& .entry-content {
-		padding: 0 var(--spacing-base);
-	}
-
 	& .entry-title {
 		font-size: var(--wp--preset--line--height--h3);
-		padding: 0 var(--spacing-base);
 	}
 
 	& .read-more-link {
-		margin-top: auto;
-		padding: 0 var(--spacing-base);
+		display: block;
+		margin: 0 auto;
+		max-width: var(--content-width);
 		text-decoration: none;
+		width: calc(100% - var(--site-spacing) * 2);
 
 		&::after {
 			background: url(../assets/icons/arrow-right.svg) center center no-repeat;
@@ -80,7 +76,7 @@
 
 .entry-meta-content {
 	background-color: var(--color-gray-ui-bg-ligh);
-	font-size: var( --wp--preset--font-size--tiny);
+	font-size: var(--wp--preset--font-size--tiny);
 	font-weight: var(--wp--custom--font-weight--normal);
 	margin-bottom: var(--spacing-small);
 	padding: var(--spacing-small);

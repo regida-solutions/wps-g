@@ -40,5 +40,6 @@ fieldset {
 dd,
 ol,
 ul {
+	list-style-position: inside;
 	margin-left: var(--spacing-base);
 }

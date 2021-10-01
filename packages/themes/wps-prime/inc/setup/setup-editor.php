@@ -127,8 +127,11 @@ function generate_editor_palette():array {
  *
  * @return array $allowed_block_types Allowed block Types
  */
-function allowed_block_types() : array {
-	return [
+function allowed_block_types() : array { //phpcs:ignore
+
+	$list = [];
+
+	$allowed_blocks = [
 		// Core blocks.
 		'core/block',
 		'core/button',
@@ -145,6 +148,11 @@ function allowed_block_types() : array {
 		'core/table',
 		'core/video',
 		'core/columns',
-		'core/column'
+		'core/column',
 	];
+
+		$allowed_blocks = array_merge( $allowed_blocks, apply_filters( 'wps_allowed_block_types', $list, 10, 1 ) );
+
+	return array_unique( $allowed_blocks );
 }
+

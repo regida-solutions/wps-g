@@ -2,7 +2,7 @@
 /**
  * Application development config.
  *
- * @package Dekode
+ * @package Wpshapers
  */
 
 declare( strict_types = 1 );

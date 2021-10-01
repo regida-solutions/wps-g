@@ -21,6 +21,8 @@ const WpsPageSettingsPanel = () => {
 	const {
 		_wps_has_visible_title: hasVisibleTitle = false,
 		_wps_hide_footer: hideFooter = false,
+		_wps_reset_page_top_space: resetPageTopSpace = false,
+		_wps_reset_page_bottom_space: resetPageBottomSpace = false,
 	} = meta;
 
 	return (
@@ -38,6 +40,16 @@ const WpsPageSettingsPanel = () => {
 				label={ __( 'Hide footer' ) }
 				checked={ hideFooter }
 				onChange={ () => setMeta( { _wps_hide_footer: ! hideFooter } ) }
+			/>
+			<CheckboxControl
+				label={ __( 'Disable Content Top Space' ) }
+				checked={ resetPageTopSpace }
+				onChange={ () => setMeta( { _wps_reset_page_top_space: ! resetPageTopSpace } ) }
+			/>
+			<CheckboxControl
+				label={ __( 'Disable Content Bottom Space' ) }
+				checked={ resetPageBottomSpace }
+				onChange={ () => setMeta( { _wps_reset_page_bottom_space: ! resetPageBottomSpace } ) }
 			/>
 		</PluginDocumentSettingPanel>
 	);

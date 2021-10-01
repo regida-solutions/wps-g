@@ -1,0 +1,42 @@
+/* Headings */
+h1 {
+	font-size: var(--wp--preset--font-size--heading-1);
+	line-height: var(--wp--custom--line-height--heading-1);
+
+	@extend %typo-heading;
+}
+
+h2 {
+	font-size: var(--wp--preset--font-size--heading-2);
+	line-height: var(--wp--custom--line-height--heading-2);
+
+	@extend %typo-heading;
+}
+
+h3 {
+	font-size: var(--wp--preset--font-size--heading-3);
+	line-height: var(--wp--custom--line-height--heading-3);
+
+	@extend %typo-heading;
+}
+
+h4 {
+	font-size: var(--wp--preset--font-size--heading-4);
+	line-height: var(--wp--custom--line-height--heading-4);
+
+	@extend %typo-heading;
+}
+
+h5 {
+	font-size: var(--wp--preset--font-size--heading-5);
+	line-height: var(--wp--custom--line-height--heading-5);
+
+	@extend %typo-heading;
+}
+
+h6 {
+	font-size: var(--wp--preset--font-size--heading-6);
+	line-height: var(--wp--custom--line-height--h6);
+
+	@extend %typo-heading;
+}

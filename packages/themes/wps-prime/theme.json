@@ -43,6 +43,11 @@
 					"name": "Tiny"
 				},
 				{
+					"slug": "small",
+					"size": "14px",
+					"name": "Small"
+				},
+				{
 					"slug": "heading6",
 					"size": "clamp(14px, 2.5vw, 16px)",
 					"name": "H6"
@@ -85,9 +90,19 @@
 			]
 		},
 		"custom": {
-			"t2/custom-block-margin": {
-				"small": "16px",
-				"normal": "64px"
+			"site": {
+				"width": "1280px",
+				"content-width": "960px",
+				"content-width-wide": "1120px",
+				"content-radius": "10px",
+				"small-block-spacing": "40px",
+				"small-block-negative-spacing": "-20px",
+				"block-spacing": "80px",
+				"block-negative-spacing": "-60px",
+				"spacing": "40px",
+				"spacing-large": "60px",
+				"spacing-huge": "80px",
+				"gallery-gap": "20px"
 			},
 			"lineHeight": {
 				"heading-1": 1.75,

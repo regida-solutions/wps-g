@@ -77,7 +77,7 @@ function load_helpers() {
 	];
 
 	foreach ( $helpers as $helper ) {
-		include_once __DIR__ . './helpers-' . $helper . '.php';
+		include_once __DIR__ . '/helpers-' . $helper . '.php';
 	}
 }
 

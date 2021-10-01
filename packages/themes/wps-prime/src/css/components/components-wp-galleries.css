@@ -68,7 +68,7 @@
 }
 
 .gallery-caption {
-	font-size: var( --wp--preset--font-size--tiny);
+	font-size: var(--wp--preset--font-size--tiny);
 	line-height: 1.2;
 	padding: var(--spacing-small);
 }

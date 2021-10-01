@@ -9,7 +9,7 @@
 
 .page-micro__copy {
 	display: block;
-	font-size: var( --wp--preset--font-size--tiny);
+	font-size: var(--wp--preset--font-size--tiny);
 	margin: 0 auto;
 	max-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
 }

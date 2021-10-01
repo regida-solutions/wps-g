@@ -25,8 +25,8 @@ function page_post_meta():void {
 
 	$field_ids = [
 		'_wps_has_visible_title',
-		'_wps_page_margin_top_reset',
-		'_wps_page_margin_bottom_reset',
+		'_wps_reset_page_top_space',
+		'_wps_reset_page_bottom_space',
 		'_wps_hide_footer',
 	];
 

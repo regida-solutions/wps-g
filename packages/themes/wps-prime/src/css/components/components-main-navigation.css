@@ -66,7 +66,16 @@
 /* THEMEING */
 .site-nav__link {
 	color: var(--main-nav-text-color);
+	display: block;
+	padding: var(--spacing-small);
 	transition: all var(--global-transition) ease 0s;
+	word-break: normal;
+	word-wrap: normal;
+
+	&:hover {
+		text-decoration: none;
+	}
+
 }
 
 .is-sticky,
@@ -103,18 +112,20 @@
 	}
 }
 
+/**
+* Disable style lint -- Doesn't calculates correctly.
+*/
+/* stylelint-disable no-descending-specificity */
+
 /* Mega menu submenu container */
 .site-nav__mega-menu .site-nav__container .site-nav__link {
 	--main-nav-text-color: var(--main-nav-submenu-text-color);
 }
 
-
 /* Curent menu item */
 .current-menu-item > .site-nav__link:first-child {
 	--main-nav-text-color: var(--main-nav-text-color-a);
-}
 
-.current-menu-item > .site-nav__link:first-child {
 	&:hover {
 		--main-nav-text-color: var(--main-nav-text-color-h);
 	}
@@ -141,8 +152,7 @@
 	margin-left: auto;
 }
 
-
-/* Shared deskop and mobile */
+/* Shared desktop and mobile */
 
 /* Reset ul default styling */
 .site-nav__list,
@@ -154,9 +164,7 @@
 
 .site-nav__menu-container > .site-nav__list {
 	display: flex;
-}
 
-.site-nav__menu-container > .site-nav__list {
 	& .menu-item {
 		transition: all var(--global-transition) ease 0s;
 	}
@@ -187,21 +195,6 @@
 		content: none;
 	}
 }
-
-.site-nav__link {
-
-	display: block;
-	padding: var(--spacing-small);
-	transition: all var(--global-transition) ease 0s;
-	word-break: normal;
-	word-wrap: normal;
-
-	&:hover {
-		text-decoration: none;
-	}
-}
-
-
 
 /* Modifiers */
 .menu-item--ca-style-one,
@@ -314,6 +307,7 @@ Mega menu
 		text-transform: none;
 	}
 
+	/* stylelint-enable no-descending-specificity */
 	& .site-nav__item.menu-item--ca > .site-nav__link {
 		padding: var(--spacing-tiny) var(--spacing-small);
 	}
