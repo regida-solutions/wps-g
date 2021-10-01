@@ -1,9 +1,9 @@
 <?php
 /**
-	* Theme Site Side menu content mask/overlay
-	*
-	* @package WpsPrime
-	*/
+ * Theme Site Side menu content mask/overlay
+ *
+ * @package WpsPrime
+ */
 
 declare( strict_types=1 );
 

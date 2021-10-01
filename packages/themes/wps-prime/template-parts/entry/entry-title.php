@@ -1,11 +1,11 @@
 <?php
 /**
-	* Template part for displaying the page title.
-	*
-	* @link https://codex.wordpress.org/Template_Hierarchy
-	*
-	* @package WpsPrime
-	*/
+ * Template part for displaying the page title.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WpsPrime
+ */
 
 declare( strict_types=1 );
 

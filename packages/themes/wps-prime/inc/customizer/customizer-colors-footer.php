@@ -1,10 +1,10 @@
 <?php
 /**
-	* Footer color customizer options.
-	*
-	* @link http://codex.wordpress.org/Theme_Customization_API
-	* @package WpsPrime
-	*/
+ * Footer color customizer options.
+ *
+ * @link http://codex.wordpress.org/Theme_Customization_API
+ * @package WpsPrime
+ */
 
 declare( strict_types=1 );
 
@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'customize_register', __NAMESPACE__ . '\\register' );
 
 /**
-	* Register customizer options
-	*
-	* @param object $wp_customize WP Customizer object.
-	* @return void
-	*/
+ * Register customizer options
+ *
+ * @param object $wp_customize WP Customizer object.
+ * @return void
+ */
 function register( object $wp_customize ):void {
 
 	// Add customizer section.
@@ -40,7 +40,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '#ffffff',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 
@@ -63,7 +63,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '#ffffff',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 
@@ -86,7 +86,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '#ffffff',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 
@@ -109,7 +109,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '#000000',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 
@@ -132,7 +132,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '#333333',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 

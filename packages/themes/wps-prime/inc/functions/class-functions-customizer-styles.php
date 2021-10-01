@@ -139,8 +139,8 @@ class Functions_Customizer_Styles {
 		wp_add_inline_style( 'wps-prime', $this->generate_styles() );
 	}
 	/**
-		* Add styles to editor
-		*/
+	 * Add styles to editor
+	 */
 	public function customizer_editor_style():void {
 		wp_add_inline_style( 'wps-prime-editor', $this->generate_styles() );
 	}

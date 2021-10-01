@@ -47,8 +47,8 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_panel(
 		'typography_panel',
 		[
-			'capability'     => 'edit_theme_options',
-			'title'          => 'Typography',
+			'capability' => 'edit_theme_options',
+			'title'      => 'Typography',
 		]
 	);
 

@@ -50,7 +50,7 @@ function front_end_assets() {
 
 	// Sticky menu
 	if ( get_theme_mod( 'header_use_sticky', false ) ) {
-		wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/lib/jquery.sticky.min.js',['jquery'], WPS_PRIME_THEME_VERSION, true );
+		wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/lib/jquery.sticky.min.js', [ 'jquery' ], WPS_PRIME_THEME_VERSION, true );
 	}
 
 	// Fonts.
