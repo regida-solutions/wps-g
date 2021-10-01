@@ -96,7 +96,7 @@ class Typography_Get_Fonts {
 		}
 
 		// Setup second font.
-		if(isset($theme_fonts[ $font_second ]['url'])) {
+		if ( isset( $theme_fonts[ $font_second ]['url'] ) ) {
 			$font_second_prep = str_replace( 'https://fonts.googleapis.com/css2?family=', esc_attr( '&family=' ), $theme_fonts[ $font_second ]['url'] );
 		}
 
@@ -155,7 +155,7 @@ class Typography_Get_Fonts {
 		}
 
 		// If font secondary is set and activated and is not the same as font main.
-		if ( isset($theme_fonts[ $font_second ]['url']) && $font_second_status && $font_second !== $font_main ) {
+		if ( isset( $theme_fonts[ $font_second ]['url'] ) && $font_second_status && $font_second !== $font_main ) {
 			$fonts[] = [
 				'selector' => '--theme-font-two',
 				'value'    => '\'' . $theme_fonts[ $font_second ]['family'] . '\',' . $theme_fonts[ $font_second ]['type'],

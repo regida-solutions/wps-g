@@ -185,7 +185,7 @@ function register( object $wp_customize ):void {
 			[
 				'default'    => parse_defaults( 'color_' . $color['id'] ),
 				'type'       => 'theme_mod',
-				'capability' => 'edit_theme_options'
+				'capability' => 'edit_theme_options',
 			]
 		);
 
@@ -235,7 +235,7 @@ function register( object $wp_customize ):void {
 		[
 			'default'    => '-0.2',
 			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options'
+			'capability' => 'edit_theme_options',
 		]
 	);
 

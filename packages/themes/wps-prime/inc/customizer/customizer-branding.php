@@ -378,7 +378,7 @@ function register( object $wp_customize ):void {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	$wp_customize->get_setting( 'wps_site_disclaimer' )->transport       = 'postMessage';
+	$wp_customize->get_setting( 'wps_site_disclaimer' )->transport = 'postMessage';
 
 	$wp_customize->selective_refresh->add_partial(
 		'wps_site_disclaimer',
