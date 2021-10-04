@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-
 /**
  * Css class function
  * Separates classes with a single space, collates classes for element

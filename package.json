@@ -25,6 +25,7 @@
 		"dotenv": "^10.0.0",
 		"fast-glob": "3.2.7",
 		"husky": "^4.3.8",
+		"lint-staged": "^11.2.0",
 		"postcss": "^8.3.6",
 		"postcss-custom-media": "8.0.0",
 		"postcss-extend-rule": "^3.0.0",
