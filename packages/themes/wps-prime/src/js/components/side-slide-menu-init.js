@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import '../lib/side-slide-menu-core';
 
 const sideSlideMenuInit = ( $ ) => {
@@ -11,9 +14,13 @@ const sideSlideMenuInit = ( $ ) => {
 	} );
 
 	// Asign open close functionality
-	const runTogglers = Array.prototype.filter.call( togglers, ( element ) => {
+	Array.prototype.filter.call( togglers, ( element ) => {
 		element.addEventListener( 'click', ( e ) => {
-			if ( e.target.matches( '.c-slide-nav-toggler, .c-slide-nav-toggler *' ) ) {
+			if (
+				e.target.matches(
+					'.c-slide-nav-toggler, .c-slide-nav-toggler *'
+				)
+			) {
 				const menuState = { isActive: false };
 				if ( menuState.isActive ) {
 					menuState.isActive = false;
@@ -25,28 +32,19 @@ const sideSlideMenuInit = ( $ ) => {
 			}
 		} );
 	} );
-
 	/**
-   * Sub menu toggle
-   */
+	 * Sub menu toggle
+	 */
 
 	const toggleIcon = document.getElementsByClassName( 'show-submenu' );
 	const togglelink = document.getElementsByClassName( 'site-nav__link' );
 
 	// Run menu toggle on Icons
-	const runTogglersIcons = Array.prototype.filter.call( toggleIcon, (
-		element,
-	) => {
-		element.addEventListener( 'click', function( e ) {
+	Array.prototype.filter.call( toggleIcon, ( element ) => {
+		element.addEventListener( 'click', function ( e ) {
 			if ( e.target.matches( '.show-submenu, .show-submenu *' ) ) {
-				if (
-					$( this )
-						.next()
-						.hasClass( 'expanded' )
-				) {
-					$( this )
-						.next()
-						.removeClass( 'expanded' );
+				if ( $( this ).next().hasClass( 'expanded' ) ) {
+					$( this ).next().removeClass( 'expanded' );
 					$( this ).removeClass( 'show' );
 				} else {
 					$( this )
@@ -59,38 +57,27 @@ const sideSlideMenuInit = ( $ ) => {
 						.parent()
 						.find( 'li > .show-submenu' )
 						.removeClass( 'show' );
-					$( this )
-						.next()
-						.toggleClass( 'expanded' );
+					$( this ).next().toggleClass( 'expanded' );
 					$( this ).toggleClass( 'show' );
 				}
 			}
 		} );
 	} );
-
 	// Run menu toggle on links
-	const runTogglersLink = Array.prototype.filter.call( togglelink, (
-		element,
-	) => {
+	Array.prototype.filter.call( togglelink, ( element ) => {
 		const listItem = $( element ).parent();
-		const list = $( element )
-			.parent()
-			.parent();
+		// const list = $( element ).parent().parent();
 
-		const classList = $( listItem )
-			.attr( 'class' )
-			.split( /\s+/ );
-
-		const classListMenu = $( listItem.parent() )
-			.attr( 'class' )
-			.split( /\s+/ );
-
+		const classList = $( listItem ).attr( 'class' ).split( /\s+/ );
+		$( listItem.parent() ).attr( 'class' ).split( /\s+/ );
 		if ( classList.includes( 'menu-item--show-submenu' ) ) {
 			listItem.children( '.site-nav__link' ).removeAttr( 'href' );
 
-			element.addEventListener( 'click', ( e ) => {
+			element.addEventListener( 'click', () => {
 				const subMenu = $( listItem ).find( ' > .sub-menu' );
-				const subMenuTogglerIcon = $( listItem ).find( ' > .show-submenu' );
+				const subMenuTogglerIcon = $( listItem ).find(
+					' > .show-submenu'
+				);
 				// Check if menu is already expanded
 
 				if ( $( subMenu ).hasClass( 'expanded' ) ) {
@@ -105,10 +92,7 @@ const sideSlideMenuInit = ( $ ) => {
 			} );
 		}
 	} );
-
-	( function() {
-		let submenus, i;
-
+	( function () {
 		// Make sure the browser supports what we are about to do.
 		if ( ! document.querySelectorAll || ! document.body.classList ) {
 			return;
@@ -116,15 +100,15 @@ const sideSlideMenuInit = ( $ ) => {
 
 		// Using a function helps isolate each accordion from the others
 		function makeAccordion( accordion ) {
-			let targets, currentTarget, i;
+			let currentTarget;
 
-			targets = accordion.querySelectorAll(
-				'.menu-item-has-children > .show-submenu',
+			const targets = accordion.querySelectorAll(
+				'.menu-item-has-children > .show-submenu'
 			);
-			for ( i = 0; i < targets.length; i++ ) {
+			for ( let i = 0; i < targets.length; i++ ) {
 				targets[ i ].addEventListener(
 					'click',
-					function() {
+					function () {
 						if ( currentTarget ) {
 							currentTarget.classList.remove( 'expanded' );
 						}
@@ -132,7 +116,7 @@ const sideSlideMenuInit = ( $ ) => {
 						currentTarget = this.parentNode;
 						currentTarget.classList.add( 'expanded' );
 					},
-					false,
+					false
 				);
 			}
 
@@ -140,10 +124,10 @@ const sideSlideMenuInit = ( $ ) => {
 		}
 
 		// Find all the submenus to enable
-		submenus = document.querySelectorAll( '.c-slide-nav__items' );
+		const submenus = document.querySelectorAll( '.c-slide-nav__items' );
 
 		// Array functions don't apply well to NodeLists
-		for ( i = 0; i < submenus.length; i++ ) {
+		for ( let i = 0; i < submenus.length; i++ ) {
 			makeAccordion( submenus[ i ] );
 		}
 	} )();

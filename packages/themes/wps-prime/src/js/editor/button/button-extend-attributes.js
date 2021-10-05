@@ -1,6 +1,6 @@
 /**
-	* WordPress Dependencies
-	*/
+ * WordPress dependencies
+ */
 import { addFilter } from '@wordpress/hooks';
 
 function addAttributes( settings, name ) {
@@ -20,5 +20,5 @@ function addAttributes( settings, name ) {
 addFilter(
 	'blocks.registerBlockType',
 	'wps-prime/custom-attributes',
-	addAttributes,
+	addAttributes
 );

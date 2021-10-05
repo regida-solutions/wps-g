@@ -15,14 +15,16 @@ const stickyNavigation = ( $ ) => {
 	const loggedIn = adminBar.outerHeight();
 
 	/**
-     * Sticky header
-     */
+	 * Sticky header
+	 */
 	if ( mql.matches ) {
 		const loginAdjust = adminBar.length ? loggedIn : false;
 
-		target.sticky( { topSpacing: loginAdjust } ).on( 'sticky-end', function() {
-			$( this ).parent().css( 'height', headerHeight );
-		} );
+		target
+			.sticky( { topSpacing: loginAdjust } )
+			.on( 'sticky-end', function () {
+				$( this ).parent().css( 'height', headerHeight );
+			} );
 	} else {
 		target.unstick();
 	}

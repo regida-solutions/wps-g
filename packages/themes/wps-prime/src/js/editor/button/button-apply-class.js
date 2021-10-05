@@ -1,12 +1,12 @@
 /**
-	* WordPress Dependencies
-	*/
+ * WordPress dependencies
+ */
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 
 /**
-	* External Dependencies
-	*/
+ * External dependencies
+ */
 import classnames from 'classnames';
 
 /* Adjust the save.js part of block */
@@ -18,7 +18,10 @@ function applyExtraClass( extraProps, blockType, attributes ) {
 	const { buttonColor } = attributes;
 
 	if ( typeof buttonColor !== 'undefined' && '' !== buttonColor ) {
-		extraProps.className = classnames( extraProps.className, `is-color-${ buttonColor }` );
+		extraProps.className = classnames(
+			extraProps.className,
+			`is-color-${ buttonColor }`
+		);
 	}
 
 	return extraProps;
@@ -27,26 +30,37 @@ function applyExtraClass( extraProps, blockType, attributes ) {
 addFilter(
 	'blocks.getSaveContent.extraProps',
 	'wps-prime/applyExtraSaveClass',
-	applyExtraClass,
+	applyExtraClass
 );
 
 /* Adjust the edit.js part of block */
-const withCustomAttributeClass = createHigherOrderComponent( ( BlockListBlock ) => ( props ) => {
-	if ( props.name !== 'core/button' ) {
+const withCustomAttributeClass = createHigherOrderComponent(
+	( BlockListBlock ) => ( props ) => {
+		if ( props.name !== 'core/button' ) {
+			return <BlockListBlock { ...props } />;
+		}
+
+		const { attributes } = props;
+
+		if (
+			typeof attributes.buttonColor !== 'undefined' &&
+			'' !== attributes.buttonColor
+		) {
+			return (
+				<BlockListBlock
+					{ ...props }
+					className={ `is-color-${ attributes.buttonColor }` }
+				/>
+			);
+		}
+
 		return <BlockListBlock { ...props } />;
-	}
-
-	const { attributes } = props;
-
-	if ( typeof attributes.buttonColor !== 'undefined' && '' !== attributes.buttonColor ) {
-		return <BlockListBlock { ...props } className={ `is-color-${ attributes.buttonColor }` } />;
-	}
-
-	return <BlockListBlock { ...props } />;
-}, 'withCustomAttributeClass' );
+	},
+	'withCustomAttributeClass'
+);
 
 addFilter(
 	'editor.BlockListBlock',
 	'wps-prime/applyExtraEditorClass',
-	withCustomAttributeClass,
+	withCustomAttributeClass
 );

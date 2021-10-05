@@ -1,12 +1,12 @@
-input.button,
+.woocommerce input.button,
 #respond input#submit {
 	margin: 0;
 }
 
-a.button,
-button.button,
-input.button,
-#respond input#submit {
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit {
 	background-color: var(--button-color-primary);
 	background-image: none;
 	border: 0;

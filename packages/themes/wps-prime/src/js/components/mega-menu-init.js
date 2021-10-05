@@ -7,7 +7,7 @@ const megaMenuInit = ( $ ) => {
 	const debug = false; // true | false
 
 	const para = $(
-		'<div class="site-nav__mega-menu animate animatedduration1 fadeIn"></div>',
+		'<div class="site-nav__mega-menu animate animatedduration1 fadeIn"></div>'
 	);
 
 	$( para ).appendTo( '.site-nav-mega-menu' );
@@ -19,7 +19,7 @@ const megaMenuInit = ( $ ) => {
 		target.removeClass( 'show' );
 	} );
 
-	$( '.menu-item.mega-menu-enabled' ).on( 'mouseenter', function() {
+	$( '.menu-item.mega-menu-enabled' ).on( 'mouseenter', function () {
 		const target = $( '.site-nav__mega-menu' );
 		const menu = $( this ).find( '.site-nav__container' );
 
@@ -43,7 +43,7 @@ const megaMenuInit = ( $ ) => {
 	} );
 
 	// Debug
-	const debug_mega_menu = () => {
+	const debugMegaMenu = () => {
 		if ( ! debug ) {
 			return;
 		}
@@ -57,6 +57,6 @@ const megaMenuInit = ( $ ) => {
 			menu.clone().appendTo( target );
 		}
 	};
-	debug_mega_menu();
+	debugMegaMenu();
 };
 export default megaMenuInit;

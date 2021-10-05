@@ -255,35 +255,35 @@
 				padding: 8px;
 
 				&.visa {
-					background-image: url(./assets/icons/woo/icons/credit-cards/visa.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/visa.svg);
 				}
 
 				&.mastercard {
-					background-image: url(./assets/icons/woo/icons/credit-cards/mastercard.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/mastercard.svg);
 				}
 
 				&.laser {
-					background-image: url(./assets/icons/woo/icons/credit-cards/laser.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/laser.svg);
 				}
 
 				&.dinersclub {
-					background-image: url(./assets/icons/woo/icons/credit-cards/diners.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/diners.svg);
 				}
 
 				&.maestro {
-					background-image: url(./assets/icons/woo/icons/credit-cards/maestro.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/maestro.svg);
 				}
 
 				&.jcb {
-					background-image: url(./assets/icons/woo/icons/credit-cards/jcb.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/jcb.svg);
 				}
 
 				&.amex {
-					background-image: url(./assets/icons/woo/icons/credit-cards/amex.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/amex.svg);
 				}
 
 				&.discover {
-					background-image: url(./assets/icons/woo/icons/credit-cards/discover.svg);
+					background-image: url(../assets/icons/woo/icons/credit-cards/discover.svg);
 				}
 			}
 
