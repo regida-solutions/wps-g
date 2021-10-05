@@ -2,7 +2,7 @@
 /**
  * Application staging config.
  *
- * @package Dekode
+ * @package WpsPrime
  */
 
 declare( strict_types = 1 );
