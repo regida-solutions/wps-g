@@ -1,41 +1,41 @@
 nav.woocommerce-pagination {
-    text-align: center;
-    font-size: var(--font-size-small);
-    padding-top: var(--spacing-large);
+	font-size: var(--font-size-small);
+	padding-top: var(--spacing-large);
+	text-align: center;
 
-    ul {
-        display: block;
-        white-space: nowrap;
-        padding: 0;
-        margin: 0;
+	ul {
+		display: block;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
 
-        li {
-            display: inline;
-            overflow: hidden;
+		li {
+			display: inline;
+			overflow: hidden;
 
-            a,
-            span {
-                color: var(--text-color-body);
-                border: 1px solid var(--text-color-body);
-                padding: 0.2em 0.7em;
-                margin: 0;
-                text-decoration: none;
-                display: inline-block;
-            }
+			a,
+			span {
+				border: 1px solid var(--text-color-body);
+				color: var(--text-color-body);
+				display: inline-block;
+				margin: 0;
+				padding: 0.2em 0.7em;
+				text-decoration: none;
+			}
 
-            span.current {
-                background-color: var(--text-color-body);
-                font-weight: 600;
-                color: var(--text-color-invert);
-                border-color: var(--text-color-body);
-            }
+			span.current {
+				background-color: var(--text-color-body);
+				border-color: var(--text-color-body);
+				color: var(--text-color-invert);
+				font-weight: 600;
+			}
 
-            a:hover,
-            a:focus {
-                background-color: var(--text-color-body);
-                color: var(--text-color-invert);
-                text-decoration: none;
-            }
-        }
-    }
+			a:hover,
+			a:focus {
+				background-color: var(--text-color-body);
+				color: var(--text-color-invert);
+				text-decoration: none;
+			}
+		}
+	}
 }

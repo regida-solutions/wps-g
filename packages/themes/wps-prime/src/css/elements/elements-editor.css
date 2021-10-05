@@ -3,8 +3,8 @@
 	line-height: var(--wp--custom--line-height--global);
 
 	/* ===============
-							#BASE LINKS
-				=============== */
+		#BASE LINKS
+	=============== */
 
 	& a {
 		color: var(--text-color-link);
@@ -18,8 +18,8 @@
 	}
 
 	/* ===============
-					#LIST
-				=============== */
+		#LIST
+	=============== */
 
 	& dl {
 		border: 3px double var(--color-gray-ui);
@@ -37,8 +37,8 @@
 	}
 
 	/**
-		* Code-like elements.
-		*/
+	 * Code-like elements.
+	 */
 
 	& code,
 	& kbd,
@@ -64,8 +64,8 @@
 	}
 
 	/**
-		* Horizontal rules.
-		*/
+	 * Horizontal rules.
+	 */
 
 	& hr {
 		border: none;
@@ -74,8 +74,8 @@
 	}
 
 	/**
-		* Highlighted text.
-		*/
+	 * Highlighted text.
+	 */
 
 	& pre mark {
 		background: none;
@@ -119,10 +119,9 @@
 		}
 	}
 
-
 	/* ===============
-				#TABLE
-				=============== */
+	#TABLE
+	=============== */
 
 	& table {
 		width: 100%;
@@ -145,16 +144,16 @@
 	}
 
 	/* ===============
-				#IMAGES
-				=============== */
+	#IMAGES
+	=============== */
 
 	/**
-		* 1. Fluid images for responsive purposes.
-		* 2. Offset `alt` text from surrounding copy.
-		* 3. Setting `vertical-align` removes the whitespace that appears under `img`
-		*    elements when they are dropped into a page as-is. Safer alternative to
-		*    using `display: block;`.
-		*/
+	 * 1. Fluid images for responsive purposes.
+	 * 2. Offset `alt` text from surrounding copy.
+	 * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+	 *    elements when they are dropped into a page as-is. Safer alternative to
+	 *    using `display: block;`.
+	 */
 
 	& img {
 		font-style: italic; /* [2] */
@@ -164,8 +163,8 @@
 	}
 
 	/* ===============
-					#Generic Input Fields
-				=============== */
+		#Generic Input Fields
+	=============== */
 
 	& input[type="text"],
 	& input[type="search"],

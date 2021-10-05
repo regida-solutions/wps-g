@@ -1,99 +1,95 @@
 .woocommerce-columns--addresses {
-    .woocommerce-column__title {
-        font-weight: 800;
-        margin-bottom: var(--spacing-small);
-        font-size: var(--font-size-h3);
-    }
+	.woocommerce-column__title {
+		font-size: var(--font-size-h3);
+		font-weight: 800;
+		margin-bottom: var(--spacing-small);
+	}
 
-    .woocommerce-column--1 {
-        margin-bottom: var(--spacing-base);
-    }
+	.woocommerce-column--1 {
+		margin-bottom: var(--spacing-base);
+	}
 
 }
 
 .woocommerce-order-overview {
-    margin: 0 0 var(--spacing-base);
-    list-style: none;
-    display: block;
+	display: block;
+	list-style: none;
+	margin: 0 0 var(--spacing-base);
 
-    li {
-        :first-child {
-            margin-left: 0;
-        }
+	li {
+		:first-child {
+			margin-left: 0;
+		}
+		border-right: 1px dashed var(--color-gray-ui-dark);
 
-        display: inline-block;
-        margin: 0 var(--spacing-small) var(--spacing-base) 0;
-        padding-right: var(--spacing-base);
-        text-transform: uppercase;
-        font-size: 0.715em;
-        line-height: 1;
-        border-right: 1px dashed var(--color-gray-ui-dark);
-        list-style-type: none;
+		display: inline-block;
+		font-size: 0.715em;
+		line-height: 1;
+		list-style-type: none;
+		margin: 0 var(--spacing-small) var(--spacing-base) 0;
+		padding-right: var(--spacing-base);
+		text-transform: uppercase;
 
-        strong {
-            display: block;
-            font-size: 1.4em;
-            text-transform: none;
-            line-height: 1.5;
-        }
+		strong {
+			display: block;
+			font-size: 1.4em;
+			line-height: 1.5;
+			text-transform: none;
+		}
 
-        &:last-of-type {
-            border: none;
-        }
-    }
-
+		&:last-of-type {
+			border: none;
+		}
+	}
 
 }
 
 .woocommerce-order-details {
-    .woocommerce-order-details__title {
-        font-weight: 800;
-        margin-bottom: var(--spacing-small);
-        font-size: var(--font-size-h3);
-    }
+	.woocommerce-order-details__title {
+		font-size: var(--font-size-h3);
+		font-weight: 800;
+		margin-bottom: var(--spacing-small);
+	}
 }
 
 .wc-bacs-bank-details-account-name {
-    font-weight: bold;
+	font-weight: 800;
 }
 
 .woocommerce-order-downloads,
 .woocommerce-customer-details,
 .woocommerce-order-details {
-    margin-bottom: var(--spacing-base);
+	margin-bottom: var(--spacing-base);
 
-    *:last-child {
-        margin-bottom: 0;
-    }
+	*:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .woocommerce-customer-details {
+	address {
+		font-style: normal;
+		margin-bottom: 0;
+		width: 100%;
+	}
 
-    address {
-        font-style: normal;
-        margin-bottom: 0;
-        width: 100%;
-    }
+	.woocommerce-customer-details--phone,
+	.woocommerce-customer-details--email {
+		margin-bottom: 0;
+		padding-left: 1.5em;
+	}
 
-    .woocommerce-customer-details--phone,
-    .woocommerce-customer-details--email {
-        margin-bottom: 0;
-        padding-left: 1.5em;
-    }
+	.woocommerce-customer-details--phone::before {
+		@include iconbefore("\e037");
+		line-height: 1.75;
+		margin-left: -1.5em;
+		position: absolute;
+	}
 
-    .woocommerce-customer-details--phone::before {
-
-        @include iconbefore("\e037");
-        margin-left: -1.5em;
-        line-height: 1.75;
-        position: absolute;
-    }
-
-    .woocommerce-customer-details--email::before {
-
-        @include iconbefore("\e02d");
-        margin-left: -1.5em;
-        line-height: 1.75;
-        position: absolute;
-    }
+	.woocommerce-customer-details--email::before {
+		@include iconbefore("\e02d");
+		line-height: 1.75;
+		margin-left: -1.5em;
+		position: absolute;
+	}
 }

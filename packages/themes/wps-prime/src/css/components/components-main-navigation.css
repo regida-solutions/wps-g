@@ -62,7 +62,6 @@
 
 }
 
-
 /* THEMEING */
 .site-nav__link {
 	color: var(--main-nav-text-color);
@@ -113,8 +112,9 @@
 }
 
 /**
-* Disable style lint -- Doesn't calculates correctly.
-*/
+ * Disable style lint -- Doesn't calculates correctly.
+ */
+
 /* stylelint-disable no-descending-specificity */
 
 /* Mega menu submenu container */
@@ -238,9 +238,9 @@
 	}
 }
 
-/*
-Mega menu
-*/
+/**
+ * Mega menu
+ */
 .site-nav-has-background-color {
 	background-color: var(--main-nav-background-color);
 }

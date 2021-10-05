@@ -5,7 +5,6 @@
 /**
  * A very simple reset that sits on top of Normalize.css.
  */
-
 body,
 h1,
 h2,
@@ -28,12 +27,9 @@ legend {
 	padding: 0;
 }
 
-
-
 /**
   * Remove trailing margins from nested lists.
   */
-
 li> {
 	& ol,
 	& ul {
@@ -42,24 +38,18 @@ li> {
 
 }
 
-
-
 /**
   * Remove default table spacing.
   */
-
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
-
-
 /**
   * 1. Reset Chrome and Firefox behaviour which sets a `min-width: min-content;`
   *    on fieldsets.
   */
-
 fieldset {
 	/* [1] */
 	border: 0;

@@ -63,9 +63,6 @@
 @import "./css-woo/components/components-password.css";
 @import "./css-woo/components/components-privacy.css";
 
-
-/*   Widgets */
-
 /* cart sidebar */
 @import "./css-woo/components/components-widget-cart.css";
 
@@ -79,11 +76,6 @@
 @import "./css-woo/components/components-widget-rating-filter.css";
 @import "./css-woo/components/components-widget-network-order.css";
 @import "./css-woo/components/components-widget-product-categories.css";
-
-
-/**
-*   Pages
-*/
 
 /* Product Page*/
 @import "./css-woo/pages/pages-product-page.css";
