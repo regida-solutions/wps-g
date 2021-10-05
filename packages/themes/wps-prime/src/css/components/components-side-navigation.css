@@ -1,6 +1,6 @@
-/* ==========================================================================
+/* =========================
    #COMPONENTS SIDE NAVIGATION
-   ========================================================================== */
+   ========================== */
 
 .c-slide-nav,
 .c-slide-nav-toggler,
@@ -24,7 +24,6 @@
 /**
   * Close button resets.
   */
-
 .c-slide-nav-close,
 .c-slide-nav__close {
 	appearance: none;
@@ -328,11 +327,9 @@ body.has-active-menu {
 	overflow: hidden;
 }
 
-
 /**
   * MASK COMPONENT
   */
-
 .c-slide-nav-mask {
 	background-color: #000;
 	height: 0;
