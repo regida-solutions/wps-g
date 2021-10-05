@@ -1,184 +1,181 @@
 form .form-row {
-    padding: 3px;
-    margin: 0 0 6px;
+	margin: 0 0 6px;
+	padding: 3px;
 
-    [placeholder]:focus::-webkit-input-placeholder {
-        transition: opacity 0.5s 0.5s ease;
-        opacity: 0;
-    }
+	[placeholder]:focus::-webkit-input-placeholder {
+		opacity: 0;
+		transition: opacity 0.5s 0.5s ease;
+	}
 
-    label {
-        line-height: 2;
-    }
+	label {
+		line-height: 2;
+	}
 
-    label.hidden {
-        visibility: hidden;
-    }
+	label.hidden {
+		visibility: hidden;
+	}
 
-    label.inline {
-        display: inline;
-    }
+	label.inline {
+		display: inline;
+	}
 
-    .woocommerce-input-wrapper {
+	.woocommerce-input-wrapper {
+		.description {
+			background: #1e85be;
+			border-radius: 3px;
+			clear: both;
+			color: #fff;
+			display: none;
+			margin: 0.5em 0 0;
+			padding: 1em;
+			position: relative;
 
-        .description {
-            background: #1e85be;
-            color: #fff;
-            border-radius: 3px;
-            padding: 1em;
-            margin: 0.5em 0 0;
-            clear: both;
-            display: none;
-            position: relative;
+			a {
+				border: 0;
+				box-shadow: none;
+				color: #fff;
+				text-decoration: underline;
+			}
 
-            a {
-                color: #fff;
-                text-decoration: underline;
-                border: 0;
-                box-shadow: none;
-            }
+			&::before {
+				border-color: #1e85be transparent transparent transparent;
+				border-style: solid;
+				border-width: 4px 6px 0 6px;
+				content: "";
+				display: block;
+				left: 50%;
+				margin-top: -4px;
+				position: absolute;
+				top: 0%;
+				transform: translateX(-50%) rotate(180deg);
+				z-index: 100;
+			}
+		}
+	}
 
-            &::before {
-                left: 50%;
-                top: 0%;
-                margin-top: -4px;
-                transform: translateX(-50%) rotate(180deg);
-                content: "";
-                position: absolute;
-                border-width: 4px 6px 0 6px;
-                border-style: solid;
-                border-color: #1e85be transparent transparent transparent;
-                z-index: 100;
-                display: block;
-            }
-        }
-    }
+	select {
+		cursor: pointer;
+		margin: 0;
+	}
 
-    select {
-        cursor: pointer;
-        margin: 0;
-    }
+	.required {
+		border: 0 !important;
+		color: #f00;
+		font-weight: 700;
+		text-decoration: none;
+		visibility: hidden;
+	}
 
-    .required {
-        color: red;
-        font-weight: 700;
-        border: 0 !important;
-        text-decoration: none;
-        visibility: hidden; // Only show optional by default.
-    }
+	.optional {
+		visibility: visible;
+	}
 
-    .optional {
-        visibility: visible;
-    }
+	.input-checkbox {
+		display: inline;
+		margin: -2px 8px 0 0;
+		text-align: center;
+		vertical-align: middle;
+	}
 
-    .input-checkbox {
-        display: inline;
-        margin: -2px 8px 0 0;
-        text-align: center;
-        vertical-align: middle;
-    }
+	input.input-text,
+	textarea {
+		box-sizing: border-box;
+		line-height: normal;
+		margin: 0;
+		outline: 0;
+		width: 100%;
+	}
 
-    input.input-text,
-    textarea {
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        outline: 0;
-        line-height: normal;
-    }
+	textarea {
+		box-shadow: none;
+		display: block;
+		height: 4em;
+		line-height: 1.5;
+	}
 
-    textarea {
-        height: 4em;
-        line-height: 1.5;
-        display: block;
-        box-shadow: none;
-    }
+	.select2-container {
+		width: 100%;
+	}
 
-    .select2-container {
-        width: 100%;
-    }
+	&.woocommerce-invalid {
+		label {
+			color: var(--woo-color-negative);
+		}
 
-    &.woocommerce-invalid {
+		.select2-container,
+		input.input-text,
+		select {
+			border-color: var(--woo-color-negative);
+		}
+	}
 
-        label {
-            color: var(--woo-color-negative);
-        }
+	&.woocommerce-validated {
+		.select2-container,
+		input.input-text,
+		select {
+			border-color: var(--woo-color-positive-darken);
+		}
+	}
 
-        .select2-container,
-        input.input-text,
-        select {
-            border-color: var(--woo-color-negative);
-        }
-    }
+	::-webkit-input-placeholder {
+		line-height: normal;
+	}
 
-    &.woocommerce-validated {
+	:-moz-placeholder {
+		line-height: normal;
+	}
 
-        .select2-container,
-        input.input-text,
-        select {
-            border-color: var(--woo-color-positive-darken);
-        }
-    }
-
-    ::-webkit-input-placeholder {
-        line-height: normal;
-    }
-
-    :-moz-placeholder {
-        line-height: normal;
-    }
-
-    :-ms-input-placeholder {
-        line-height: normal;
-    }
+	:-ms-input-placeholder {
+		line-height: normal;
+	}
 }
 
 form.login,
 form.checkout_coupon,
 form.register {
-    border: 1px solid var(--color-gray-ui-dark);
-    padding: 20px;
-    margin: 2em 0;
-    text-align: left;
-    border-radius: 5px;
+	border: 1px solid var(--color-gray-ui-dark);
+	border-radius: 5px;
+	margin: 2em 0;
+	padding: 20px;
+	text-align: left;
 }
 
 .woocommerce-cart-form {
-    --form-fields-padding: var(--spacing-tiny);
+	--form-fields-padding: var(--spacing-tiny);
 }
 
-ul#shipping_method {
-    list-style: none outside;
-    margin: 0;
-    padding: 0;
+ul#shipping_method { /* stylelint-disable-line selector-id-pattern */
+	list-style: none outside;
+	margin: 0;
+	padding: 0;
 
-    li {
-        margin: 0 0 0.5em;
-        line-height: 1.5em;
-        list-style: none outside;
+	li {
+		line-height: 1.5;
+		list-style: none outside;
+		margin: 0 0 0.5em;
 
-        input {
-            margin: 3px 0.4375em 0 0;
-            vertical-align: top;
-        }
+		input {
+			margin: 3px 0.4375em 0 0;
+			vertical-align: top;
+		}
 
-        label {
-            display: inline;
-        }
-    }
+		label {
+			display: inline;
+		}
+	}
 
-    .amount {
-        font-weight: 700;
-    }
+	.amount {
+		font-weight: 700;
+	}
 }
 
 p.woocommerce-shipping-contents {
-    margin: 0;
+	margin: 0;
 }
 
 .woocommerce-form-row {
-    em {
-        font-size: var(--font-size-small);
-        display: inline-block;
-    }
+	em {
+		display: inline-block;
+		font-size: var(--font-size-small);
+	}
 }

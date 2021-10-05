@@ -2,7 +2,7 @@
 /**
  * Config
  *
- * @package WpsPrime
+ * @package Dekode
  */
 
 declare( strict_types = 1 );
