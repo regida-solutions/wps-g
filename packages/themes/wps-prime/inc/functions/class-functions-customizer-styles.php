@@ -234,6 +234,7 @@ class Functions_Customizer_Styles {
 	 * @param string $opacity Float between 0 and 1.
 	 */
 	private function hex2rgba( string $color, string $opacity ):string {
+
 		$default = 'rgb( 0, 0, 0 )';
 		/**
 			* Return default if no color provided
@@ -272,7 +273,7 @@ class Functions_Customizer_Styles {
 			*/
 
 		if ( null !== $opacity ) {
-			if ( abs( $opacity ) > 1 ) {
+			if ( abs( (float) $opacity ) > 1 ) {
 				$opacity = 1.0;
 			}
 			$output = 'rgba( ' . implode( ',', $rgb ) . ',' . $opacity . ' )';

@@ -9,7 +9,7 @@ build
 
 public/.well-known/
 
-# Application
+# WordPress
 wp
 public/content/upgrade
 public/content/plugins
@@ -43,6 +43,3 @@ sql/
 # Other
 debug.log
 wp-debug.log
-
-# WP-CLI
-wp-cli.local.yml

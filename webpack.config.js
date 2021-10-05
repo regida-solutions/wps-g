@@ -1,11 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies, @wordpress/dependency-group */
+
 /**
  * External dependencies
  */
 const glob = require( 'fast-glob' );
-const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
+const MiniCSSExtractPlugin = require( 'mini-css-extract-plugin' );
 const fs = require( 'fs' );
 const path = require( 'path' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
+const IgnoreEmitPlugin = require( 'ignore-emit-webpack-plugin' );
 require( 'dotenv' ).config();
 
 /**
@@ -13,34 +16,42 @@ require( 'dotenv' ).config();
  */
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config' );
-const FixStyleWebpackPlugin = require( './node_modules/@wordpress/scripts/config/fix-style-webpack-plugin' );
 
-const isProduction = process.env.NODE_ENV === 'production';
-const mode = isProduction ? 'production' : 'development';
-
-const browserSyncProxy = process.env.BROWSER_SYNC_PROXY ? process.env.BROWSER_SYNC_PROXY : process.env.WP_HOME;
-const browserSyncPort = process.env.BROWSER_SYNC_PORT ? process.env.BROWSER_SYNC_PORT : 3002;
-const browserSyncIsHttps = process.env.BROWSER_SYNC_HTTPS === 'true';
-const browserSyncEnable = process.env.BROWSER_SYNC_ENABLE === 'true';
-
-function getBuildPath( name, prefix = '' ) {
-	return `${ name.split( '|' )[ 0 ] }/build/${ prefix }${ name.split( '|' )[ 1 ] }`;
+function getBuildPath( name ) {
+	return `${ name.split( '|' )[ 0 ] }/build/${ name.split( '|' )[ 1 ] }`;
 }
 
 async function getEntries() {
 	const entries = {};
-	let dirs = await glob( [ './packages/mu-plugins/*', './packages/plugins/*', './packages/themes/*' ], { onlyDirectories: true } );
+
+	let dirs = await glob(
+		[
+			'./packages/mu-plugins/*',
+			'./packages/plugins/*',
+			'./packages/themes/*',
+		],
+		{ onlyDirectories: true }
+	);
 
 	// Only include directories that contains a entry-files.json file.
-	dirs = dirs.filter( ( dir ) => (
+	dirs = dirs.filter( ( dir ) =>
 		fs.existsSync( path.resolve( dir, 'entry-files.json' ) )
-	) );
+	);
 
 	dirs.forEach( ( dir ) => {
 		const entryFiles = require( `${ dir }/entry-files.json` ); // eslint-disable-line
 
 		entryFiles.forEach( ( entry ) => {
-			entries[ `${ dir }|${ entry }` ] = `${ dir }/src/${ entry }`;
+			/**
+			 * MiniCSSExtractPlugin handles css files. Rename them and ignore in
+			 * IgnoreEmitPlugin to allow as direct entry files.
+			 */
+			entries[
+				`${ dir }|${ entry.replace(
+					/.(sc|sa|c)ss/,
+					'.css-entry-file'
+				) }`
+			] = `${ dir }/src/${ entry }`;
 		} );
 	} );
 
@@ -55,34 +66,55 @@ const config = {
 	entry: async () => getEntries(),
 	output: {
 		path: process.cwd(),
-		filename: ( { chunk } ) => {
-			if ( chunk.name.includes( '.css' ) ) {
-				return `${ getBuildPath( chunk.name.replace( '.css', '' ), 'style-' ) }.js`;
-			}
-
-			return getBuildPath( chunk.name );
-		},
+		filename: ( { chunk } ) => getBuildPath( chunk.name ),
 	},
 	optimization: {
-		concatenateModules: mode === 'production',
+		...defaultConfig.optimization,
+		splitChunks: {
+			cacheGroups: {
+				style: {
+					type: 'css/mini-extract',
+					test: /[\\/].+?\.(sc|sa|c)ss$/,
+					chunks: 'all',
+					enforce: true,
+					name( _, chunks ) {
+						return getBuildPath(
+							chunks[ 0 ].name.replace(
+								'.css-entry-file',
+								'.css'
+							)
+						);
+					},
+				},
+				default: false,
+			},
+		},
+	},
+	resolve: {
+		...defaultConfig.resolve,
+		alias: {
+			...defaultConfig.resolve.alias,
+			components: path.resolve( __dirname, 'packages', 'components' ),
+		},
 	},
 	plugins: [
-		new MiniCssExtractPlugin( {
-			filename: ( { chunk } ) => getBuildPath( chunk.name ).replace( '.js', '.css' ),
-		} ),
-		new FixStyleWebpackPlugin(),
+		new MiniCSSExtractPlugin( { filename: '[name]' } ),
 		new DependencyExtractionWebpackPlugin( { injectPolyfill: true } ),
+		new IgnoreEmitPlugin( /\.css-entry-file$/ ),
 	],
 };
 
-if ( browserSyncEnable ) {
+/**
+ * Browsersync
+ */
+if ( 'true' === process.env.BROWSER_SYNC_ENABLE ) {
 	config.plugins.push(
 		new BrowserSyncPlugin( {
 			files: '**/*.php',
-			proxy: browserSyncProxy,
-			port: browserSyncPort,
-			https: browserSyncIsHttps,
-		} ),
+			proxy: process.env.BROWSER_SYNC_PROXY ?? process.env.WP_HOME,
+			port: process.env.BROWSER_SYNC_PORT ?? 3002,
+			https: 'true' === process.env.BROWSER_SYNC_HTTPS,
+		} )
 	);
 }
 

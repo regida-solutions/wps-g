@@ -1,7 +1,11 @@
 {
 	"extends": "@dekode/stylelint-config",
-	"at-rule-no-unknown": [
-		true,
-		{ "ignoreAtRules": ["extend","mixin", "define-mixin"] }
-	]
+	"rules": {
+		"at-rule-no-unknown": [
+			true,
+			{
+				"ignoreAtRules": [ "extend","mixin", "define-mixin", "include" ]
+			}
+		]
+	}
 }

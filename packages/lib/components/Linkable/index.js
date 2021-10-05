@@ -1,12 +1,8 @@
 /**
-* WordPress dependencies
-*/
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import {
-	RichText,
-	URLPopover,
-	URLInput,
-} from '@wordpress/block-editor';
+import { RichText, URLPopover, URLInput } from '@wordpress/block-editor';
 import { Button, ToggleControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { keyboardReturn, customLink } from '@wordpress/icons';
@@ -29,7 +25,11 @@ const Linkable = ( attributes ) => {
 	const [ openUtility, setOpenUtility ] = useState( false );
 
 	return (
-		<div className={ `wp-block-button-editor-wrapper ${ buttonLink ? 'has-value-set' : '' }` }>
+		<div
+			className={ `wp-block-button-editor-wrapper ${
+				buttonLink ? 'has-value-set' : ''
+			}` }
+		>
 			<div className={ `wp-block-button ${ className }` }>
 				{ ! attributes.children ? (
 					<RichText
@@ -47,11 +47,11 @@ const Linkable = ( attributes ) => {
 						isSmall
 						onClick={ () => setOpenUtility( ! openUtility ) }
 					>
-						{attributes.children}
+						{ attributes.children }
 					</Button>
-				)}
+				) }
 			</div>
-			{isSelected && (
+			{ isSelected && (
 				<>
 					{ ! attributes.children && (
 						<Button
@@ -63,20 +63,26 @@ const Linkable = ( attributes ) => {
 						>
 							URL
 						</Button>
-					)}
+					) }
 					{ openUtility && (
 						<URLPopover
 							onClose={ () => setOpenUtility( ! openUtility ) }
 						>
 							<div className="block-editor-link-control">
 								<div className="block-editor-link-control__search-input-wrapper">
-									<form onSubmit={ () => setOpenUtility( ! openUtility ) }>
+									<form
+										onSubmit={ () =>
+											setOpenUtility( ! openUtility )
+										}
+									>
 										<div className="block-editor-link-control__search-input">
 											<URLInput
 												className="block-editor-url-input__input"
 												value={ buttonLink }
 												onChange={ onURLChange }
-												placeholder={ __( 'Enter address' ) }
+												placeholder={ __(
+													'Enter address'
+												) }
 											/>
 										</div>
 										<div className="block-editor-link-control__search-actions">
@@ -97,11 +103,9 @@ const Linkable = ( attributes ) => {
 								</div>
 							</div>
 						</URLPopover>
-
-					)}
+					) }
 				</>
-			)}
-
+			) }
 		</div>
 	);
 };

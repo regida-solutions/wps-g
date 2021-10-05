@@ -1,8 +1,8 @@
 @define-mixin icon $glyph: "\e001" {
 	content: $glyph;
-	font-family: "WooCommerce";
+	font-family: WooCommerce; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	font-variant: normal;
-	font-weight: normal;
+	font-weight: 500;
 	height: 100%;
 	left: 0;
 	line-height: 1;
@@ -18,10 +18,10 @@
 
 @define-mixin icon_dashicons $glyph: "\f333" {
 	content: $glyph;
-	font-family: "Dashicons";
+	font-family: Dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
-	font-weight: normal;
+	font-weight: 500;
 	height: 100%;
 	left: 0;
 	line-height: 1;
@@ -37,10 +37,10 @@
 
 @define-mixin iconbefore $glyph: "\e001" {
 	content: $glyph;
-	font-family: "WooCommerce";
+	font-family: WooCommerce; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
-	font-weight: normal;
+	font-weight: 500;
 	line-height: 1;
 	margin-right: 0.618em;
 	speak: none;
@@ -50,10 +50,10 @@
 
 @define-mixin iconbeforedashicons $glyph: "\f333" {
 	content: $glyph;
-	font-family: "Dashicons";
+	font-family: Dashicons; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
-	font-weight: normal;
+	font-weight: 500;
 	line-height: 1;
 	speak: none;
 	text-decoration: none;
@@ -62,10 +62,10 @@
 
 @define-mixin iconafter $glyph: "\e001" {
 	content: $glyph;
-	font-family: "WooCommerce";
+	font-family: WooCommerce; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	-webkit-font-smoothing: antialiased;
 	font-variant: normal;
-	font-weight: normal;
+	font-weight: 500;
 	line-height: 1;
 	margin-left: 0.618em;
 	speak: none;

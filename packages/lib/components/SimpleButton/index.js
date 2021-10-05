@@ -1,14 +1,10 @@
 /**
-	* WordPress dependencies
-	*/
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import {
-	RichText,
-	URLPopover,
-	URLInput,
-} from '@wordpress/block-editor';
+import { RichText, URLPopover, URLInput } from '@wordpress/block-editor';
 import { Button, ToggleControl } from '@wordpress/components';
-import {	useState } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 import { keyboardReturn, customLink } from '@wordpress/icons';
 
 const SimpleButton = ( attributes ) => {
@@ -41,7 +37,7 @@ const SimpleButton = ( attributes ) => {
 				/>
 			</div>
 
-			{isSelected && (
+			{ isSelected && (
 				<>
 					<Button
 						className="wp-block-button__is-opener"
@@ -58,13 +54,19 @@ const SimpleButton = ( attributes ) => {
 						>
 							<div className="block-editor-link-control">
 								<div className="block-editor-link-control__search-input-wrapper">
-									<form onSubmit={ () => setOpenUtility( ! openUtility ) }>
+									<form
+										onSubmit={ () =>
+											setOpenUtility( ! openUtility )
+										}
+									>
 										<div className="block-editor-link-control__search-input">
 											<URLInput
 												className="block-editor-url-input__input"
 												value={ buttonLink }
 												onChange={ onURLChange }
-												placeholder={ __( 'Enter address' ) }
+												placeholder={ __(
+													'Enter address'
+												) }
 											/>
 										</div>
 										<div className="block-editor-link-control__search-actions">
@@ -85,11 +87,9 @@ const SimpleButton = ( attributes ) => {
 								</div>
 							</div>
 						</URLPopover>
-
-					)}
+					) }
 				</>
-			)}
-
+			) }
 		</div>
 	);
 };

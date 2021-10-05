@@ -1,7 +1,7 @@
 .woocommerce-ordering {
-    margin: 0 0 1em;
+	margin: 0 0 1em;
 
-    select {
-        vertical-align: top;
-    }
+	select {
+		vertical-align: top;
+	}
 }

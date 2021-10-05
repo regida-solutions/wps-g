@@ -1,27 +1,26 @@
 .widget_rating_filter ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style: none outside;
+	border: 0;
+	list-style: none outside;
+	margin: 0;
+	padding: 0;
 
-    li {
-        padding: 0 0 1px;
-        list-style: none;
+	li {
+		list-style: none;
+		padding: 0 0 1px;
 
-        a {
-            padding: 1px 0;
-            text-decoration: none;
-        }
+		a {
+			padding: 1px 0;
+			text-decoration: none;
+		}
 
-        .star-rating {
-            float: none;
-            display: inline-block;
-        }
-    }
+		.star-rating {
+			display: inline-block;
+			float: none;
+		}
+	}
 
-    li.chosen a::before {
-
-        @include iconbefore("\e013");
-        color: var(--woo-color-negative);
-    }
+	li.chosen a::before {
+		@include iconbefore("\e013");
+		color: var(--woo-color-negative);
+	}
 }

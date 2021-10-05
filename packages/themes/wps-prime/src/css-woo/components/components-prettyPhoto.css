@@ -1,13 +1,10 @@
 /**
  * prettyPhoto.scss
- * Styles for the prettyPhoto lightbox script. Includes a custom WooCommerce theme.
- * http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/
+ * Styles for the prettyPhoto lightbox script.
+ * Includes a custom WooCommerce theme.
+ * www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/
  */
-
-/**
- * Imports
- */
-
+/* stylelint-disable */
 /**
   * Mixins
   */
@@ -17,7 +14,7 @@
 	color: #fff !important;
 	font-size: 16px !important;
 	height: 1em;
-	line-height: 1em;
+	line-height: 1;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 	width: 1em;
 
@@ -43,7 +40,7 @@ div.pp_woocommerce {
 	}
 
 	div.ppt {
-		color: black;
+		color: #000;
 	}
 
 	.pp_gallery {
@@ -76,7 +73,7 @@ div.pp_woocommerce {
 			@include button();
 			content: "\e00b";
 			display: none;
-			font-family: "WooCommerce";
+			font-family: WooCommerce;
 			margin-top: -10px;
 			position: absolute;
 			text-align: center;
@@ -100,7 +97,7 @@ div.pp_woocommerce {
 	.pp_next {
 		&::before {
 			content: "\e008";
-			font-family: "WooCommerce";
+			font-family: WooCommerce;
 			right: 1em;
 		}
 	}
@@ -139,7 +136,7 @@ div.pp_woocommerce {
 			bottom: 0;
 			content: "\e013";
 			display: block;
-			font-family: "WooCommerce";
+			font-family: WooCommerce;
 			left: 0;
 			position: absolute;
 			right: 0;
@@ -159,7 +156,7 @@ div.pp_woocommerce {
 			bottom: 0;
 			content: "\e00b";
 			display: block;
-			font-family: "WooCommerce";
+			font-family: WooCommerce;
 			left: 0;
 			position: absolute;
 			right: 0;
@@ -193,7 +190,7 @@ div.pp_woocommerce {
 			bottom: 0;
 			content: "\e005";
 			display: block;
-			font-family: "WooCommerce";
+			font-family: WooCommerce;
 			left: 0;
 			position: absolute;
 			right: 0;
@@ -227,7 +224,6 @@ div.pp_woocommerce {
 	}
 }
 
-// RTL support
 .rtl {
 	div.pp_woocommerce {
 		.pp_content_container {
@@ -599,3 +595,4 @@ div.ppt {
 	margin: 0 0 5px 15px;
 	z-index: 9999;
 }
+/* stylelint-enable */

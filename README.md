@@ -1,115 +1,57 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
+# Project name
 
-<p align="center">
-  <a href="LICENSE.md">
-    <img alt="MIT License" src="https://img.shields.io/github/license/roots/bedrock?color=%23525ddc&style=flat-square" />
-  </a>
+[![Codeship Status for DekodeInteraktiv/project-base](https://app.codeship.com/projects/cfcc97d0-e821-0137-aead-6e1368c7cbd1/status?branch=master)](https://app.codeship.com/projects/373906)
+![Packagist](https://img.shields.io/packagist/v/dekode/project-base.svg)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/dekode/project-base.svg)
 
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist" src="https://img.shields.io/packagist/v/roots/bedrock.svg?style=flat-square" />
-  </a>
+If you are looking for instructions on how to use and install project-base, please refer to the file [INSTALLATION.md](./INSTALLATION.md)
 
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/workflow/status/roots/bedrock/CI?style=flat-square" />
-  </a>
+Short summary of the main functionality and purpose of the project.
 
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/twitter/follow/rootswp.svg?style=flat-square&color=1da1f2" />
-  </a>
-</p>
+## Made by
 
-<p align="center">
-  <strong>A modern WordPress stack</strong>
-  <br />
-  Built with ❤️
-</p>
+ List the people who have been extensively involved in creating this website
 
-<p align="center">
-  <a href="https://roots.io">Official Website</a> | <a href="https://roots.io/docs/bedrock/master/installation/">Documentation</a> | <a href="CHANGELOG.md">Change Log</a>
-</p>
+## How to build
 
-## Supporting
+List any steps necessary to get this project up and running on a local machine. This could consist of, but is not limited to, these points:
 
-**Bedrock** is an open source project and completely free to use.
+- NPM/yarn installation (please include a version of node on which the install process is known to work)
+- SASS compilation
+- JS compilation
+- Composer quirks
+- Symlinking
 
-However, the amount of effort needed to maintain and develop new features and products within the Roots ecosystem is not sustainable without proper financial backing. If you have the capability, please consider donating using the links below:
+## Deployment
+Specify how this project is deployed. For most projects, this should be simply "Through codeship".
 
-<div align="center">
+## Custom wp-cli commands
+List and document any custom-made wp-cli commands on this site.
 
-[![Donate via Patreon](https://img.shields.io/badge/donate-patreon-orange.svg?style=flat-square&logo=patreon")](https://www.patreon.com/rootsdev)
-[![Donate via PayPal](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square&logo=paypal)](https://www.paypal.me/rootsdev)
+## Third party integrations
+List any third-party integrations which are included in the project. Each entry should include:
 
-</div>
+**Where in the project the integration is used**
+What purpose the integration serves. Is it used when the user performs a special page query, or is it an import routine which runs at specific intervals?
 
-## Overview
+**How the integration is configured**
+Any constants be it PHP or Javascript that need to be set, and whether these constants are different on stage and production.
 
-Bedrock is a modern WordPress stack that helps you get started with the best development tools and project structure.
+**Link to documentation**
+Add a link to any relevant documentation, and specify which version of an API we use.
 
-Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+**Authorization**
+Add some words about how the third-party server authenticates incoming requests and add any API-keys necessary.
 
-## Features
+**Any terminal commands that could be useful**
+Any custom made wp-cli commands which communicate with the third party, should be documented here. Also a link to any commands included in plugins which comunicate with the third-party, should be included.
 
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+## Cronjobs
+List all non-standard cronjobs on the site and say a few words about the purpose of each of them.
 
-## Requirements
+## Anonymization
+Project data is anonymized using a config file, `anonymize.config.json`, where the developer is expected to declare any Personally Identifiable Information (PII) for the project in a data structure relating to database tables and entries.
 
-- PHP >= 7.1
-- Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
+This anonymization is performed using the [anonymize-mysqldump project](https://github.com/DekodeInteraktiv/go-anonymize-mysqldump), where you can also see the [structure of the config file](https://github.com/DekodeInteraktiv/go-anonymize-mysqldump#config-file).
 
-## Installation
-
-1. Create a new project:
-   ```sh
-   $ composer create-project roots/bedrock
-   ```
-2. Update environment variables in the `.env` file. Wrap values that may contain non-alphanumeric characters with quotes, or they may be incorrectly parsed.
-
-- Database variables
-  - `DB_NAME` - Database name
-  - `DB_USER` - Database user
-  - `DB_PASSWORD` - Database password
-  - `DB_HOST` - Database host
-  - Optionally, you can define `DATABASE_URL` for using a DSN instead of using the variables above (e.g. `mysql://user:password@127.0.0.1:3306/db_name`)
-- `WP_ENV` - Set to environment (`development`, `staging`, `production`)
-- `WP_HOME` - Full URL to WordPress home (https://example.com)
-- `WP_SITEURL` - Full URL to WordPress including subdirectory (https://example.com/wp)
-- `AUTH_KEY`, `SECURE_AUTH_KEY`, `LOGGED_IN_KEY`, `NONCE_KEY`, `AUTH_SALT`, `SECURE_AUTH_SALT`, `LOGGED_IN_SALT`, `NONCE_SALT`
-  - Generate with [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command)
-  - Generate with [our WordPress salts generator](https://roots.io/salts.html)
-
-3. Add theme(s) in `web/app/themes/` as you would for a normal WordPress site
-4. Set the document root on your webserver to Bedrock's `web` folder: `/path/to/site/web/`
-5. Access WordPress admin at `https://example.com/wp/wp-admin/`
-
-## Documentation
-
-Bedrock documentation is available at [https://roots.io/docs/bedrock/master/installation/](https://roots.io/docs/bedrock/master/installation/).
-
-## Contributing
-
-Contributions are welcome from everyone. We have [contributing guidelines](https://github.com/roots/guidelines/blob/master/CONTRIBUTING.md) to help you get started.
-
-## Bedrock sponsors
-
-Help support our open-source development efforts by [becoming a patron](https://www.patreon.com/rootsdev).
-
-<a href="https://kinsta.com/?kaid=OFDHAJIXUDIV"><img src="https://cdn.roots.io/app/uploads/kinsta.svg" alt="Kinsta" width="200" height="150"></a> <a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="200" height="150"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="200" height="150"></a> <a href="https://www.c21redwood.com/"><img src="https://cdn.roots.io/app/uploads/c21redwood.svg" alt="C21 Redwood Realty" width="200" height="150"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="200" height="150"></a> <a href="https://motto.ca/roots"><img src="https://cdn.roots.io/app/uploads/motto.svg" alt="Motto" width="200" height="150"></a>
-
-## Community
-
-Keep track of development and community news.
-
-- Participate on the [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read and subscribe to the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/subscribe/)
-- Listen to the [Roots Radio podcast](https://roots.io/podcast/)
+The default configuration file provides support for a vanilla WordPress installation, with just data relating to comments and usermeta accounted for.

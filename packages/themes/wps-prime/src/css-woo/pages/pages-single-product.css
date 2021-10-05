@@ -1,16 +1,11 @@
 .single-product {
-    .product_meta {}
+	.quantity {
+		margin-right: var(--spacing-base);
+	}
 
-    .quantity {
-        margin-right: var(--spacing-base);
-    }
-
-
-    .woocommerce-variation-add-to-cart {}
-
-    .woocommerce-single-product-add-to-cart-layout {
-        display: flex;
-        align-items: center;
-    }
+	.woocommerce-single-product-add-to-cart-layout {
+		align-items: center;
+		display: flex;
+	}
 
 }

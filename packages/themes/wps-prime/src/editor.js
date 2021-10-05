@@ -1,7 +1,10 @@
 /**
-	* WordPress dependencies
-	*/
+ * Internal dependencies
+ */
 import './js/editor/button/index';
+/**
+ * WordPress dependencies
+ */
 import { registerPlugin } from '@wordpress/plugins';
 import WpsPageSettingsPanel from './js/meta-fields/page-meta-ui';
 

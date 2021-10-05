@@ -1,7 +1,4 @@
-/**
- * Styling begins
- */
-
+/* stylelint-disable */
 .woocommerce-page:not(.woocommerce-has-sidebar) {
 	& .content-area {
 		grid-column: 1/-1;
@@ -25,9 +22,9 @@
 	}
 
 	/**
-			* General layout styles
-			* Used on the checkout page
-			*/
+	* General layout styles
+	* Used on the checkout page
+	*/
 	& .col2-set {
 		@media (--viewport-lap-and-up) {
 			display: grid;
@@ -372,12 +369,7 @@
 			padding: 0 1em 0 0;
 			text-align: left;
 		}
-
-		& #place_order {}
 	}
-
-	& .woocommerce-billing-fields,
-	& .woocommerce-shipping-fields {}
 
 	& .woocommerce-terms-and-conditions {
 		margin-bottom: 1.618em;
@@ -385,8 +377,8 @@
 	}
 
 	/**
-				* oEmbeds
-				*/
+	* oEmbeds
+	*/
 	& .woocommerce-oembed {
 		position: relative;
 	}
@@ -414,7 +406,6 @@
 		margin-bottom: var(--spacing-base);
 
 		@media (--viewport-lap-and-up) {
-			/*background-color: var(--color-gray-ui-light);*/
 			margin-right: var(--spacing-large);
 		}
 
@@ -457,3 +448,4 @@
 		}
 	}
 }
+/* stylelint-enable */

@@ -1,10 +1,9 @@
 /**
-  * Right to left styles
-  */
+ * Right to left styles
+ */
 .rtl.woocommerce .price_label,
 .rtl.woocommerce .price_label span {
-
-    /* rtl:ignore */
-    direction: ltr;
-    unicode-bidi: embed;
+	/* rtl:ignore */
+	direction: ltr;
+	unicode-bidi: embed;
 }

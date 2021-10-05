@@ -1,15 +1,15 @@
 .woocommerce-breadcrumb {
+	color: var(--text-color-gray-ui);
+	font-size: 0.72rem;
 
-    margin: 0 0 1rem;
-    padding: 0;
-    font-size: 0.72rem;
-    color: var(--text-color-gray-ui);
+	margin: 0 0 1rem;
+	padding: 0;
 
-    a {
-        color: var(--text-color-gray-ui);
+	a {
+		color: var(--text-color-gray-ui);
 
-        &:first-child {
-            display: none;
-        }
-    }
+		&:first-child {
+			display: none;
+		}
+	}
 }

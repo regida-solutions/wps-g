@@ -1,6 +1,6 @@
 /**
-	* WordPress dependencies
-	*/
+ * WordPress dependencies
+ */
 import {
 	MediaUpload,
 	MediaUploadCheck,
@@ -30,18 +30,21 @@ function Image( {
 	if ( video ) {
 		label = __( 'Add video', 'wps-prime' );
 	}
-	const {
-		media, focalPoint = { x: 0.5, y: 0.5 }, caption,
-	} = attributes;
+	const { media, focalPoint = { x: 0.5, y: 0.5 }, caption } = attributes;
 	const setMedia = ( newMedia ) => {
 		const simplifiedMediaData = {
 			id: newMedia.id,
 			url: newMedia.url,
 			alt: newMedia.alt,
 		};
-		setAttributes( { media: simplifiedMediaData, caption: newMedia.description } );
+		setAttributes( {
+			media: simplifiedMediaData,
+			caption: newMedia.description,
+		} );
 		if ( featured ) {
-			dispatch( 'core/editor' ).editPost( { featured_media: newMedia.id } );
+			dispatch( 'core/editor' ).editPost( {
+				featured_media: newMedia.id,
+			} );
 		}
 	};
 
@@ -55,38 +58,74 @@ function Image( {
 			shortcode += `url="${ media.url }" `;
 		}
 		if ( focus ) {
-			shortcode += `style="object-position: ${ focalPoint.x * 100 }% ${ focalPoint.y * 100 }%"`;
+			shortcode += `style="object-position: ${ focalPoint.x * 100 }% ${
+				focalPoint.y * 100
+			}%"`;
 		}
 		shortcode += ']';
 	}
 	return (
 		<>
-			{setAttributes && (
+			{ setAttributes && (
 				<>
 					<InspectorControls>
-						<PanelBody title={ __( 'Image settings', 'wps-prime' ) }>
-							{ ( media ) && (
+						<PanelBody
+							title={ __( 'Image settings', 'wps-prime' ) }
+						>
+							{ media && (
 								<>
-									{focus && (
+									{ focus && (
 										<FocalPointPicker
-											label={ __( 'Focal Point Picker', 'wps-prime' ) }
+											label={ __(
+												'Focal Point Picker',
+												'wps-prime'
+											) }
 											url={ media.url }
 											value={ focalPoint }
-											onChange={ ( value ) => setAttributes( { focalPoint: value } ) }
+											onChange={ ( value ) =>
+												setAttributes( {
+													focalPoint: value,
+												} )
+											}
 										/>
-									)}
+									) }
 
 									<MediaUploadCheck>
 										<MediaUpload
-											title={ __( 'Replace Image', 'wps-prime' ) }
+											title={ __(
+												'Replace Image',
+												'wps-prime'
+											) }
 											onSelect={ setMedia }
-											allowedTypes={ video ? 'video' : 'image' }
+											allowedTypes={
+												video ? 'video' : 'image'
+											}
 											render={ ( { open } ) => (
 												<p>
-													<Button onClick={ open } isDefault isPrimary className="custom-media-inserter">
-														{ __( 'Replace Image', 'wps-prime' ) }
+													<Button
+														onClick={ open }
+														isDefault
+														isPrimary
+														className="custom-media-inserter"
+													>
+														{ __(
+															'Replace Image',
+															'wps-prime'
+														) }
 													</Button>
-													<Button onClick={ () => setAttributes( { media: false } ) } className="custom-media-inserter">{ __( 'Remove Image', 'wps-prime' ) }</Button>
+													<Button
+														onClick={ () =>
+															setAttributes( {
+																media: false,
+															} )
+														}
+														className="custom-media-inserter"
+													>
+														{ __(
+															'Remove Image',
+															'wps-prime'
+														) }
+													</Button>
 												</p>
 											) }
 										/>
@@ -95,10 +134,14 @@ function Image( {
 							) }
 						</PanelBody>
 					</InspectorControls>
-					{! media && (
+					{ ! media && (
 						<MediaUploadCheck>
 							<MediaUpload
-								title={ video ? __( 'Add video', 'wps-prime' ) : __( 'Add image', 'wps-prime' ) }
+								title={
+									video
+										? __( 'Add video', 'wps-prime' )
+										: __( 'Add image', 'wps-prime' )
+								}
 								onSelect={ setMedia }
 								allowedTypes={ video ? 'video' : 'image' }
 								render={ ( { open } ) => (
@@ -106,61 +149,67 @@ function Image( {
 										<IconButton
 											onClick={ open }
 											icon="plus"
-											className="add-button"
-											label={ __( 'Add image', 'wps-prime' ) }
-											style={ { border: '1px solid #ddd' } }
-											className="custom-media-inserter"
+											className="add-button custom-media-inserter"
+											label={ __(
+												'Add image',
+												'wps-prime'
+											) }
+											style={ {
+												border: '1px solid #ddd',
+											} }
 										>
-											{label}
+											{ label }
 										</IconButton>
 									</p>
 								) }
 							/>
 						</MediaUploadCheck>
-					)}
+					) }
 				</>
-			)}
+			) }
 
-			{media && (
+			{ media && (
 				<figure className="image-wrapper">
 					<div className="image">
-						{setAttributes && (
+						{ setAttributes && (
 							<ServerSideRender
 								block="tradies/shortcode"
 								attributes={ { shortcode } }
 							/>
-						)}
-						{! setAttributes && (
-							shortcode
-						)}
-						{( isSelected && setAttributes ) && (
+						) }
+						{ ! setAttributes && shortcode }
+						{ isSelected && setAttributes && (
 							<IconButton
 								icon="dismiss"
 								label={ __( 'Remove image', 'wps-prime' ) }
 								style={ { border: '1px solid #ddd' } }
-								onClick={ () => setAttributes( { media: false } ) }
+								onClick={ () =>
+									setAttributes( { media: false } )
+								}
 								className="custom-media-inserter"
 							/>
-						)}
+						) }
 					</div>
-					{( hasCaption && setAttributes ) && (
+					{ hasCaption && setAttributes && (
 						<RichText
 							tagName="figcaption"
 							className="caption"
-							placeholder={ __( 'Add caption ...', 'wps-prime' ) }
+							placeholder={ __( 'Add caption …', 'wps-prime' ) }
 							value={ caption }
-							onChange={ ( newCaption ) => setAttributes( { caption: newCaption } ) }
+							onChange={ ( newCaption ) =>
+								setAttributes( { caption: newCaption } )
+							}
 						/>
-					)}
-					{ ( hasCaption && caption && ! setAttributes ) && (
+					) }
+					{ hasCaption && caption && ! setAttributes && (
 						<RichText.Content
 							tagName="figcaption"
 							className="caption"
 							value={ caption }
 						/>
-					)}
+					) }
 				</figure>
-			)}
+			) }
 		</>
 	);
 }

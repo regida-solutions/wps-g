@@ -1,15 +1,17 @@
 /**
-	* WordPress dependencies
-	*/
+ * WordPress dependencies
+ */
 import { useSelect } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
 import { __ } from '@wordpress/i18n';
-import {	CheckboxControl } from '@wordpress/components';
+import { CheckboxControl } from '@wordpress/components';
 import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
 
 const WpsPageSettingsPanel = () => {
 	/* Access post props */
-	const postType = useSelect( ( select ) => select( 'core/editor' ).getCurrentPostType() );
+	const postType = useSelect( ( select ) =>
+		select( 'core/editor' ).getCurrentPostType()
+	);
 
 	/* Access meta data */
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
@@ -34,7 +36,9 @@ const WpsPageSettingsPanel = () => {
 			<CheckboxControl
 				label={ __( 'Show title on front end' ) }
 				checked={ hasVisibleTitle }
-				onChange={ () => setMeta( { _wps_has_visible_title: ! hasVisibleTitle } ) }
+				onChange={ () =>
+					setMeta( { _wps_has_visible_title: ! hasVisibleTitle } )
+				}
 			/>
 			<CheckboxControl
 				label={ __( 'Hide footer' ) }
@@ -44,12 +48,20 @@ const WpsPageSettingsPanel = () => {
 			<CheckboxControl
 				label={ __( 'Disable Content Top Space' ) }
 				checked={ resetPageTopSpace }
-				onChange={ () => setMeta( { _wps_reset_page_top_space: ! resetPageTopSpace } ) }
+				onChange={ () =>
+					setMeta( {
+						_wps_reset_page_top_space: ! resetPageTopSpace,
+					} )
+				}
 			/>
 			<CheckboxControl
 				label={ __( 'Disable Content Bottom Space' ) }
 				checked={ resetPageBottomSpace }
-				onChange={ () => setMeta( { _wps_reset_page_bottom_space: ! resetPageBottomSpace } ) }
+				onChange={ () =>
+					setMeta( {
+						_wps_reset_page_bottom_space: ! resetPageBottomSpace,
+					} )
+				}
 			/>
 		</PluginDocumentSettingPanel>
 	);

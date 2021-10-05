@@ -55,11 +55,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-/*
+/**
  * Hook list for debugging
  */
-
-function get_hook_list() {
+function get_hook_list():array {
 
 	return [
 		'body_start',

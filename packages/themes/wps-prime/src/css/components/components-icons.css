@@ -9,6 +9,10 @@
 	vertical-align: -0.125em;
 }
 
+.c-social-list__link .wps-prime-icon {
+	margin-right: 0.5em;
+}
+
 .nav-links {
 	& .nav-previous .wps-prime-icon {
 		margin-right: 0.5em;
@@ -17,8 +21,4 @@
 	& .nav-next .wps-prime-icon {
 		margin-left: 0.5em;
 	}
-}
-
-.c-social-list__link .wps-prime-icon {
-	margin-right: 0.5em;
 }

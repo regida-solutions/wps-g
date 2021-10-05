@@ -2,7 +2,7 @@
 /**
  * Application base config.
  *
- * @package Wpshapers
+ * @package Dekode
  */
 
 declare( strict_types = 1 );
@@ -45,7 +45,9 @@ $dotenv->load( $root_dir . '/.env' );
  *
  * Default: production
  */
-define( 'WP_ENVIRONMENT_TYPE', env( 'WP_ENVIRONMENT_TYPE' ) ?: 'production' );
+if ( ! defined( 'WP_ENVIRONMENT_TYPE' ) ) {
+	define( 'WP_ENVIRONMENT_TYPE', env( 'WP_ENVIRONMENT_TYPE' ) ?: 'production' );
+}
 
 /**
  * Load enviroment config

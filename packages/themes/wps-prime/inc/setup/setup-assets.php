@@ -48,7 +48,7 @@ function front_end_assets() {
 	wp_register_script( 'wps-fancybox-cor', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', [], WPS_PRIME_THEME_VERSION, true );
 	wp_register_style( 'wps-fancybox-core', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css', [], WPS_PRIME_THEME_VERSION );
 
-	// Sticky menu
+	// Sticky menu.
 	if ( get_theme_mod( 'header_use_sticky', false ) ) {
 		wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/lib/jquery.sticky.min.js', [ 'jquery' ], WPS_PRIME_THEME_VERSION, true );
 	}

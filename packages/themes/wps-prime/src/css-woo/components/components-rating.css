@@ -1,137 +1,135 @@
 /**
-	 * Star ratings
-	 */
+ * Star ratings
+ */
 .star-rating {
-    float: right;
-    overflow: hidden;
-    position: relative;
-    height: 1em;
-    line-height: 1;
-    font-size: 1em;
-    width: 5.4em;
-    font-family: "star";
+	float: right;
+	font-family: star; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+	font-size: 1em;
+	height: 1em;
+	line-height: 1;
+	overflow: hidden;
+	position: relative;
+	width: 5.4em;
 
-    &::before {
-        content: "\73\73\73\73\73";
-        color: var(--color-gray-ui-dark);
-        float: left;
-        top: 0;
-        left: 0;
-        position: absolute;
-    }
+	&::before {
+		color: var(--color-gray-ui-dark);
+		content: "\73\73\73\73\73";
+		float: left;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
 
-    span {
-        overflow: hidden;
-        float: left;
-        top: 0;
-        left: 0;
-        position: absolute;
-        padding-top: 1.5em;
-        color: var(--woo-star-rating-color);
-    }
+	span {
+		color: var(--woo-star-rating-color);
+		float: left;
+		left: 0;
+		overflow: hidden;
+		padding-top: 1.5em;
+		position: absolute;
+		top: 0;
+	}
 
-    span::before {
-        content: "\53\53\53\53\53";
-        top: 0;
-        position: absolute;
-        left: 0;
-    }
+	span::before {
+		content: "\53\53\53\53\53";
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
 }
 
 .woocommerce-product-rating {
+	display: block;
 
+	line-height: 2;
 
-    line-height: 2;
-    display: block;
-
-    .star-rating {
-        margin: 0.5em 4px 0 0;
-        float: left;
-    }
+	.star-rating {
+		float: left;
+		margin: 0.5em 4px 0 0;
+	}
 }
 
 .products .star-rating {
-    display: block;
-    margin: 0 0 0.5em;
-    float: none;
+	display: block;
+	float: none;
+	margin: 0 0 0.5em;
 }
 
 .hreview-aggregate .star-rating {
-    margin: 10px 0 0;
+	margin: 10px 0 0;
 }
 
-#review_form #respond {
+#review_form #respond { /* stylelint-disable-line selector-id-pattern */
+	background: transparent none;
+	border: 0;
+	margin: 0;
+	padding: 0;
 
-    position: static;
-    margin: 0;
-    width: auto;
-    padding: 0;
-    background: transparent none;
-    border: 0;
+	position: static;
+	width: auto;
 
-    p {
-        margin: 0 0 10px;
-    }
+	p {
+		margin: 0 0 10px;
+	}
 
-    .form-submit input {
-        left: auto;
-    }
+	.form-submit input {
+		left: auto;
+	}
 
-    textarea {
-        box-sizing: border-box;
-        width: 100%;
-    }
+	textarea {
+		box-sizing: border-box;
+		width: 100%;
+	}
 }
 
 p.stars {
+	a::before,
+	&:hover {
+		color: var(--woo-star-rating-color);
+		content: "\e020";
+	}
 
-    a {
-        position: relative;
-        height: 1em;
-        width: 1em;
-        text-indent: -999em;
-        display: inline-block;
-        text-decoration: none;
-        color: var(--color-gray-ui-dark);
+	a {
+		color: var(--color-gray-ui-dark);
+		display: inline-block;
+		height: 1em;
+		position: relative;
+		text-decoration: none;
+		text-indent: -999em;
+		width: 1em;
 
-        &::before {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 1em;
-            height: 1em;
-            line-height: 1;
-            font-family: "WooCommerce";
-            content: "\e021";
-            text-indent: 0;
-        }
+		&::before {
+			content: "\e021";
+			display: block;
+			font-family: WooCommerce; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+			height: 1em;
+			left: 0;
+			line-height: 1;
+			position: absolute;
+			text-indent: 0;
+			top: 0;
+			width: 1em;
+		}
 
-        &:hover~a::before {
-            content: "\e021";
-        }
-    }
+		&:hover ~ a::before {
+			content: "\e021";
+		}
+	}
 
-    &:hover a::before {
-        color: var(--woo-star-rating-color);
-        content: "\e020";
-    }
+	&.selected {
+		a:not(.active)::before {
+			content: "\e020";
+		}
 
-    &.selected {
+		a.active {
+			&::before {
+				content: "\e020";
+			}
 
-        a.active {
+			~a::before {
+				content: "\e021";
+			}
+		}
 
-            &::before {
-                content: "\e020";
-            }
-
-            ~a::before {
-                content: "\e021";
-            }
-        }
-
-        a:not(.active)::before {
-            content: "\e020";
-        }
-    }
+	}
 }
