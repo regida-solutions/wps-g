@@ -39,7 +39,7 @@
 	}
 
 	& .entry-title {
-		font-size: var(--wp--preset--line--height--h3);
+		font-size: var(--wp--custom--line-height--heading-3);
 	}
 
 	& .read-more-link {

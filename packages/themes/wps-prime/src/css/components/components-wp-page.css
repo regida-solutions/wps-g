@@ -80,7 +80,7 @@ body {
 }
 
 .entry-header__entry-title {
-	font-size: var(--wp--preset--line--height--h1);
+	font-size: var(--wp--custom--line-height--heading-1);
 }
 
 .reset-space-vertical,
