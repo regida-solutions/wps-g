@@ -29,7 +29,10 @@
 }
 
 .block-editor .wp-block {
-	@extend %typo-body;
+	color: var(--text-color-body);
+	font-family: var(--theme-font-one);
+	font-weight: var(--theme-font-one-weight, 400);
+	line-height: var(--wp--custom--line-height--global);
 }
 
 /* Customize title blocks */
