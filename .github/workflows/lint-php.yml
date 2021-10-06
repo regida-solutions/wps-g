@@ -2,9 +2,9 @@ name: PHP CodeSniffer
 
 on:
     push:
-        branches: [main]
+        branches: [main,develop]
     pull_request:
-        branches: [main]
+        branches: [main,develop]
         paths:
             - '**.php'
             - 'composer.lock'
@@ -50,7 +50,7 @@ jobs:
               run: |
                   php --version
                   composer --version
-            - name: Install Composer dependencies             
+            - name: Install Composer dependencies
               run: |
                   composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
                   echo "vendor/bin" >> $GITHUB_PATH
