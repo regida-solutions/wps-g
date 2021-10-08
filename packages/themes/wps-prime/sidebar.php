@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-$woo_is_active = \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated();
-$has_sidebar   = get_option( 'wps_article_has_sidebar', false );
-
+$woo_is_active   = \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated();
+$has_sidebar     = get_theme_mod( 'wps_article_has_sidebar', false );
+$has_woo_sidebar = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
 
 if ( ! $woo_is_active && is_active_sidebar( 'sidebar-1' ) && $has_sidebar && is_singular() ) {
 	?>
@@ -27,15 +27,14 @@ if ( ! $woo_is_active && is_active_sidebar( 'sidebar-1' ) && $has_sidebar && is_
 		<?php
 }
 
-
 if ( $woo_is_active ) {
 	if ( is_product() || is_cart() || is_checkout() || is_account_page() ) {
 		return;
 	}
 
-	if ( is_shop() || is_product_category() || is_product_tag() ) {
+	if ( ( is_shop() || is_product_category() || is_product_tag() ) && $has_woo_sidebar ) {
 
-		if ( is_active_sidebar( 'wps_sidebar-shop' ) ) {
+		if ( is_active_sidebar( 'sidebar-shop' ) ) {
 			?>
 		<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
 			<?php do_action( 'wps_sidebar_start' ); ?>
@@ -46,7 +45,7 @@ if ( $woo_is_active ) {
 		}
 	} else {
 
-		if ( is_active_sidebar( 'sidebar-1' ) && $has_sidebar ) {
+		if ( is_active_sidebar( 'sidebar-1' ) && $has_woo_sidebar ) {
 			?>
 		<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
 				<?php do_action( 'wps_sidebar_start' ); ?>

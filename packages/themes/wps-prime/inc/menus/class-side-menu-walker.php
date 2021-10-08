@@ -33,7 +33,7 @@ class Side_Menu_Walker extends \Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = [] ) { // phpcs:ignore NeutronStandard.Functions.TypeHint.NoArgumentType
 		$indent  = str_repeat( "\t", $depth );
-		$icon    = WpsPrime\Helpers\theme_icon( 'hamburger' );
+		$icon    = \WpsPrime\Helpers\theme_icon( 'hamburger' );
 		$output .= "\n$indent<span class=\"show-submenu\">{$icon}</span><ul class=\"site-nav__list sub-menu level-{$depth}\">\n";
 	}
 

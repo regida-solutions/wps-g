@@ -1,0 +1,3 @@
+body {
+	--button-padding: calc(0.375em + 2px)  calc(0.75em + 2px);
+}

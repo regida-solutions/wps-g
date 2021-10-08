@@ -3,9 +3,9 @@ body {
 	--content-width: var(--wp--custom--site--content-width);
 	--content-width-wide: var(--wp--custom--site--content-width-wide);
 	--site-spacing: calc(var(--wp--custom--site--spacing) / 2);
-	--spacing-tiny: 6px;
-	--spacing-small: 12px;
-	--spacing-base: 24px;
+	--spacing-tiny: var(--wp--custom--site--spacing-tiny);
+	--spacing-small: var(--wp--custom--site--spacing-small);
+	--spacing-base: var(--wp--custom--site--spacing-normal);
 	--spacing-large: calc(var(--wp--custom--site--spacing-large) / 2);
 	--spacing-huge: calc(var(--wp--custom--site--spacing-huge) / 2);
 	--base-spacing-unit: 24px;

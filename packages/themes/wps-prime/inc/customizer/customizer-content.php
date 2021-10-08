@@ -182,10 +182,9 @@ function register( object $wp_customize ):void {
 
 	// SETTING.
 	$wp_customize->add_setting(
-		'wps_article_has_sidebar',
+		'wps_blog_has_sidebar',
 		[
 			'default'    => false,
-			'type'       => 'option',
 			'capability' => 'edit_theme_options',
 			'transport'  => 'refresh',
 		]
@@ -193,21 +192,19 @@ function register( object $wp_customize ):void {
 
 	// CONTROL.
 	$wp_customize->add_control(
-		'wps_article_has_sidebar',
+		'wps_blog_has_sidebar',
 		[
-			'type'     => 'checkbox',
-			'label'    => __( 'Enable single post sidebar', 'wps-prime' ),
-			'priority' => 10,
-			'section'  => 'site_blog_section',
+			'type'    => 'checkbox',
+			'label'   => __( 'Enable blog sidebar', 'wps-prime' ),
+			'section' => 'site_blog_section',
 		]
 	);
 
 	// SETTING.
 	$wp_customize->add_setting(
-		'wps_article_swap_sidebar_position',
+		'wps_article_has_sidebar',
 		[
 			'default'    => false,
-			'type'       => 'option',
 			'capability' => 'edit_theme_options',
 			'transport'  => 'refresh',
 		]
@@ -215,12 +212,31 @@ function register( object $wp_customize ):void {
 
 	// CONTROL.
 	$wp_customize->add_control(
-		'wps_article_swap_sidebar_position',
+		'wps_article_has_sidebar',
 		[
-			'type'     => 'checkbox',
-			'label'    => __( 'Swap sidebar position to other side', 'wps-prime' ),
-			'priority' => 10,
-			'section'  => 'site_blog_section',
+			'type'    => 'checkbox',
+			'label'   => __( 'Enable single post sidebar', 'wps-prime' ),
+			'section' => 'site_blog_section',
+		]
+	);
+
+	// SETTING.
+	$wp_customize->add_setting(
+		'wps_blog_swap_sidebar_position',
+		[
+			'default'    => false,
+			'capability' => 'edit_theme_options',
+			'transport'  => 'refresh',
+		]
+	);
+
+	// CONTROL.
+	$wp_customize->add_control(
+		'wps_blog_swap_sidebar_position',
+		[
+			'type'    => 'checkbox',
+			'label'   => __( 'Swap sidebar position to other side', 'wps-prime' ),
+			'section' => 'site_blog_section',
 		]
 	);
 

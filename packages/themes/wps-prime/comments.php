@@ -91,7 +91,7 @@ $comment_count = get_comments_number();
 		<?php
 	endif;
 
-	comment_form( [ 'class_submit' => 'c-button' ] );
+	comment_form( [ 'class_submit' => 'wp-block-button__link' ] );
 	?>
 
 </div><!-- #comments -->

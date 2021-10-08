@@ -10,7 +10,6 @@
 	background-color: var(--button-color-primary);
 	background-image: none;
 	border: 0;
-
 	border-radius: var(--button-radius);
 	box-shadow: none;
 	color: var(--text-color-invert);
@@ -18,8 +17,9 @@
 	display: inline-block;
 	font-size: 100%;
 	left: auto;
+	line-height: var(--wp--custom--line-height--global);
 	overflow: visible;
-	padding: var(--woo-button-spacing-default);
+	padding: var(--button-padding);
 	position: relative;
 	text-decoration: none;
 	text-shadow: none;
@@ -81,7 +81,7 @@
 		color: var(--button-text-color);
 		cursor: not-allowed;
 		opacity: 0.5;
-		padding: var(--woo-button-spacing-default);
+		padding: var(--button-padding);
 
 		&:hover {
 			background-color: var(--button-color-primary);
@@ -96,7 +96,7 @@ a.added_to_cart {
 }
 
 .woocommerce-mini-cart__buttons {
-	.checkout {
+	& .checkout {
 		background-color: var(--button-color-secondary);
 
 		&:hover {

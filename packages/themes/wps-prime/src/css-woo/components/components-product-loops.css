@@ -50,10 +50,6 @@ ul.products li.product {
 		font-size: 0.857em;
 	}
 
-	.button {
-		--woo-button-spacing-default: var(--spacing-tiny) var(--spacing-base);
-	}
-
 	.price {
 		color: var(--woo-color-price);
 		display: block;
