@@ -132,7 +132,7 @@ function menu_item_fields( int $id, object $item, int $depth, object $args ):voi
  * @return void
  */
 function render_field( string $id, string $key, string $name, string $value, string $class, array $data ):void {
-	$data_type = isset( $data['type'] ) ? $data['type'] : 'text';
+	$data_type = $data['type'] ?? 'text';
 	?>
 	<div class="description description-wide <?php echo esc_attr( $class ); ?>">
 	<?php
@@ -213,14 +213,20 @@ function save_fields( int $menu_id, int $menu_item_db_id, array $menu_item_args 
 	}
 }
 
-	/**
-	 * Add our fields to the screen options toggle.
-	 *
-	 * @param array $columns Menu item columns.
-	 *
-	 * @return array
-	 */
+/**
+ * Add our fields to the screen options toggle.
+ *
+ * @param array $columns Menu item columns.
+ *
+ * @return array
+ */
 function menu_columns( array $columns ):array {
-	$settings = menu_settings();
-	return array_merge( $columns, $settings );
+	$settings           = menu_settings();
+	$flattened_settings = [];
+
+	foreach ( $settings as $key => $value ) {
+		$flattened_settings[ $key ] = $value['label'];
+	}
+
+	return array_merge( $columns, $flattened_settings );
 }

@@ -2,12 +2,8 @@
     #SHOW-HIDE
 \*------------------------------------*/
 
-%u-hide {
-	display: none !important;
-}
-
 .u-hide {
-	@extend %u-hide;
+	display: none !important;
 }
 
 .u-hide-visually {
@@ -23,31 +19,31 @@
 
 @media (--viewport-mobile) {
 	.u-hide-mobile {
-		@extend %u-hide;
+		display: none !important;
 	}
 }
 
 @media (--viewport-lap) {
 	.u-hide-lap {
-		@extend %u-hide;
+		display: none !important;
 	}
 }
 
 @media (--viewport-lap-and-up) {
 	.u-hide-lap-and-up {
-		@extend %u-hide;
+		display: none !important;
 	}
 }
 
 @media (--viewport-portable) {
 	.u-hide-portable {
-		@extend %u-hide;
+		display: none !important;
 	}
 }
 
 @media (--viewport-desktop) {
 	.u-hide-desktop {
-		@extend %u-hide;
+		display: none !important;
 	}
 }
 

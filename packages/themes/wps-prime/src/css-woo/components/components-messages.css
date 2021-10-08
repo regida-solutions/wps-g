@@ -28,7 +28,6 @@
 	}
 
 	.button {
-		--woo-button-spacing-default: var(--spacing-tiny) var(--spacing-base);
 		margin-left: auto;
 		order: 3;
 	}

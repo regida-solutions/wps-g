@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'wps-post' ); ?>>
+	<header class="entry-header">
 		<?php
 		if ( has_post_thumbnail() ) :
 			?>
@@ -21,7 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php the_post_thumbnail( 'wps_masonry_large', [ 'class' => 'entry-image' ] ); ?>
 			</a>
 		<?php endif; ?>
-		<header class="entry-header">
 			<div class="entry-meta">
 				<div class="entry-meta__date"><?php echo get_the_date(); ?></div>
 			</div>
@@ -30,5 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="entry-content">
 			<p><?php echo wp_kses_post( WpsPrime\Setup\Excerpt\excerpt( 120 ) ); ?></p>
 		</div><!-- .entry-content -->
+	<footer class="entry-footer">
 		<a class="read-more-link" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'More', 'wps-prime' ); ?></a>
+	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

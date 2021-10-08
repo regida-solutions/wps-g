@@ -102,7 +102,27 @@ function register( object $wp_customize ):void {
 
 	// SETTING.
 	$wp_customize->add_setting(
-		'wps_woo_shop_layout_switch',
+		'wps_woo_shop_has_sidebar',
+		[
+			'default'    => false,
+			'capability' => 'edit_theme_options',
+			'transport'  => 'refresh',
+		]
+	);
+
+	// CONTROL.
+	$wp_customize->add_control(
+		'wps_woo_shop_has_sidebar',
+		[
+			'type'     => 'checkbox',
+			'label'    => __( 'Enable shop sidebar', 'wps-prime' ),
+			'section'  => 'wps_woo_shop_settings',
+		]
+	);
+
+	// SETTING.
+	$wp_customize->add_setting(
+		'wps_woo_shop_swap_sidebar_position',
 		[
 			'default'    => false,
 			'type'       => 'theme_mod',
@@ -113,11 +133,10 @@ function register( object $wp_customize ):void {
 
 	// CONTROL.
 	$wp_customize->add_control(
-		'wps_woo_shop_layout_switch',
+		'wps_woo_shop_swap_sidebar_position',
 		[
 			'type'        => 'checkbox',
-			'label'       => __( 'Shop sidebar switch to left', 'wps-prime' ),
-			'description' => __( 'Sidebar must be active', 'wps-prime' ),
+			'label'       => __( 'Swap sidebar position to other side', 'wps-prime' ),
 			'section'     => 'wps_woo_shop_settings',
 		]
 	);

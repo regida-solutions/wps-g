@@ -1,5 +1,28 @@
-:root {
+@font-face {
+	font-family: star;
+	font-style: normal;
+	font-weight: 500;
+	src: url(../assets/fonts/star.eot);
+	src:
+		url(../assets/fonts/star.eot?#iefix) format("embedded-opentype"),
+		url(../assets/fonts/star.woff) format("woff"),
+		url(../assets/fonts/star.ttf) format("truetype"),
+		url(../assets/fonts/star.svg#star) format("svg");
+}
 
+@font-face {
+	font-family: WooCommerce;
+	font-style: normal;
+	font-weight: 500;
+	src: url(../assets/fonts/WooCommerce.eot);
+	src:
+		url(../assets/fonts/WooCommerce.eot?#iefix) format("embedded-opentype"),
+		url(../assets/fonts/WooCommerce.woff) format("woff"),
+		url(../assets/fonts/WooCommerce.ttf) format("truetype"),
+		url(../assets/fonts/WooCommerce.svg#WooCommerce) format("svg");
+}
+
+body {
 	--woo-color-positive: var(--color-positive, #5c992e); /* Forms */
 	--woo-color-negative: var(--color-negative, #e74c3c); /* Form | Widget layered navigation | Widget rating filter */
 	--woo-color-price: #000; /* Product price */
@@ -25,9 +48,6 @@
 	/* Remove button color in cart */
 	--woo-remove-color: #333;
 	--woo-remove-color-background: #bbb;
-
-	/* Buttons */
-	--woo-button-spacing-default: var(--spacing-small) var(--spacing-base);
 
 	/* woopayment box */
 	--woo-background-payment-checkout: #f5f5f5; /* woocommerce-checkout-payment   */
@@ -59,7 +79,7 @@
 }
 
 @media (--viewport-lap-and-up) {
-	:root {
+	body {
 		--woo-product-per-row-default: 2;
 		--woo-product-per-row-three: 3;
 		--woo-product-per-row-four: 4;

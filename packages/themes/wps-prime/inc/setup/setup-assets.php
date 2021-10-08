@@ -48,11 +48,6 @@ function front_end_assets() {
 	wp_register_script( 'wps-fancybox-cor', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', [], WPS_PRIME_THEME_VERSION, true );
 	wp_register_style( 'wps-fancybox-core', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css', [], WPS_PRIME_THEME_VERSION );
 
-	// Sticky menu.
-	if ( get_theme_mod( 'header_use_sticky', false ) ) {
-		wp_enqueue_script( 'sticky-nav', get_template_directory_uri() . '/assets/lib/jquery.sticky.min.js', [ 'jquery' ], WPS_PRIME_THEME_VERSION, true );
-	}
-
 	// Fonts.
 	$fonts_path = get_template_directory() . '/assets/fonts/fonts.css';
 	if ( file_exists( $fonts_path ) ) {
@@ -191,5 +186,26 @@ function editor_assets() {
 			$script_dependencies['version'],
 			true
 		);
+	}
+	// JavaScripts.
+	if ( 'page' === get_post_type() ) {
+		$editor_page_js_path = get_file_path( 'editor-page.js' );
+		if ( file_exists( $editor_page_js_path ) ) {
+			$script_deps_path    = get_file_path( 'editor.asset.php' );
+			$script_dependencies = file_exists( $script_deps_path ) ?
+			require $script_deps_path :
+			[
+				'dependencies' => [],
+				'version'      => filemtime( $editor_page_js_path ),
+			];
+
+			wp_enqueue_script(
+				'wps-prime-editor-page',
+				get_file_uri( 'editor-page.js' ),
+				$script_dependencies['dependencies'],
+				$script_dependencies['version'],
+				true
+			);
+		}
 	}
 }

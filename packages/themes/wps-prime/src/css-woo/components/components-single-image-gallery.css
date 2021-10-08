@@ -1,4 +1,7 @@
 .woo-single-image-gallery {
+
+	margin-bottom: var(--spacing-base);
+	position: relative;
 	--woo-main-gallery-height: 300px;
 	--woo-thumb-gallery-height: 50px;
 
@@ -6,8 +9,6 @@
 		--woo-main-gallery-height: 500px;
 		--woo-thumb-gallery-height: 100px;
 	}
-
-	margin-bottom: var(--spacing-base);
 
 	.swiper-container {
 		margin-left: auto;

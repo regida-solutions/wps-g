@@ -140,10 +140,6 @@ form.register {
 	text-align: left;
 }
 
-.woocommerce-cart-form {
-	--form-fields-padding: var(--spacing-tiny);
-}
-
 ul#shipping_method { /* stylelint-disable-line selector-id-pattern */
 	list-style: none outside;
 	margin: 0;

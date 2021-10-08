@@ -1,9 +1,6 @@
 /* Wordpress content general style */
 @import "wps-css-viewports";
 
-/* Woocommerce fonts */
-@import "./css/config/config-woo-fonts.css";
-
 /* Config */
 @import "./css/config/_config.css";
 
@@ -23,7 +20,6 @@
 @import "./css/components/components-wp-screen-reader.css";
 @import "./css/components/components-wp-page.css";
 @import "./css/components/components-wp-header.css";
-@import "./css/components/components-wp-header-skin.css";
 @import "./css/components/components-wp-nav-links.css";
 @import "./css/components/components-wp-footer.css";
 @import "./css/components/components-wp-footer-skin.css";

@@ -1,26 +1,32 @@
 /* ==========================================================================
    #COMPONENTS Buttons
    ========================================================================== */
-.wp-block-button {
-	& .wp-block-button__link {
-		background-color: var(--button-color-default);
-		border-color: var(--button-color-default);
-		border-radius: var(--button-radius);
+
+.wp-block-button__link {
+	background-color: var(--button-color-default);
+	border-color: var(--button-color-default);
+	border-radius: var(--button-radius);
+	border-style: solid;
+	border-width: 2px;
+	font-size: 1em;
+	padding: var(--button-padding);
+	text-decoration: none;
+	transition: all 250ms ease-in-out;
+
+	&:hover {
+		background-color: var(--button-color-default-h);
+		border-color: var(--button-color-default-h);
+		color: #fff;
 		text-decoration: none;
-
-		&:hover {
-			background-color: var(--button-color-default-h);
-			border-color: var(--button-color-default-h);
-			color: #fff;
-		}
 	}
+}
 
+.wp-block-button {
 	&.is-style-pill,
 	&.is-style-pill-outline {
 		& > .wp-block-button__link {
 			border-radius: 9999px;
-			border-style: solid;
-			border-width: 2px;
+			padding: var(--button-padding);
 		}
 	}
 
@@ -30,6 +36,7 @@
 			background-color: transparent;
 			border-color: currentColor;
 			color: currentColor;
+			padding: var(--button-padding);
 
 			&:hover {
 				background-color: var(--button-color-default-h);

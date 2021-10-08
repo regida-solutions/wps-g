@@ -77,12 +77,6 @@
 
 }
 
-.is-sticky,
-.page-chroma-white {
-	--main-nav-text-color: var(--main-nav-sticky-text-color);
-	--main-nav-text-color-h: var(--main-nav-sticky-text-color);
-}
-
 .side-nav-menu-toggler {
 	text-align: right;
 }

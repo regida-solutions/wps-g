@@ -149,6 +149,16 @@ function allowed_block_types() : array { //phpcs:ignore
 		'core/video',
 		'core/columns',
 		'core/column',
+		'core/categories',
+		'core/legacy-widget',
+		'core/latest-posts',
+		'core/media-text',
+		'core/calendar',
+		'core/separator',
+
+		// Woocommerce
+		'woocommerce/all-reviews',
+		'woocommerce/product-categories'
 	];
 
 		$allowed_blocks = array_merge( $allowed_blocks, apply_filters( 'wps_allowed_block_types', $list, 10, 1 ) );

@@ -4,5 +4,6 @@
 	"woocommerce.css",
 	"site.js",
 	"editor.js",
+	"editor-page.js",
 	"woocommerce.js"
 ]
