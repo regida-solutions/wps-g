@@ -190,6 +190,7 @@ function body_class( array $classes ):array {
 	$swap_sidebar           = get_theme_mod( 'wps_blog_swap_sidebar_position', false );
 	$bg_color               = \WpsPrime\Helpers\contrast_color( $header_bg_color );
 	$sticky_bg_color        = \WpsPrime\Helpers\contrast_color( $header_sticky_bg_color );
+	$menu_position          = get_theme_mod( 'main_menu_position', 'in_header' );
 
 	$has_woo_sidebar  = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
 	$woo_swap_sidebar = get_theme_mod( 'wps_woo_shop_swap_sidebar_position', false );
@@ -256,13 +257,10 @@ function body_class( array $classes ):array {
 		}
 	}
 
-	if ( $has_woo_sidebar && ! $excluded_woocommerce ) {
-		$classes[] = 'has-sidebar';
-
-		if ( $woo_swap_sidebar ) {
-			$classes[] = 'has-sidebar-inverted';
-		}
+	if ( 'under_header' === $menu_position ) {
+		$classes[] = 'is-menu-under-header';
 	}
+
 	return $classes;
 }
 

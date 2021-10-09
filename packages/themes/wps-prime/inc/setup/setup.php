@@ -97,13 +97,8 @@ function site_js_settings( array $settings ):array {
 
 	/* Get theme settings */
 	$use_sticky     = get_theme_mod( 'header_use_sticky', false );
-	$main_menu_type = get_theme_mod( 'main_menu_position', 'in_header' );
-
-	// If menu is under header switch sticky target.
-	$sticky_target = 'under_header' === $main_menu_type ? '.site-nav-mega-menu' : '.site-header';
 
 	$settings['useSticky']    = $use_sticky;
-	$settings['stickyTarget'] = $sticky_target;
 
 	return $settings;
 }
