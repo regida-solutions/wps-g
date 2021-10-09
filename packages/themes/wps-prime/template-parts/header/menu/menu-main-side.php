@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		wp_nav_menu( [
 			'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary',
 			'menu_class'     => 'c-slide-nav__items',
-			'walker'         => new WpsPrime\Menu\Walker\Side_Menu_Walker(),
+			'walker'         => new \WpsPrime\Menu\Walker\Side_Menu_Walker(),
 		] );
 		?>
 	<?php endif; ?>

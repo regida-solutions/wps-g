@@ -13,11 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-$show_footer           = is_page() && ! get_post_meta( get_the_id(), '_wps_prime_hide_footer', true );
+$show_footer           = is_page() && get_post_meta( get_the_id(), '_wps_hide_footer', true );
 $custom_footer         = get_theme_mod( 'use_custom_footer', false );
 $custom_footer_content = get_option( 'footer_custom_content', false );
 ?>
-<?php if ( $show_footer ) : ?>
+
+<?php if ( ! $show_footer ) : ?>
 	<footer id="colophon"<?php wps_footer_class(); ?> role="contentinfo">
 		<?php do_action( 'wps_footer_start' ); ?>
 		<?php if ( ! $custom_footer ) : ?>

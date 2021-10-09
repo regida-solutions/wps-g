@@ -178,15 +178,27 @@ function global_content_end_area() {
  */
 function body_class( array $classes ):array {
 
+	$woo_is_active = \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated();
+
 	$post_id = get_the_ID();
 
 	$header_bg_color        = get_theme_mod( 'wps_header_background', '#ffffff' );
 	$header_use_sticky      = get_theme_mod( 'header_use_sticky', false );
 	$header_sticky_bg_color = get_theme_mod( 'wps_header_background_sticky', '#000000' );
-	$single_has_sidebar     = get_option( 'wps_article_has_sidebar', false );
-	$swap_sidebar           = get_option( 'wps_article_swap_sidebar_position', false );
+	$blog_has_sidebar       = get_theme_mod( 'wps_blog_has_sidebar', false );
+	$single_has_sidebar     = get_theme_mod( 'wps_article_has_sidebar', false );
+	$swap_sidebar           = get_theme_mod( 'wps_blog_swap_sidebar_position', false );
 	$bg_color               = \WpsPrime\Helpers\contrast_color( $header_bg_color );
 	$sticky_bg_color        = \WpsPrime\Helpers\contrast_color( $header_sticky_bg_color );
+	$menu_position          = get_theme_mod( 'main_menu_position', 'in_header' );
+
+	$has_woo_sidebar  = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
+	$woo_swap_sidebar = get_theme_mod( 'wps_woo_shop_swap_sidebar_position', false );
+
+	$excluded_woocommerce = false;
+	if ( $woo_is_active ) {
+		$excluded_woocommerce = is_product() || is_cart() || is_checkout() || is_account_page();
+	}
 
 	if ( is_page() || is_404() ) {
 		$page_id = get_option( 'wps_404_custom_page' );
@@ -219,7 +231,7 @@ function body_class( array $classes ):array {
 		$classes[] = 'has-header-dark';
 	}
 
-	// Check stricky header bg color.
+	// Check sticky header bg color.
 	if ( $header_use_sticky ) {
 		if ( 'light' === $sticky_bg_color ) {
 			$classes[] = 'has-sticky-header-light';
@@ -235,6 +247,18 @@ function body_class( array $classes ):array {
 		if ( $swap_sidebar ) {
 			$classes[] = 'has-sidebar-inverted';
 		}
+	}
+
+	if ( $blog_has_sidebar && ! is_single() && ! is_404() && $excluded_woocommerce ) {
+		$classes[] = 'has-sidebar';
+
+		if ( $swap_sidebar ) {
+			$classes[] = 'has-sidebar-inverted';
+		}
+	}
+
+	if ( 'under_header' === $menu_position ) {
+		$classes[] = 'is-menu-under-header';
 	}
 
 	return $classes;

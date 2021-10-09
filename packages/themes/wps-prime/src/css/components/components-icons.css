@@ -9,8 +9,16 @@
 	vertical-align: -0.125em;
 }
 
-.c-social-list__link .wps-prime-icon {
+.c-social-list__link {
 	margin-right: 0.5em;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	& .wps-prime-icon {
+		margin-right: 0.1em;
+	}
 }
 
 .nav-links {

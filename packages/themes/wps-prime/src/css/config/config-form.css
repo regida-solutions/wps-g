@@ -1,6 +1,6 @@
-:root {
+body {
 	--form-border-width: 1px;
 	--form-fields-spacing: 0.495rem;
-	--form-fields-padding: var(--spacing-tiny) var(--spacing-small);
+	--form-fields-padding: 8px 12px;
 	--color-spinner: #888;
 }

@@ -31,26 +31,55 @@
 	}
 }
 
-%typo-body {
+.site,
+.u-font-body,
+.u-font-one {
 	color: var(--text-color-body);
 	font-family: var(--theme-font-one);
 	font-weight: var(--theme-font-one-weight, 400);
 	line-height: var(--wp--custom--line-height--global);
 }
 
-%typo-heading {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.u-font-heading,
+.u-font-two {
 	color: var(--text-color-heading);
 	font-family: var(--theme-font-two, var(--theme-font-one));
 	font-weight: var(--theme-font-two-weight, 600);
 }
 
-.site,
-.u-font-body,
-.u-font-one {
-	@extend %typo-body;
+/* Headings */
+h1 {
+	font-size: var(--wp--preset--font-size--heading-1);
+	line-height: var(--wp--custom--line-height--heading-1);
 }
 
-.u-font-heading,
-.u-font-two {
-	@extend %typo-heading;
+h2 {
+	font-size: var(--wp--preset--font-size--heading-2);
+	line-height: var(--wp--custom--line-height--heading-2);
+}
+
+h3 {
+	font-size: var(--wp--preset--font-size--heading-3);
+	line-height: var(--wp--custom--line-height--heading-3);
+}
+
+h4 {
+	font-size: var(--wp--preset--font-size--heading-4);
+	line-height: var(--wp--custom--line-height--heading-4);
+}
+
+h5 {
+	font-size: var(--wp--preset--font-size--heading-5);
+	line-height: var(--wp--custom--line-height--heading-5);
+}
+
+h6 {
+	font-size: var(--wp--preset--font-size--heading-6);
+	line-height: var(--wp--custom--line-height--h6);
 }
