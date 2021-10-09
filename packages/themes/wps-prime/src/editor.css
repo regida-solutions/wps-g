@@ -5,6 +5,7 @@
 @import "./css/config/config-typography.css";
 @import "./css/config/config-typography-headers-editor.css";
 @import "./css/config/config-colors.css";
+@import "./css/config/config-buttons.css";
 
 /* Elements */
 @import "./css/elements/elements-editor.css";

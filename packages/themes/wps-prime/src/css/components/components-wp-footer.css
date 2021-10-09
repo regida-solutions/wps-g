@@ -8,10 +8,11 @@
 
 .site-footer .widget-area-container {
 	display: grid;
-	grid-gap: var(--spacing-base);
+	gap: var(--spacing-base);
 	grid-template-columns: repeat(var(--footer-widget-list-number), 1fr);
 	margin: 0 auto;
 	max-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
+	width: calc(100% - var(--site-spacing) * 2);
 	--footer-widget-list-number: 1;
 
 	@media (--viewport-lap) {

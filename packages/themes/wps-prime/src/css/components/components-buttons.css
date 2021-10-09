@@ -11,7 +11,7 @@
 	font-size: 1em;
 	padding: var(--button-padding);
 	text-decoration: none;
-	transition: all 250ms ease-in-out;
+	transition: all 150ms ease-in-out;
 
 	&:hover {
 		background-color: var(--button-color-default-h);

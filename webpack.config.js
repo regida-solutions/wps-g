@@ -225,7 +225,7 @@ const prepareConfig = ( dir, files ) => {
 			new DependencyExtractionWebpackPlugin( { injectPolyfill: true } ),
 			new webpack.ProgressPlugin(),
 
-			true === process.env.BROWSER_SYNC_ENABLE &&
+			'true' === process.env.BROWSER_SYNC_ENABLE &&
 				new BrowserSyncPlugin( {
 					files: '**/*.php',
 					proxy:
@@ -235,20 +235,6 @@ const prepareConfig = ( dir, files ) => {
 				} ),
 		].filter( Boolean ),
 	};
-
-	/**
-	 * Browsersync
-	 */
-	if ( 'true' === process.env.BROWSER_SYNC_ENABLE ) {
-		config.plugins.push(
-			new BrowserSyncPlugin( {
-				files: '**/*.php',
-				proxy: process.env.BROWSER_SYNC_PROXY ?? process.env.WP_HOME,
-				port: process.env.BROWSER_SYNC_PORT ?? 3002,
-				https: 'true' === process.env.BROWSER_SYNC_HTTPS,
-			} )
-		);
-	}
 
 	return config;
 };
