@@ -280,6 +280,7 @@
 	&.is-color-white {
 		& .wp-block-button__link {
 			border-color: var(--button-color-white);
+			color: var(--text-color-body);
 
 			&:hover {
 				border-color: var(--button-color-white-h);

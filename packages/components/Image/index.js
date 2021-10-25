@@ -17,7 +17,7 @@ import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 import { dispatch } from '@wordpress/data';
 
-function Image( {
+function Image({
 	attributes = {},
 	setAttributes,
 	isSelected = true,
@@ -25,40 +25,41 @@ function Image( {
 	featured = false,
 	focus = true,
 	video = false,
-	label = __( 'Add image', 'wps-prime' ),
-} ) {
-	if ( video ) {
-		label = __( 'Add video', 'wps-prime' );
+	label = __('Add image', 'wps-prime'),
+}) {
+	if (video) {
+		label = __('Add video', 'wps-prime');
 	}
 	const { media, focalPoint = { x: 0.5, y: 0.5 }, caption } = attributes;
-	const setMedia = ( newMedia ) => {
+	const setMedia = (newMedia) => {
 		const simplifiedMediaData = {
 			id: newMedia.id,
 			url: newMedia.url,
 			alt: newMedia.alt,
 		};
-		setAttributes( {
+		setAttributes({
 			media: simplifiedMediaData,
 			caption: newMedia.description,
-		} );
-		if ( featured ) {
-			dispatch( 'core/editor' ).editPost( {
+		});
+		if (featured) {
+			dispatch('core/editor').editPost({
 				featured_media: newMedia.id,
-			} );
+			});
 		}
 	};
 
 	let shortcode = '';
-	if ( media ) {
+
+	if (media) {
 		shortcode += '[ssr_image ';
-		if ( typeof media.id !== 'undefined' ) {
-			shortcode += `id="${ media.id }" `;
+		if (typeof media.id !== 'undefined') {
+			shortcode += `id="${media.id}" `;
 		}
-		if ( typeof media.url !== 'undefined' ) {
-			shortcode += `url="${ media.url }" `;
+		if (typeof media.url !== 'undefined') {
+			shortcode += `url="${media.url}" `;
 		}
-		if ( focus ) {
-			shortcode += `style="object-position: ${ focalPoint.x * 100 }% ${
+		if (focus) {
+			shortcode += `style="object-position: ${focalPoint.x * 100}% ${
 				focalPoint.y * 100
 			}%"`;
 		}
@@ -66,150 +67,143 @@ function Image( {
 	}
 	return (
 		<>
-			{ setAttributes && (
+			{setAttributes && (
 				<>
 					<InspectorControls>
-						<PanelBody
-							title={ __( 'Image settings', 'wps-prime' ) }
-						>
-							{ media && (
+						<PanelBody title={__('Image settings', 'wps-prime')}>
+							{media && (
 								<>
-									{ focus && (
+									{focus && (
 										<FocalPointPicker
-											label={ __(
+											label={__(
 												'Focal Point Picker',
-												'wps-prime'
-											) }
-											url={ media.url }
-											value={ focalPoint }
-											onChange={ ( value ) =>
-												setAttributes( {
+												'wps-prime',
+											)}
+											url={media.url}
+											value={focalPoint}
+											onChange={(value) =>
+												setAttributes({
 													focalPoint: value,
-												} )
+												})
 											}
 										/>
-									) }
+									)}
 
 									<MediaUploadCheck>
 										<MediaUpload
-											title={ __(
+											title={__(
 												'Replace Image',
-												'wps-prime'
-											) }
-											onSelect={ setMedia }
+												'wps-prime',
+											)}
+											onSelect={setMedia}
 											allowedTypes={
 												video ? 'video' : 'image'
 											}
-											render={ ( { open } ) => (
+											render={({ open }) => (
 												<p>
 													<Button
-														onClick={ open }
+														onClick={open}
 														isDefault
 														isPrimary
 														className="custom-media-inserter"
 													>
-														{ __(
+														{__(
 															'Replace Image',
-															'wps-prime'
-														) }
+															'wps-prime',
+														)}
 													</Button>
 													<Button
-														onClick={ () =>
-															setAttributes( {
+														onClick={() =>
+															setAttributes({
 																media: false,
-															} )
+															})
 														}
 														className="custom-media-inserter"
 													>
-														{ __(
+														{__(
 															'Remove Image',
-															'wps-prime'
-														) }
+															'wps-prime',
+														)}
 													</Button>
 												</p>
-											) }
+											)}
 										/>
 									</MediaUploadCheck>
 								</>
-							) }
+							)}
 						</PanelBody>
 					</InspectorControls>
-					{ ! media && (
+					{!media && (
 						<MediaUploadCheck>
 							<MediaUpload
 								title={
 									video
-										? __( 'Add video', 'wps-prime' )
-										: __( 'Add image', 'wps-prime' )
+										? __('Add video', 'wps-prime')
+										: __('Add image', 'wps-prime')
 								}
-								onSelect={ setMedia }
-								allowedTypes={ video ? 'video' : 'image' }
-								render={ ( { open } ) => (
+								onSelect={setMedia}
+								allowedTypes={video ? 'video' : 'image'}
+								render={({ open }) => (
 									<p>
 										<IconButton
-											onClick={ open }
+											onClick={open}
 											icon="plus"
 											className="add-button custom-media-inserter"
-											label={ __(
-												'Add image',
-												'wps-prime'
-											) }
-											style={ {
+											label={__('Add image', 'wps-prime')}
+											style={{
 												border: '1px solid #ddd',
-											} }
+											}}
 										>
-											{ label }
+											{label}
 										</IconButton>
 									</p>
-								) }
+								)}
 							/>
 						</MediaUploadCheck>
-					) }
+					)}
 				</>
-			) }
+			)}
 
-			{ media && (
+			{media && (
 				<figure className="image-wrapper">
 					<div className="image">
-						{ setAttributes && (
+						{setAttributes && (
 							<ServerSideRender
-								block="tradies/shortcode"
-								attributes={ { shortcode } }
+								block="wps/shortcode"
+								attributes={{ shortcode }}
 							/>
-						) }
-						{ ! setAttributes && shortcode }
-						{ isSelected && setAttributes && (
+						)}
+						{!setAttributes && shortcode}
+						{isSelected && setAttributes && (
 							<IconButton
 								icon="dismiss"
-								label={ __( 'Remove image', 'wps-prime' ) }
-								style={ { border: '1px solid #ddd' } }
-								onClick={ () =>
-									setAttributes( { media: false } )
-								}
+								label={__('Remove image', 'wps-prime')}
+								style={{ border: '1px solid #ddd' }}
+								onClick={() => setAttributes({ media: false })}
 								className="custom-media-inserter"
 							/>
-						) }
+						)}
 					</div>
-					{ hasCaption && setAttributes && (
+					{hasCaption && setAttributes && (
 						<RichText
 							tagName="figcaption"
 							className="caption"
-							placeholder={ __( 'Add caption …', 'wps-prime' ) }
-							value={ caption }
-							onChange={ ( newCaption ) =>
-								setAttributes( { caption: newCaption } )
+							placeholder={__('Add caption …', 'wps-prime')}
+							value={caption}
+							onChange={(newCaption) =>
+								setAttributes({ caption: newCaption })
 							}
 						/>
-					) }
-					{ hasCaption && caption && ! setAttributes && (
+					)}
+					{hasCaption && caption && !setAttributes && (
 						<RichText.Content
 							tagName="figcaption"
 							className="caption"
-							value={ caption }
+							value={caption}
 						/>
-					) }
+					)}
 				</figure>
-			) }
+			)}
 		</>
 	);
 }

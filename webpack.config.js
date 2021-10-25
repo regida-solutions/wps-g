@@ -3,20 +3,19 @@
 /**
  * External dependencies
  */
-const { sync: globSync } = require( 'fast-glob' );
-const MiniCSSExtractPlugin = require( 'mini-css-extract-plugin' );
-const path = require( 'path' );
-const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
-const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
-const webpack = require( 'webpack' );
-const { Table } = require( 'console-table-printer' );
-require( 'dotenv' ).config();
+const { sync: globSync } = require('fast-glob');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const webpack = require('webpack');
+require('dotenv').config();
 
 /**
  * WordPress dependencies
  */
-const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
-const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack.config' );
+const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
+const defaultConfig = require('./node_modules/@wordpress/scripts/config/webpack.config');
 
 /**
  * Patches config to use resolve-url-loader for relative paths in SCSS files
@@ -24,8 +23,8 @@ const defaultConfig = require( './node_modules/@wordpress/scripts/config/webpack
  *
  * All paths will be threated as relative to file, not project root.
  */
-for ( const rule of defaultConfig.module.rules ) {
-	if ( 'any-filename-to-test.scss'.match( rule.test ) ) {
+for (const rule of defaultConfig.module.rules) {
+	if ('any-filename-to-test.scss'.match(rule.test)) {
 		const sassLoaderConfig = rule.use.pop();
 
 		// We mutate default config to change behaviour.
@@ -33,7 +32,7 @@ for ( const rule of defaultConfig.module.rules ) {
 			...rule.use,
 			// resolve-url-loader should be executed right after sass-loader.
 			{
-				loader: require.resolve( 'resolve-url-loader' ),
+				loader: require.resolve('resolve-url-loader'),
 				options: {
 					sourceMap: sassLoaderConfig.options.sourceMap,
 					removeCR: true,
@@ -62,75 +61,20 @@ function getEntryFiles() {
 	// Only include directories that contains a entry-files.json file.
 	const files = globSync(
 		'./packages/(mu-plugins|plugins|themes)/**/entry-files.json',
-		{ onlyFiles: true }
+		{ onlyFiles: true },
 	);
 
-	files.forEach( ( file ) => {
-		const entryFiles = require( file ); // eslint-disable-line
+	files.forEach((file) => {
+		const entryFiles = require(file); // eslint-disable-line
 
-		entries.push( {
-			dir: path.dirname( file ),
-			files: entryFiles.map( ( entryFile ) => `src/${ entryFile }` ),
-		} );
-	} );
+		entries.push({
+			dir: path.dirname(file),
+			files: entryFiles.map((entryFile) => `src/${entryFile}`),
+		});
+	});
 
 	return entries;
 }
-
-/**
- * Closure function to pretty print information about packages and
- * their entry files of assets.
- */
-const packagesTable = ( () => {
-	const entriesForTable = {};
-
-	const p = new Table( {
-		columns: [
-			{ name: 'dir', title: 'Package', alignment: 'left' },
-			{ name: 'files', title: 'Entry Files', alignment: 'left' },
-		],
-	} );
-
-	return {
-		printTable: () => {
-			const dirs = Object.keys( entriesForTable );
-			dirs.forEach( ( dir, i ) => {
-				const entryForTable = entriesForTable[ dir ];
-				Object.values( entryForTable ).forEach(
-					( entryForTableItem, j ) => {
-						p.addRow( {
-							dir: j === 0 ? dir : '',
-							files: entryForTableItem.join( ' + ' ),
-						} );
-					}
-				);
-
-				if ( dirs.length - 1 > i ) {
-					p.addRow( {
-						dir:
-							'───────────────────────────────────────────────────',
-						files: '────────────────────────────────',
-					} );
-				}
-			} );
-
-			p.printTable();
-		},
-
-		logEntry: ( dir, file ) => {
-			const fileName = path.parse( file ).name;
-
-			if ( typeof entriesForTable[ dir ] === 'undefined' ) {
-				entriesForTable[ dir ] = [];
-			}
-
-			if ( typeof entriesForTable[ dir ][ fileName ] === 'undefined' ) {
-				entriesForTable[ dir ][ fileName ] = [];
-			}
-			entriesForTable[ dir ][ fileName ].push( file );
-		},
-	};
-} )();
 
 /**
  * Prepares Config for defined package and entry files,
@@ -142,20 +86,33 @@ const packagesTable = ( () => {
  * @param {Array}  files Relative paths of enries.
  * @return {webpack.Configuration} Return single webpack configuration.
  */
-const prepareConfig = ( dir, files ) => {
+const prepareConfig = (dir, files) => {
 	const entries = {};
 
-	files.forEach( ( file ) => {
-		const filePath = path.resolve( __dirname, dir, file );
-		const fileName = path.parse( file ).name;
+	files.forEach((file) => {
+		const filePath = path.resolve(__dirname, dir, file);
+		const pathParts = path.parse(file);
+		const fileName = pathParts.name;
+		let subDirectory = pathParts.dir;
 
-		if ( typeof entries[ fileName ] === 'undefined' ) {
-			entries[ fileName ] = [];
+		/**
+		 * Remove src folder from path to add support nested directories in entry-files.json
+		 * Like: ["index.js", "hero/index.js", "style.css"]
+		 * All assets of hero/index.js should be places to build/hero/
+		 */
+		subDirectory = subDirectory
+			.split('/')
+			.filter((folder, i) => !(folder === 'src' && i === 0))
+			.join('/');
+
+		const entryKey = (subDirectory ? subDirectory + '/' : '') + fileName;
+
+		if (typeof entries[entryKey] === 'undefined') {
+			entries[entryKey] = [];
 		}
 
-		entries[ fileName ].push( filePath );
-		packagesTable.logEntry( dir, file );
-	} );
+		entries[entryKey].push(filePath);
+	});
 
 	const config = {
 		...defaultConfig,
@@ -163,15 +120,8 @@ const prepareConfig = ( dir, files ) => {
 		name: dir,
 		entry: entries,
 
-		/**
-		 * It exclude including to bundle external copy of libraries.
-		 */
-		externals: {
-			jquery: 'jQuery',
-		},
-
 		output: {
-			path: path.resolve( __dirname, dir, 'build' ),
+			path: path.resolve(__dirname, dir, 'build'),
 			filename: '[name].js',
 		},
 		optimization: {
@@ -195,7 +145,7 @@ const prepareConfig = ( dir, files ) => {
 			...defaultConfig.resolve,
 			alias: {
 				...defaultConfig.resolve.alias,
-				components: path.resolve( __dirname, 'packages', 'components' ),
+				components: path.resolve(__dirname, 'packages', 'components'),
 			},
 		},
 
@@ -213,7 +163,7 @@ const prepareConfig = ( dir, files ) => {
 		},
 
 		plugins: [
-			new MiniCSSExtractPlugin( { filename: '[name].css' } ),
+			new MiniCSSExtractPlugin({ filename: '[name].css' }),
 
 			/**
 			 * It removes empty JS files, when we use CSS/SCSS as main entrypoint of asset.
@@ -222,18 +172,20 @@ const prepareConfig = ( dir, files ) => {
 			 */
 			new RemoveEmptyScriptsPlugin(),
 
-			new DependencyExtractionWebpackPlugin( { injectPolyfill: true } ),
-			new webpack.ProgressPlugin(),
+			new DependencyExtractionWebpackPlugin({ injectPolyfill: true }),
+
+			(process.argv || []).includes('--progress') &&
+				new webpack.ProgressPlugin(),
 
 			'true' === process.env.BROWSER_SYNC_ENABLE &&
-				new BrowserSyncPlugin( {
+				new BrowserSyncPlugin({
 					files: '**/*.php',
 					proxy:
 						process.env.BROWSER_SYNC_PROXY ?? process.env.WP_HOME,
 					port: process.env.BROWSER_SYNC_PORT ?? 3002,
 					https: 'true' === process.env.BROWSER_SYNC_HTTPS,
-				} ),
-		].filter( Boolean ),
+				}),
+		].filter(Boolean),
 	};
 
 	return config;
@@ -246,6 +198,4 @@ const files = getEntryFiles();
  *
  * https://webpack.js.org/configuration/configuration-types/#exporting-multiple-configurations
  */
-module.exports = files.map( ( item ) => prepareConfig( item.dir, item.files ) );
-
-packagesTable.printTable();
+module.exports = files.map((item) => prepareConfig(item.dir, item.files));

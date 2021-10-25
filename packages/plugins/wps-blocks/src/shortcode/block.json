@@ -1,0 +1,21 @@
+{
+	"apiVersion": 2,
+	"name": "wps/shortcode",
+	"title": "Shortcode",
+	"description": "Render shortcode",
+	"category": "common",
+	"icon": "cover-image",
+	"supports": {
+		"inserter" : false,
+		"html"   : false,
+		"align"  : []
+	},
+	"keywords": ["Shortcode"],
+	"attributes": {
+		"shortcode" : {
+			"type": "string"
+		}
+
+	},
+	"editorScript": "file:../../build/shortcode/index.js"
+}

@@ -26,20 +26,19 @@ add_action( 'customize_register', __NAMESPACE__ . '\\register' );
 function parse_defaults( string $color ):string {
 
 	$color_list = apply_filters('wps_default_colors', [
-		'text-color-body'      => '#000000',
-		'text-color-link'      => '#007abe',
-		'text-color-heading'   => '#000000',
-		'button-color-default' => '#1E1E1C',
-		'color-one'            => '#2c3e50',
-		'color-two'            => '#007abe',
-		'color-three'          => '#ff8c40',
-		'color-four'           => '#e74c3c',
-		'color-five'           => '#fafa26',
-		'color-six'            => '#00b894',
-		'color-seven'          => '#ffffff',
-		'color-eight'          => '#bdc3c7',
-		'color-nine'           => '#7f8c8d',
-		'color-ten'            => '#32373c',
+		'text-color-body'    => '#000000',
+		'text-color-link'    => '#007abe',
+		'text-color-heading' => '#000000',
+		'color-one'          => '#2c3e50',
+		'color-two'          => '#007abe',
+		'color-three'        => '#ff8c40',
+		'color-four'         => '#e74c3c',
+		'color-five'         => '#fafa26',
+		'color-six'          => '#00b894',
+		'color-seven'        => '#ffffff',
+		'color-eight'        => '#bdc3c7',
+		'color-nine'         => '#7f8c8d',
+		'color-ten'          => '#32373c',
 	]);
 
 	$output = [];
@@ -94,6 +93,16 @@ function register( object $wp_customize ):void {
 		'colors_section',
 		[
 			'title'      => __( 'Content Colors', 'wps-prime' ),
+			'priority'   => 35,
+			'capability' => 'edit_theme_options',
+			'panel'      => 'theme_colors_panel',
+		]
+	);
+
+	$wp_customize->add_section(
+		'button_colors_section',
+		[
+			'title'      => __( 'Button Colors', 'wps-prime' ),
 			'priority'   => 35,
 			'capability' => 'edit_theme_options',
 			'panel'      => 'theme_colors_panel',
@@ -202,60 +211,5 @@ function register( object $wp_customize ):void {
 			)
 		);
 	}
-
-		/**
-		* Button Colors
-		*/
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_button_color_default',
-		[
-			'default'    => parse_defaults( 'button_color_default' ),
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		new \WP_Customize_Color_Control(
-			$wp_customize,
-			'wps_theme_button_color_default',
-			[
-				'label'    => __( 'Button color default', 'wps-prime' ),
-				'settings' => 'wps_button_color_default',
-				'section'  => 'global_theme_colors_section',
-			]
-		)
-	);
-
-	// SETTING.
-	$wp_customize->add_setting(
-		'wps_button_color_hover_modifier',
-		[
-			'default'    => '-0.2',
-			'type'       => 'theme_mod',
-			'capability' => 'edit_theme_options',
-		]
-	);
-
-	// CONTROL.
-	$wp_customize->add_control(
-		'wps_theme_button_color_hover_modifier',
-		[
-			'type'              => 'range',
-			'label'             => __( 'Button hover color modifier', 'wps-prime' ),
-			'description'       => __( '<b>Default: -0.2.</b><br>Use the slider to set the hover color darken or lighter, between -1,1 values. 0.1 steps (0.1 = 10%)', 'wps-prime' ),
-			'settings'          => 'wps_button_color_hover_modifier',
-			'priority'          => 10,
-			'section'           => 'global_theme_colors_section',
-			'input_attrs'       => [
-				'min'  => -1,
-				'max'  => 1,
-				'step' => 0.1,
-			],
-			'sanitize_callback' => 'intval',
-		]
-	);
 
 }

@@ -22,9 +22,6 @@ add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\\allowed_block_types', 
  */
 function setup_editor() {
 
-	// Remove default core block patterns.
-	remove_theme_support( 'core-block-patterns' );
-
 	// Adding support for core block visual styles.
 	add_theme_support( 'wp-block-styles' );
 
@@ -137,6 +134,7 @@ function allowed_block_types() : array { //phpcs:ignore
 		'core/button',
 		'core/buttons',
 		'core/embed',
+		'core/group',
 		'core-embed/youtube',
 		'core-embed/vimeo',
 		'core/heading',
@@ -155,6 +153,9 @@ function allowed_block_types() : array { //phpcs:ignore
 		'core/media-text',
 		'core/calendar',
 		'core/separator',
+		'core/spacer',
+		'core/text-columns',
+		'core/query',
 
 		// Woocommerce.
 		'woocommerce/all-reviews',
