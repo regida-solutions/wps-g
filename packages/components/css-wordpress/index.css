@@ -189,10 +189,14 @@
 @media (--viewport-lap-and-up) {
 	.wp-block-column {
 		flex-basis: calc(50% - calc(var(--wp--custom--site--spacing) / 2));
-	}
 
-	.wp-block-column:nth-child(2n) {
-		margin-left: var(--wp--custom--site--spacing);
+		&:nth-child(even) {
+			margin-left: var(--wp--custom--site--spacing);
+		}
+
+		&:not(:only-child) {
+			flex-basis: calc(50% - var(--wp--custom--site--spacing) / 2) !important;
+		}
 	}
 }
 

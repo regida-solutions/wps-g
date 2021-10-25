@@ -1,0 +1,18 @@
+@import "components";
+@import "wps-css-viewports";
+
+.wps-slider {
+	--swiper-navigation-color: currentColor;
+
+	&.has-vertical-align-center {
+		& .wps-slider-slide {
+			align-self: center;
+		}
+	}
+
+	&.has-vertical-align-bottom {
+		& .wps-slider-slide {
+			align-self: end;
+		}
+	}
+}

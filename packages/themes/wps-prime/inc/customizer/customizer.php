@@ -27,6 +27,7 @@ function load_customizer_sections() {
 		'colors',
 		'colors-header',
 		'colors-footer',
+		'colors-buttons',
 		'wpml',
 		'woo-category',
 		'woo-shop',

@@ -1,0 +1,47 @@
+{
+	"apiVersion": 2,
+	"name": "wps/section",
+	"title": "Section block",
+	"description": "Create a custom colorful section that can hold other blocks",
+	"category": "common",
+	"icon": "cover-image",
+	"supports": {
+		"anchor" : true,
+		"html"   : false,
+		"align"  : [ "full","wide" ]
+	},
+	"keywords": ["Section","Group"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"spacingVertical": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"backgroundColorName": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"textColorName": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../build/section/style.css",
+	"editorStyle": "file:../../build/section/editor.css",
+	"editorScript": "file:../../build/section/index.js"
+}

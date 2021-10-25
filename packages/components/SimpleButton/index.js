@@ -7,7 +7,7 @@ import { Button, ToggleControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { keyboardReturn, customLink } from '@wordpress/icons';
 
-const SimpleButton = ( attributes ) => {
+const SimpleButton = (attributes) => {
 	const {
 		text = false,
 		onTextChange = () => {},
@@ -18,78 +18,78 @@ const SimpleButton = ( attributes ) => {
 		className = false,
 		innerClassName = '',
 		target = false,
-		placeholder = __( 'Add your text here!' ),
+		placeholder = __('Add your text here!'),
 	} = attributes;
 
 	/* Popover state */
-	const [ openUtility, setOpenUtility ] = useState( false );
+	const [openUtility, setOpenUtility] = useState(false);
 
 	return (
 		<div className="wp-block-button-editor-wrapper">
-			<div className={ `wp-block-button ${ className }` }>
+			<div className={`wp-block-button ${className}`}>
 				<RichText
-					className={ `wp-block-button__link ${ innerClassName }` }
-					value={ text }
-					placeholder={ placeholder }
-					onChange={ onTextChange }
-					allowedFormats={ [] }
+					className={`wp-block-button__link ${innerClassName}`}
+					value={text}
+					placeholder={placeholder}
+					onChange={onTextChange}
+					allowedFormats={[]}
 					withoutInteractiveFormatting
 				/>
 			</div>
 
-			{ isSelected && (
+			{isSelected && (
 				<>
 					<Button
 						className="wp-block-button__is-opener"
 						variant="link"
-						icon={ customLink }
+						icon={customLink}
 						isSmall
-						onClick={ () => setOpenUtility( ! openUtility ) }
+						onClick={() => setOpenUtility(!openUtility)}
 					>
 						URL
 					</Button>
-					{ openUtility && (
+					{openUtility && (
 						<URLPopover
-							onClose={ () => setOpenUtility( ! openUtility ) }
+							onClose={() => setOpenUtility(!openUtility)}
 						>
 							<div className="block-editor-link-control">
 								<div className="block-editor-link-control__search-input-wrapper">
 									<form
-										onSubmit={ () =>
-											setOpenUtility( ! openUtility )
+										onSubmit={() =>
+											setOpenUtility(!openUtility)
 										}
 									>
 										<div className="block-editor-link-control__search-input">
 											<URLInput
 												className="block-editor-url-input__input"
-												value={ buttonLink }
-												onChange={ onURLChange }
-												placeholder={ __(
-													'Enter address'
-												) }
+												value={buttonLink}
+												onChange={onURLChange}
+												placeholder={__(
+													'Enter address',
+												)}
 											/>
 										</div>
 										<div className="block-editor-link-control__search-actions">
 											<Button
-												icon={ keyboardReturn }
-												label={ __( 'Apply' ) }
+												icon={keyboardReturn}
+												label={__('Apply')}
 												type="submit"
 											/>
 										</div>
 									</form>
 									<div className="block-editor-link-control__settings">
 										<ToggleControl
-											label={ __( 'Open in new tab' ) }
-											checked={ target }
-											onChange={ onSetTarget }
+											label={__('Open in new tab')}
+											checked={target}
+											onChange={onSetTarget}
 										/>
 									</div>
 								</div>
 							</div>
 						</URLPopover>
-					) }
+					)}
 				</>
-			) }
+			)}
 		</div>
 	);
 };

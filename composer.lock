@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48e0b2e1f5274fecc8810119624cb062",
+    "content-hash": "b521027f4554b5688754999816ef6f65",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -605,6 +605,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/woocommerce/"
+        },
+        {
+            "name": "wpshapers/wps-blocks",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "packages/plugins/wps-blocks",
+                "reference": "2dcd08a6a806dae05d00380d9bf4ae6f949ee9b0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "A set of blocks built to be used with wps-prime framework",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "wpshapers/wps-prime",
@@ -1618,16 +1636,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
-                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/f268ca40d54617c6e06757f83f699775c9b3ff2e",
+                "reference": "f268ca40d54617c6e06757f83f699775c9b3ff2e",
                 "shasum": ""
             },
             "require": {
@@ -1665,7 +1683,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2021-04-09T00:54:41+00:00"
+            "time": "2021-10-11T04:00:11+00:00"
         },
         {
             "name": "symfony/finder",
@@ -2117,6 +2135,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "wpshapers/wps-prime": 20,
+        "wpshapers/wps-blocks": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
