@@ -207,7 +207,6 @@ class Functions_Customizer_Styles {
 		$mod        = get_theme_mod( $mod_name );
 		$luminosity = get_theme_mod( 'wps_button_color_hover_modifier', $modifier );
 
-
 		if ( ! empty( $mod ) ) {
 			$return = sprintf(
 				'%s:%s;',
