@@ -4,29 +4,29 @@
  */
 export const headerCart = () => {
 	if (
-		document.body.classList.contains( 'woocommerce-cart' ) ||
-		document.body.classList.contains( 'woocommerce-checkout' ) ||
+		document.body.classList.contains('woocommerce-cart') ||
+		document.body.classList.contains('woocommerce-checkout') ||
 		window.innerWidth < 768 ||
-		! document.getElementById( 'site-header-cart' )
+		!document.getElementById('site-header-cart')
 	) {
 		return;
 	}
 
-	window.addEventListener( 'load', function () {
-		const cart = document.querySelector( '.site-header-cart' );
+	window.addEventListener('load', function () {
+		const cart = document.querySelector('.site-header-cart');
 
-		cart.addEventListener( 'mouseover', function () {
+		cart.addEventListener('mouseover', function () {
 			const windowHeight = window.outerHeight,
 				cartBottomPos =
 					this.querySelector(
-						'.widget_shopping_cart_content'
+						'.widget_shopping_cart_content',
 					).getBoundingClientRect().bottom + this.offsetHeight,
-				cartList = this.querySelector( '.cart_list' );
+				cartList = this.querySelector('.cart_list');
 
-			if ( cartBottomPos > windowHeight ) {
+			if (cartBottomPos > windowHeight) {
 				cartList.style.maxHeight = '15em';
 				cartList.style.overflowY = 'auto';
 			}
-		} );
-	} );
+		});
+	});
 };

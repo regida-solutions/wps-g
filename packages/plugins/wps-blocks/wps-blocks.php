@@ -27,7 +27,7 @@ define( 'BLOCKS_LIST', [
 	'hero',
 	'section',
 	'slider',
-	'slider-slide'
+	'slider-slide',
 ]);
 
 /* Load image shortcode */

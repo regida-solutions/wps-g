@@ -96,9 +96,9 @@ function add_unfiltered_html_capability_to_site_admin( array $caps, string $cap,
 function site_js_settings( array $settings ):array {
 
 	/* Get theme settings */
-	$use_sticky     = get_theme_mod( 'header_use_sticky', false );
+	$use_sticky = get_theme_mod( 'header_use_sticky', false );
 
-	$settings['useSticky']    = $use_sticky;
+	$settings['useSticky'] = $use_sticky;
 
 	return $settings;
 }
