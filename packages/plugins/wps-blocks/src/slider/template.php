@@ -22,8 +22,8 @@ function template( array $attributes, string $blocks ): string {
 	wp_enqueue_script( 'wps-slider-core' );
 	wp_enqueue_style( 'wps-slider-core' );
 
-	$align = isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '';
-	$text_align = isset( $attributes['textAlign'] ) ? 'has-text-align-' . $attributes['textAlign'] : '';
+	$align          = isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '';
+	$text_align     = isset( $attributes['textAlign'] ) ? 'has-text-align-' . $attributes['textAlign'] : '';
 	$vertical_align = isset( $attributes['verticalAlign'] ) ? 'has-vertical-align-' . $attributes['verticalAlign'] : '';
 
 	$classes = get_names( [
@@ -31,7 +31,7 @@ function template( array $attributes, string $blocks ): string {
 		'swiper',
 		$align,
 		$text_align,
-		$vertical_align
+		$vertical_align,
 	]);
 
 	ob_start();
