@@ -118,7 +118,16 @@
 		}
 
 		& .show-submenu {
+			align-items: center;
+			display: flex;
+
+			&:hover {
+				cursor: pointer;
+			}
+
 			& .site-nav__icon {
+				height: 1.1em;
+				margin-left: auto;
 				transform: rotate(0deg);
 				transition: transform var(--global-transition) ease-in-out;
 			}

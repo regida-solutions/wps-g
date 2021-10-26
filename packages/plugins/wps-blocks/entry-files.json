@@ -1,0 +1,15 @@
+[
+	"shortcode/index.js",
+	"hero/index.js",
+	"hero/style.css",
+	"section/index.js",
+	"section/style.css",
+	"section/editor.css",
+	"slider/index.js",
+	"slider/frontend.js",
+	"slider/style.css",
+	"slider/editor.css",
+	"slider-slide/index.js",
+	"slider-slide/style.css",
+	"slider-slide/editor.css"
+]

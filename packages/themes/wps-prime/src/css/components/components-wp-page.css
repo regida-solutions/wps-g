@@ -52,6 +52,12 @@ body {
 	}
 }
 
+.is-menu-under-header {
+	& .site-nav__menu-container > ul {
+		margin-top: 0;
+	}
+}
+
 .site-content {
 	margin-bottom: var(--spacing-large);
 	margin-top: var(--spacing-large);

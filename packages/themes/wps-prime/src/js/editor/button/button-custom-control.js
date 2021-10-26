@@ -14,7 +14,7 @@ import { InspectorControls } from '@wordpress/block-editor';
  * @return {Function} BlockEdit Modified block edit component.
  */
 const withAdvancedControls = createHigherOrderComponent(
-	( BlockEdit ) => ( props ) => {
+	(BlockEdit) => (props) => {
 		const { attributes, setAttributes, isSelected } = props;
 
 		const { buttonColor } = attributes;
@@ -23,65 +23,66 @@ const withAdvancedControls = createHigherOrderComponent(
 
 		return (
 			<>
-				<BlockEdit { ...props } />
-				{ isSelected && allowedBlocks && (
+				<BlockEdit {...props} />
+				{isSelected && allowedBlocks && (
 					<InspectorControls>
 						<PanelBody title="Colors" initialOpen>
 							<SelectControl
-								label={ __(
-									'Choose button color:',
-									'wps-prime'
-								) }
-								value={ buttonColor }
-								onChange={ ( value ) => {
-									setAttributes( { buttonColor: value } );
-								} }
-								options={ [
+								label={__('Choose button color:', 'wps-prime')}
+								value={buttonColor}
+								onChange={(value) => {
+									setAttributes({ buttonColor: value });
+								}}
+								options={[
 									{
 										value: '',
-										label: __( 'Default', 'wps-prime' ),
+										label: __('Default', 'wps-prime'),
 									},
 									{
 										value: 'primary',
-										label: __( 'Primary', 'wps-prime' ),
+										label: __('Primary', 'wps-prime'),
 									},
 									{
 										value: 'secondary',
-										label: __( 'Secondary', 'wps-prime' ),
+										label: __('Secondary', 'wps-prime'),
 									},
 									{
 										value: 'tertiary',
-										label: __( 'Tertiary', 'wps-prime' ),
+										label: __('Tertiary', 'wps-prime'),
 									},
 									{
 										value: 'positive',
-										label: __( 'Positive', 'wps-prime' ),
+										label: __('Positive', 'wps-prime'),
+									},
+									{
+										value: 'negative',
+										label: __('Negative', 'wps-prime'),
 									},
 									{
 										value: 'neutral',
-										label: __( 'Neutral', 'wps-prime' ),
+										label: __('Neutral', 'wps-prime'),
 									},
 									{
 										value: 'light',
-										label: __( 'Light', 'wps-prime' ),
+										label: __('Light', 'wps-prime'),
 									},
 									{
 										value: 'white',
-										label: __( 'White', 'wps-prime' ),
+										label: __('White', 'wps-prime'),
 									},
-								] }
+								]}
 							/>
 						</PanelBody>
 					</InspectorControls>
-				) }
+				)}
 			</>
 		);
 	},
-	'withAdvancedControls'
+	'withAdvancedControls',
 );
 
 addFilter(
 	'editor.BlockEdit',
 	'wps-prime/custom-advanced-control',
-	withAdvancedControls
+	withAdvancedControls,
 );

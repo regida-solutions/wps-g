@@ -3,26 +3,24 @@
  */
 import '../lib/side-slide-menu-core';
 
-const sideSlideMenuInit = ( $ ) => {
+const sideSlideMenuInit = ($) => {
 	// Get all menu togglers
-	const togglers = document.getElementsByClassName( 'c-slide-nav-toggler' );
-	const slideRight = new window.Menu( {
+	const togglers = document.getElementsByClassName('c-slide-nav-toggler');
+	const slideRight = new window.Menu({
 		wrapper: '#page',
 		type: 'slide-right',
 		menuOpenerClass: '.c-slide-nav-toggler',
 		maskId: '#c-slide-nav-mask',
-	} );
+	});
 
 	// Asign open close functionality
-	Array.prototype.filter.call( togglers, ( element ) => {
-		element.addEventListener( 'click', ( e ) => {
+	Array.prototype.filter.call(togglers, (element) => {
+		element.addEventListener('click', (e) => {
 			if (
-				e.target.matches(
-					'.c-slide-nav-toggler, .c-slide-nav-toggler *'
-				)
+				e.target.matches('.c-slide-nav-toggler, .c-slide-nav-toggler *')
 			) {
 				const menuState = { isActive: false };
-				if ( menuState.isActive ) {
+				if (menuState.isActive) {
 					menuState.isActive = false;
 					slideRight.close();
 				} else {
@@ -30,106 +28,104 @@ const sideSlideMenuInit = ( $ ) => {
 					slideRight.open();
 				}
 			}
-		} );
-	} );
+		});
+	});
 	/**
 	 * Sub menu toggle
 	 */
 
-	const toggleIcon = document.getElementsByClassName( 'show-submenu' );
-	const togglelink = document.getElementsByClassName( 'site-nav__link' );
+	const toggleIcon = document.getElementsByClassName('show-submenu');
+	const togglelink = document.getElementsByClassName('site-nav__link');
 
 	// Run menu toggle on Icons
-	Array.prototype.filter.call( toggleIcon, ( element ) => {
-		element.addEventListener( 'click', function ( e ) {
-			if ( e.target.matches( '.show-submenu, .show-submenu *' ) ) {
-				if ( $( this ).next().hasClass( 'expanded' ) ) {
-					$( this ).next().removeClass( 'expanded' );
-					$( this ).removeClass( 'show' );
+	Array.prototype.filter.call(toggleIcon, (element) => {
+		element.addEventListener('click', function (e) {
+			if (e.target.matches('.show-submenu, .show-submenu *')) {
+				if ($(this).next().hasClass('expanded')) {
+					$(this).next().removeClass('expanded');
+					$(this).removeClass('show');
 				} else {
-					$( this )
+					$(this)
 						.parent()
 						.parent()
-						.find( 'li > .sub-menu' )
-						.removeClass( 'expanded' );
-					$( this )
+						.find('li > .sub-menu')
+						.removeClass('expanded');
+					$(this)
 						.parent()
 						.parent()
-						.find( 'li > .show-submenu' )
-						.removeClass( 'show' );
-					$( this ).next().toggleClass( 'expanded' );
-					$( this ).toggleClass( 'show' );
+						.find('li > .show-submenu')
+						.removeClass('show');
+					$(this).next().toggleClass('expanded');
+					$(this).toggleClass('show');
 				}
 			}
-		} );
-	} );
+		});
+	});
 	// Run menu toggle on links
-	Array.prototype.filter.call( togglelink, ( element ) => {
-		const listItem = $( element ).parent();
+	Array.prototype.filter.call(togglelink, (element) => {
+		const listItem = $(element).parent();
 		// const list = $( element ).parent().parent();
 
-		const classList = $( listItem ).attr( 'class' ).split( /\s+/ );
-		$( listItem.parent() ).attr( 'class' ).split( /\s+/ );
-		if ( classList.includes( 'menu-item--show-submenu' ) ) {
-			listItem.children( '.site-nav__link' ).removeAttr( 'href' );
+		const classList = $(listItem).attr('class').split(/\s+/);
+		$(listItem.parent()).attr('class').split(/\s+/);
+		if (classList.includes('menu-item--show-submenu')) {
+			listItem.children('.site-nav__link').removeAttr('href');
 
-			element.addEventListener( 'click', () => {
-				const subMenu = $( listItem ).find( ' > .sub-menu' );
-				const subMenuTogglerIcon = $( listItem ).find(
-					' > .show-submenu'
-				);
+			element.addEventListener('click', () => {
+				const subMenu = $(listItem).find(' > .sub-menu');
+				const subMenuTogglerIcon = $(listItem).find(' > .show-submenu');
 				// Check if menu is already expanded
 
-				if ( $( subMenu ).hasClass( 'expanded' ) ) {
+				if ($(subMenu).hasClass('expanded')) {
 					// Close  the list
-					$( subMenu ).removeClass( 'expanded' );
+					$(subMenu).removeClass('expanded');
 					//  Set menu list toggler to default
-					$( subMenuTogglerIcon ).removeClass( 'show' );
+					$(subMenuTogglerIcon).removeClass('show');
 				} else {
-					$( subMenu ).addClass( 'expanded' );
-					$( subMenuTogglerIcon ).addClass( 'show' );
+					$(subMenu).addClass('expanded');
+					$(subMenuTogglerIcon).addClass('show');
 				}
-			} );
+			});
 		}
-	} );
-	( function () {
+	});
+	(function () {
 		// Make sure the browser supports what we are about to do.
-		if ( ! document.querySelectorAll || ! document.body.classList ) {
+		if (!document.querySelectorAll || !document.body.classList) {
 			return;
 		}
 
 		// Using a function helps isolate each accordion from the others
-		function makeAccordion( accordion ) {
+		function makeAccordion(accordion) {
 			let currentTarget;
 
 			const targets = accordion.querySelectorAll(
-				'.menu-item-has-children > .show-submenu'
+				'.menu-item-has-children > .show-submenu',
 			);
-			for ( let i = 0; i < targets.length; i++ ) {
-				targets[ i ].addEventListener(
+			for (let i = 0; i < targets.length; i++) {
+				targets[i].addEventListener(
 					'click',
 					function () {
-						if ( currentTarget ) {
-							currentTarget.classList.remove( 'expanded' );
+						if (currentTarget) {
+							currentTarget.classList.remove('expanded');
 						}
 
 						currentTarget = this.parentNode;
-						currentTarget.classList.add( 'expanded' );
+						currentTarget.classList.add('expanded');
 					},
-					false
+					false,
 				);
 			}
 
-			accordion.classList.add( 'js' );
+			accordion.classList.add('js');
 		}
 
 		// Find all the submenus to enable
-		const submenus = document.querySelectorAll( '.c-slide-nav__items' );
+		const submenus = document.querySelectorAll('.c-slide-nav__items');
 
 		// Array functions don't apply well to NodeLists
-		for ( let i = 0; i < submenus.length; i++ ) {
-			makeAccordion( submenus[ i ] );
+		for (let i = 0; i < submenus.length; i++) {
+			makeAccordion(submenus[i]);
 		}
-	} )();
+	})();
 };
 export default sideSlideMenuInit;

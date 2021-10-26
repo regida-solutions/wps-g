@@ -1,0 +1,26 @@
+.u-padding-vertical {
+	&-tiny {
+		padding-bottom: var(--wp--custom--site--spacing-tiny);
+		padding-top: var(--wp--custom--site--spacing-tiny);
+	}
+
+	&-small {
+		padding-bottom: var(--wp--custom--site--spacing-small);
+		padding-top: var(--wp--custom--site--spacing-small);
+	}
+
+	&-normal {
+		padding-bottom: var(--wp--custom--site--spacing-normal);
+		padding-top: var(--wp--custom--site--spacing-normal);
+	}
+
+	&-large {
+		padding-bottom: var(--wp--custom--site--spacing-large);
+		padding-top: var(--wp--custom--site--spacing-large);
+	}
+
+	&-huge {
+		padding-bottom: var(--wp--custom--site--spacing-huge);
+		padding-top: var(--wp--custom--site--spacing-huge);
+	}
+}

@@ -55,8 +55,19 @@ class Functions_Customizer_Styles {
 	 */
 	private function generate_styles():string {
 
-		$style_list   = '';
-		$settings_woo = [];
+		$style_list         = '';
+		$settings_woo       = [];
+		$button_color_names = [
+			'default',
+			'primary',
+			'secondary',
+			'tertiary',
+			'negative',
+			'positive',
+			'neutral',
+			'light',
+			'white',
+		];
 
 		$header_bg         = get_theme_mod( 'wps_header_background_sticky', '#000000' );
 		$header_bg_opacity = get_theme_mod( 'wps_header_background_sticky_opacity', '0.8' );
@@ -90,6 +101,11 @@ class Functions_Customizer_Styles {
 			'--footer-micro-background-color' => 'wps_footer_micro_background_color',
 		];
 
+		$settings_buttons = [];
+		foreach ( $button_color_names as $button_color_name ) {
+			$settings_buttons[ '--button-color-' . $button_color_name ] = 'wps_button_color_' . $button_color_name;
+		}
+
 		if ( \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated() ) {
 			$settings_woo = [
 				'--woo-head-utility-symbol-color'       => 'wps_woo_header_utility_icons_color',
@@ -117,7 +133,7 @@ class Functions_Customizer_Styles {
 			];
 		}
 
-		$settings = array_merge( $settings_theme, $settings_woo );
+		$settings = array_merge( $settings_theme, $settings_buttons, $settings_woo );
 
 		foreach ( $settings as $var => $option ) {
 			$style_list .= self::generate_css_var( $var, $option, false );
@@ -128,6 +144,11 @@ class Functions_Customizer_Styles {
 		$style_list .= '--header-background-sticky-h:' . $this->hex2rgba( $header_bg, '1' ) . ';';
 		$style_list .= $this->generate_css_var_hex( '--main-nav-ca-one-color-h', 'wps_main_nav_ca_one_color', false );
 		$style_list .= $this->generate_css_var_hex( '--main-nav-ca-two-color-h', 'wps_main_nav_ca_two_color', false );
+
+		// Button hover colors.
+		foreach ( $button_color_names as $button_color_name ) {
+			$style_list .= $this->generate_css_var_hex( '--button-color-' . $button_color_name . '-h', 'wps_button_color_' . $button_color_name, false );
+		}
 
 		return sprintf( ':root {%s}', $style_list );
 	}
@@ -196,6 +217,7 @@ class Functions_Customizer_Styles {
 				echo esc_html( $return );
 			}
 		}
+
 		return esc_html( $return );
 	}
 
@@ -208,13 +230,15 @@ class Functions_Customizer_Styles {
 	 * @return string
 	 */
 	private function luminance( string $hex, string $percent ):string {
+
 		// Validate hex string.
 		$hex     = preg_replace( '/[^0-9a-f]/i', '', $hex );
 		$new_hex = '#';
 
 		if ( strlen( $hex ) < 6 ) {
-			$hex = $hex[0] + $hex[0] + $hex[1] + $hex[1] + $hex[2] + $hex[2];
+			$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
 		}
+
 		// Convert to decimal and change luminosity.
 		for ( $i = 0; $i < 3; $i++ ) {
 			$dec      = hexdec( substr( $hex, $i * 2, 2 ) );

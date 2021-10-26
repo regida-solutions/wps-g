@@ -3,23 +3,23 @@
  */
 import './js/editor/button/index';
 
-window.wp.domReady( () => {
+window.wp.domReady(() => {
 	// Core Image settings
-	window.wp.blocks.unregisterBlockStyle( 'core/image', 'rounded' );
-	window.wp.blocks.unregisterBlockStyle( 'core/image', 'default' );
+	window.wp.blocks.unregisterBlockStyle('core/image', 'rounded');
+	window.wp.blocks.unregisterBlockStyle('core/image', 'default');
 
 	// Core Button settings
-	window.wp.blocks.unregisterBlockStyle( 'core/button', 'fill' );
+	window.wp.blocks.unregisterBlockStyle('core/button', 'fill');
 
-	window.wp.blocks.registerBlockStyle( 'core/button', {
+	window.wp.blocks.registerBlockStyle('core/button', {
 		name: 'pill',
 		label: 'Pill',
 		isDefault: false,
-	} );
+	});
 
-	window.wp.blocks.registerBlockStyle( 'core/button', {
+	window.wp.blocks.registerBlockStyle('core/button', {
 		name: 'pill-outline',
 		label: 'Pill Outline',
 		isDefault: false,
-	} );
-} );
+	});
+});
