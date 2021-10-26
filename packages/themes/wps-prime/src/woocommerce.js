@@ -6,8 +6,8 @@ import { singleImageCarousel } from './js/woo/single-image-carousel';
 import { readMoreInit } from './js/woo/read-more';
 
 // eslint-disable-next-line no-undef
-jQuery( document ).ready( ( $ ) => {
+jQuery(document).ready(($) => {
 	headerCart();
-	singleImageCarousel( $ );
-	readMoreInit( $ );
-} );
+	singleImageCarousel($);
+	readMoreInit($);
+});
