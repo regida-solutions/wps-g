@@ -4,11 +4,13 @@
 import sideSlideMenuInit from './js/components/side-slide-menu-init';
 import megaMenuInit from './js/components/mega-menu-init';
 import stickyHeader from './js/components/sticky-header';
+import initFancybox from './js/components/init-fancybox';
 
 // eslint-disable-next-line no-undef
 jQuery(document).ready(($) => {
 	sideSlideMenuInit($);
 	megaMenuInit($);
+	initFancybox();
 });
 
 const { useSticky } = window.wpsThemeSettings;

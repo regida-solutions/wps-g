@@ -41,12 +41,17 @@ function get_file_path( string $file ): string {
 function front_end_assets() {
 
 	// SWIPER Slider Core.
-	wp_register_script( 'wps-slider-core', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', [], WPS_PRIME_THEME_VERSION, true );
+	wp_register_script( 'wps-slider-core', 'https://unpkg.com/swiper@7/swiper-bundle.min.js', [ 'wps-prime' ], WPS_PRIME_THEME_VERSION, true );
 	wp_register_style( 'wps-slider-core', 'https://unpkg.com/swiper@7/swiper-bundle.min.css', [], WPS_PRIME_THEME_VERSION );
 
 	// Fancybox.
-	wp_register_script( 'wps-fancybox-cor', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', [], WPS_PRIME_THEME_VERSION, true );
+	wp_register_script( 'wps-fancybox-core', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js', [ 'wps-prime' ], WPS_PRIME_THEME_VERSION, true );
 	wp_register_style( 'wps-fancybox-core', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css', [], WPS_PRIME_THEME_VERSION );
+
+	if ( has_block( 'gallery' ) ) {
+		wp_enqueue_style( 'wps-fancybox-core' );
+		wp_enqueue_script( 'wps-fancybox-core' );
+	}
 
 	// Fonts.
 	$fonts_path = get_template_directory() . '/assets/fonts/fonts.css';
@@ -65,7 +70,7 @@ function front_end_assets() {
 		wp_enqueue_style(
 			'wps-prime',
 			get_file_uri( 'style.css' ),
-			[ 'wps-slider-core', 'wps-fancybox-core' ],
+			[],
 			filemtime( $style_path )
 		);
 	}
@@ -77,7 +82,7 @@ function front_end_assets() {
 			wp_enqueue_style(
 				'wps-prime-woocommerce',
 				get_file_uri( 'woocommerce.css' ),
-				[ 'wps-slider-core', 'wps-fancybox-core' ],
+				[],
 				filemtime( $style_path )
 			);
 		}
@@ -96,7 +101,7 @@ function front_end_assets() {
 				];
 
 			// Add custom dependencies.
-			$custom_dependencies                 = [ 'wps-slider-core', 'wps-fancybox-core' ];
+			$custom_dependencies                 = [];
 			$script_dependencies['dependencies'] = array_merge( $script_dependencies['dependencies'], $custom_dependencies );
 
 			wp_enqueue_script(
