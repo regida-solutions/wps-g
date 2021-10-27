@@ -147,6 +147,7 @@ function allowed_block_types() : array { //phpcs:ignore
 		'core/video',
 		'core/columns',
 		'core/column',
+		'core/gallery',
 		'core/categories',
 		'core/legacy-widget',
 		'core/latest-posts',
