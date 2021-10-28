@@ -257,6 +257,16 @@ function body_class( array $classes ):array {
 		}
 	}
 
+	// Woocommerce sidebar.
+	if ( $woo_is_active ) {
+		if ( $has_woo_sidebar && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+			$classes[] = 'has-sidebar';
+			if ( $woo_swap_sidebar ) {
+				$classes[] = 'has-sidebar-inverted';
+			}
+		}
+	}
+
 	if ( 'under_header' === $menu_position ) {
 		$classes[] = 'is-menu-under-header';
 	}
