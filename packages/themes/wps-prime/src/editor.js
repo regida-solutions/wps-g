@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import './js/editor/button/index';
+import './js/editor/spacings/index';
 
 window.wp.domReady(() => {
 	// Core Image settings

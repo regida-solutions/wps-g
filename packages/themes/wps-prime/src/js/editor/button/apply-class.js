@@ -11,17 +11,16 @@ import classnames from 'classnames';
 
 /* Adjust the save.js part of block */
 function applyExtraClass(extraProps, blockType, attributes) {
-	if (blockType.name !== 'core/button') {
-		return extraProps;
-	}
+	const { color = '' } = attributes;
 
-	const { buttonColor } = attributes;
-
-	if (typeof buttonColor !== 'undefined' && '' !== buttonColor) {
-		extraProps.className = classnames(
-			extraProps.className,
-			`is-color-${buttonColor}`,
-		);
+	// Core button.
+	if (blockType.name === 'core/button') {
+		if (typeof color !== 'undefined' && '' !== color) {
+			extraProps.className = classnames(
+				extraProps.className,
+				`is-color-${color}`,
+			);
+		}
 	}
 
 	return extraProps;
@@ -29,7 +28,7 @@ function applyExtraClass(extraProps, blockType, attributes) {
 
 addFilter(
 	'blocks.getSaveContent.extraProps',
-	'wps-prime/applyExtraSaveClass',
+	'wps/applyExtraButtonSaveClass',
 	applyExtraClass,
 );
 
@@ -40,16 +39,13 @@ const withCustomAttributeClass = createHigherOrderComponent(
 			return <BlockListBlock {...props} />;
 		}
 
-		const { attributes } = props;
+		const { attributes = '' } = props;
 
-		if (
-			typeof attributes.buttonColor !== 'undefined' &&
-			'' !== attributes.buttonColor
-		) {
+		if ('' !== attributes.color) {
 			return (
 				<BlockListBlock
 					{...props}
-					className={`is-color-${attributes.buttonColor}`}
+					className={`is-color-${attributes.color}`}
 				/>
 			);
 		}
@@ -61,6 +57,6 @@ const withCustomAttributeClass = createHigherOrderComponent(
 
 addFilter(
 	'editor.BlockListBlock',
-	'wps-prime/applyExtraEditorClass',
+	'wps/applyExtraButtonEditorClass',
 	withCustomAttributeClass,
 );

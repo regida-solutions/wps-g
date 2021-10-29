@@ -24,7 +24,7 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
-import optionsList from './spacing-value-list';
+import spacings from './attributes.json';
 
 import { BackgroundImage } from 'components/controls';
 
@@ -53,6 +53,10 @@ function Edit({ attributes, setAttributes }) {
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
+
+	const optionsList = spacings.map((option) => {
+		return { label: option.name, value: option.value };
+	});
 
 	const onChangeColor = (color, attribute, attributeName) => {
 		let colorName = '';
