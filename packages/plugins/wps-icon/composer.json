@@ -1,0 +1,7 @@
+{
+	"name": "wpshapers/wps-icon",
+	"description": "Fontawesome icon library to be used with wps-prime framework",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"version": "1.0.0"
+}

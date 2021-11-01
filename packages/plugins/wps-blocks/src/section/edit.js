@@ -6,36 +6,31 @@ import {
 	InnerBlocks,
 	useBlockProps,
 	InspectorControls,
-	ColorPaletteControl,
-	getColorObjectByColorValue,
+	PanelColorSettings,
+	withColors,
 	ContrastChecker,
 } from '@wordpress/block-editor';
-import { select } from '@wordpress/data';
-import {
-	SelectControl,
-	PanelBody,
-	ColorIndicator,
-} from '@wordpress/components';
+import { compose } from '@wordpress/compose';
+import { PanelBody } from '@wordpress/components';
 
 /**
  * External dependencies
  */
 import classnames from 'classnames';
-/**
- * Internal dependencies
- */
-import spacings from './attributes.json';
 
-import { BackgroundImage } from 'components/controls';
+import { BackgroundImage, SpacingList } from 'components/controls';
 
-function Edit({ attributes, setAttributes }) {
+function Edit({
+	attributes,
+	setAttributes,
+	textColor,
+	setTextColor,
+	backgroundColor,
+	setBackgroundColor,
+}) {
 	const {
 		className,
 		spacingVertical,
-		backgroundColor,
-		backgroundColorName,
-		textColor,
-		textColorName,
 		media,
 		focalPoint,
 		backgroundBehaviour,
@@ -46,33 +41,11 @@ function Edit({ attributes, setAttributes }) {
 		className,
 		spacingVertical ? 'has-vertical-spacing' : '',
 		spacingVertical ? ` u-padding-vertical-${spacingVertical}` : '',
-		backgroundColorName
-			? `has-${backgroundColorName}-background-color`
-			: '',
-		textColorName ? `has-${textColorName}-color` : '',
+		typeof backgroundColor.class !== undefined ? backgroundColor.class : '',
+		typeof textColor.class !== undefined ? textColor.class : '',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
-
-	const optionsList = spacings.map((option) => {
-		return { label: option.name, value: option.value };
-	});
-
-	const onChangeColor = (color, attribute, attributeName) => {
-		let colorName = '';
-		if (color) {
-			const settings = select('core/editor').getEditorSettings();
-			const colorObject = getColorObjectByColorValue(
-				settings.colors,
-				color,
-			);
-			if (colorObject) {
-				colorName = colorObject.slug;
-			}
-		}
-		setAttributes({ [attribute]: color });
-		setAttributes({ [attributeName]: colorName });
-	};
 
 	const style = {};
 
@@ -96,30 +69,24 @@ function Edit({ attributes, setAttributes }) {
 					title={__('Backgrounds', 'wps-blocks')}
 					initialOpen={false}
 				>
-					<h3>Colors</h3>
-					<ColorIndicator colorValue={backgroundColor} />
-					<ColorIndicator colorValue={textColor} />
 					<ContrastChecker
-						textColor={textColor}
-						backgroundColor={backgroundColor}
+						textColor={textColor.color}
+						backgroundColor={backgroundColor.color}
 					/>
-					<ColorPaletteControl
-						label="Background color"
-						value={backgroundColor}
-						onChange={(color) =>
-							onChangeColor(
-								color,
-								'backgroundColor',
-								'backgroundColorName',
-							)
-						}
-					/>
-					<ColorPaletteControl
-						label="Text color"
-						value={textColor}
-						onChange={(color) =>
-							onChangeColor(color, 'textColor', 'textColorName')
-						}
+					<PanelColorSettings
+						title={__('Color settings')}
+						colorSettings={[
+							{
+								value: textColor.color,
+								onChange: setTextColor,
+								label: __('Text color'),
+							},
+							{
+								value: backgroundColor.color,
+								onChange: setBackgroundColor,
+								label: __('Background color'),
+							},
+						]}
 					/>
 					<BackgroundImage
 						media={media}
@@ -143,11 +110,9 @@ function Edit({ attributes, setAttributes }) {
 					initialOpen={false}
 				>
 					<h3>Paddings</h3>
-					<SelectControl
+					<SpacingList
 						label="Padding vertical"
-						labelPosition="top"
 						value={spacingVertical}
-						options={optionsList}
 						onChange={(value) =>
 							setAttributes({ spacingVertical: value })
 						}
@@ -163,4 +128,6 @@ function Edit({ attributes, setAttributes }) {
 	);
 }
 
-export default Edit;
+export default compose([
+	withColors({ textColor: 'color', backgroundColor: 'background-color' }),
+])(Edit);

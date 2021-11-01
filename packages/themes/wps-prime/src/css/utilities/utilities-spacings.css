@@ -25,7 +25,7 @@
 	}
 }
 
-.is-margin {
+.has-margin {
 	&-top {
 		&-tiny {
 			margin-top: var(--wp--custom--site--spacing-tiny) !important;

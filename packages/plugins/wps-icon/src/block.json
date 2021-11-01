@@ -1,0 +1,39 @@
+{
+	"apiVersion": 2,
+	"name": "wps/icon",
+	"title": "Icon block",
+	"description": "Fontawesome Icon",
+	"category": "common",
+	"icon": "star-filled",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["Icon","Fontawesome"],
+	"attributes": {
+		"icon": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"textAlign": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"type": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../build/style.css",
+	"editorScript": "file:../build/index.js"
+}

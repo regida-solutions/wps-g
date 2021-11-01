@@ -22,13 +22,13 @@ function applyExtraClass(extraProps, blockType, attributes) {
 		if ('' !== marginTop) {
 			extraProps.className = classnames(
 				extraProps.className,
-				`is-margin-top-${marginTop}`,
+				`has-margin-top-${marginTop}`,
 			);
 		}
 		if ('' !== marginBottom) {
 			extraProps.className = classnames(
 				extraProps.className,
-				`is-margin-bottom-${marginBottom}`,
+				`has-margin-bottom-${marginBottom}`,
 			);
 		}
 	}
@@ -52,8 +52,8 @@ const withCustomAttributeClass = createHigherOrderComponent(
 		const { marginTop = '', marginBottom = '' } = attributes;
 
 		const classNames = classnames(
-			'' !== marginTop ? `is-margin-top-${marginTop}` : '',
-			'' !== marginBottom ? `is-margin-top-${marginBottom}` : '',
+			'' !== marginTop ? `has-margin-top-${marginTop}` : '',
+			'' !== marginBottom ? `has-margin-bottom-${marginBottom}` : '',
 		);
 
 		if (classNames) {
