@@ -22,10 +22,8 @@ define( 'WPS_ICON_BLOCKS_DIR_URL', plugin_dir_url( __FILE__ ) );
 add_action( 'init', __NAMESPACE__ . '\\register_blocks' );
 add_filter( 'wps_allowed_block_types', __NAMESPACE__ . '\\allowed_block_types' );
 
-/*
- Load helpers */
-// require_once __DIR__ . '/helpers/helpers.php';
-include_once __DIR__ . '/inc/setup-assets.php';
+
+require_once __DIR__ . '/inc/setup-assets.php';
 
 if ( file_exists( __DIR__ . '/src/template.php' ) ) {
 	include_once __DIR__ . '/src/template.php';
