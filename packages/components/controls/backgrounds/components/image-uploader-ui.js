@@ -99,7 +99,7 @@ export const ImageUploaderUI = (attributes) => {
 								<Button
 									className="editor-post-featured-image__button"
 									onClick={open}
-									isDefault
+									isSecondary
 								>
 									{__('Add image', 'wps-gutenberg-blocks')}
 								</Button>

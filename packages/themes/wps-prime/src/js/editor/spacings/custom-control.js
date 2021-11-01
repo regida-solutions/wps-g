@@ -33,22 +33,20 @@ const withAdvancedControls = createHigherOrderComponent(
 				<BlockEdit {...props} />
 				{isSelected && currentBlock && (
 					<InspectorControls>
-						<PanelBody title="Spacings" initialOpen>
+						<PanelBody title="Spacings" initialOpen={false}>
 							<SpacingList
 								label={'Margin top'}
 								value={marginTop}
-								onChange={(value) => {
-									setAttributes({ marginTop: value });
-								}}
+								onChange={(value) =>
+									setAttributes({ marginTop: value })
+								}
 							/>
 							<SpacingList
 								label={'Margin bottom'}
 								value={marginBottom}
-								onChange={(value) => {
-									return setAttributes({
-										marginBottom: value,
-									});
-								}}
+								onChange={(value) =>
+									setAttributes({ marginBottom: value })
+								}
 							/>
 						</PanelBody>
 					</InspectorControls>

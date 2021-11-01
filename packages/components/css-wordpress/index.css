@@ -132,7 +132,7 @@
 	}
 
 	/* Clear margin around items with custom spacing */
-	& > *[class*="is-margin-"] + *:not([class*="is-margin-"]) {
+	& > *[class*="is-margin-bottom"] + *:not([class*="is-margin-top"]) {
 		margin-top: auto;
 	}
 
