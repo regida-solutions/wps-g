@@ -33,7 +33,7 @@ const withAdvancedControls = createHigherOrderComponent(
 				<BlockEdit {...props} />
 				{isSelected && currentBlock && (
 					<InspectorControls>
-						<PanelBody title="Spacings" initialOpen={false}>
+						<PanelBody title="Margins" initialOpen={false}>
 							<SpacingList
 								label={'Margin top'}
 								value={marginTop}

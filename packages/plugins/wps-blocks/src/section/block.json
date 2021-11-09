@@ -33,6 +33,12 @@
 		},
 		"backgroundBehaviour": {
 			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
 		}
 	},
 	"style": "file:../../build/section/style.css",

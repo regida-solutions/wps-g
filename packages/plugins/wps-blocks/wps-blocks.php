@@ -21,10 +21,13 @@ define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 add_action( 'init', __NAMESPACE__ . '\\register_blocks' );
 add_filter( 'wps_allowed_block_types', __NAMESPACE__ . '\\allowed_block_types' );
 
+/**
+ * Remove hero block for now
+ * 'hero',
+ */
 
 define( 'WPS_BLOCKS_LIST', [
 	'shortcode',
-	'hero',
 	'section',
 	'slider',
 	'slider-slide',

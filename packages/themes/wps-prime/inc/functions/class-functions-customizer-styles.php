@@ -69,7 +69,20 @@ class Functions_Customizer_Styles {
 			'white',
 		];
 
-		$header_bg         = get_theme_mod( 'wps_header_background_sticky', '#000000' );
+		$background_color_names = [
+			'one',
+			'two',
+			'three',
+			'four',
+			'five',
+			'six',
+			'seven',
+			'eight',
+			'nine',
+			'ten',
+		];
+
+		$header_bg         = get_theme_mod( 'wps_header_background_sticky', '// 000000' );
 		$header_bg_opacity = get_theme_mod( 'wps_header_background_sticky_opacity', '0.8' );
 
 		$settings_theme = [
@@ -106,6 +119,11 @@ class Functions_Customizer_Styles {
 			$settings_buttons[ '--button-color-' . $button_color_name ] = 'wps_button_color_' . $button_color_name;
 		}
 
+		$settings_backgrounds = [];
+		foreach ( $background_color_names as $background_color_name ) {
+			$settings_backgrounds[ '--wp--preset--color--' . $background_color_name ] = 'wps_color_' . $background_color_name;
+		}
+
 		if ( \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated() ) {
 			$settings_woo = [
 				'--woo-head-utility-symbol-color'       => 'wps_woo_header_utility_icons_color',
@@ -133,7 +151,7 @@ class Functions_Customizer_Styles {
 			];
 		}
 
-		$settings = array_merge( $settings_theme, $settings_buttons, $settings_woo );
+		$settings = array_merge( $settings_theme, $settings_buttons, $settings_backgrounds, $settings_woo );
 
 		foreach ( $settings as $var => $option ) {
 			$style_list .= self::generate_css_var( $var, $option, false );
