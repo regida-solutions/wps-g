@@ -233,6 +233,7 @@ function body_class( array $classes ):array {
 
 	// Check sticky header bg color.
 	if ( $header_use_sticky ) {
+		$classes[] = 'has-header-sticky';
 		if ( 'light' === $sticky_bg_color ) {
 			$classes[] = 'has-sticky-header-light';
 		} elseif ( 'dark' === $sticky_bg_color ) {

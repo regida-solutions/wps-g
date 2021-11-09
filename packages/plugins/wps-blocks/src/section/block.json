@@ -22,13 +22,7 @@
 		"backgroundColor": {
 			"type": "string"
 		},
-		"backgroundColorName": {
-			"type": "string"
-		},
 		"textColor": {
-			"type": "string"
-		},
-		"textColorName": {
 			"type": "string"
 		},
 		"focalPoint": {
@@ -38,6 +32,12 @@
 			"type": "object"
 		},
 		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
 			"type": "string"
 		}
 	},

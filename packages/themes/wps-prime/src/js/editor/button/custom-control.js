@@ -17,7 +17,7 @@ const withAdvancedControls = createHigherOrderComponent(
 	(BlockEdit) => (props) => {
 		const { attributes, setAttributes, isSelected } = props;
 
-		const { buttonColor } = attributes;
+		const { color } = attributes;
 
 		const allowedBlocks = props.name === 'core/button';
 
@@ -29,9 +29,9 @@ const withAdvancedControls = createHigherOrderComponent(
 						<PanelBody title="Colors" initialOpen>
 							<SelectControl
 								label={__('Choose button color:', 'wps-prime')}
-								value={buttonColor}
+								value={color}
 								onChange={(value) => {
-									setAttributes({ buttonColor: value });
+									setAttributes({ color: value });
 								}}
 								options={[
 									{
@@ -83,6 +83,6 @@ const withAdvancedControls = createHigherOrderComponent(
 
 addFilter(
 	'editor.BlockEdit',
-	'wps-prime/custom-advanced-control',
+	'wps/applyButtonCustomControl',
 	withAdvancedControls,
 );

@@ -130,6 +130,12 @@
 	& > *:first-child {
 		margin-top: 0;
 	}
+
+	/* Clear margin around items with custom spacing */
+	& > *[class*="is-margin-bottom"] + *:not([class*="is-margin-top"]) {
+		margin-top: auto;
+	}
+
 }
 
 .wp-block-pullquote > p:first-child { /* stylelint-disable-line no-descending-specificity */

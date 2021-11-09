@@ -56,7 +56,8 @@
 
 .editor-styles-wrapper {
 	& .edit-post-visual-editor__post-title-wrapper > *,
-	& .block-editor-block-list__layout.is-root-container > * {
+	& .block-editor-block-list__layout.is-root-container > *:not(.wp-block[data-align="full"]),
+	& .block-editor-block-list__layout.is-root-container > *.wp-block[data-align="full"] > * {
 		margin: var(--site-block-spacing) auto;
 	}
 	/* stylelint-disable no-descending-specificity */
@@ -84,10 +85,16 @@
 			margin-top: 0;
 		}
 
+		/* Clear margin around items with custom spacing */
+		& > *[class*="has-margin-bottom"] + *:not([class*="has-margin-top"]) {
+			margin-top: auto;
+		}
+
 	}
 	/* stylelint-enable */
 
 	/* Fix aligned left/right blocks go outside the content area */
+	/* stylelint-disable no-descending-specificity */
 	& .block-editor-block-list__layout.is-root-container {
 		& > [data-align="right"] {
 			float: none !important;

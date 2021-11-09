@@ -22,9 +22,11 @@ function template( array $attributes, string $blocks ): string {
 		'wps-section',
 		! empty( $attributes['align'] ) ? 'align' . $attributes['align'] : '',
 		! empty( $attributes['spacingVertical'] ) ? 'u-padding-vertical-' . $attributes['spacingVertical'] : '',
-		! empty( $attributes['backgroundColorName'] ) ? 'has-' . esc_attr( $attributes['backgroundColorName'] ) . '-background-color' : '',
-		! empty( $attributes['textColorName'] ) ? 'has-' . esc_attr( $attributes['textColorName'] ) . '-color' : '',
+		! empty( $attributes['backgroundColor'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
+		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
 		! empty( $attributes['spacingVertical'] ) ? 'has-vertical-spacing' : '',
+		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
+		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 		! empty( $attributes['media']['url'] ) ? 'has-background' : '',
 		! empty( $attributes['backgroundBehaviour'] ) ? 'background-is-' . esc_attr( $attributes['backgroundBehaviour'] ) : '',
 	] );

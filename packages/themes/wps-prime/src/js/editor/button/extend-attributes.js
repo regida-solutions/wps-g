@@ -4,12 +4,12 @@
 import { addFilter } from '@wordpress/hooks';
 
 function addAttributes(settings, name) {
-	if (name !== 'core/button') {
+	if ('core/button' !== name) {
 		return settings;
 	}
 
 	settings.attributes = Object.assign(settings.attributes, {
-		buttonColor: {
+		color: {
 			type: 'string',
 		},
 	});
@@ -19,6 +19,6 @@ function addAttributes(settings, name) {
 
 addFilter(
 	'blocks.registerBlockType',
-	'wps-prime/custom-attributes',
+	'wps/applyExtraButtonAttributes',
 	addAttributes,
 );
