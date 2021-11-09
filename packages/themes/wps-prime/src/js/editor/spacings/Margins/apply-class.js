@@ -47,7 +47,6 @@ const withCustomAttributeClass = createHigherOrderComponent(
 		if (!allowedBlocks.includes(props.name)) {
 			return <BlockListBlock {...props} />;
 		}
-
 		const { attributes = {} } = props;
 		const { marginTop = '', marginBottom = '' } = attributes;
 
@@ -59,7 +58,6 @@ const withCustomAttributeClass = createHigherOrderComponent(
 		if (classNames) {
 			return <BlockListBlock {...props} className={classNames} />;
 		}
-
 		return <BlockListBlock {...props} />;
 	},
 	'withCustomAttributeClass',

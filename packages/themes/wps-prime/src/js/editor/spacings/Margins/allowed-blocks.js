@@ -3,6 +3,7 @@ const allowedBlocks = [
 	'core/paragraph',
 	'core/heading',
 	'wps/icon',
+	'wps/section',
 ];
 
 export default allowedBlocks;

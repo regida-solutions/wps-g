@@ -10,14 +10,18 @@ body {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.has-header-sticky:not(.is-menu-under-header) .site-header,
+.has-header-sticky.is-menu-under-header .site-nav-mega-menu {
+	position: sticky;
+	top: 0;
+	transition: all 350ms;
+	z-index: 999;
+}
+
 .sticky-scroll-header {
 	&:not(.is-menu-under-header) {
 		& .site-header {
-			position: sticky;
-			top: 0;
 			transform: translateY(-100%);
-			transition: all 350ms;
-			z-index: 999;
 		}
 	}
 
@@ -33,11 +37,7 @@ body {
 
 	&.is-menu-under-header {
 		& .site-nav-mega-menu {
-			position: sticky;
-			top: 0;
 			transform: translateY(-100%);
-			transition: all 350ms;
-			z-index: 999;
 		}
 
 		&.show-scroll-header .site-nav-mega-menu {

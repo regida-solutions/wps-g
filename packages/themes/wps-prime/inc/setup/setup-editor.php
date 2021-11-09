@@ -37,13 +37,67 @@ function setup_editor() {
 	add_theme_support( 'editor-color-palette', generate_editor_palette() );
 }
 
+/**
+ * Custom color palette
+ */
+function site_button_color_list():array {
+
+	return apply_filters( 'site_editor_color_list', [
+		[
+			'title' => 'Default',
+			'id'    => 'default',
+			'value' => '#1E1E1C',
+		],
+		[
+			'title' => 'Primary',
+			'id'    => 'primary',
+			'value' => '#20638f',
+		],
+		[
+			'title' => 'Secondary',
+			'id'    => 'secondary',
+			'value' => '#e67e22',
+		],
+		[
+			'title' => 'Tertiary',
+			'id'    => 'tertiary',
+			'value' => '#00b0d0',
+		],
+		[
+			'title' => 'Negative',
+			'id'    => 'negative',
+			'value' => '#e74c3c',
+		],
+		[
+			'title' => 'Positive',
+			'id'    => 'positive',
+			'value' => '#2ecc71',
+		],
+		[
+			'title' => 'Neutral',
+			'id'    => 'neutral',
+			'value' => '#505050',
+		],
+		[
+			'title' => 'Light',
+			'id'    => 'light',
+			'value' => '#999999',
+		],
+		[
+			'title' => 'White',
+			'id'    => 'white',
+			'value' => '#ffffff',
+		],
+
+	]);
+}
 
 /**
  * Custom color palette
  */
 function site_editor_color_list():array {
 
-	$color_list = apply_filters( 'site_editor_color_list', [
+	return apply_filters( 'site_editor_color_list', [
 		[
 			'title' => 'Color 1',
 			'id'    => 'one',
@@ -95,8 +149,6 @@ function site_editor_color_list():array {
 			'color' => '#32373c',
 		],
 	]);
-
-	return $color_list;
 }
 
 /**
@@ -161,6 +213,9 @@ function allowed_block_types() : array { //phpcs:ignore
 		// Woocommerce.
 		'woocommerce/all-reviews',
 		'woocommerce/product-categories',
+
+		// 3rd party Plugins
+		'gravityforms/form',
 	];
 
 		$allowed_blocks = array_merge( $allowed_blocks, apply_filters( 'wps_allowed_block_types', $list, 10, 1 ) );
