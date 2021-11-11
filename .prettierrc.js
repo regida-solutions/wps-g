@@ -1,4 +1,4 @@
-module.exports = require('@wordpress/prettier-config');
+// Import the default config file and expose it in the project root.
 module.exports = {
 	useTabs: true,
 	tabWidth: 4,

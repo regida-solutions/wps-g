@@ -1,33 +1,31 @@
 [
-{ "name": "Regular",
-	"attributes": {
-		"value": "",
-		"class": ""
+	{
+		"name": "Regular",
+		"attributes": {
+			"value": "",
+			"class": ""
+		}
+	},
+	{
+		"name": "Light",
+		"attributes": {
+			"value": "light",
+			"class": "fal"
+		}
+	},
+	{ "name": "Solid", "attributes": { "value": "solid", "class": "fas" } },
+	{
+		"name": "Duotone",
+		"attributes": {
+			"value": "duotone",
+			"class": "fad"
+		}
+	},
+	{
+		"name": "Brands",
+		"attributes": {
+			"value": "brands",
+			"class": "fab"
+		}
 	}
-},
-{ "name": "Light",
-	"attributes": {
-		"value": "light",
-		"class": "fal"
-	}
-},
-{ "name": "Solid",
-	"attributes":
-	{ "value": "solid",
-		"class": "fas"
-	}
-},
-{
-	"name": "Duotone",
-	"attributes": {
-		"value": "duotone",
-		"class": "fad"
-	}
-},
-{ "name": "Brands",
-	"attributes": {
-		"value": "brands",
-		"class": "fab"
-	}
-}
 ]

@@ -6,11 +6,11 @@
 	"category": "common",
 	"icon": "cover-image",
 	"supports": {
-		"anchor" : true,
-		"html"   : false,
-		"align"  : [ "full","wide" ]
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
 	},
-	"keywords": ["Section","Group"],
+	"keywords": ["Section", "Group"],
 	"attributes": {
 		"align": {
 			"type": "string",

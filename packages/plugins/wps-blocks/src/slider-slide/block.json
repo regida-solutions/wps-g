@@ -6,16 +6,15 @@
 	"category": "common",
 	"icon": "align-center",
 	"supports": {
-		"anchor" : true,
-		"html"   : false
+		"anchor": true,
+		"html": false
 	},
-	"keywords": ["Slider","Slide"],
+	"keywords": ["Slider", "Slide"],
 	"parent": ["wps/slider"],
 	"attributes": {
 		"align": {
 			"type": "string"
 		}
-
 	},
 	"style": "file:../../build/slider-slide/style.css",
 	"editorStyle": "file:../../build/slider-slide/editor.css",

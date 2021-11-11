@@ -135,7 +135,6 @@
 	& > *[class*="is-margin-bottom"] + *:not([class*="is-margin-top"]) {
 		margin-top: auto;
 	}
-
 }
 
 .wp-block-pullquote > p:first-child { /* stylelint-disable-line no-descending-specificity */
@@ -144,7 +143,9 @@
 
 /* Override the default 16px gap for the Gallery Block with custom prop. */
 .wp-block-gallery .blocks-gallery-item {
-	margin: 0 var(--wp--custom--site--gallery-gap) var(--wp--custom--site--gallery-gap) 0;
+	margin:
+		0 var(--wp--custom--site--gallery-gap)
+		var(--wp--custom--site--gallery-gap) 0;
 	width: calc((100% - var(--wp--custom--site--gallery-gap)) / 2);
 }
 
