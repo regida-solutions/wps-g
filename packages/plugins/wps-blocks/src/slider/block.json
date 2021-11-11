@@ -6,11 +6,11 @@
 	"category": "common",
 	"icon": "slides",
 	"supports": {
-		"anchor" : true,
-		"html"   : false,
-		"align"  : [ "full","wide" ]
+		"anchor": true,
+		"html": false,
+		"align": ["full", "wide"]
 	},
-	"keywords": ["Slider","Slides"],
+	"keywords": ["Slider", "Slides"],
 	"attributes": {
 		"align": {
 			"type": "string"

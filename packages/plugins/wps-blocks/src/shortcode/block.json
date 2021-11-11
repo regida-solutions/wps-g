@@ -6,16 +6,15 @@
 	"category": "common",
 	"icon": "cover-image",
 	"supports": {
-		"inserter" : false,
-		"html"   : false,
-		"align"  : []
+		"inserter": false,
+		"html": false,
+		"align": []
 	},
 	"keywords": ["Shortcode"],
 	"attributes": {
-		"shortcode" : {
+		"shortcode": {
 			"type": "string"
 		}
-
 	},
 	"editorScript": "file:../../build/shortcode/index.js"
 }

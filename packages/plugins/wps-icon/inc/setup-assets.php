@@ -2,12 +2,12 @@
 /**
  * Register Icon styles
  *
- * @package WpsFontawesome
+ * @package WpsIcon
  */
 
 declare( strict_types=1 );
 
-namespace WPS\Fontawesome\Inc\Assets;
+namespace WPS\Icon\Inc\Assets;
 
 /**
  * Register assets
