@@ -10,7 +10,7 @@
 		"html": false,
 		"align": []
 	},
-	"keywords": ["Icon","Fontawesome"],
+	"keywords": ["Icon", "Fontawesome"],
 	"attributes": {
 		"icon": {
 			"type": "string"

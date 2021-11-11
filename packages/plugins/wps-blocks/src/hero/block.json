@@ -6,11 +6,11 @@
 	"category": "common",
 	"icon": "cover-image",
 	"supports": {
-		"anchor" : true,
-		"html"   : false,
-		"align"  : [ "full" ]
+		"anchor": true,
+		"html": false,
+		"align": ["full"]
 	},
-	"keywords": ["Hero","Header","Top"],
+	"keywords": ["Hero", "Header", "Top"],
 	"attributes": {
 		"title": {
 			"type": "string"
