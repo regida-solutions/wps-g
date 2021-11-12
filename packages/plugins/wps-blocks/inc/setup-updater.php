@@ -39,7 +39,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 		$remote = wp_remote_get(
 			WPS_BLOCKS_UPDATE_URL . '/' . WPS_BLOCKS_UPDATE_FOLDER . '/get-info.php?slug=' . WPS_BLOCKS_PLUGIN_SLUG . '&action=info',
 			[
-				'timeout' => 10,
+				'timeout' => 5,
 				'headers' => [
 					'Accept' => 'application/json',
 				],
@@ -87,7 +87,11 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
  *
  * @param object $transient Plugin transient.
  */
-function plugin_push_update( object $transient ) { //phpcs:ignore
+function plugin_push_update( $transient ) { //phpcs:ignore
+
+	if ( ! $transient ) {
+		return $transient;
+	}
 
 	if ( empty( $transient->checked ) ) {
 		return $transient;
