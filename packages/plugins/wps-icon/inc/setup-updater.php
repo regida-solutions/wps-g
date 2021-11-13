@@ -115,7 +115,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		}
 	}
 
-	if ( $remote ) {
+	if ( $remote && ! is_wp_error( $remote ) ) {
 
 		$remote = json_decode( $remote['body'] );
 
