@@ -37,7 +37,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 	if ( false === $remote ) {
 
 		$remote = wp_remote_get(
-			WPS_ICON_BLOCKS_UPDATE_URL . '/' . WPS_ICON_BLOCKS_UPDATE_FOLDER . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=info',
+			WPS_ICON_BLOCKS_UPDATE_URL . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=info',
 			[
 				'timeout' => 5,
 				'headers' => [
@@ -101,7 +101,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 
 	if ( false === $remote ) {
 		// info.json is the file with the actual plugin information on your server.
-		$remote = wp_remote_get( WPS_ICON_BLOCKS_UPDATE_URL . '/' . WPS_ICON_BLOCKS_UPDATE_FOLDER . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=update',
+		$remote = wp_remote_get( WPS_ICON_BLOCKS_UPDATE_URL . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=update',
 			[
 				'timeout' => 10,
 				'headers' => [
@@ -115,7 +115,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		}
 	}
 
-	if ( $remote && ! is_wp_error( $remote ) ) {
+	if ( $remote ) {
 
 		$remote = json_decode( $remote['body'] );
 
