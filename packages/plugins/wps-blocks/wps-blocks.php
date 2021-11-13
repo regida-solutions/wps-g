@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.0.1
+ * Version:         1.0.2
  *
  * @package WpsBlocks
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.0.1' );
+define( 'WPS_BLOCKS_VERSION', '1.0.2' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://packages.wps-prime.pw' );
 define( 'WPS_BLOCKS_UPDATE_FOLDER', 'wps-blocks' );
