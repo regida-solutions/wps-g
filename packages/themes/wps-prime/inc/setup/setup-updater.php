@@ -1,43 +1,44 @@
 <?php
 /**
- * Setup plugin
+ * Theme Updater
  *
  * @package WpsIcon
  */
 
 declare( strict_types=1 );
 
-namespace WPS\Icon\Inc\Updater;
+namespace WpsPrime\Setup\Updater;
 
-add_filter( 'plugins_api', __NAMESPACE__ . '\\plugin_info', 20, 3 );
-add_filter( 'site_transient_update_plugins', __NAMESPACE__ . '\\plugin_push_update' );
-add_action( 'upgrader_process_complete', __NAMESPACE__ . '\\plugin_after_update', 10, 2 );
+// pre_set_site_transient_update_themes.
+add_filter( 'themes_api', __NAMESPACE__ . '\\theme_info', 20, 3 );
+add_filter( 'site_transient_update_themes', __NAMESPACE__ . '\\theme_push_update' );
+add_action( 'upgrader_process_complete', __NAMESPACE__ . '\\theme_after_update', 10, 2 );
 
 /**
  * Plugin pop-up when new release is out
  *
  * @param false|object|array $res The result object or array.
- * @param string             $action The type of information being requested from the Plugin Installation API.
- * @param object             $args Plugin API arguments.
+ * @param string             $action The type of information being requested from the Theme Installation API.
+ * @param object             $args Theme API arguments.
  */
-function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
+function theme_info( object $res, string $action, object $args ) { //phpcs:ignore
 
 	// Do nothing if this is not about getting plugin information.
-	if ( 'plugin_information' !== $action ) {
+	if ( 'theme_information' !== $action ) {
 		return false;
 	}
 
 	// Do nothing if it is not our plugin.
-	if ( WPS_ICON_BLOCKS_PLUGIN_SLUG !== $args->slug ) {
+	if ( WPS_PRIME_THEME_SLUG !== $args->slug ) {
 		return $res;
 	}
 
-	$remote = get_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+	$remote = get_transient( 'wps_upgrade_' . WPS_PRIME_THEME_SLUG );
 
 	if ( false === $remote ) {
 
 		$remote = wp_remote_get(
-			WPS_ICON_BLOCKS_UPDATE_URL . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=info',
+			WPS_PRIME_UPDATE_URL . '/get-info.php?slug=' . WPS_PRIME_THEME_SLUG . '&action=info',
 			[
 				'timeout' => 5,
 				'headers' => [
@@ -47,7 +48,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 		);
 
 		if ( ! is_wp_error( $remote ) && isset( $remote['response']['code'] ) && 200 === $remote['response']['code'] && ! empty( $remote['body'] ) ) {
-			set_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
+			set_transient( 'wps_upgrade_' . WPS_PRIME_THEME_SLUG, $remote, 21600 ); // 6 hours cache.
 		}
 	}
 
@@ -87,7 +88,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
  *
  * @param object $transient Plugin transient.
  */
-function plugin_push_update( $transient ) { //phpcs:ignore
+function theme_push_update( $transient ) { //phpcs:ignore
 
 	if ( ! $transient ) {
 		return $transient;
@@ -97,11 +98,11 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		return $transient;
 	}
 
-	$remote = get_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+	$remote = get_transient( 'wps_upgrade_' . WPS_PRIME_THEME_SLUG );
 
 	if ( false === $remote ) {
 		// info.json is the file with the actual plugin information on your server.
-		$remote = wp_remote_get( WPS_ICON_BLOCKS_UPDATE_URL . '/get-info.php?slug=' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '&action=update',
+		$remote = wp_remote_get( WPS_PRIME_UPDATE_URL . '/get-info.php?slug=' . WPS_PRIME_THEME_SLUG . '&action=update',
 			[
 				'timeout' => 10,
 				'headers' => [
@@ -111,7 +112,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		);
 
 		if ( ! is_wp_error( $remote ) && isset( $remote['response']['code'] ) && 200 === $remote['response']['code'] && ! empty( $remote['body'] ) ) {
-			set_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
+			set_transient( 'wps_upgrade_' . WPS_PRIME_THEME_SLUG, $remote, 21600 ); // 6 hours cache.
 		}
 	}
 
@@ -119,17 +120,21 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 
 		$remote = json_decode( $remote['body'] );
 
-		// your installed plugin version should be on the line below! You can obtain it dynamically of course.
-		if ( $remote && version_compare( WPS_ICON_BLOCKS_VERSION, $remote->version, '<' ) && version_compare( $remote->requires, get_bloginfo( 'version' ), '<' ) ) {
+		if ( $remote && version_compare( WPS_PRIME_THEME_VERSION, $remote->version, '<' ) && version_compare( $remote->requires, get_bloginfo( 'version' ), '<' ) ) {
 			$res       = new \stdClass();
-			$res->slug = WPS_ICON_BLOCKS_PLUGIN_SLUG;
+			$res->slug = WPS_PRIME_THEME_SLUG;
 
-			// it could be just mypluginslug1.php if your plugin doesn't have its own directory (my does).
-			$res->plugin                         = WPS_ICON_BLOCKS_PLUGIN_SLUG . '/' . WPS_ICON_BLOCKS_PLUGIN_SLUG . '.php';
-			$res->new_version                    = $remote->version;
-			$res->tested                         = $remote->tested;
-			$res->package                        = $remote->download_link;
-			$transient->response[ $res->plugin ] = $res;
+			$res->theme_data  = [
+				'theme'       => WPS_PRIME_THEME_SLUG,
+				'new_version' => $remote->version,
+				'url'         => WPS_PRIME_UPDATE_URL . '/' . WPS_PRIME_THEME_SLUG . '/',
+				'package'     => $remote->download_link,
+			];
+			$res->new_version = $remote->version;
+			$res->tested      = $remote->tested;
+			$res->package     = $remote->download_link;
+			$res->url         = WPS_PRIME_UPDATE_URL . '/' . WPS_PRIME_THEME_SLUG . '/';
+			$transient->response[ $res->theme_data['theme'] ] = $res->theme_data;
 		}
 	}
 	return $transient;
@@ -141,10 +146,10 @@ function plugin_push_update( $transient ) { //phpcs:ignore
  * @param \WP_Upgrader $upgrader_object  WP_Upgrader instance.
  * @param array        $options Array of bulk item update data.
  */
-function plugin_after_update( \WP_Upgrader $upgrader_object, array $options ):void {
-	if ( 'update' === $options['action'] && 'plugin' === $options['type'] ) {
+function theme_after_update( \WP_Upgrader $upgrader_object, array $options ):void {
+	if ( 'update' === $options['action'] && 'theme' === $options['type'] ) {
 		// just clean the cache when new plugin version is installed.
-		delete_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+		delete_transient( 'wps_upgrade_' . WPS_PRIME_THEME_SLUG );
 	}
 }
 
