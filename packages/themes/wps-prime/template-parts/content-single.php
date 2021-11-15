@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 			wp_link_pages(
 				[
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wps-lv-426' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wps-prime' ),
 					'after'  => '</div>',
 				]
 			);
