@@ -30,7 +30,7 @@ function register( object $wp_customize ):void {
 		[
 			'title'       => __( 'Colors - Header utility', 'wps-prime' ),
 			'capability'  => 'edit_theme_options',
-			'description' => __( 'WPS LV 426 Woocommerce header utility settings', 'wps-prime' ),
+			'description' => __( 'Woocommerce header utility settings', 'wps-prime' ),
 			'panel'       => 'woocommerce',
 		]
 	);
