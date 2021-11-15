@@ -31,7 +31,9 @@ if ( ! function_exists( 'get_wps_prime_theme_version' ) ) {
 define( 'WPS_PRIME_THEME_VERSION', get_wps_prime_theme_version() );
 define( 'THEME_DIR', get_template_directory() );
 define( 'THEME_URI', get_template_directory_uri() );
-
+define( 'WPS_PRIME_THEME_SLUG', 'wps-prime' );
+define( 'WPS_PRIME_UPDATE_FOLDER', 'wps-prime' );
+define( 'WPS_PRIME_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 
 // Site helpers.
 require __DIR__ . '/inc/helpers/helpers.php';
@@ -44,6 +46,7 @@ require __DIR__ . '/inc/typography/typography-run-fonts.php';
 // Site setup.
 require __DIR__ . '/inc/filters/filters-css-classes.php';
 require __DIR__ . '/inc/setup/setup.php';
+require __DIR__ . '/inc/setup/setup-updater.php';
 require __DIR__ . '/inc/setup/setup-assets.php';
 require __DIR__ . '/inc/setup/setup-editor.php';
 require __DIR__ . '/inc/setup/setup-layout.php';

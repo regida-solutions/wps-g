@@ -114,7 +114,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 												esc_html__( 'Remove this item', 'woocommerce' ),
 												esc_attr( $product_id ),
 												esc_attr( $_product->get_sku() ),
-												esc_html__( 'Remove', 'wps-lv-426' )
+												esc_html__( 'Remove', 'wps-prime' )
 											),
 											$cart_item_key
 										);
