@@ -56,6 +56,7 @@ require __DIR__ . '/inc/setup/setup-wp-fine-tune.php';
 require __DIR__ . '/inc/setup/setup-layout-woocommerce.php';
 require __DIR__ . '/inc/admin/admin-info-columns.php';
 require __DIR__ . '/inc/admin/admin-page-margin-info-columns.php';
+require __DIR__ . '/inc/setup/setup-enable-custom-blocks.php';
 
 // Menus.
 require __DIR__ . '/inc/menus/menus-register.php';
