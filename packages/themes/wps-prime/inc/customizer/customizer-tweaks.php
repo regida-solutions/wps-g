@@ -201,6 +201,41 @@ function register( object $wp_customize ):void {
 		]
 	);
 
-	$wp_customize->get_setting( 'wps_display_wps_hooks' )->transport = 'refresh';
+	// SETTING.
+	$wp_customize->add_setting(
+		'wps_enable_blocks_list',
+		[
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'transport'         => 'refresh',
+			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_custom_block_options_list',
+		]
+	);
 
+	// CONTROL.
+	$wp_customize->add_control(
+		'wps_enable_blocks_list',
+		[
+			'type'        => 'textarea',
+			'label'       => __( 'Custom enable hidden blocks', 'wps-prime' ),
+			'description' => sprintf(
+					// translators: Example code block definition.
+			__( 'Add custom blocks to be enabled separated by comma ex: %s', 'wps-prime' ), '<br/><code>core/cover,core/code,core/shortcode,core/table,core/embed</code>' ),
+			'section'     => 'developer_info_section',
+		]
+	);
+
+	$wp_customize->get_setting( 'wps_display_wps_hooks' )->transport = 'refresh';
+}
+
+/**
+ * Sanitize string by removing all whitespaces including tabs, newlines ...
+ *
+ * @param string $value Option field value.
+ *
+ * @return string
+ */
+function sanitize_custom_block_options_list( string $value ):string {
+	return wp_kses( preg_replace( '/\s+/', '', $value ), [] );
 }
