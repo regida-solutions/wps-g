@@ -11,13 +11,15 @@ import {
 	ContrastChecker,
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
-import { PanelBody } from '@wordpress/components';
+import { PanelBody, RangeControl } from '@wordpress/components';
 
 /**
  * External dependencies
  */
 import classnames from 'classnames';
-
+/**
+ * Internal dependencies
+ */
 import { BackgroundImage, SpacingList } from 'components/controls';
 
 function Edit({
@@ -34,6 +36,7 @@ function Edit({
 		media,
 		focalPoint,
 		backgroundBehaviour,
+		dimRatio,
 	} = attributes;
 
 	const classes = classnames([
@@ -44,6 +47,13 @@ function Edit({
 		typeof backgroundColor.class !== undefined ? backgroundColor.class : '',
 		typeof textColor.class !== undefined ? textColor.class : '',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
+		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
+	]);
+
+	const classesOverlay = classnames([
+		'wps-section__overlay',
+		media && media.hasOwnProperty('url') ? 'has-background' : '',
+		typeof backgroundColor.class !== undefined ? backgroundColor.class : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
 
@@ -60,8 +70,8 @@ function Edit({
 				}%`;
 			}
 		}
+		style.opacity = dimRatio !== 100 ? `${dimRatio}%` : '';
 	}
-
 	return (
 		<>
 			<InspectorControls>
@@ -104,6 +114,19 @@ function Edit({
 							setAttributes({ backgroundBehaviour: value })
 						}
 					/>
+					<RangeControl
+						label={__('Opacity')}
+						value={dimRatio}
+						onChange={(newDimRation) =>
+							setAttributes({
+								dimRatio: newDimRation,
+							})
+						}
+						min={0}
+						max={100}
+						step={10}
+						required
+					/>
 				</PanelBody>
 				<PanelBody
 					title={__('Spacing', 'wps-blocks')}
@@ -119,7 +142,8 @@ function Edit({
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps({ className: classes })} style={style}>
+			<div {...useBlockProps({ className: classes })}>
+				{media ? <div className={classesOverlay} style={style} /> : ''}
 				<div className="wps-section__inner">
 					<InnerBlocks templateLock={false} />
 				</div>
