@@ -3,5 +3,9 @@
 	"description": "Fontawesome icon library to be used with wps-prime WordPress framework",
 	"type": "wordpress-plugin",
 	"license": "GPL-3.0-or-later",
+<<<<<<< HEAD
 	"version": "1.0.8"
+=======
+	"version": "1.0.7"
+>>>>>>> bbf387bf3a2e97cac096e4326fd4b071996b4bf9
 }
