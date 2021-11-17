@@ -12,6 +12,10 @@
 	},
 	"keywords": ["Section", "Group"],
 	"attributes": {
+		"dimRatio": {
+			"type": "number",
+			"default": 100
+		},
 		"align": {
 			"type": "string",
 			"default": "full"
