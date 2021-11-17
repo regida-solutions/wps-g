@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-icon
- * Version:         1.0.7
+ * Version:         1.0.8
  *
  * @package WpsIcon
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Icon;
 
-define( 'WPS_ICON_BLOCKS_VERSION', '1.0.7' );
+define( 'WPS_ICON_BLOCKS_VERSION', '1.0.8' );
 define( 'WPS_ICON_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_ICON_BLOCKS_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPS_ICON_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );

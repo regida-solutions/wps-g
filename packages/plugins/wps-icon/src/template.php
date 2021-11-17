@@ -21,7 +21,7 @@ function template( array $attributes ): string {
 	$size = '';
 
 	// This is just a local file.
-	$icon_type_list = file_get_contents( __DIR__ . './icon-typelist.json' ); // phpcs:ignore
+	$icon_type_list = file_get_contents( __DIR__ . '/icon-typelist.json' ); // phpcs:ignore
 	$type_list      = json_decode( $icon_type_list, true );
 
 	$icon_type = '';
