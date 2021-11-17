@@ -6,6 +6,24 @@ import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button, FocalPointPicker, SelectControl } from '@wordpress/components';
 
 export const ImageUploaderUI = (attributes) => {
+	const defaultBehaviour = [
+		{
+			label: 'Cover (Default)',
+			value: '',
+		},
+		{
+			label: "Don't repeat",
+			value: 'no-repeat',
+		},
+		{
+			label: 'Repeat',
+			value: 'repeat',
+		},
+		{
+			label: 'Contain',
+			value: 'contain',
+		},
+	];
 	const {
 		onUpdate = () => {},
 		onRemove = () => {},
@@ -15,6 +33,7 @@ export const ImageUploaderUI = (attributes) => {
 		video = false,
 		focalPoint = {},
 		behaviourSettings = false,
+		behaviourOptions = defaultBehaviour,
 		behaviour = '',
 	} = attributes;
 
@@ -63,24 +82,7 @@ export const ImageUploaderUI = (attributes) => {
 									label="Background image behaviour"
 									labelPosition="top"
 									value={behaviour}
-									options={[
-										{
-											label: 'Cover (Default)',
-											value: '',
-										},
-										{
-											label: "Don't repeat",
-											value: 'no-repeat',
-										},
-										{
-											label: 'Repeat',
-											value: 'repeat',
-										},
-										{
-											label: 'Contain',
-											value: 'contain',
-										},
-									]}
+									options={behaviourOptions}
 									onChange={onBehaveChange}
 								/>
 							</>

@@ -1,9 +1,14 @@
 /* Front end */
 .wps-section:not([data-type="wps/section"]) {
+	overflow: hidden;
+	position: relative;
+
 	& > .wps-section__inner {
 		margin: 0 auto;
 		overflow: hidden;
+		position: relative;
 		width: calc(100% - var(--site-spacing) * 2);
+		z-index: 1;
 
 		& > * {
 			margin-left: auto;
@@ -36,4 +41,13 @@
 			}
 		}
 	}
+
+	& .wps-section__overlay {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+
 }

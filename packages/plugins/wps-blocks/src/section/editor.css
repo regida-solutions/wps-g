@@ -1,5 +1,7 @@
 /* Editor section */
 [data-type="wps/section"] {
+	overflow: hidden;
+
 	& > .wps-section__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
 		margin: 0 auto;
 		overflow: hidden;
@@ -27,5 +29,13 @@
 				margin-bottom: 0;
 			}
 		}
+	}
+
+	& .wps-section__overlay {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 }
