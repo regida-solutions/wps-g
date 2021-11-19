@@ -9,7 +9,7 @@ body {
 	--spacing-large: calc(var(--wp--custom--site--spacing-large) / 2);
 	--spacing-huge: calc(var(--wp--custom--site--spacing-huge) / 2);
 	--base-spacing-unit: 24px;
-	--site-block-spacing: var(--wp--custom--site--small-block-spacing);
+	--site-block-spacing: var(--base-spacing-unit);
 	--site-block-negative-spacing: var(--wp--custom--site--small-block-negative-spacing);
 
 	@media (--viewport-lap-and-up) {

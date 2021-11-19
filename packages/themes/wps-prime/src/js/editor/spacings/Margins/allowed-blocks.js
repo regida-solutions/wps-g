@@ -4,6 +4,7 @@ const allowedBlocks = [
 	'core/heading',
 	'wps/icon',
 	'wps/section',
+	'wps/whatsapp-button',
 ];
 
 export default allowedBlocks;

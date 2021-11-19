@@ -11,5 +11,8 @@
 	"slider/editor.css",
 	"slider-slide/index.js",
 	"slider-slide/style.css",
-	"slider-slide/editor.css"
+	"slider-slide/editor.css",
+	"whatsapp-button/index.js",
+	"whatsapp-button/style.css",
+	"whatsapp-button/editor.css"
 ]

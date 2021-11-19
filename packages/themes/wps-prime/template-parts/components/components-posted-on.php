@@ -31,5 +31,5 @@ $byline = sprintf(
 
 ?>
 <div class="entry-meta-content">
-	<span class="posted-on"><?php wp_kses_post( $posted_on ); ?></span><span class="byline"><?php wp_kses_post( $byline ); ?></span>
+	<span class="posted-on"><?php echo wp_kses_post( $posted_on ); ?></span><span class="byline"><?php echo wp_kses_post( $byline ); ?></span>
 </div>
