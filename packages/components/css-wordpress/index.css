@@ -124,7 +124,7 @@
 	& > .wp-block-quote + ul,
 	& > p + ul:not(.wp-block-gallery),
 	& > ul:not(.wp-block-gallery) + p {
-		margin-top: var(--site-block-negative-spacing);
+		/*margin-top: var(--site-block-negative-spacing);*/
 	}
 
 	& > *:first-child {
@@ -185,11 +185,15 @@
 }
 
 /* Override the default 32px gap for the Columns Block with custom prop. */
-.wp-block-column {
+.wp-block-columns .wp-block-column:not(:last-child) {
 	margin-bottom: var(--wp--custom--site--spacing);
 }
 
-.wp-block-column:last-child {
+.wp-block-columns .wp-block-column > *:first-child {
+	margin-top: 0;
+}
+
+.wp-block-columns .wp-block-column > *:last-child {
 	margin-bottom: 0;
 }
 
@@ -199,10 +203,6 @@
 
 		&:nth-child(even) {
 			margin-left: var(--wp--custom--site--spacing);
-		}
-
-		&:not(:only-child) {
-			flex-basis: calc(50% - var(--wp--custom--site--spacing) / 2) !important;
 		}
 	}
 }

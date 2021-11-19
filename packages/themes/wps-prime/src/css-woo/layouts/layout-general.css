@@ -59,15 +59,13 @@
 	}
 
 	/**
-			* Product loops
-			*/
+	* Product loops
+	*/
 	& ul.products {
 		display: grid;
 		grid-gap: var(--spacing-base);
 		grid-template-columns: repeat(var(--woo-product-per-row-default), 1fr);
 		list-style: none;
-		margin: 0;
-		width: 100%;
 
 		& li.product {
 			padding: 0;
@@ -108,6 +106,7 @@
 
 .woocommerce,
 .woocommerce-page {
+
 	&.columns-1 {
 		& ul.products {
 			& li.product {
@@ -152,11 +151,11 @@
 	}
 
 	& .woocommerce-result-count {
-		float: left;
+		display: inline-block;
 	}
 
 	& .woocommerce-ordering {
-		float: right;
+		display: inline-block;
 	}
 
 	& .woocommerce-pagination {
@@ -248,8 +247,8 @@
 	}
 
 	/**
-			* Cart sidebar
-			*/
+	* Cart sidebar
+	*/
 	& ul.cart_list,
 	& ul.product_list_widget {
 		list-style: none;
@@ -257,8 +256,8 @@
 	}
 
 	/**
-				* Forms
-				*/
+	* Forms
+	*/
 	& form {
 		& .wps-woo-form-wrapper {
 			& .woocommerce-billing-fields__field-wrapper {
