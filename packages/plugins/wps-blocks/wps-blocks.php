@@ -36,7 +36,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'section',
 	'slider',
 	'slider-slide',
-	'whatsapp-button'
+	'whatsapp-button',
 ]);
 
 /* Load image shortcode */

@@ -37,10 +37,10 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_setting(
 		'wps_phone_nr',
 		[
-			'default'    => '',
-			'type'       => 'option',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_phone_number',
 		]
 	);
@@ -61,10 +61,10 @@ function register( object $wp_customize ):void {
 	$wp_customize->add_setting(
 		'wps_phone_nr_second',
 		[
-			'default'    => '',
-			'type'       => 'option',
-			'capability' => 'edit_theme_options',
-			'transport'  => 'postMessage',
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_phone_number',
 		]
 	);
@@ -416,6 +416,13 @@ function register( object $wp_customize ):void {
 
 }
 
-function sanitize_phone_number( $input ) {
+/**
+ * Cleanup phone number
+ *
+ * @param string $input Phone number.
+ *
+ * @return string
+ */
+function sanitize_phone_number( string $input ):string {
 	return preg_replace( '/[^0-9_+-]/', '', $input );
 }

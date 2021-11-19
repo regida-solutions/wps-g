@@ -1,6 +1,8 @@
 <?php
 /**
  * Custom shop utility wrapper
+ *
+ * @package WpsPrime
  */
 
 declare( strict_types=1 );
