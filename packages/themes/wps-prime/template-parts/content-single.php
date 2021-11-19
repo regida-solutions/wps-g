@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
-			<?php get_template_part( 'template-parts/components', 'posted-on' ); ?>
+			<?php get_template_part( 'template-parts/components/components-posted-on' ); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -48,7 +48,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php get_template_part( 'template-parts/components', 'entry-footer' ); ?>
+
+		<?php get_template_part( 'template-parts/components/components-entry-footer' ); ?>
 		<?php do_action( 'wps_single_entry_footer' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

@@ -41,6 +41,7 @@ function register( object $wp_customize ):void {
 			'type'       => 'option',
 			'capability' => 'edit_theme_options',
 			'transport'  => 'postMessage',
+			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_phone_number',
 		]
 	);
 
@@ -49,7 +50,7 @@ function register( object $wp_customize ):void {
 		'wps_phone_nr',
 		[
 			'type'        => 'text',
-			'label'       => __( 'Company phone number', 'wps-prime' ),
+			'label'       => __( 'Phone number one', 'wps-prime' ),
 			'description' => __( 'Used in a shortcode. Regardless where the phone number will be placed you can update it from here', 'wps-prime' ),
 			'priority'    => 70,
 			'section'     => 'title_tagline',
@@ -64,6 +65,7 @@ function register( object $wp_customize ):void {
 			'type'       => 'option',
 			'capability' => 'edit_theme_options',
 			'transport'  => 'postMessage',
+			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_phone_number',
 		]
 	);
 
@@ -72,8 +74,32 @@ function register( object $wp_customize ):void {
 		'wps_phone_nr_second',
 		[
 			'type'        => 'text',
-			'label'       => __( 'Company phone number Second', 'wps-prime' ),
+			'label'       => __( 'Phone number second', 'wps-prime' ),
 			'description' => __( 'Used in a shortcode. Regardless where the phone number will be placed you can update it from here', 'wps-prime' ),
+			'priority'    => 70,
+			'section'     => 'title_tagline',
+		]
+	);
+
+	// SETTING.
+	$wp_customize->add_setting(
+		'wps_phone_nr_platform',
+		[
+			'default'           => '',
+			'type'              => 'option',
+			'capability'        => 'edit_theme_options',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => __NAMESPACE__ . '\\sanitize_phone_number',
+		]
+	);
+
+	// CONTROL.
+	$wp_customize->add_control(
+		'wps_phone_nr_platform',
+		[
+			'type'        => 'text',
+			'label'       => __( 'Phone number used for platforms like whatsapp', 'wps-prime' ),
+			'description' => __( 'Used in whatsapp shortcode. Regardless where the phone number will be placed you can update it from here', 'wps-prime' ),
 			'priority'    => 70,
 			'section'     => 'title_tagline',
 		]
@@ -388,4 +414,8 @@ function register( object $wp_customize ):void {
 		]
 	);
 
+}
+
+function sanitize_phone_number( $input ) {
+	return preg_replace( '/[^0-9_+-]/', '', $input );
 }

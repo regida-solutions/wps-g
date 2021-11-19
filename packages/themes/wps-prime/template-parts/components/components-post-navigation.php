@@ -23,6 +23,7 @@ if ( ! $next && ! $previous ) {
 }
 ?>
 <nav class="navigation post-navigation">
+	<div class="post-navigation__inner">
 	<h1 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'wps-prime' ); ?></h1>
 	<div class="nav-links">
 		<?php
@@ -45,4 +46,5 @@ if ( ! $next && ! $previous ) {
 		);
 		?>
 	</div><!-- .nav-links -->
+	</div><!-- .post-navigation__inner -->
 </nav><!-- .navigation -->

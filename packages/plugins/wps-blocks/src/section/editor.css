@@ -10,25 +10,22 @@
 		& > * {
 			margin-left: auto;
 			margin-right: auto;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		& > div.wp-block {
 			margin-bottom: var(--site-block-spacing);
 			margin-top: var(--site-block-spacing);
+
 		}
 
-	}
-
-	&.has-vertical-spacing {
-		& > .wps-section__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
-			& > *:first-child {
-				margin-top: 0;
-			}
-
-			& > *:last-child {
-				margin-bottom: 0;
-			}
-		}
 	}
 
 	& .wps-section__overlay {

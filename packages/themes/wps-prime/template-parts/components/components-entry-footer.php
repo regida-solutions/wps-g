@@ -23,7 +23,7 @@ if ( $meta_setting ) {
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'wps-prime' ) );
-		if ( $categories_list && wps_prime_categorized_blog() ) {
+		if ( $categories_list && \WpsPrime\Helpers\categorized_blog() ) {
 			printf(
 			/* translators: %1$s a list of categories */
 				'<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'wps-prime' ) . '</span>',

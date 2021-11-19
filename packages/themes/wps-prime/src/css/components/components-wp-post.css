@@ -78,6 +78,10 @@
 	margin-bottom: var(--spacing-small);
 	padding: var(--spacing-small);
 
+	& > *:not(:last-child) {
+		margin-right: 0.5em;
+	}
+
 	& a {
 		color: var(--color-gray-ui-text);
 	}

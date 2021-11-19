@@ -194,11 +194,7 @@ function body_class( array $classes ):array {
 
 	$has_woo_sidebar  = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
 	$woo_swap_sidebar = get_theme_mod( 'wps_woo_shop_swap_sidebar_position', false );
-
-	$excluded_woocommerce = false;
-	if ( $woo_is_active ) {
-		$excluded_woocommerce = is_product() || is_cart() || is_checkout() || is_account_page();
-	}
+	$is_woocommerce  = function_exists( 'is_woocommerce' ) ? is_woocommerce() : false;
 
 	if ( is_page() || is_404() ) {
 		$page_id = get_option( 'wps_404_custom_page' );
@@ -250,7 +246,7 @@ function body_class( array $classes ):array {
 		}
 	}
 
-	if ( $blog_has_sidebar && ! is_single() && ! is_404() && $excluded_woocommerce ) {
+	if ( $blog_has_sidebar && ! is_single() && ! is_404() && ! $is_woocommerce ) {
 		$classes[] = 'has-sidebar';
 
 		if ( $swap_sidebar ) {
@@ -260,7 +256,7 @@ function body_class( array $classes ):array {
 
 	// Woocommerce sidebar.
 	if ( $woo_is_active ) {
-		if ( $has_woo_sidebar && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		if ( $has_woo_sidebar && ( is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'sidebar-shop' ) ) {
 			$classes[] = 'has-sidebar';
 			if ( $woo_swap_sidebar ) {
 				$classes[] = 'has-sidebar-inverted';

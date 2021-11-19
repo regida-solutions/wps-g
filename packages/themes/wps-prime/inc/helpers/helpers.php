@@ -74,6 +74,7 @@ function load_helpers() {
 		'hooks-layout',
 		'debug-hooks',
 		'escape-svg',
+		'categorized-blog',
 	];
 
 	foreach ( $helpers as $helper ) {
