@@ -10,6 +10,7 @@ import {
 	BlockControls,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 /**
  * External dependencies
@@ -33,6 +34,13 @@ function Edit({ setAttributes, attributes }) {
 		className,
 		justification ? `is-aligned-${justification}` : '',
 	);
+
+	const hasIconBlock = useSelect((select) => {
+		return !!select('core/blocks').getBlockType('wps/icon');
+	}, []);
+	const template = hasIconBlock
+		? [['wps/icon', { icon: 'whatsapp', type: 'brands' }]]
+		: [];
 
 	return (
 		<>
@@ -81,12 +89,7 @@ function Edit({ setAttributes, attributes }) {
 					<div className="wps-whatsapp__inner">
 						<div className="wps-whatsapp__symbol">
 							<InnerBlocks
-								template={[
-									[
-										'wps/icon',
-										{ icon: 'whatsapp', type: 'brands' },
-									],
-								]}
+								template={template}
 								templateLock={true}
 								allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
 							/>

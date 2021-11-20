@@ -12,8 +12,7 @@
 	"keywords": ["Call to action", "Button", "Whatsapp"],
 	"attributes": {
 		"justification": {
-			"type": "string",
-			"default":"left"
+			"type": "string"
 		},
 		"label": {
 			"type": "string",

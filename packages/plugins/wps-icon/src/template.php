@@ -57,7 +57,7 @@ function template( array $attributes ): string {
 	$classes = get_names( [
 		'wps-icon',
 		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
-		! empty( $attributes['textAlign'] ) ? 'has-text-align-' . esc_attr( $attributes['textAlign'] ) : '',
+		! empty( $attributes['justification'] ) ? 'is-aligned-' . esc_attr( $attributes['justification'] ) : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 		$size,
