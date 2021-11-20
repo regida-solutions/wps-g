@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "461e0ca7f898024919d3ae1b17cd34b7",
+    "content-hash": "e811154282d0a20f2765f3fcab3d8246",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -626,35 +626,21 @@
         },
         {
             "name": "wpshapers/gravityforms",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:regida-solutions/gravityforms.git",
+            "version": "2.5.15",
+            "dist": {
+                "type": "path",
+                "url": "packages/plugins/gravityforms",
                 "reference": "28c9717da8356ca1b311417c90c7690c0df334f4"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/regida-solutions/gravityforms/zipball/28c9717da8356ca1b311417c90c7690c0df334f4",
-                "reference": "28c9717da8356ca1b311417c90c7690c0df334f4",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://regidasolutions.repo.repman.io/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
             "type": "wordpress-plugin",
-            "notification-url": "https://regidasolutions.repo.repman.io/downloads",
             "license": [
                 "GPL-3.0-or-later"
             ],
             "description": "Gravity forms wordpress plugin",
-            "support": {
-                "source": "https://github.com/regida-solutions/gravityforms/tree/2.5.15",
-                "issues": "https://github.com/regida-solutions/gravityforms/issues"
-            },
-            "time": "2021-11-20T15:42:37+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "wpshapers/wps-blocks",
