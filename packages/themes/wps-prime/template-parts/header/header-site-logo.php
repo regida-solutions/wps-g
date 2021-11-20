@@ -13,11 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $description = get_bloginfo( 'description', 'display' );
 $html_tag    = is_front_page() && is_home() ? 'h1' : 'p';
+$branding_url = apply_filters( 'wps_branding_url', home_url( '/' ));
+
 ?>
 <div class="site-branding">
 	<?php if ( ! has_custom_logo() ) : ?>
 	<<?php echo esc_html( $html_tag ); ?> class="site-title">
-	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+	<a href="<?php echo esc_url( $branding_url ); ?>" rel="home">
 		<?php echo esc_html( get_bloginfo( 'name' ) ); ?>
 	</a>
 </<?php echo esc_html( $html_tag ); ?>>

@@ -15,6 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $class = is_cart() ? 'current-menu-item' : '';
 
+if ( is_page() && get_post_meta( get_the_id(), '_wps_hide_menu', true ) ) {
+	return;
+}
 ?>
 
 <div class="woo-head-utility-wrapper">

@@ -21,7 +21,7 @@ function template( array $attributes, string $blocks ): string {
 
 	$classes = get_names( [
 		'wps-whatsapp',
-		$attributes['justification'] ? 'is-aligned-' . $attributes['justification'] : false,
+		isset( $attributes['justification'] ) ? 'is-aligned-' . $attributes['justification'] : false,
 		isset( $attributes['showOnLarge'] ) ? 'show-on-desktop' : false,
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
@@ -50,11 +50,11 @@ function template( array $attributes, string $blocks ): string {
 	<?php else : ?>
 		<a class="wps-whatsapp__link" href="<?php echo esc_url( $url ); ?>" target="_blank">
 			<div class="wps-whatsapp__inner">
-		<?php if ( ! empty( $blocks ) ) : ?>
-		<div class="wps-whatsapp__symbol">
-		<?php echo $blocks; //phpcs:ignore ?>
-		</div>
-		<?php endif; ?>
+			<?php if ( ! empty( $blocks ) ) : ?>
+			<div class="wps-whatsapp__symbol">
+			<?php echo $blocks; //phpcs:ignore ?>
+			</div>
+			<?php endif; ?>
 			<?php if ( isset( $attributes['label'] ) ) : ?>
 			<div class="wps-whatsapp__text"><?php echo esc_attr( $attributes['label'] ); ?></div>
 			<?php endif; ?>

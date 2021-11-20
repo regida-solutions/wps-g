@@ -27,7 +27,9 @@ function page_post_meta():void {
 		'_wps_has_visible_title',
 		'_wps_reset_page_top_space',
 		'_wps_reset_page_bottom_space',
+		'_wps_hide_menu',
 		'_wps_hide_footer',
+		'_wps_link_logo_to_page',
 	];
 
 	foreach ( $field_ids as $field_id ) {

@@ -25,6 +25,8 @@ const WpsPageSettingsPanel = () => {
 		_wps_hide_footer: hideFooter = false,
 		_wps_reset_page_top_space: resetPageTopSpace = false,
 		_wps_reset_page_bottom_space: resetPageBottomSpace = false,
+		_wps_hide_menu: hideMenu = false,
+		_wps_link_logo_to_page: linkLogoToPage = false,
 	} = meta;
 
 	return (
@@ -34,17 +36,16 @@ const WpsPageSettingsPanel = () => {
 			className="wps-custom-page-settings"
 		>
 			<CheckboxControl
+				help={__(
+					"Check this to add h1 page title in case you don't have one in a hero block",
+				)}
 				label={__('Show title on front end')}
 				checked={hasVisibleTitle}
 				onChange={() =>
 					setMeta({ _wps_has_visible_title: !hasVisibleTitle })
 				}
 			/>
-			<CheckboxControl
-				label={__('Hide footer')}
-				checked={hideFooter}
-				onChange={() => setMeta({ _wps_hide_footer: !hideFooter })}
-			/>
+
 			<CheckboxControl
 				label={__('Disable Content Top Space')}
 				checked={resetPageTopSpace}
@@ -61,6 +62,30 @@ const WpsPageSettingsPanel = () => {
 					setMeta({
 						_wps_reset_page_bottom_space: !resetPageBottomSpace,
 					})
+				}
+			/>
+			<hr />
+			<h3 style={{ marginBottom: '6px' }}>
+				{__('Landing page features')}
+			</h3>
+			<p>
+				{__('Limit ability of navigating away from the current page')}
+			</p>
+			<CheckboxControl
+				label={__('Hide menu')}
+				checked={hideMenu}
+				onChange={() => setMeta({ _wps_hide_menu: !hideMenu })}
+			/>
+			<CheckboxControl
+				label={__('Hide footer')}
+				checked={hideFooter}
+				onChange={() => setMeta({ _wps_hide_footer: !hideFooter })}
+			/>
+			<CheckboxControl
+				label={__('Logo link to current page')}
+				checked={linkLogoToPage}
+				onChange={() =>
+					setMeta({ _wps_link_logo_to_page: !linkLogoToPage })
 				}
 			/>
 		</PluginDocumentSettingPanel>
