@@ -13,12 +13,13 @@
 	"keywords": ["Icon", "Fontawesome"],
 	"attributes": {
 		"icon": {
-			"type": "string"
+			"type": "string",
+			"default": "face-smile"
 		},
 		"textColor": {
 			"type": "string"
 		},
-		"textAlign": {
+		"justification": {
 			"type": "string"
 		},
 		"fontSize": {

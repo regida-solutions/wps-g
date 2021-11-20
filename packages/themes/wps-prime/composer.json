@@ -1,6 +1,7 @@
 {
 	"name": "wpshapers/wps-prime",
 	"type": "wordpress-theme",
-	"description": "WordpressTheme",
-	"license": "GPL-2.0+"
+	"description": "Wordpress theme framework",
+	"license": "GPL-3.0-or-later",
+	"version": "3.0.6"
 }

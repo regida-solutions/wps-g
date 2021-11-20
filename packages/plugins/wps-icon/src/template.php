@@ -21,7 +21,7 @@ function template( array $attributes ): string {
 	$size = '';
 
 	// This is just a local file.
-	$icon_type_list = file_get_contents( __DIR__ . './icon-typelist.json' ); // phpcs:ignore
+	$icon_type_list = file_get_contents( __DIR__ . '/icon-typelist.json' ); // phpcs:ignore
 	$type_list      = json_decode( $icon_type_list, true );
 
 	$icon_type = '';
@@ -57,7 +57,7 @@ function template( array $attributes ): string {
 	$classes = get_names( [
 		'wps-icon',
 		! empty( $attributes['textColor'] ) ? 'has-' . esc_attr( $attributes['textColor'] ) . '-color' : '',
-		! empty( $attributes['textAlign'] ) ? 'has-text-align-' . esc_attr( $attributes['textAlign'] ) : '',
+		! empty( $attributes['justification'] ) ? 'is-aligned-' . esc_attr( $attributes['justification'] ) : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 		$size,

@@ -16,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 $woo_is_active   = \WpsPrime\Helpers\Woocommerce\is_woocommerce_activated();
 $has_sidebar     = get_theme_mod( 'wps_article_has_sidebar', false );
 $has_woo_sidebar = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
+$blog_sidebar    = get_theme_mod( 'wps_blog_has_sidebar', false );
+$is_woocommerce  = function_exists( 'is_woocommerce' ) ? is_woocommerce() : false;
+$single_has_sidebar     = get_theme_mod( 'wps_article_has_sidebar', false );
 
 if ( ! $woo_is_active && is_active_sidebar( 'sidebar-1' ) && $has_sidebar && is_singular() ) {
 	?>
@@ -43,16 +46,25 @@ if ( $woo_is_active ) {
 		</aside><!-- #secondary -->
 			<?php
 		}
-	} else {
-
-		if ( is_active_sidebar( 'sidebar-1' ) && $has_woo_sidebar ) {
-			?>
-		<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
-				<?php do_action( 'wps_sidebar_start' ); ?>
-				<?php dynamic_sidebar( 'sidebar-1' ); ?>
-				<?php do_action( 'wps_sidebar_end' ); ?>
-		</aside><!-- #secondary -->
-			<?php
-		}
 	}
+}
+
+if ( is_active_sidebar( 'sidebar-1' ) && $blog_sidebar && ! $is_woocommerce ) {
+	?>
+	<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
+		<?php do_action( 'wps_sidebar_start' ); ?>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php do_action( 'wps_sidebar_end' ); ?>
+	</aside><!-- #secondary -->
+	<?php
+}
+
+if ( is_active_sidebar( 'sidebar-1' ) && $single_has_sidebar && ! $is_woocommerce ) {
+	?>
+	<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
+		<?php do_action( 'wps_sidebar_start' ); ?>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php do_action( 'wps_sidebar_end' ); ?>
+	</aside><!-- #secondary -->
+	<?php
 }

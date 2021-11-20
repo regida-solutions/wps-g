@@ -12,7 +12,7 @@ import {
 	PanelColorSettings,
 	getFontSizeClass,
 	BlockControls,
-	AlignmentToolbar,
+	JustifyContentControl,
 } from '@wordpress/block-editor';
 import { TextControl, SelectControl, PanelBody } from '@wordpress/components';
 import { select } from '@wordpress/data';
@@ -27,7 +27,7 @@ import optionsList from './icon-typelist.json';
 function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 	const { icon = '', fontSize = {}, type = '' } = attributes;
 
-	const { className = '', textAlign = '' } = attributes;
+	const { className = '', justification = '' } = attributes;
 
 	const selectedType = optionsList.filter((obj) => {
 		return obj.attributes.value === type;
@@ -44,7 +44,7 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 		className,
 		typeof fontSize !== 'undefined' ? getFontSizeClass(fontSize.id) : '',
 		typeof textColor !== 'undefined' ? textColor.class : '',
-		textAlign !== '' ? `has-text-align-${textAlign}` : '',
+		justification ? `is-aligned-${justification}` : '',
 	);
 
 	const settings = select('core/editor').getEditorSettings();
@@ -75,7 +75,25 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 						label={__('Icon css class', 'wps-icon')}
 						value={icon}
 						onChange={(value) => setAttributes({ icon: value })}
+						help={
+							<>
+								{__(
+									'ex: face-smile, for reference check the official fontawesome website',
+								)}
+								<br />
+								<a
+									href="https://fontawesome.com/v6.0/icons/"
+									target="_blank"
+									title={__('Open in a new window')}
+									rel="noreferrer"
+									style={{ marginBottom: '10px' }}
+								>
+									{__('Visit fontawesome')}
+								</a>
+							</>
+						}
 					/>
+
 					<SelectControl
 						label={__('Font type', 'wps-icon')}
 						labelPosition="top"
@@ -106,9 +124,12 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 				</PanelBody>
 			</InspectorControls>
 			<BlockControls>
-				<AlignmentToolbar
-					value={textAlign}
-					onChange={(value) => setAttributes({ textAlign: value })}
+				<JustifyContentControl
+					allowedControls={['left', 'center', 'right']}
+					value={justification}
+					onChange={(value) => {
+						setAttributes({ justification: value });
+					}}
 				/>
 			</BlockControls>
 			<div {...useBlockProps()}>

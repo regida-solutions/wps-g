@@ -17,8 +17,8 @@ $menu_type     = get_theme_mod( 'main_menu_position', 'in_header' );
 $menu_location = 'under_header' === $menu_type ? 'wps_after_header' : 'wps_theme_header_right';
 
 /**
-	* Hook up components in theme
-	*/
+ * Hook up components in theme
+ */
 add_action( 'wps_theme_header', __NAMESPACE__ . '\\header_layout' );
 add_action( 'wps_theme_header_left', __NAMESPACE__ . '\\theme_site_logo' );
 add_action( $menu_location, __NAMESPACE__ . '\\main_menu' );
@@ -32,16 +32,15 @@ add_action( 'wps_menu_main_side_end', __NAMESPACE__ . '\\side_menu_meta_data' );
 add_action( 'wps_footer_content', __NAMESPACE__ . '\\footer_layout' );
 
 /**
-	* Add Global Content Object
-	*/
+ * Add Global Content Object
+ */
 add_action( 'wps_before_header', __NAMESPACE__ . '\\global_content_start_area' );
 add_action( 'wps_before_content', __NAMESPACE__ . '\\global_before_content_area' );
 add_action( 'wps_before_footer', __NAMESPACE__ . '\\global_content_end_area' );
 
-
 /**
-	* Add CSS classes to key areas
-	*/
+ * Add CSS classes to key areas
+ */
 add_filter( 'body_class', __NAMESPACE__ . '\\body_class' );
 add_filter( 'wps_header_class', __NAMESPACE__ . '\\main_header_class' );
 add_filter( 'wps_header_left_class', __NAMESPACE__ . '\\main_header_left_class' );
@@ -52,6 +51,8 @@ add_filter( 'wps_main_content_class', __NAMESPACE__ . '\\main_content_class' );
 add_filter( 'wps_main_sidebar_class', __NAMESPACE__ . '\\main_sidebar_class' );
 add_filter( 'wps_entry_content_class', __NAMESPACE__ . '\\entry_content_class' );
 add_filter( 'wps_footer_class', __NAMESPACE__ . '\\footer_class' );
+add_filter( 'get_custom_logo', __NAMESPACE__ . '\\change_default_logo_html' );
+add_filter( 'wps_branding_url', __NAMESPACE__ . '\\custom_branding_url' );
 
 /**
  * Hook up main header layout.
@@ -71,7 +72,7 @@ function theme_site_logo() {
  * Add the main menu toggle icon.
  */
 function main_menu_toggle() {
-	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	$hide_menu = is_page() && get_post_meta( get_the_id(), '_wps_hide_menu', true );
 	if ( ! $hide_menu ) {
 		get_template_part( 'template-parts/header/menu/menu-main-toggle' );
 	}
@@ -81,7 +82,7 @@ function main_menu_toggle() {
  * Add the main menu.
  */
 function main_menu() {
-	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	$hide_menu = is_page() && get_post_meta( get_the_id(), '_wps_hide_menu', true );
 	if ( ! $hide_menu ) {
 		get_template_part( 'template-parts/header/menu/menu-main-mega' );
 	}
@@ -91,7 +92,7 @@ function main_menu() {
  * Add the side menu.
  */
 function side_menu() {
-	$hide_menu = is_page() && 'true' === get_post_meta( get_the_id(), '_hide_main_menu', true );
+	$hide_menu = is_page() && get_post_meta( get_the_id(), '_wps_hide_menu', true );
 	if ( ! $hide_menu ) {
 		get_template_part( 'template-parts/header/menu/menu-main-side' );
 	}
@@ -101,7 +102,7 @@ function side_menu() {
  * Add the main menu.
  */
 function header_contact() {
-		get_template_part( 'template-parts/header/header-contact' );
+	get_template_part( 'template-parts/header/header-contact' );
 }
 
 /**
@@ -134,7 +135,10 @@ function entry_content_title() {
  * Add footer layout.
  */
 function footer_layout() {
-	get_template_part( 'template-parts/footer/colophon' );
+	$hide_footer = is_page() && get_post_meta( get_the_id(), '_wps_hide_footer', true );
+	if ( ! $hide_footer ) {
+		get_template_part( 'template-parts/footer/colophon' );
+	}
 	get_template_part( 'template-parts/footer/footer-micro-copy' );
 }
 
@@ -194,11 +198,7 @@ function body_class( array $classes ):array {
 
 	$has_woo_sidebar  = get_theme_mod( 'wps_woo_shop_has_sidebar', false );
 	$woo_swap_sidebar = get_theme_mod( 'wps_woo_shop_swap_sidebar_position', false );
-
-	$excluded_woocommerce = false;
-	if ( $woo_is_active ) {
-		$excluded_woocommerce = is_product() || is_cart() || is_checkout() || is_account_page();
-	}
+	$is_woocommerce   = function_exists( 'is_woocommerce' ) ? is_woocommerce() : false;
 
 	if ( is_page() || is_404() ) {
 		$page_id = get_option( 'wps_404_custom_page' );
@@ -250,7 +250,7 @@ function body_class( array $classes ):array {
 		}
 	}
 
-	if ( $blog_has_sidebar && ! is_single() && ! is_404() && $excluded_woocommerce ) {
+	if ( $blog_has_sidebar && ! is_single() && ! is_404() && ! $is_woocommerce ) {
 		$classes[] = 'has-sidebar';
 
 		if ( $swap_sidebar ) {
@@ -260,7 +260,7 @@ function body_class( array $classes ):array {
 
 	// Woocommerce sidebar.
 	if ( $woo_is_active ) {
-		if ( $has_woo_sidebar && ( is_shop() || is_product_category() || is_product_tag() ) ) {
+		if ( $has_woo_sidebar && ( is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'sidebar-shop' ) ) {
 			$classes[] = 'has-sidebar';
 			if ( $woo_swap_sidebar ) {
 				$classes[] = 'has-sidebar-inverted';
@@ -374,4 +374,34 @@ function footer_class( array $classes ):array {
 	$classes[] = 'site-footer';
 	return $classes;
 }
+
+/**
+ * Alter custom logo html
+ */
+function change_default_logo_html():string {
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$branding_url   = apply_filters( 'wps_branding_url', home_url( '/' ) );
+
+	return sprintf( '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+		esc_url( $branding_url ),
+		wp_get_attachment_image( $custom_logo_id, 'full', false, [
+			'class' => 'custom-logo',
+		] )
+	);
+}
+
+/**
+ * Custom branding url
+ *
+ * @param string $url Logo url.
+ */
+function custom_branding_url( string $url ):string {
+	// Link branding to current page.
+	$custom_branding_url = get_post_meta( get_the_id(), '_wps_link_logo_to_page', true );
+	if ( is_page() && $custom_branding_url ) {
+		$url = get_the_permalink( get_the_id() );
+	}
+	return $url;
+}
+
 
