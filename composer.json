@@ -58,7 +58,7 @@
 		"wpshapers/wps-prime": "@dev",
 		"wpshapers/wps-blocks": "@dev",
 		"wpshapers/wps-icon": "@dev",
-		"wpshapers/gravityforms":"main-dev",
+		"wpshapers/gravityforms":"@dev",
 		"wpackagist-plugin/svg-support":"2.3.19"
 	},
 	"require-dev": {
