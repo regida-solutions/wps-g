@@ -47,8 +47,7 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 		justification ? `is-aligned-${justification}` : '',
 	);
 
-	const settings = select('core/editor').getEditorSettings();
-	const fontSizeList = settings.fontSizes;
+	const fontSizeList = select('core/block-editor').getSettings().fontSizes;
 
 	const FontSizeChange = (value) => {
 		const font = fontSizeList.filter((item) => {

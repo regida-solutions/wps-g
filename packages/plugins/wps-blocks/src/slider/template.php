@@ -32,11 +32,14 @@ function template( array $attributes, string $blocks ): string {
 		$align,
 		$text_align,
 		$vertical_align,
+		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	]);
+
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
 	<div class="swiper-wrapper">
 		<?php if ( ! empty( $blocks ) ) : ?>
 			<?php echo $blocks; //phpcs:ignore ?>

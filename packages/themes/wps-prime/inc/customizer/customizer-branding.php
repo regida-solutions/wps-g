@@ -145,7 +145,7 @@ function register( object $wp_customize ):void {
 		[
 			'type'        => 'text',
 			'label'       => __( 'Company contact email Second', 'wps-prime' ),
-			'description' => __( 'Used in a shortcode. Regardles where the email will be placed you can update it from here', 'wps-prime' ),
+			'description' => __( 'Used in a shortcode. Regardless where the email will be placed you can update it from here', 'wps-prime' ),
 			'priority'    => 70,
 			'section'     => 'title_tagline',
 		]

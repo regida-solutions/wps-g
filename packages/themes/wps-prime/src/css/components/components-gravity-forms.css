@@ -1,0 +1,19 @@
+.gform_button {
+	--gravity-form-button-background: var(--button-color-tertiary);
+	--gravity-form-button-background-h: var(--button-color-tertiary-h);
+	--gravity-form-button-text: #fff;
+	background-color: var(--gravity-form-button-background);
+	border: 2px solid var(--gravity-form-button-background);
+	border-radius: var(--button-radius);
+	color: var(--gravity-form-button-text);
+	cursor: pointer;
+	font-size: 1em;
+	padding: var(--button-padding);
+	text-decoration: none;
+	transition: all 0.15s ease-in-out;
+
+	&:hover {
+		background-color: var(--gravity-form-button-background-h);
+		border-color: var(--gravity-form-button-background-h);
+	}
+}

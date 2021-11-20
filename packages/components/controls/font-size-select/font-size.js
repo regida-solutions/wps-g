@@ -6,8 +6,7 @@ import { FontSizePicker } from '@wordpress/block-editor';
 const FontSizeSelect = (attributes) => {
 	const { value = '', onChange = () => {} } = attributes;
 
-	const settings = select('core/editor').getEditorSettings();
-	const fontSizeList = settings.fontSizes;
+	const fontSizeList = select('core/block-editor').getSettings().fontSizes;
 	return (
 		<>
 			<FontSizePicker

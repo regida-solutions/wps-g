@@ -26,11 +26,14 @@ function template( array $attributes, string $blocks ): string {
 	$classes = get_names( [
 		'wps-hero',
 		$align,
+		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	]);
+
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
 		<div class="wps-hero__inner">
 			<div class="wps-hero__content">
 				<div class="wps-hero__container">

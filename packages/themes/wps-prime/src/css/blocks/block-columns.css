@@ -1,0 +1,15 @@
+.wp-block-columns + .wp-block-columns {
+	@media screen and (min-width: 600px) {
+		margin-top: calc(var(--site-block-spacing) * -1);
+	}
+}
+
+@media (min-width: 600px) and (max-width: 781px) {
+	.wp-block-column:not(:only-child) {
+		flex-basis: calc(50% - var(--site-block-spacing) / 2) !important;
+	}
+
+	.wp-block-column:nth-child(even) {
+		margin-left: var(--site-block-spacing);
+	}
+}

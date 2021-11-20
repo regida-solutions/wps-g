@@ -1,0 +1,43 @@
+{
+	"apiVersion": 2,
+	"name": "wps/contact-info",
+	"title": "Contact info",
+	"description": "Display phone and email",
+	"category": "common",
+	"icon": "info-outline",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [
+			"full"
+		]
+	},
+	"keywords": ["Contact", "Info", "Phone", "Email"],
+	"attributes": {
+		"showPhoneOne": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPhoneTwo": {
+			"type": "boolean"
+		},
+		"showPhonePlatform": {
+			"type": "boolean"
+		},
+		"showEmailOne": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEmailTwo": {
+			"type": "boolean"
+		},
+		"enableUrl": {
+			"type": "boolean"
+		},
+		"enableIcon": {
+			"type": "boolean"
+		}
+	},
+	"style": "file:../../build/contact-info/style.css",
+	"editorScript": "file:../../build/contact-info/index.js"
+}

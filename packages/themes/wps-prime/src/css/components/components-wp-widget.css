@@ -60,6 +60,7 @@
 	& .widget-area {
 		height: 100%;
 		margin-bottom: var(--spacing-small);
+		overflow-x: auto;
 	}
 
 	& .widget_recent_entries,

@@ -6,7 +6,6 @@
 	"category": "common",
 	"icon": "align-center",
 	"supports": {
-		"anchor": true,
 		"html": false
 	},
 	"keywords": ["Slider", "Slide"],

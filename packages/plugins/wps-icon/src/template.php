@@ -60,6 +60,7 @@ function template( array $attributes ): string {
 		! empty( $attributes['justification'] ) ? 'is-aligned-' . esc_attr( $attributes['justification'] ) : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
+		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 		$size,
 	]);
 
@@ -68,11 +69,13 @@ function template( array $attributes ): string {
 		isset( $attributes['icon'] ) ? 'fa-' . $attributes['icon'] : 'fa-font-awesome',
 	]);
 
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
+
 	wp_enqueue_style( 'wps-icon-assets-all' );
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
 		<i class="fa <?php echo esc_attr( $icon_classes ); ?>"></i>
 	</div>
 
