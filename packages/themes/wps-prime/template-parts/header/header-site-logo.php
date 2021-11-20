@@ -11,9 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-$description = get_bloginfo( 'description', 'display' );
-$html_tag    = is_front_page() && is_home() ? 'h1' : 'p';
-$branding_url = apply_filters( 'wps_branding_url', home_url( '/' ));
+$description  = get_bloginfo( 'description', 'display' );
+$html_tag     = is_front_page() && is_home() ? 'h1' : 'p';
+$branding_url = apply_filters( 'wps_branding_url', home_url( '/' ) );
 
 ?>
 <div class="site-branding">
