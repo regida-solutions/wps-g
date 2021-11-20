@@ -11,7 +11,7 @@ import {
 	ContrastChecker,
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody } from '@wordpress/components';
 
 /**
  * External dependencies
@@ -36,6 +36,7 @@ function Edit({
 		media,
 		focalPoint,
 		backgroundBehaviour,
+		backgroundPosition,
 		dimRatio,
 	} = attributes;
 
@@ -47,7 +48,6 @@ function Edit({
 		typeof backgroundColor.class !== undefined ? backgroundColor.class : '',
 		typeof textColor.class !== undefined ? textColor.class : '',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
-		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
 
 	const classesOverlay = classnames([
@@ -55,6 +55,7 @@ function Edit({
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
 		typeof backgroundColor.class !== undefined ? backgroundColor.class : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
+		backgroundPosition ? `background-is-aligned-${backgroundPosition}` : '',
 	]);
 
 	const style = {};
@@ -64,7 +65,10 @@ function Edit({
 			style.backgroundImage = `url(${media.url})`;
 		}
 		if (focalPoint) {
-			if (focalPoint.hasOwnProperty('x')) {
+			if (
+				focalPoint.hasOwnProperty('x') &&
+				focalPoint.hasOwnProperty('y')
+			) {
 				style.backgroundPosition = `${focalPoint.x * 100}% ${
 					focalPoint.y * 100
 				}%`;
@@ -113,19 +117,11 @@ function Edit({
 						onBehaveChange={(value) =>
 							setAttributes({ backgroundBehaviour: value })
 						}
-					/>
-					<RangeControl
-						label={__('Opacity')}
-						value={dimRatio}
-						onChange={(newDimRation) =>
-							setAttributes({
-								dimRatio: newDimRation,
-							})
-						}
-						min={0}
-						max={100}
-						step={10}
-						required
+						rangeSettings
+						range={dimRatio}
+						onRangeChange={(newDimRation) => {
+							setAttributes({ dimRatio: newDimRation });
+						}}
 					/>
 				</PanelBody>
 				<PanelBody

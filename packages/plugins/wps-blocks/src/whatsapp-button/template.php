@@ -66,12 +66,12 @@ function template( array $attributes, string $blocks ): string {
 	return ob_get_clean();
 }
 
-	/**
-	 * Callback function name
-	 *
-	 * @return string The template function name.
-	 **/
+/**
+ * Callback function name
+ *
+ * @return string The template function name.
+ **/
 function block_frontend_template(): string {
 	return __NAMESPACE__ . '\\template';
 }
-	add_filter( 'render_callback_whatsapp-button', __NAMESPACE__ . '\\block_frontend_template' );
+add_filter( 'render_callback_whatsapp-button', __NAMESPACE__ . '\\block_frontend_template' );

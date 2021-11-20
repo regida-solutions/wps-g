@@ -22,6 +22,7 @@ function template( array $attributes, string $blocks ): string {
 	$classes = get_names( [
 		'wps-slider-slide',
 		'swiper-slide',
+		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	]);
 
 	$classes_inner = get_names( [

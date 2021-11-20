@@ -3,7 +3,12 @@
  */
 import { __ } from '@wordpress/i18n';
 import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { Button, FocalPointPicker, SelectControl } from '@wordpress/components';
+import {
+	Button,
+	FocalPointPicker,
+	SelectControl,
+	RangeControl,
+} from '@wordpress/components';
 
 export const ImageUploaderUI = (attributes) => {
 	const defaultBehaviour = [
@@ -24,35 +29,37 @@ export const ImageUploaderUI = (attributes) => {
 			value: 'contain',
 		},
 	];
+
 	const {
 		onUpdate = () => {},
 		onRemove = () => {},
 		onFocalChange = () => {},
 		onBehaveChange = () => {},
+		onRangeChange = () => {},
 		media = {},
 		video = false,
 		focalPoint = {},
 		behaviourSettings = false,
+		rangeSettings = false,
 		behaviourOptions = defaultBehaviour,
 		behaviour = '',
+		range = 100,
 	} = attributes;
-
 	return (
 		<>
-			<h3>Background Image</h3>
 			{media.hasOwnProperty('id') && (
 				<>
 					<FocalPointPicker
 						label={__('Focal Point Picker', 'wps-prime')}
 						url={media.url}
 						value={
-							!focalPoint.hasOwnProperty('x')
+							!focalPoint.hasOwnProperty('x') ||
+							!focalPoint.hasOwnProperty('y')
 								? { x: 0.5, y: 0.5 }
 								: focalPoint
 						}
 						onChange={onFocalChange}
 					/>
-
 					<MediaUploadCheck>
 						<MediaUpload
 							title={__('Replace Image', 'wps-prime')}
@@ -74,18 +81,25 @@ export const ImageUploaderUI = (attributes) => {
 								</p>
 							)}
 						/>
-
+						{rangeSettings && (
+							<RangeControl
+								label={__('Opacity')}
+								value={range}
+								onChange={onRangeChange}
+								min={0}
+								max={100}
+								step={10}
+								required
+							/>
+						)}
 						{behaviourSettings && (
-							<>
-								<h3>Settings</h3>
-								<SelectControl
-									label="Background image behaviour"
-									labelPosition="top"
-									value={behaviour}
-									options={behaviourOptions}
-									onChange={onBehaveChange}
-								/>
-							</>
+							<SelectControl
+								label="Background image behaviour"
+								labelPosition="top"
+								value={behaviour}
+								options={behaviourOptions}
+								onChange={onBehaveChange}
+							/>
 						)}
 					</MediaUploadCheck>
 				</>
