@@ -39,7 +39,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'whatsapp-button',
 	'contact-info',
 	'grid',
-	'grid-column'
+	'grid-column',
 ]);
 
 /* Load image shortcode */
