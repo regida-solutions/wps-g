@@ -9,7 +9,7 @@
 .wps-grid {
 	overflow: hidden;
 	position: relative;
-	--grid-column-gap: 0;
+	--grid-column-gap: 0px;/* stylelint-disable-line length-zero-no-unit */
 
 	& > .wps-grid__inner {
 		display: flex;
