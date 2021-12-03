@@ -4,7 +4,7 @@
 		flex-wrap: wrap;
 		margin: var(--site-block-spacing) auto;
 		max-width: var(--content-width);
-		--grid-column-gap: 0;
+		--grid-column-gap: 0px;/* stylelint-disable-line length-zero-no-unit */
 
 		& > .wp-block {
 			flex: 1;
