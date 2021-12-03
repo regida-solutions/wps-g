@@ -1,0 +1,75 @@
+{
+	"apiVersion": 2,
+	"name": "wps/grid",
+	"title": "Grid block",
+	"description": "Create a grid to hold inner grid-column blocks",
+	"category": "common",
+	"icon": "grid-view",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": ["full","wide"]
+	},
+	"keywords": ["Grid" ,"Column", "Columns"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"paddingVertical": {
+			"type": "string"
+		},
+		"verticalAlign": {
+			"type": "string"
+		},
+		"columnPadding": {
+			"type": "string"
+		},
+		"columnGap": {
+			"type": "string"
+		},
+		"columnAlign": {
+			"type": "string"
+		},
+		"horizontalAlign": {
+			"type": "string"
+		},
+		"equalHeight": {
+			"type": "string"
+		},
+		"fullHeight": {
+			"type": "boolean"
+		},
+		"contentCenter": {
+			"type": "boolean"
+		},
+		"dimRatio": {
+			"type": "number",
+			"default": 100
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../build/grid/style.css",
+	"editorStyle": "file:../../build/grid/editor.css",
+	"editorScript": "file:../../build/grid/index.js"
+}

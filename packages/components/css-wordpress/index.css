@@ -185,8 +185,18 @@
 }
 
 /* Override the default 32px gap for the Columns Block with custom prop. */
-.wp-block-columns .wp-block-column:not(:last-child) {
+.wp-block-columns .wp-block-column {
 	margin-bottom: var(--wp--custom--site--spacing);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	@media (--viewport-lap-and-up) {
+		&:last-child {
+			margin-bottom: var(--wp--custom--site--spacing);
+		}
+	}
 }
 
 .wp-block-columns .wp-block-column > *:first-child {
