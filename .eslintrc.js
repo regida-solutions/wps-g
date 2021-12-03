@@ -13,4 +13,11 @@ module.exports = {
 		'@wordpress/dependency-group': 'error',
 		'@wordpress/no-unsafe-wp-apis': 'error',
 	},
+	parser: '@babel/eslint-parser',
+	parserOptions: {
+		babelOptions: {
+			presets: ['@wordpress/babel-preset-default'],
+		},
+		requireConfigFile: false,
+	},
 };

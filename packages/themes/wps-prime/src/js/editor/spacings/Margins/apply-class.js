@@ -12,25 +12,31 @@ import classnames from 'classnames';
  * Internal dependencies
  */
 import allowedBlocks from './allowed-blocks';
+/**
+ * External dependencies
+ */
+import { GetKeyByValue } from 'components/helpers';
 
 /* Adjust the save.js part of block */
 function applyExtraClass(extraProps, blockType, attributes) {
-	const { marginTop = '', marginBottom = '' } = attributes;
+	const {
+		marginTop = '',
+		marginBottom = '',
+		paddingGeneral = '',
+	} = attributes;
+
+	const currentBlock = GetKeyByValue(allowedBlocks, blockType.name, 'name');
 
 	// Core
-	if (allowedBlocks.includes(blockType.name)) {
-		if ('' !== marginTop) {
-			extraProps.className = classnames(
-				extraProps.className,
-				`has-margin-top-${marginTop}`,
-			);
-		}
-		if ('' !== marginBottom) {
-			extraProps.className = classnames(
-				extraProps.className,
-				`has-margin-bottom-${marginBottom}`,
-			);
-		}
+	if (typeof currentBlock !== 'undefined') {
+		extraProps.className = classnames(
+			extraProps.className,
+			'' !== marginTop ? `has-margin-top-${marginTop}` : '',
+			'' !== marginBottom ? `has-margin-bottom-${marginBottom}` : '',
+			'' !== paddingGeneral
+				? `has-padding-general-${paddingGeneral}`
+				: '',
+		);
 	}
 	return extraProps;
 }
@@ -44,15 +50,24 @@ addFilter(
 /* Adjust the edit.js part of block */
 const withCustomAttributeClass = createHigherOrderComponent(
 	(BlockListBlock) => (props) => {
-		if (!allowedBlocks.includes(props.name)) {
+		const currentBlock = GetKeyByValue(allowedBlocks, props.name, 'name');
+
+		if (typeof currentBlock === 'undefined') {
 			return <BlockListBlock {...props} />;
 		}
 		const { attributes = {} } = props;
-		const { marginTop = '', marginBottom = '' } = attributes;
+		const {
+			marginTop = '',
+			marginBottom = '',
+			paddingGeneral = '',
+		} = attributes;
 
 		const classNames = classnames(
 			'' !== marginTop ? `has-margin-top-${marginTop}` : '',
 			'' !== marginBottom ? `has-margin-bottom-${marginBottom}` : '',
+			'' !== paddingGeneral
+				? `has-padding-general-${paddingGeneral}`
+				: '',
 		);
 
 		if (classNames) {

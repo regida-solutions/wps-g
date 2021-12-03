@@ -1,0 +1,50 @@
+{
+	"apiVersion": 2,
+	"name": "wps/grid-column",
+	"title": "Grid column",
+	"description": "Create a grid column to hold elements",
+	"category": "common",
+	"parent": [ "wps/grid" ],
+	"icon": "columns",
+	"supports": {
+		"anchor": true,
+		"html": false
+	},
+	"keywords": ["Column", "Columns", "Grid"],
+	"attributes": {
+		"align": {
+			"type": "string"
+		},
+		"anchor": {
+			"type": "string"
+		},
+		"width": {
+			"type": "number"
+		},
+		"verticalAlign": {
+			"type": "string"
+		},
+		"dimRatio": {
+			"type": "number",
+			"default": 100
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../build/grid-column/style.css",
+	"editorStyle": "file:../../build/grid-column/editor.css",
+	"editorScript": "file:../../build/grid-column/index.js"
+}

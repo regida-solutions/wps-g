@@ -8,8 +8,14 @@ import { addFilter } from '@wordpress/hooks';
  */
 import allowedBlocks from './allowed-blocks';
 
+/**
+ * External dependencies
+ */
+import { GetKeyByValue } from 'components/helpers';
+
 function addAttributes(settings, name) {
-	if (!allowedBlocks.includes(name)) {
+	const currentBlock = GetKeyByValue(allowedBlocks, name, 'name');
+	if (typeof currentBlock === 'undefined') {
 		return settings;
 	}
 
@@ -18,6 +24,9 @@ function addAttributes(settings, name) {
 			type: 'string',
 		},
 		marginBottom: {
+			type: 'string',
+		},
+		paddingGeneral: {
 			type: 'string',
 		},
 	});

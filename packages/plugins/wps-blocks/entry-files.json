@@ -16,5 +16,11 @@
 	"whatsapp-button/style.css",
 	"whatsapp-button/editor.css",
 	"contact-info/index.js",
-	"contact-info/style.css"
+	"contact-info/style.css",
+	"grid/index.js",
+	"grid/style.css",
+	"grid/editor.css",
+	"grid-column/index.js",
+	"grid-column/style.css",
+	"grid-column/editor.css"
 ]

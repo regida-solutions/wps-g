@@ -1,26 +1,25 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import {
 	InnerBlocks,
 	useBlockProps,
 	InspectorControls,
 	PanelColorSettings,
+	BlockVerticalAlignmentToolbar,
 	withColors,
 	ContrastChecker,
+	BlockControls,
 } from '@wordpress/block-editor';
+import { PanelBody, RangeControl } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
-import { PanelBody } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 /**
  * External dependencies
  */
 import classnames from 'classnames';
-/**
- * Internal dependencies
- */
-import { BackgroundImage, SpacingList } from 'components/controls';
+import { BackgroundImage } from 'components/controls';
 
 function Edit({
 	attributes,
@@ -31,8 +30,9 @@ function Edit({
 	setBackgroundColor,
 }) {
 	const {
-		className,
-		spacingVertical,
+		className = '',
+		width = null,
+		verticalAlign = '',
 		media,
 		focalPoint,
 		backgroundBehaviour,
@@ -40,17 +40,16 @@ function Edit({
 	} = attributes;
 
 	const classes = classnames([
-		'wps-section',
+		'wps-grid-column',
 		className,
-		spacingVertical ? 'has-vertical-spacing' : '',
-		spacingVertical ? `u-padding-vertical-${spacingVertical}` : '',
+		verticalAlign ? `vertical-align-${verticalAlign}` : '',
 		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
 		textColor.hasOwnProperty('class') ? textColor.class : '',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
+		[width ? `has-width-${width}` : ''],
 	]);
-
 	const classesOverlay = classnames([
-		'wps-section__overlay',
+		'wps-grid-column__overlay',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
 		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
@@ -74,9 +73,61 @@ function Edit({
 		}
 		style.opacity = dimRatio !== 100 ? `${dimRatio}%` : '';
 	}
+
+	const marks = [
+		{ value: 5 },
+		{ value: 10 },
+		{ value: 15 },
+		{ value: 20 },
+		{ value: 25 },
+		{ value: 30 },
+		{ value: 35 },
+		{ value: 40 },
+		{ value: 45 },
+		{ value: 50 },
+		{ value: 55 },
+		{ value: 60 },
+		{ value: 65 },
+		{ value: 70 },
+		{ value: 75 },
+		{ value: 80 },
+		{ value: 85 },
+		{ value: 90 },
+		{ value: 95 },
+		{ value: 100 },
+	];
+
 	return (
 		<>
+			<BlockControls group="block">
+				<BlockVerticalAlignmentToolbar
+					onChange={(value) =>
+						setAttributes({ verticalAlign: value })
+					}
+					value={verticalAlign}
+				/>
+			</BlockControls>
 			<InspectorControls>
+				<PanelBody
+					title={__('Spacing', 'wps-blocks')}
+					initialOpen={true}
+				>
+					<RangeControl
+						separatorType="none"
+						isShiftStepEnabled
+						label="Column custom size"
+						marks={marks}
+						value={width}
+						onChange={(value) => {
+							setAttributes({ width: value });
+						}}
+						allowReset
+						resetFallbackValue={null}
+						min={10}
+						max={100}
+						step={5}
+					/>
+				</PanelBody>
 				<PanelBody
 					title={__('Backgrounds', 'wps-blocks')}
 					initialOpen={false}
@@ -122,30 +173,17 @@ function Edit({
 						}}
 					/>
 				</PanelBody>
-				<PanelBody
-					title={__('Spacing', 'wps-blocks')}
-					initialOpen={false}
-				>
-					<h3>Paddings</h3>
-					<SpacingList
-						label="Padding vertical"
-						value={spacingVertical}
-						onChange={(value) =>
-							setAttributes({ spacingVertical: value })
-						}
-					/>
-				</PanelBody>
 			</InspectorControls>
+
 			<div {...useBlockProps({ className: classes })}>
 				{media ? <div className={classesOverlay} style={style} /> : ''}
-				<div className="wps-section__inner">
+				<div className="wps-grid-column__inner">
 					<InnerBlocks />
 				</div>
 			</div>
 		</>
 	);
 }
-
 export default compose([
 	withColors({ textColor: 'color', backgroundColor: 'background-color' }),
 ])(Edit);

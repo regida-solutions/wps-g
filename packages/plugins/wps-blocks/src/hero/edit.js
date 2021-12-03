@@ -10,12 +10,10 @@ import { __ } from '@wordpress/i18n';
 import { Image } from 'components';
 
 function Edit({ attributes, setAttributes, isSelected }) {
-	const { title, subTitle } = attributes;
+	const { title, subTitle, className = '' } = attributes;
 
 	const INNER_BLOCKS_TEMPLATE = [['core/buttons', {}]];
 	const INNER_BLOCKS_ALLOWED_BLOCKS = ['core/buttons'];
-
-	const { className = '' } = attributes;
 
 	return (
 		<div {...useBlockProps()}>
