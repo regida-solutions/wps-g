@@ -2,6 +2,9 @@
 
 .wps-slider {
 	--swiper-navigation-color: currentColor;
+	--swiper-pagination-color: currentColor;
+	--swiper-pagination-offset-padding: 40px;
+	--swiper-slide-content-background: var(--background-color-body);
 
 	&.has-vertical-align-center {
 		& .wps-slider-slide {
@@ -12,6 +15,19 @@
 	&.has-vertical-align-bottom {
 		& .wps-slider-slide {
 			align-self: end;
+		}
+	}
+
+	&.swiper-cube,
+	&.swiper-creative {
+		& .wps-slider-slide__content {
+			background-color: var(--swiper-slide-content-background);
+		}
+	}
+
+	&[data-pagination="1"] {
+		& .swiper-wrapper {
+			padding-bottom: var(--swiper-pagination-offset-padding);
 		}
 	}
 }

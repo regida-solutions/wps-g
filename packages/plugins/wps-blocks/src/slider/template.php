@@ -22,29 +22,37 @@ function template( array $attributes, string $blocks ): string {
 	wp_enqueue_script( 'wps-slider-core' );
 	wp_enqueue_style( 'wps-slider-core' );
 
-	$align          = isset( $attributes['align'] ) ? 'align' . $attributes['align'] : '';
-	$text_align     = isset( $attributes['textAlign'] ) ? 'has-text-align-' . $attributes['textAlign'] : '';
-	$vertical_align = isset( $attributes['verticalAlign'] ) ? 'has-vertical-align-' . $attributes['verticalAlign'] : '';
-
 	$classes = get_names( [
 		'wps-slider',
 		'swiper',
-		$align,
-		$text_align,
-		$vertical_align,
+		! empty( $attributes['align'] ) ? 'align' . $attributes['align'] : '',
+		! empty( $attributes['verticalAlign'] ) ? 'has-vertical-align-' . $attributes['verticalAlign'] : '',
+		! empty( $attributes['textAlign'] ) ? 'has-text-align-' . $attributes['textAlign'] : '',
+		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
+		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 	]);
 
-	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
+
+	$slider_config  = isset( $attributes['loopSlides'] ) ? ' data-loop="' . esc_attr( $attributes['loopSlides'] ) . '"' : '';
+	$slider_config .= isset( $attributes['speed'] ) ? ' data-speed="' . esc_attr( (int) $attributes['speed'] ) . '"' : '';
+	$slider_config .= isset( $attributes['autoplay'] ) ? ' data-autoplay="' . esc_attr( $attributes['autoplay'] ) . '"' : '';
+	$slider_config .= isset( $attributes['delay'] ) ? ' data-delay="' . esc_attr( $attributes['delay'] ) . '"' : '';
+	$slider_config .= isset( $attributes['animationType'] ) ? ' data-animation-type="' . esc_attr( $attributes['animationType'] ) . '"' : '';
+	$slider_config .= isset( $attributes['pagination'] ) ? ' data-pagination="' . esc_attr( $attributes['pagination'] ) . '"' : '';
 
 	ob_start();
 	?>
-	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div class="<?php echo esc_attr( $classes ); ?>"<?php echo $anchor.$slider_config; //phpcs:ignore ?>>
 	<div class="swiper-wrapper">
 		<?php if ( ! empty( $blocks ) ) : ?>
 			<?php echo $blocks; //phpcs:ignore ?>
 		<?php endif; ?>
 	</div>
+		<?php if ( isset( $attributes['pagination'] ) ) : ?>
+		<div class="wps-slider-pagination swiper-pagination"></div>
+		<?php endif; ?>
 		<div class="wps-slider-button-next swiper-button-next"></div>
 		<div class="wps-slider-button-prev swiper-button-prev"></div>
 	</div>
