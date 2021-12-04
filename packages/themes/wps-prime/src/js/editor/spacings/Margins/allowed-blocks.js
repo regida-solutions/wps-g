@@ -5,6 +5,7 @@ const allowedBlocks = [
 	{ name: 'core/column', settings: { margin: false, padding: true } },
 	{ name: 'wps/grid' },
 	{ name: 'wps/icon' },
+	{ name: 'wps/slider' },
 	{ name: 'wps/section' },
 	{ name: 'wps/whatsapp-button' },
 ];
