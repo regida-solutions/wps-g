@@ -6,28 +6,26 @@
  */
 import classnames from 'classnames';
 import {
+	InnerBlocks,
 	InspectorControls,
 	useBlockProps,
 	withColors,
 	PanelColorSettings,
-	getFontSizeClass,
-	BlockControls,
-	JustifyContentControl,
 } from '@wordpress/block-editor';
 import { TextControl, SelectControl, PanelBody } from '@wordpress/components';
-import { select } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
 import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { FontSizeSelect } from 'components/controls';
-import optionsList from './icon-typelist.json';
+import optionsList from '../components/icon-typelist.json';
+
+const ALLOWED_BLOCKS = ['core/list'];
 
 function Edit({ attributes, setAttributes, textColor, setTextColor }) {
-	const { icon = '', fontSize = {}, type = '' } = attributes;
+	const { icon = '', type = '' } = attributes;
 
-	const { className = '', justification = '' } = attributes;
+	const { className = '' } = attributes;
 
 	const selectedType = optionsList.filter((obj) => {
 		return obj.attributes.value === type;
@@ -39,37 +37,60 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 		`fa-${icon}`,
 	);
 
-	const blockClass = classnames(
-		'wps-icon',
-		className,
-		typeof fontSize !== 'undefined' ? getFontSizeClass(fontSize.id) : '',
+	const classes = classnames('wps-icon-list', className);
+	const iconClasses = classnames(
+		'fa-li',
 		typeof textColor !== 'undefined' ? textColor.class : '',
-		justification ? `is-aligned-${justification}` : '',
 	);
 
-	const fontSizeList = select('core/block-editor').getSettings().fontSizes;
-
-	const FontSizeChange = (value) => {
-		const font = fontSizeList.filter((item) => {
-			return item.size === value;
-		});
-
-		if (font.length > 0) {
-			setAttributes({
-				fontSize: {
-					value,
-					id: font[0].slug,
-				},
-			});
-		} else {
-			setAttributes({ fontSize: {} });
-		}
-	};
+	const previewColor =
+		typeof textColor !== 'undefined' ? textColor.color : false;
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Settings', 'wps-icon')}>
+					<div
+						className="editor-preview-box"
+						style={{
+							border: '1px solid #ccc',
+							padding: '10px',
+							marginBottom: '10px',
+						}}
+					>
+						<h3>Preview</h3>
+						<ul className="fa-ul">
+							<li>
+								<span
+									style={{ color: previewColor }}
+									className="fa-li"
+								>
+									<i className={iconClass} />
+								</span>
+								List item
+								<ul className="fa-ul">
+									<li>
+										<span
+											style={{ color: previewColor }}
+											className={iconClasses}
+										>
+											<i className={iconClass} />
+										</span>
+										List sub Item
+									</li>
+								</ul>
+							</li>
+							<li>
+								<span
+									style={{ color: previewColor }}
+									className={iconClasses}
+								>
+									<i className={iconClass} />
+								</span>
+								List Item
+							</li>
+						</ul>
+					</div>
 					<TextControl
 						label={__('Icon css class', 'wps-icon')}
 						value={icon}
@@ -94,7 +115,7 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 					/>
 
 					<SelectControl
-						label={__('Font type', 'wps-icon')}
+						label={__('Icon type', 'wps-icon')}
 						labelPosition="top"
 						value={type}
 						options={optionsList.map((option) => {
@@ -115,26 +136,10 @@ function Edit({ attributes, setAttributes, textColor, setTextColor }) {
 							},
 						]}
 					/>
-					<hr />
-					<FontSizeSelect
-						value={fontSize.value}
-						onChange={FontSizeChange}
-					/>
 				</PanelBody>
 			</InspectorControls>
-			<BlockControls>
-				<JustifyContentControl
-					allowedControls={['left', 'center', 'right']}
-					value={justification}
-					onChange={(value) => {
-						setAttributes({ justification: value });
-					}}
-				/>
-			</BlockControls>
-			<div {...useBlockProps()}>
-				<div className={blockClass}>
-					{icon && <i className={iconClass} />}
-				</div>
+			<div {...useBlockProps({ className: classes })}>
+				<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
 			</div>
 		</>
 	);

@@ -35,6 +35,6 @@
 			"type": "string"
 		}
 	},
-	"style": "file:../build/style.css",
-	"editorScript": "file:../build/index.js"
+	"style": "file:../../build/icon/style.css",
+	"editorScript": "file:../../build/icon/index.js"
 }

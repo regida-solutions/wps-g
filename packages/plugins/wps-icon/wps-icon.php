@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-icon
- * Version:         1.0.10
+ * Version:         1.1.0
  *
  * @package WpsIcon
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Icon;
 
-define( 'WPS_ICON_BLOCKS_VERSION', '1.0.10' );
+define( 'WPS_ICON_BLOCKS_VERSION', '1.1.0' );
 define( 'WPS_ICON_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_ICON_BLOCKS_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'WPS_ICON_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
@@ -28,8 +28,19 @@ add_filter( 'wps_allowed_block_types', __NAMESPACE__ . '\\allowed_block_types' )
 require_once __DIR__ . '/inc/setup-updater.php';
 require_once __DIR__ . '/inc/setup-assets.php';
 
-if ( file_exists( __DIR__ . '/src/template.php' ) ) {
-	include_once __DIR__ . '/src/template.php';
+define( 'WPS_ICON_BLOCKS_LIST', [
+	'icon',
+	'icon-list'
+]);
+
+/**
+ * Load all templates
+ */
+$blocks = WPS_ICON_BLOCKS_LIST;
+foreach ( $blocks as $block ) {
+	if ( file_exists( __DIR__ . '/src/' . $block . '/template.php' ) ) {
+		include_once __DIR__ . '/src/' . $block . '/template.php';
+	}
 }
 
 /**
@@ -39,7 +50,13 @@ if ( file_exists( __DIR__ . '/src/template.php' ) ) {
  * @return array
  */
 function allowed_block_types( array $list ): array {
-	return array_merge( $list, [ 'wps/icon' ] );
+	$blocks         = WPS_ICON_BLOCKS_LIST;
+	$allowed_blocks = [];
+
+	foreach ( $blocks as $block ) {
+		$allowed_blocks[] = 'wps/' . $block;
+	}
+	return array_merge( $list, $allowed_blocks );
 }
 
 
@@ -47,16 +64,21 @@ function allowed_block_types( array $list ): array {
  * Register blocks
  */
 function register_blocks() {
+	$blocks = WPS_ICON_BLOCKS_LIST;
+
+	foreach ( $blocks as $block ) {
+
 		$args = [];
 
-	if ( file_exists( WPS_ICON_BLOCKS_DIR_PATH . 'src/template.php' ) ) {
-		$args['render_callback'] = apply_filters( 'render_callback_icon', 'return__false' );
+	if ( file_exists( WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block . '/template.php' ) ) {
+		$args['render_callback'] = apply_filters( 'render_callback_' . $block, 'return__false' );
 	}
 
-		register_block_type_from_metadata(
-			WPS_ICON_BLOCKS_DIR_PATH . 'src/',
-			$args
-		);
+	register_block_type_from_metadata(
+		WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block,
+		$args
+	);
+	}
 }
 
 

@@ -15,7 +15,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin: var(--site-block-spacing) auto;
-		max-width: var(--content-width);
+		max-width: min(calc(100vw - var(--site-spacing) * 2), var(--content-width));
 
 		& > .wps-grid-column {
 			@media (--viewport-mobile) {

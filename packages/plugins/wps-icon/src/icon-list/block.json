@@ -1,0 +1,40 @@
+{
+	"apiVersion": 2,
+	"name": "wps/icon-list",
+	"title": "Icon list block",
+	"description": "Add a Fontawesome icon to a list",
+	"category": "common",
+	"icon": "star-filled",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["Icon", "Fontawesome"],
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "face-smile"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"justification": {
+			"type": "string"
+		},
+		"fontSize": {
+			"type": "object"
+		},
+		"type": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../build/icon-list/style.css",
+	"editorScript": "file:../../build/icon-list/index.js"
+}

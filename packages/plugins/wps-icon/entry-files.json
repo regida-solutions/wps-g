@@ -1,1 +1,6 @@
-["index.js", "style.css"]
+[
+	"icon/index.js",
+	"icon/style.css",
+	"icon-list/index.js",
+	"icon-list/style.css"
+]
