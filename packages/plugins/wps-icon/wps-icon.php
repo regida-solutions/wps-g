@@ -30,7 +30,7 @@ require_once __DIR__ . '/inc/setup-assets.php';
 
 define( 'WPS_ICON_BLOCKS_LIST', [
 	'icon',
-	'icon-list'
+	'icon-list',
 ]);
 
 /**
@@ -70,14 +70,14 @@ function register_blocks() {
 
 		$args = [];
 
-	if ( file_exists( WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block . '/template.php' ) ) {
-		$args['render_callback'] = apply_filters( 'render_callback_' . $block, 'return__false' );
-	}
+		if ( file_exists( WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block . '/template.php' ) ) {
+			$args['render_callback'] = apply_filters( 'render_callback_' . $block, 'return__false' );
+		}
 
-	register_block_type_from_metadata(
-		WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block,
-		$args
-	);
+		register_block_type_from_metadata(
+			WPS_ICON_BLOCKS_DIR_PATH . 'src/' . $block,
+			$args
+		);
 	}
 }
 
