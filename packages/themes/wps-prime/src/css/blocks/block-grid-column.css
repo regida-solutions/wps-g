@@ -1,0 +1,25 @@
+.wps-grid-column {
+	&.is-style-shadow-hover {
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+			transform: translateY(-3px);
+		}
+	}
+
+	&.is-style-bordered {
+		border: 2px solid currentColor;
+	}
+
+	&.is-style-highlighted {
+		box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+		transform: translateY(-3px);
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			box-shadow: none;
+			transform: translateY(0);
+		}
+	}
+}

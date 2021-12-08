@@ -1,0 +1,13 @@
+.wps-icon > i {
+	display: block;
+}
+
+.wps-icon {
+	&.is-aligned-center {
+		text-align: center;
+	}
+
+	&.is-aligned-right {
+		text-align: right;
+	}
+}

@@ -21,10 +21,10 @@ function template( array $attributes ): string {
 	$size = '';
 
 	// This is just a local file.
-	$icon_type_list = file_get_contents( __DIR__ . '/icon-typelist.json' ); // phpcs:ignore
+	$icon_type_list = file_get_contents( __DIR__ . '/../components/icon-typelist.json' ); // phpcs:ignore
 	$type_list      = json_decode( $icon_type_list, true );
 
-	$icon_type = '';
+	$icon_type = 'fa-regular';
 	if ( isset( $attributes['type'] ) ) {
 		$type = array_filter($type_list, function( array $item ) use ( $attributes ):bool {
 			if ( isset( $attributes['type'] ) ) {
@@ -75,7 +75,7 @@ function template( array $attributes ): string {
 
 	ob_start();
 	?>
-	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 		<i class="fa <?php echo esc_attr( $icon_classes ); ?>"></i>
 	</div>
 
