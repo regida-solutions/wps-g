@@ -13,14 +13,14 @@ const SimpleButton = (attributes) => {
 	const {
 		text = false,
 		onTextChange = () => {},
-		isSelected = true,
+		isSelected = false,
 		onURLChange = () => {},
 		onSetTarget = () => {},
-		buttonLink = '',
+		link = '',
 		className = false,
 		innerClassName = '',
 		target = false,
-		placeholder = __('Add your text here!'),
+		placeholder = __('Click here text!'),
 	} = attributes;
 
 	/* Popover state */
@@ -64,7 +64,7 @@ const SimpleButton = (attributes) => {
 										<div className="block-editor-link-control__search-input">
 											<URLInput
 												className="block-editor-url-input__input"
-												value={buttonLink}
+												value={link}
 												onChange={onURLChange}
 												placeholder={__(
 													'Enter address',

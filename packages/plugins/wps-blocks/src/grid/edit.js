@@ -42,6 +42,8 @@ function Edit({
 		columnPadding = '',
 		columnAlign = '',
 		paddingVertical = '',
+		paddingHorizontal = '',
+		columnEqualHeight = false,
 		fullHeight = false,
 		contentCenter = false,
 		media,
@@ -56,6 +58,7 @@ function Edit({
 		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
 		textColor.hasOwnProperty('class') ? textColor.class : '',
 		paddingVertical ? `u-padding-vertical-${paddingVertical}` : '',
+		paddingHorizontal ? `u-padding-horizontal-${paddingHorizontal}` : '',
 		horizontalAlign ? `horizontal-align-${horizontalAlign}` : '',
 		verticalAlign ? `vertical-align-${verticalAlign}` : '',
 		fullHeight ? `is-full-height` : '',
@@ -63,6 +66,7 @@ function Edit({
 		columnGap ? `column-gap-${columnGap}` : '',
 		columnPadding ? `column-padding-${columnPadding}` : '',
 		columnAlign ? `column-align${columnAlign}` : '',
+		columnEqualHeight ? `column-equal-height` : '',
 	]);
 	const classesOverlay = classnames([
 		'wps-grid__overlay',
@@ -119,6 +123,22 @@ function Edit({
 					title={__('Settings', 'wps-blocks')}
 					initialOpen={true}
 				>
+					<h3>{__('Grid Spacings')}</h3>
+					<SpacingList
+						label="Grid vertical padding"
+						value={paddingVertical}
+						onChange={(value) =>
+							setAttributes({ paddingVertical: value })
+						}
+					/>
+					<SpacingList
+						label="Grid horizontal padding"
+						value={paddingHorizontal}
+						onChange={(value) =>
+							setAttributes({ paddingHorizontal: value })
+						}
+					/>
+					<h3>{__('Column Spacings')}</h3>
 					<SpacingList
 						label="Column padding"
 						value={columnPadding}
@@ -131,13 +151,6 @@ function Edit({
 						value={columnGap}
 						onChange={(value) =>
 							setAttributes({ columnGap: value })
-						}
-					/>
-					<SpacingList
-						label="Grid vertical padding"
-						value={paddingVertical}
-						onChange={(value) =>
-							setAttributes({ paddingVertical: value })
 						}
 					/>
 					<h3>{__('Height adjustment')}</h3>
@@ -160,6 +173,15 @@ function Edit({
 						checked={contentCenter}
 						onChange={() => {
 							setAttributes({ contentCenter: !contentCenter });
+						}}
+					/>
+					<ToggleControl
+						label="Columns equal height"
+						checked={columnEqualHeight}
+						onChange={() => {
+							setAttributes({
+								columnEqualHeight: !columnEqualHeight,
+							});
 						}}
 					/>
 				</PanelBody>

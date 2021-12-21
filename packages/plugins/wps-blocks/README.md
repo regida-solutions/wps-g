@@ -5,3 +5,4 @@ Grid\
 Section\
 Slider\
 Whatsapp\
+Card\

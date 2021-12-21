@@ -24,21 +24,23 @@ window.wp.domReady(() => {
 		isDefault: false,
 	});
 
-	// WPS column item settings
-	window.wp.blocks.registerBlockStyle('wps/grid-column', {
-		name: 'shadow-hover',
-		label: 'Shadow hover',
-		isDefault: false,
-	});
+	// WPS column/card item settings
+	['wps/grid-column', 'wps/card'].forEach((element) => {
+		window.wp.blocks.registerBlockStyle(element, {
+			name: 'shadow-hover',
+			label: 'Shadow hover',
+			isDefault: false,
+		});
 
-	window.wp.blocks.registerBlockStyle('wps/grid-column', {
-		name: 'bordered',
-		label: 'Bordered',
-		isDefault: false,
-	});
-	window.wp.blocks.registerBlockStyle('wps/grid-column', {
-		name: 'highlighted',
-		label: 'Highlighted',
-		isDefault: false,
+		window.wp.blocks.registerBlockStyle(element, {
+			name: 'bordered',
+			label: 'Bordered',
+			isDefault: false,
+		});
+		window.wp.blocks.registerBlockStyle(element, {
+			name: 'highlighted',
+			label: 'Highlighted',
+			isDefault: false,
+		});
 	});
 });

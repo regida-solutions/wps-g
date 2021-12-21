@@ -20,7 +20,7 @@ import { dispatch } from '@wordpress/data';
 function Image({
 	attributes = {},
 	setAttributes,
-	isSelected = true,
+	isSelected = false,
 	hasCaption = false,
 	featured = false,
 	focus = true,
