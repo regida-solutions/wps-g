@@ -59,7 +59,8 @@
 		"wpshapers/wps-blocks": "@dev",
 		"wpshapers/wps-icon": "@dev",
 		"wpshapers/gravityforms":"@dev",
-		"wpackagist-plugin/svg-support":"2.3.19"
+		"wpackagist-plugin/svg-support":"2.3.19",
+		"wpackagist-plugin/wp-graphql":"^1.6.9"
 	},
 	"require-dev": {
 		"dekode/coding-standards": "4.0.0",

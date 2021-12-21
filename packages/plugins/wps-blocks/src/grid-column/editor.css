@@ -1,5 +1,5 @@
 [data-type="wps/grid-column"] {
-	overflow: hidden;
+	/*overflow: hidden;*/
 
 	& .wps-grid-column__overlay {
 		height: 100%;
@@ -11,5 +11,5 @@
 }
 
 .is-selected [data-type="wps/grid-column"] {
-	border: 1px solid #ccc;
+	border: 2px dashed #ccc;
 }

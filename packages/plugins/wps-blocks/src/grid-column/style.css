@@ -1,5 +1,5 @@
 .wps-grid-column {
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position: relative;
 
 	& .wps-grid-column__inner {

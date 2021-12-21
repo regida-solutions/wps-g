@@ -1,0 +1,51 @@
+{
+	"apiVersion": 2,
+	"name": "wps/card",
+	"title": "Card",
+	"description": "A card block containing an image text and button",
+	"category": "common",
+	"icon": "cover-image",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": []
+	},
+	"keywords": ["card", "image", "text", "button"],
+	"attributes": {
+		"dimRatio": {
+			"type": "number",
+			"default": 100
+		},
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"spacingGeneral": {
+			"type": "string"
+		},
+		"backgroundColor": {
+			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"focalPoint": {
+			"type": "object"
+		},
+		"media": {
+			"type": "object"
+		},
+		"backgroundBehaviour": {
+			"type": "string"
+		},
+		"marginTop": {
+			"type": "string"
+		},
+		"marginBottom": {
+			"type": "string"
+		}
+	},
+	"style": "file:../../build/card/style.css",
+	"editorStyle": "file:../../build/card/editor.css",
+	"editorScript": "file:../../build/card/index.js"
+}

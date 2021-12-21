@@ -13,6 +13,7 @@ const FontSizeSelect = (attributes) => {
 				fontSizes={fontSizeList}
 				value={value}
 				onChange={onChange}
+				withReset={true}
 			/>
 		</>
 	);

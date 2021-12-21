@@ -17,7 +17,7 @@ namespace WPS\Blocks\Shortcode;
  */
 function ssr_image( array $attributes ) : string {
 
-	$type = wp_check_filetype( get_attached_file( $attributes['id'] ) )['type'];
+	$type = isset( $attributes['media']['id'] ) ? wp_check_filetype( get_attached_file( $attributes['id'] ) )['type'] : '';
 
 	if ( ! isset( $attributes['id'] ) && ! isset( $attributes['url'] ) ) {
 		return '';

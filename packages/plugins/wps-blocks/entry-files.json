@@ -22,5 +22,8 @@
 	"grid/editor.css",
 	"grid-column/index.js",
 	"grid-column/style.css",
-	"grid-column/editor.css"
+	"grid-column/editor.css",
+	"card/index.js",
+	"card/style.css",
+	"card/editor.css"
 ]

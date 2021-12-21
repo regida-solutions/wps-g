@@ -76,6 +76,12 @@
 		}
 	}
 
+	&.column-equal-height {
+		& .wps-grid__inner > .wps-grid-column > .wps-grid-column__inner {
+			height: 100%;
+		}
+	}
+
 	/* Column Padding */
 	&.column-padding {
 		&-tiny > .wps-grid__inner > .wps-grid-column > .wps-grid-column__inner {

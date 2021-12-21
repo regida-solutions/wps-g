@@ -27,6 +27,7 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['verticalAlign'] ) ? 'vertical-align-' . $attributes['verticalAlign'] : '',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
 		! empty( $attributes['paddingVertical'] ) ? 'u-padding-vertical-' . $attributes['paddingVertical'] : '',
+		! empty( $attributes['paddingHorizontal'] ) ? 'u-padding-horizontal-' . $attributes['paddingHorizontal'] : '',
 		! empty( $attributes['fullHeight'] ) ? 'is-full-height' : '',
 		! empty( $attributes['contentCenter'] ) ? 'is-content-center' : '',
 		! empty( $attributes['backgroundColor'] ) ? 'has-' . esc_attr( $attributes['backgroundColor'] ) . '-background-color' : '',
@@ -35,6 +36,7 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['columnGap'] ) ? 'column-gap-' . $attributes['columnGap'] : '',
 		! empty( $attributes['columnPadding'] ) ? 'column-padding-' . $attributes['columnPadding'] : '',
 		! empty( $attributes['columnAlign'] ) ? 'column-align' . $attributes['columnAlign'] : '',
+		! empty( $attributes['columnEqualHeight'] ) ? 'column-equal-height' : '',
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 	]);
