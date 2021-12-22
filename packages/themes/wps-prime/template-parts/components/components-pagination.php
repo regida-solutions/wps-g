@@ -26,8 +26,7 @@ $output = '';
 			<?php if ( get_next_posts_link() ) : ?>
 				<div class="nav-previous">
 				<?php
-				echo get_next_posts_link(
-					sprintf(
+				echo get_next_posts_link( sprintf(
 					/* translators: %1$s navigation decoration */
 					esc_html__( '%1$s Older posts', 'wps-prime' ),
 				'<span class="meta-nav">&larr;</span>' ) ); // phpcs:ignore XSS OK

@@ -20,7 +20,7 @@ $blog_sidebar       = get_theme_mod( 'wps_blog_has_sidebar', false );
 $is_woocommerce     = function_exists( 'is_woocommerce' ) ? is_woocommerce() : false;
 
 
-if ( is_active_sidebar( 'sidebar-1' ) && !$is_woocommerce ) {
+if ( is_active_sidebar( 'sidebar-1' ) && ! $is_woocommerce ) {
 	if ( $single_has_sidebar && is_singular() ) {
 		?>
 		<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
@@ -31,7 +31,7 @@ if ( is_active_sidebar( 'sidebar-1' ) && !$is_woocommerce ) {
 		<?php
 	}
 
-	if ( $blog_sidebar && !is_singular() && !$is_woocommerce ) {
+	if ( $blog_sidebar && ! is_singular() && ! $is_woocommerce ) {
 		?>
 		<aside id="secondary" <?php wps_main_sidebar_class(); ?> role="complementary">
 			<?php do_action( 'wps_sidebar_start' ); ?>
