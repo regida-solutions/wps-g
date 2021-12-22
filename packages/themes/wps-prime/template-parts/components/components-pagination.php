@@ -24,9 +24,10 @@ $output = '';
 		<a class="screen-reader-text" href="#post-navigation"><?php esc_html_e( 'Post navigation', 'wps-prime' ); ?></a>
 		<div class="nav-links" id="post-navigation">
 			<?php if ( get_next_posts_link() ) : ?>
-				<div class="nav-previous u-hover-pulse-lr">
+				<div class="nav-previous">
 				<?php
-				next_post_link(  sprintf(
+				echo get_next_posts_link(
+					sprintf(
 					/* translators: %1$s navigation decoration */
 					esc_html__( '%1$s Older posts', 'wps-prime' ),
 				'<span class="meta-nav">&larr;</span>' ) ); // phpcs:ignore XSS OK
@@ -34,9 +35,9 @@ $output = '';
 				</div>
 			<?php endif; ?>
 			<?php if ( get_previous_posts_link() ) : ?>
-				<div class="nav-next u-hover-pulse-rl">
+				<div class="nav-next">
 				<?php
-				previous_post_link( sprintf(
+				echo get_previous_posts_link( sprintf(
 					/* translators: %1$s navigation decoration */
 					esc_html__( 'Newer posts %1$s', 'wps-prime' ),
 				'<span class="meta-nav">&rarr;</span>' ) ); // phpcs:ignore XSS OK

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php wps_prime_posted_on(); ?>
+			<?php get_template_part( 'template-parts/components/components-posted-on' ); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -30,6 +30,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php wps_prime_entry_footer(); ?>
+		<?php do_action( 'wps_single_entry_footer' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

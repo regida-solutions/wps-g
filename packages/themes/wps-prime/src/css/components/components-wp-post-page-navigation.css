@@ -12,7 +12,7 @@
 
 .nav-previous,
 .nav-next {
-
+	background-color: var(--color-gray-ui-bg-ligh);
 	color: var(--text-color-body);
 	transition: background-color var(--global-transition) linear;
 
@@ -34,16 +34,27 @@
 	&:hover {
 		background-color: var(--color-gray-ui-light);
 	}
-
 }
 
 .paging-navigation {
-	& a:hover {
-		color: var(--background-color-body);
+	& a {
+		display: block;
+
+		&:hover {
+			color: var(--text-color-body);
+		}
 	}
 
-	& .nav-next {
+	& .nav-next a {
+		display: block;
 		text-align: right;
+	}
+}
+
+.nav-links .nav-previous,
+.nav-links .nav-next {
+	a:hover {
+		color: var(--text-color-body);
 	}
 }
 
@@ -62,14 +73,13 @@
 			text-decoration: none;
 
 		}
-		align-items: stretch;
 
+		align-items: stretch;
 		display: flex;
 
 		& .nav-previous,
 		& .nav-next {
 			flex: 2;
-
 		}
 	}
 }
@@ -77,10 +87,10 @@
 /* Post Navigation */
 
 /*
-.post-navigation {
-border-bottom: 1px solid var(--color-gray-ui);
-}
-*/
+	.post-navigation {
+	border-bottom: 1px solid var(--color-gray-ui);
+	}
+	*/
 
 .nav-fig {
 	margin-bottom: var(--spacing-small);
@@ -95,9 +105,9 @@ border-bottom: 1px solid var(--color-gray-ui);
 	text-align: center;
 
 	/*
-	padding:$spacing-unit 0;
-	border-top:1px solid var(--color-gray-ui);
-	 */
+		padding:$spacing-unit 0;
+		border-top:1px solid var(--color-gray-ui);
+		 */
 
 	.page-numbers {
 		border: 1px solid var(--text-color-body);
