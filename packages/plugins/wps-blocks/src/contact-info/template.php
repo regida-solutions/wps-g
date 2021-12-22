@@ -20,8 +20,8 @@ function template( array $attributes ): string {
 	$classes = get_names( [
 		'wps-contact-info',
 		isset( $attributes['className'] ) ? esc_attr( $attributes['className'] ) : '',
-		isset( $attributes['enableIcon'] ) ? 'has-icon' : '',
-		isset( $attributes['enableUrl'] ) ? 'has-link' : '',
+		! empty( $attributes['enableIcon'] ) ? 'has-icon' : '',
+		! empty( $attributes['enableUrl'] ) ? 'has-link' : '',
 	]);
 
 	$contact_options = [];

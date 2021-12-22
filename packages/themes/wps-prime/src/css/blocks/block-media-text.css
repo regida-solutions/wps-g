@@ -1,0 +1,9 @@
+.wp-block-media-text:not(.has-background):not(.is-image-fill) {
+	& .wp-block-media-text__content {
+		@media (min-width: 600px) {
+			& > *:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+}

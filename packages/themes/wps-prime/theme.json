@@ -79,12 +79,12 @@
 				},
 				{
 					"slug": "large",
-					"size": "clamp(36px, 8vw, 62px)",
+					"size": "clamp(32px, 8vw, 48px)",
 					"name": "Large"
 				},
 				{
 					"slug": "huge",
-					"size": "clamp(42px, 8vw, 78px)",
+					"size": "clamp(42px, 8vw, 62px)",
 					"name": "Huge"
 				}
 			]

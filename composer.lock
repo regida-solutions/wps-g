@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "908a54e9774bcb6c07b97a83dd138a21",
+    "content-hash": "99ea0152180a69570aebc8be6a068c7d",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -517,6 +517,24 @@
             "time": "2021-10-28T21:34:29+00:00"
         },
         {
+            "name": "wpackagist-plugin/duplicate-post",
+            "version": "4.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/duplicate-post/",
+                "reference": "tags/4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/duplicate-post.4.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/duplicate-post/"
+        },
+        {
             "name": "wpackagist-plugin/fakerpress",
             "version": "0.5.1",
             "source": {
@@ -608,39 +626,21 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
-            "version": "5.9.0",
+            "version": "6.0.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/5.9.0"
+                "reference": "tags/6.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.5.9.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0 || ~2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/woocommerce/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-graphql",
-            "version": "1.6.10",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-graphql/",
-                "reference": "tags/1.6.10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-graphql.1.6.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.6.0.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-graphql/"
+            "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
             "name": "wpshapers/gravityforms",

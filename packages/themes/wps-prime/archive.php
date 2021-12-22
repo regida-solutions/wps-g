@@ -41,7 +41,7 @@ get_header(); ?>
 
 			endwhile;
 
-			wps_prime_paging_nav();
+			get_template_part( 'template-parts/components/components-pagination' );
 
 		else :
 

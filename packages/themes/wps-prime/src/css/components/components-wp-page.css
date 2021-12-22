@@ -112,6 +112,12 @@ body {
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
 }
 
 .entry-content .woocommerce,
