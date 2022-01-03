@@ -375,3 +375,7 @@ body.has-active-menu {
 		margin-bottom: var(--spacing-small);
 	}
 }
+
+.side-nav__extra-info {
+	padding: var(--spacing-small);
+}

@@ -250,7 +250,7 @@ function body_class( array $classes ):array {
 		}
 	}
 
-	if ( $blog_has_sidebar && ! is_single() && ! is_404() && ! $is_woocommerce ) {
+	if ( $blog_has_sidebar && ! is_single() && ! is_404() && ! $is_woocommerce && ! is_page() ) {
 		$classes[] = 'has-sidebar';
 
 		if ( $swap_sidebar ) {

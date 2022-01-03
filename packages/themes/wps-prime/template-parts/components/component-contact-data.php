@@ -26,5 +26,10 @@ if ( ! $has_phone && ! $has_email ) {
 			<a class="contact-data__item wps-phone-link" href="tel:<?php echo esc_html( $phone_main ); ?>">
 				<?php echo wp_kses_post( WpsPrime\Helpers\theme_icon( 'phone' ) ); ?> <?php echo esc_html( $phone_main ); ?>
 			</a>
+		<?php endif; ?>
+	<?php if ( $has_email && $email_main ) : ?>
+		<a class="contact-data__item wps-email-link" href="tel:<?php echo esc_html( $email_main ); ?>">
+			<?php echo wp_kses_post( WpsPrime\Helpers\theme_icon( 'email' ) ); ?> <?php echo esc_html( $email_main ); ?>
+		</a>
 	<?php endif; ?>
 </div>
