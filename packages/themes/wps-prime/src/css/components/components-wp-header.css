@@ -26,11 +26,19 @@
 }
 
 .site-header__left {
-	grid-column: 1/4;
+	grid-column: 1/6;
+
+	@media (--viewport-lap-and-up) {
+		grid-column: 1/4;
+	}
 }
 
 .site-header__right {
-	grid-column: 4/13;
+	grid-column: 6/13;
+
+	@media (--viewport-lap-and-up) {
+		grid-column: 4/13;
+	}
 
 }
 
