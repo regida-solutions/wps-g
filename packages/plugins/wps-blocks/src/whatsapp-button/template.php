@@ -22,7 +22,7 @@ function template( array $attributes, string $blocks ): string {
 	$classes = get_names( [
 		'wps-whatsapp',
 		isset( $attributes['justification'] ) ? 'is-aligned-' . $attributes['justification'] : false,
-		isset( $attributes['showOnLarge'] ) ? 'show-on-desktop' : false,
+		! empty( $attributes['showOnLarge'] ) ? 'show-on-desktop' : false,
 		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
 		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 	]);
