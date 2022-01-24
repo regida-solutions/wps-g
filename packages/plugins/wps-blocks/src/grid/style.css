@@ -183,6 +183,11 @@
 			--grid-column-width: calc(30% - var(--grid-column-gap) / 2);
 		}
 
+		/* 0.42% Micro adjustment for subpixel value bug on calc */
+		&.has-width-33 {
+			--grid-column-width: calc(33.3333333% - (var(--grid-column-gap) / 2) - 0.42%);
+		}
+
 		&.has-width-35 {
 			--grid-column-width: calc(35% - var(--grid-column-gap) / 2);
 		}
