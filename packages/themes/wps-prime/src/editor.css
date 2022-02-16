@@ -41,16 +41,18 @@
 }
 
 /* Customize title blocks */
-.editor-post-title__block {
-	margin: -8px -8px 40px !important;
+.edit-post-visual-editor__post-title-wrapper {
+	background: #f3f4f5;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
 	max-width: none !important;
 }
 
-.editor-post-title__block .editor-post-title__input {
-	background: #f3f4f5;
-	border-bottom: 1px solid #ddd;
+.edit-post-visual-editor__post-title-wrapper .editor-post-title__input {
 	font-size: 22px;
 	font-weight: 700;
+	margin-bottom: 0 !important;
+	max-width: 100% !important;
 	padding: 20px;
 }
 

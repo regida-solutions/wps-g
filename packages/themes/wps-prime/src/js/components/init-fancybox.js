@@ -15,7 +15,7 @@ const initFancybox = () => {
 	const galleries = document.getElementsByClassName('wp-block-gallery');
 
 	for (const gallery of galleries) {
-		const items = gallery.querySelectorAll('.blocks-gallery-item a');
+		const items = gallery.querySelectorAll('.wp-block-image a');
 		const galleryId = makeid(20);
 		items.forEach((item) => {
 			item.setAttribute('data-fancybox', galleryId);
