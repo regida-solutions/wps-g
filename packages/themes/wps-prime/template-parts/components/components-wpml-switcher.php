@@ -12,5 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <?php if ( function_exists( 'icl_object_id' ) && get_theme_mod( 'translation_switcher_display', false ) ) : ?>
+<div class="wpml-translator">
 	<div class="wpml-translator__utility"><?php echo do_shortcode( '[wpml_language_selector_widget]' ); ?></div>
+</div>
 <?php endif; ?>

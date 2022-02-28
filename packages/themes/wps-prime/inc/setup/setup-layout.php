@@ -24,6 +24,7 @@ add_action( 'wps_theme_header_left', __NAMESPACE__ . '\\theme_site_logo' );
 add_action( $menu_location, __NAMESPACE__ . '\\main_menu' );
 add_action( 'wps_theme_header_right', __NAMESPACE__ . '\\header_free_content' );
 add_action( 'wps_theme_header_right', __NAMESPACE__ . '\\header_contact' );
+add_action( 'wps_theme_header_right', __NAMESPACE__ . '\\header_wpml' );
 add_action( 'wps_theme_header_right', __NAMESPACE__ . '\\main_menu_toggle', 99 );
 add_action( 'wps_after_header', __NAMESPACE__ . '\\side_menu' );
 add_action( 'wps_entry_header', __NAMESPACE__ . '\\entry_content_title' );
@@ -106,6 +107,13 @@ function header_contact() {
 }
 
 /**
+ * Add wpml language switcher to header.
+ */
+function header_wpml() {
+	get_template_part( 'template-parts/components/components-wpml-switcher' );
+}
+
+/**
  * Add utility header free content area.
  */
 function header_free_content() {
@@ -116,9 +124,9 @@ function header_free_content() {
  * Add extra utility parts to header.
  */
 function side_menu_meta_data() {
-	get_template_part( 'template-parts/components/component-social-list' );
-	get_template_part( 'template-parts/components/component-contact-data' );
-	get_template_part( 'template-parts/components/component-wpml-switcher' );
+	get_template_part( 'template-parts/components/components-social-list' );
+	get_template_part( 'template-parts/components/components-contact-data' );
+	get_template_part( 'template-parts/components/components-wpml-switcher' );
 }
 
 /**

@@ -41,6 +41,10 @@
 		"wpshapers-packages": {
 			"type": "composer",
 			"url": "https://regidasolutions.repo.repman.io"
+		},
+		"barista-packages": {
+			"type": "vcs",
+			"url": "https://github.com/fnpen/baristawp-plugin"
 		}
 	},
 	"require": {
@@ -60,7 +64,8 @@
 		"wpshapers/wps-icon": "@dev",
 		"wpshapers/gravityforms":"@dev",
 		"wpackagist-plugin/svg-support":"~2.4.2",
-		"wpackagist-plugin/duplicate-post":"~4.4"
+		"wpackagist-plugin/duplicate-post":"~4.4",
+		"fnpen/barista":"dev-main"
 	},
 	"require-dev": {
 		"dekode/coding-standards": "4.0.0",

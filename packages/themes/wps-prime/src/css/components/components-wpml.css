@@ -1,0 +1,8 @@
+.wpml-translator {
+	display: none;
+
+	@media (--viewport-desktop) {
+		display: block;
+		margin-left: var(--spacing-small);
+	}
+}
