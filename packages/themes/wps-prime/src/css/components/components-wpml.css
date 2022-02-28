@@ -1,4 +1,4 @@
-.wpml-translator {
+.site-header .wpml-translator {
 	display: none;
 
 	@media (--viewport-desktop) {
