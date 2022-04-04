@@ -106,7 +106,7 @@ function register_blocks() {
  */
 function front_end_assets() {
 	if ( file_exists( __DIR__ . '/build/frontend.js' ) ) {
-		wp_register_script( 'wps-slider-init', esc_url( plugin_dir_url( __FILE__ ) ) . 'build/frontend.js', ['wps-slider-core'], WPS_BLOCKS_VERSION, true );
+		wp_register_script( 'wps-slider-init', esc_url( plugin_dir_url( __FILE__ ) ) . 'build/frontend.js', [ 'wps-slider-core' ], WPS_BLOCKS_VERSION, true );
 	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\front_end_assets' );
