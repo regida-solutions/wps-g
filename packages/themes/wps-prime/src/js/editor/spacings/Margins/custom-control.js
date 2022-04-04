@@ -37,11 +37,11 @@ const withAdvancedControls = createHigherOrderComponent(
 			currentBlock && currentBlock.settings
 				? {
 						margin:
-							typeof currentBlock.settings.margin !== undefined
+							typeof currentBlock.settings.margin !== 'undefined'
 								? currentBlock.settings.margin
 								: true,
 						padding:
-							typeof currentBlock.settings.padding !== undefined
+							typeof currentBlock.settings.padding !== 'undefined'
 								? currentBlock.settings.padding
 								: false,
 				  }
