@@ -1,36 +1,39 @@
 /**
  * WordPress dependencies
  */
-import {
-	InnerBlocks,
-	useBlockProps,
-	BlockControls,
-	AlignmentControl,
-	BlockVerticalAlignmentControl,
-	InspectorControls,
-} from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 import {
 	PanelBody,
-	TextControl,
+	BaseControl,
 	ToggleControl,
+	Button,
 	SelectControl,
+	TextControl,
 } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
+
+import {
+	MediaUpload,
+	MediaUploadCheck,
+	InspectorControls,
+	useBlockProps,
+} from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies
+ */
+
+import PreviewGallery from './components/preview-gallery';
 
 /**
  * External dependencies
  */
 import classnames from 'classnames';
 
-function Edit({ attributes, setAttributes }) {
-	const INNER_BLOCKS_TEMPLATE = [['wps/slider-slide', {}]];
-	const INNER_BLOCKS_ALLOWED_BLOCKS = ['wps/slider-slide'];
-
+function Edit({ setAttributes, attributes }) {
 	const {
-		className = '',
-		textAlign,
-		verticalAlign,
+		className,
+		galleryImageIds = [],
 		loopSlides,
 		speed,
 		delay,
@@ -39,25 +42,21 @@ function Edit({ attributes, setAttributes }) {
 		pagination,
 	} = attributes;
 
-	const classes = classnames('wps-slider', className, {
-		[`has-text-align-${textAlign}`]: textAlign,
-		[`has-vertical-align-${verticalAlign}`]: verticalAlign,
-	});
+	const ALLOWED_MEDIA_TYPES = ['image'];
+
+	const classes = classnames('wps-blocks-image-slider', className);
+
+	const instructions = (
+		<p>
+			{__(
+				'To edit the featured gallery, you need permission to upload media.',
+				'wps-blocks',
+			)}
+		</p>
+	);
 
 	return (
 		<>
-			<BlockControls group="block">
-				<AlignmentControl
-					value={textAlign}
-					onChange={(value) => setAttributes({ textAlign: value })}
-				/>
-				<BlockVerticalAlignmentControl
-					value={verticalAlign}
-					onChange={(value) =>
-						setAttributes({ verticalAlign: value })
-					}
-				/>
-			</BlockControls>
 			<InspectorControls>
 				<PanelBody
 					title={__('Settings', 'wps-blocks')}
@@ -135,11 +134,39 @@ function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps({ className: classes })}>
-				<InnerBlocks
-					template={INNER_BLOCKS_TEMPLATE}
-					templateLock={false}
-					allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
-				/>
+				<BaseControl className="wps-blocks-gallery-utility-wrapper">
+					<div className="editor-post-image-slider">
+						<MediaUploadCheck fallback={instructions}>
+							<div className="editor-post-wps-blocks-image-slider__container">
+								{!!galleryImageIds && (
+									<PreviewGallery images={galleryImageIds} />
+								)}
+							</div>
+							<MediaUpload
+								title={__('Images', 'wps-blocks')}
+								multiple
+								onSelect={(images) =>
+									setAttributes({
+										galleryImageIds: images.map(
+											(item) => item.id,
+										),
+									})
+								}
+								allowedTypes={ALLOWED_MEDIA_TYPES}
+								render={({ open }) => (
+									<Button
+										onClick={open}
+										isSecondary
+										className="wps-blocks-gallery-utility__button"
+									>
+										{__('Add images', 'wps-blocks')}
+									</Button>
+								)}
+								value={galleryImageIds}
+							/>
+						</MediaUploadCheck>
+					</div>
+				</BaseControl>
 			</div>
 		</>
 	);

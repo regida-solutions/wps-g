@@ -7,31 +7,26 @@
 
 declare( strict_types=1 );
 
-namespace WPS\Slider\Template;
+namespace WPS\ImageSlider\Template;
 
 use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
 
 /**
  * Render callback template
  *
- * @param array  $attributes Block attributes.
- * @param string $blocks inner blocks.
+ * @param array $attributes Block attributes.
  */
-function template( array $attributes, string $blocks ): string {
+function template( array $attributes ): string {
 
 	wp_enqueue_script( 'wps-slider-core' );
 	wp_enqueue_style( 'wps-slider-core' );
 	wp_enqueue_script( 'wps-slider-init' );
 
 	$classes = get_names( [
-		'wps-slider',
+		'wps-image-slider',
 		'swiper',
-		! empty( $attributes['align'] ) ? 'align' . $attributes['align'] : '',
-		! empty( $attributes['verticalAlign'] ) ? 'has-vertical-align-' . $attributes['verticalAlign'] : '',
-		! empty( $attributes['textAlign'] ) ? 'has-text-align-' . $attributes['textAlign'] : '',
-		! empty( $attributes['marginTop'] ) ? 'has-margin-top-' . esc_attr( $attributes['marginTop'] ) : '',
-		! empty( $attributes['marginBottom'] ) ? 'has-margin-bottom-' . esc_attr( $attributes['marginBottom'] ) : '',
 		! empty( $attributes['className'] ) ? $attributes['className'] : '',
+		! empty( $attributes['align'] ) ? 'align' . $attributes['align'] : '',
 	]);
 
 	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
@@ -43,13 +38,21 @@ function template( array $attributes, string $blocks ): string {
 	$slider_config .= isset( $attributes['animationType'] ) ? ' data-animation-type="' . esc_attr( $attributes['animationType'] ) . '"' : '';
 	$slider_config .= isset( $attributes['pagination'] ) ? ' data-pagination="' . esc_attr( $attributes['pagination'] ) . '"' : '';
 
+	$images = $attributes['galleryImageIds'] ?? [];
+
+	if ( empty( $images ) ) {
+		return '';
+	}
+
 	ob_start();
 	?>
 	<div class="<?php echo esc_attr( $classes ); ?>"<?php echo $anchor.$slider_config; //phpcs:ignore ?>>
 		<div class="swiper-wrapper">
-			<?php if ( ! empty( $blocks ) ) : ?>
-				<?php echo $blocks; //phpcs:ignore ?>
-			<?php endif; ?>
+			<?php foreach ( $images as $image ) : ?>
+				<div class="swiper-slide">
+					<?php echo wp_get_attachment_image( $image, 'full' ); ?>
+				</div>
+			<?php endforeach; ?>
 		</div>
 		<?php if ( isset( $attributes['pagination'] ) ) : ?>
 		<div class="wps-slider-pagination swiper-pagination"></div>
@@ -61,6 +64,7 @@ function template( array $attributes, string $blocks ): string {
 	return ob_get_clean();
 }
 
+
 /**
  * Callback function name
  *
@@ -69,4 +73,4 @@ function template( array $attributes, string $blocks ): string {
 function block_frontend_template(): string {
 	return __NAMESPACE__ . '\\template';
 }
-add_filter( 'render_callback_slider', __NAMESPACE__ . '\\block_frontend_template' );
+add_filter( 'render_callback_image-slider', __NAMESPACE__ . '\\block_frontend_template' );
