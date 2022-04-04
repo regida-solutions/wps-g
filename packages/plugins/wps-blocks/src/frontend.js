@@ -42,7 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		};
 	};
 	if (typeof Swiper !== 'undefined') {
-		const sliders = [...document.getElementsByClassName('wps-slider')];
+		const sliders = [
+			...document.getElementsByClassName('wps-slider'),
+			...document.getElementsByClassName('wps-image-slider'),
+		];
 		if (sliders.length > 0) {
 			sliders.forEach((slider) => {
 				const {

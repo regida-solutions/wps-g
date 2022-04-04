@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.1.7
+ * Version:         1.2.0
  *
  * @package WpsBlocks
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.1.7' );
+define( 'WPS_BLOCKS_VERSION', '1.2.0' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 define( 'WPS_BLOCKS_UPDATE_FOLDER', 'wps-blocks' );
@@ -41,6 +41,7 @@ define( 'WPS_BLOCKS_LIST', [
 	'grid',
 	'grid-column',
 	'card',
+	'image-slider',
 ]);
 
 /* Load image shortcode */
@@ -99,3 +100,13 @@ function register_blocks() {
 		);
 	}
 }
+
+/**
+ * Slider front end
+ */
+function front_end_assets() {
+	if ( file_exists( __DIR__ . '/build/frontend.js' ) ) {
+		wp_register_script( 'wps-slider-init', esc_url( plugin_dir_url( __FILE__ ) ) . 'build/frontend.js', ['wps-slider-core'], WPS_BLOCKS_VERSION, true );
+	}
+}
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\front_end_assets' );

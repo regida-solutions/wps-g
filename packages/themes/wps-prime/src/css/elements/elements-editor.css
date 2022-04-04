@@ -14,7 +14,10 @@
 		&:active {
 			text-decoration: underline;
 		}
+	}
 
+	& .has-text-color > a {
+		color: currentColor;
 	}
 
 	/* ===============

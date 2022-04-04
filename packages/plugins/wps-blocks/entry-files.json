@@ -1,4 +1,5 @@
 [
+	"frontend.js",
 	"shortcode/index.js",
 	"hero/index.js",
 	"hero/style.css",
@@ -6,7 +7,6 @@
 	"section/style.css",
 	"section/editor.css",
 	"slider/index.js",
-	"slider/frontend.js",
 	"slider/style.css",
 	"slider/editor.css",
 	"slider-slide/index.js",
@@ -25,5 +25,8 @@
 	"grid-column/editor.css",
 	"card/index.js",
 	"card/style.css",
-	"card/editor.css"
+	"card/editor.css",
+	"image-slider/index.js",
+	"image-slider/style.css",
+	"image-slider/editor.css"
 ]

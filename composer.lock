@@ -4,7 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "content-hash": "c2e7df3a816c149fe8caf97a332a3381",
+=======
+    "content-hash": "23cd4a2efd322f9f871118e7d9082957",
+>>>>>>> Stashed changes
+=======
+    "content-hash": "23cd4a2efd322f9f871118e7d9082957",
+>>>>>>> Stashed changes
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -59,10 +67,6 @@
                 "muplugin",
                 "wordpress"
             ],
-            "support": {
-                "issues": "https://github.com/boxuk/wp-muplugin-loader/issues",
-                "source": "https://github.com/boxuk/wp-muplugin-loader/tree/1.6.1"
-            },
             "time": "2021-12-01T17:08:36+00:00"
         },
         {
@@ -195,10 +199,6 @@
                 "zend",
                 "zikula"
             ],
-            "support": {
-                "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.11.0"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -216,6 +216,37 @@
             "time": "2021-04-28T06:42:17+00:00"
         },
         {
+<<<<<<< Updated upstream
+=======
+            "name": "fnpen/barista",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fnpen/baristawp-plugin.git",
+                "reference": "cfe6e70cc22f08e5556e402208cd469360d595b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fnpen/baristawp-plugin/zipball/cfe6e70cc22f08e5556e402208cd469360d595b5",
+                "reference": "cfe6e70cc22f08e5556e402208cd469360d595b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "ISC"
+            ],
+            "description": "A blazing fast, highly extendable command launcher that helps to do your routine tasks much faster. You can search posts, control your site, and much more.",
+            "support": {
+                "source": "https://github.com/fnpen/baristawp-plugin/tree/v0.8.21",
+                "issues": "https://github.com/fnpen/baristawp-plugin/issues"
+            },
+            "time": "2022-02-23T09:04:59+00:00"
+        },
+        {
+>>>>>>> Stashed changes
             "name": "inpsyde/wp-translation-downloader",
             "version": "2.0.4",
             "source": {
@@ -261,14 +292,12 @@
                 }
             ],
             "description": "Composer plugin to download translations from wordpress.org API.",
-            "support": {
-                "issues": "https://github.com/inpsyde/wp-translation-downloader/issues",
-                "source": "https://github.com/inpsyde/wp-translation-downloader/tree/2.0.4"
-            },
             "time": "2021-11-04T08:42:14+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "version": "5.9.0",
             "source": {
                 "type": "git",
@@ -283,6 +312,27 @@
             },
             "require": {
                 "johnpbloch/wordpress-core": "5.9.0",
+=======
+=======
+>>>>>>> Stashed changes
+            "version": "5.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress.git",
+                "reference": "e929834ba93c3de1d6b832162eda5af469041ea6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/e929834ba93c3de1d6b832162eda5af469041ea6",
+                "reference": "e929834ba93c3de1d6b832162eda5af469041ea6",
+                "shasum": ""
+            },
+            "require": {
+                "johnpbloch/wordpress-core": "5.9.2",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -294,16 +344,18 @@
             "authors": [
                 {
                     "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
+                    "homepage": "https://wordpress.org/about/"
                 }
             ],
             "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-            "homepage": "http://wordpress.org/",
+            "homepage": "https://wordpress.org/",
             "keywords": [
                 "blog",
                 "cms",
                 "wordpress"
             ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "support": {
                 "forum": "http://wordpress.org/support/",
                 "irc": "irc://irc.freenode.net/wordpress",
@@ -325,6 +377,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/51241ed9138dd1fb552f6b85fc2025e6135fc03f",
                 "reference": "51241ed9138dd1fb552f6b85fc2025e6135fc03f",
+=======
+=======
+>>>>>>> Stashed changes
+            "time": "2022-03-11T00:51:43+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core",
+            "version": "5.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core.git",
+                "reference": "0eb92a65ce99816683e2c0d50e83774ae5bfcf1a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/0eb92a65ce99816683e2c0d50e83774ae5bfcf1a",
+                "reference": "0eb92a65ce99816683e2c0d50e83774ae5bfcf1a",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -332,7 +405,15 @@
                 "php": ">=5.6.20"
             },
             "provide": {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "wordpress/core-implementation": "5.9.0"
+=======
+                "wordpress/core-implementation": "5.9.2"
+>>>>>>> Stashed changes
+=======
+                "wordpress/core-implementation": "5.9.2"
+>>>>>>> Stashed changes
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -352,6 +433,8 @@
                 "cms",
                 "wordpress"
             ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "support": {
                 "forum": "https://wordpress.org/support/",
                 "irc": "irc://irc.freenode.net/wordpress",
@@ -360,6 +443,12 @@
                 "wiki": "https://codex.wordpress.org/"
             },
             "time": "2022-01-25T20:28:49+00:00"
+=======
+            "time": "2022-03-11T00:51:39+00:00"
+>>>>>>> Stashed changes
+=======
+            "time": "2022-03-11T00:51:39+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -409,10 +498,6 @@
             "keywords": [
                 "wordpress"
             ],
-            "support": {
-                "issues": "https://github.com/johnpbloch/wordpress-core-installer/issues",
-                "source": "https://github.com/johnpbloch/wordpress-core-installer/tree/master"
-            },
             "time": "2020-04-16T21:44:57+00:00"
         },
         {
@@ -463,9 +548,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -533,9 +615,15 @@
                 "env",
                 "environment"
             ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "support": {
                 "source": "https://github.com/symfony/dotenv/tree/v5.3.13"
             },
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -572,15 +660,31 @@
         },
         {
             "name": "wpackagist-plugin/fakerpress",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "version": "0.5.1",
+=======
+            "version": "0.5.3",
+>>>>>>> Stashed changes
+=======
+            "version": "0.5.3",
+>>>>>>> Stashed changes
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/fakerpress/",
-                "reference": "trunk"
+                "reference": "tags/0.5.3"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "url": "https://downloads.wordpress.org/plugin/fakerpress.zip?timestamp=1610833803"
+=======
+                "url": "https://downloads.wordpress.org/plugin/fakerpress.0.5.3.zip"
+>>>>>>> Stashed changes
+=======
+                "url": "https://downloads.wordpress.org/plugin/fakerpress.0.5.3.zip"
+>>>>>>> Stashed changes
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -608,15 +712,15 @@
         },
         {
             "name": "wpackagist-plugin/safe-svg",
-            "version": "1.9.9",
+            "version": "1.9.10",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/safe-svg/",
-                "reference": "tags/1.9.9"
+                "reference": "tags/1.9.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.10.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -662,6 +766,8 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "version": "6.1.1",
             "source": {
                 "type": "svn",
@@ -671,6 +777,22 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/woocommerce.6.1.1.zip"
+=======
+=======
+>>>>>>> Stashed changes
+            "version": "6.3.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce/",
+                "reference": "tags/6.3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.6.3.1.zip"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -679,6 +801,8 @@
             "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "name": "wpshapers/gravityforms",
             "version": "2.5.15",
             "dist": {
@@ -697,6 +821,10 @@
             }
         },
         {
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             "name": "wpshapers/wps-blocks",
             "version": "1.1.7",
             "dist": {
@@ -734,11 +862,27 @@
         },
         {
             "name": "wpshapers/wps-prime",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "version": "3.0.13",
             "dist": {
                 "type": "path",
                 "url": "packages/themes/wps-prime",
                 "reference": "57eda22f73e2d59a7404491407b96968cf0a2243"
+=======
+            "version": "3.0.18",
+            "dist": {
+                "type": "path",
+                "url": "packages/themes/wps-prime",
+                "reference": "c1c77e5a9b54c1afa3ea7b18d10beced63d4d109"
+>>>>>>> Stashed changes
+=======
+            "version": "3.0.18",
+            "dist": {
+                "type": "path",
+                "url": "packages/themes/wps-prime",
+                "reference": "c1c77e5a9b54c1afa3ea7b18d10beced63d4d109"
+>>>>>>> Stashed changes
             },
             "type": "wordpress-theme",
             "license": [
@@ -792,11 +936,6 @@
                 }
             ],
             "description": "A set of phpcs sniffs for modern php development.",
-            "support": {
-                "issues": "https://github.com/sirbrillig/phpcs-neutron-standard/issues",
-                "source": "https://github.com/sirbrillig/phpcs-neutron-standard",
-                "wiki": "https://github.com/sirbrillig/phpcs-neutron-standard/wiki"
-            },
             "time": "2021-02-15T22:42:03+00:00"
         },
         {
@@ -863,11 +1002,18 @@
                 "stylecheck",
                 "tests"
             ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "support": {
                 "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
                 "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
             },
             "time": "2020-12-07T18:04:37+00:00"
+=======
+=======
+>>>>>>> Stashed changes
+            "time": "2022-02-04T12:51:07+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "dekode/coding-standards",
@@ -895,10 +1041,6 @@
                 "MIT"
             ],
             "description": "Dekode Coding Standards",
-            "support": {
-                "issues": "https://github.com/DekodeInteraktiv/coding-standards/issues",
-                "source": "https://github.com/DekodeInteraktiv/coding-standards/tree/4.0.0"
-            },
             "time": "2020-10-26T06:30:57+00:00"
         },
         {
@@ -961,11 +1103,6 @@
                 "po",
                 "translation"
             ],
-            "support": {
-                "email": "oom@oscarotero.com",
-                "issues": "https://github.com/oscarotero/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.6"
-            },
             "funding": [
                 {
                     "url": "https://paypal.me/oscarotero",
@@ -1040,10 +1177,6 @@
                 "translations",
                 "unicode"
             ],
-            "support": {
-                "issues": "https://github.com/php-gettext/Languages/issues",
-                "source": "https://github.com/php-gettext/Languages/tree/2.9.0"
-            },
             "funding": [
                 {
                     "url": "https://paypal.me/mlocati",
@@ -1100,10 +1233,6 @@
                 }
             ],
             "description": "Peast is PHP library that generates AST for JavaScript code",
-            "support": {
-                "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.13.11"
-            },
             "time": "2022-01-11T17:58:18+00:00"
         },
         {
@@ -1150,10 +1279,6 @@
                 "mustache",
                 "templating"
             ],
-            "support": {
-                "issues": "https://github.com/bobthecow/mustache.php/issues",
-                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.1"
-            },
             "time": "2022-01-21T06:08:36+00:00"
         },
         {
@@ -1212,10 +1337,6 @@
                 "phpcs",
                 "standards"
             ],
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibility/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibility"
-            },
             "time": "2019-12-27T09:44:58+00:00"
         },
         {
@@ -1268,10 +1389,6 @@
                 "polyfill",
                 "standards"
             ],
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibilityParagonie"
-            },
             "time": "2021-02-15T10:24:51+00:00"
         },
         {
@@ -1322,10 +1439,6 @@
                 "standards",
                 "wordpress"
             ],
-            "support": {
-                "issues": "https://github.com/PHPCompatibility/PHPCompatibilityWP/issues",
-                "source": "https://github.com/PHPCompatibility/PHPCompatibilityWP"
-            },
             "time": "2021-12-30T16:37:40+00:00"
         },
         {
@@ -1382,10 +1495,6 @@
                 "iri",
                 "sockets"
             ],
-            "support": {
-                "issues": "https://github.com/WordPress/Requests/issues",
-                "source": "https://github.com/WordPress/Requests/tree/v1.8.1"
-            },
             "time": "2021-06-04T09:56:25+00:00"
         },
         {
@@ -1394,24 +1503,52 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "reference": "341bf2dc38dcbc17c9cc7bd1b44c3a40c84959e0"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/341bf2dc38dcbc17c9cc7bd1b44c3a40c84959e0",
                 "reference": "341bf2dc38dcbc17c9cc7bd1b44c3a40c84959e0",
+=======
+                "reference": "4b07ae1c8cf8264073a0e561b9e833fc2a3759ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4b07ae1c8cf8264073a0e561b9e833fc2a3759ea",
+                "reference": "4b07ae1c8cf8264073a0e561b9e833fc2a3759ea",
+>>>>>>> Stashed changes
+=======
+                "reference": "4b07ae1c8cf8264073a0e561b9e833fc2a3759ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/4b07ae1c8cf8264073a0e561b9e833fc2a3759ea",
+                "reference": "4b07ae1c8cf8264073a0e561b9e833fc2a3759ea",
+>>>>>>> Stashed changes
                 "shasum": ""
             },
             "conflict": {
                 "3f/pygmentize": "<1.2",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "adodb/adodb-php": "<5.20.12",
+=======
+=======
+>>>>>>> Stashed changes
+                "admidio/admidio": "<4.1.9",
+                "adodb/adodb-php": "<=5.20.20|>=5.21,<=5.21.3",
+>>>>>>> Stashed changes
                 "akaunting/akaunting": "<2.1.13",
+                "alextselegidis/easyappointments": "<1.4.3",
                 "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
                 "amazing/media2click": ">=1,<1.3.3",
                 "amphp/artax": "<1.0.6|>=2,<2.0.6",
                 "amphp/http": "<1.0.1",
                 "amphp/http-client": ">=4,<4.4",
                 "anchorcms/anchor-cms": "<=0.12.7",
+                "andreapollastri/cipi": "<=3.1.15",
                 "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
                 "area17/twill": "<1.2.5|>=2,<2.5.3",
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
@@ -1419,9 +1556,11 @@
                 "bagisto/bagisto": "<0.1.5",
                 "barrelstrength/sprout-base-email": "<1.2.7",
                 "barrelstrength/sprout-forms": "<3.9",
+                "barryvdh/laravel-translation-manager": "<0.6.2",
                 "baserproject/basercms": "<4.5.4",
                 "billz/raspap-webgui": "<=2.6.6",
                 "bk2k/bootstrap-package": ">=7.1,<7.1.2|>=8,<8.0.8|>=9,<9.0.4|>=9.1,<9.1.3|>=10,<10.0.10|>=11,<11.0.3",
+                "bmarshall511/wordpress_zero_spam": "<5.2.13",
                 "bolt/bolt": "<3.7.2",
                 "bolt/core": "<4.1.13",
                 "bottelet/flarepoint": "<2.2.1",
@@ -1439,7 +1578,7 @@
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<=3.0.6",
-                "codeigniter4/framework": "<4.1.8",
+                "codeigniter4/framework": "<4.1.9",
                 "codiad/codiad": "<=2.8.4",
                 "composer/composer": "<1.10.23|>=2-alpha.1,<2.1.9",
                 "concrete5/concrete5": "<8.5.5",
@@ -1448,6 +1587,7 @@
                 "contao/core": ">=2,<3.5.39",
                 "contao/core-bundle": ">=4,<4.4.56|>=4.5,<4.9.18|>=4.10,<4.11.7|= 4.10.0",
                 "contao/listing-bundle": ">=4,<4.4.8",
+                "contao/managed-edition": "<=1.5",
                 "craftcms/cms": "<3.7.14",
                 "croogo/croogo": "<3.0.7",
                 "datadog/dd-trace": ">=0.30,<0.30.2",
@@ -1463,12 +1603,21 @@
                 "doctrine/mongodb-odm": ">=1,<1.0.2",
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<=14.0.5|>= 3.3.beta1, < 13.0.2",
+                "dolibarr/dolibarr": "<16|>= 3.3.beta1, < 13.0.2",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "drupal/core": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
+=======
+                "drupal/core": ">=7,<7.88|>=8,<9.2.13|>=9.3,<9.3.6",
+>>>>>>> Stashed changes
+=======
+                "drupal/core": ">=7,<7.88|>=8,<9.2.13|>=9.3,<9.3.6",
+>>>>>>> Stashed changes
                 "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
                 "dweeves/magmi": "<=0.7.24",
                 "ecodev/newsletter": "<=4",
+                "ectouch/ectouch": "<=2.7.2",
                 "elgg/elgg": "<3.3.24|>=4,<4.0.5",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
@@ -1481,7 +1630,7 @@
                 "ezsystems/ezplatform": "<=1.13.6|>=2,<=2.5.24",
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6|>=1.5,<=1.5.25",
                 "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2.1|>=5,<5.0.1|>=5.1,<5.1.1",
-                "ezsystems/ezplatform-kernel": "<=1.2.5|>=1.3,<=1.3.1",
+                "ezsystems/ezplatform-kernel": "<=1.2.5|>=1.3,<1.3.12",
                 "ezsystems/ezplatform-rest": ">=1.2,<=1.2.2|>=1.3,<1.3.8",
                 "ezsystems/ezplatform-richtext": ">=2.3,<=2.3.7",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
@@ -1499,7 +1648,7 @@
                 "flarum/tags": "<=0.1-beta.13",
                 "fluidtypo3/vhs": "<5.1.1",
                 "fooman/tcpdf": "<6.2.22",
-                "forkcms/forkcms": "<=5.9.2",
+                "forkcms/forkcms": "<5.11.1",
                 "fossar/tcpdf-parser": "<6.2.22",
                 "francoisjacquet/rosariosis": "<8.1.1",
                 "friendsofsymfony/oauth2-php": "<1.3",
@@ -1509,7 +1658,17 @@
                 "froala/wysiwyg-editor": "<3.2.7",
                 "fuel/core": "<1.8.1",
                 "gaoming13/wechat-php-sdk": "<=1.10.2",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "getgrav/grav": "<=1.7.24",
+=======
+                "genix/cms": "<=1.1.11",
+                "getgrav/grav": "<1.7.31",
+>>>>>>> Stashed changes
+=======
+                "genix/cms": "<=1.1.11",
+                "getgrav/grav": "<1.7.31",
+>>>>>>> Stashed changes
                 "getkirby/cms": "<3.5.8",
                 "getkirby/panel": "<2.5.14",
                 "gilacms/gila": "<=1.11.4",
@@ -1519,10 +1678,12 @@
                 "gregwar/rst": "<1.0.3",
                 "grumpydictator/firefly-iii": "<5.6.5",
                 "guzzlehttp/guzzle": ">=4-rc.2,<4.2.4|>=5,<5.3.1|>=6,<6.2.1",
+                "guzzlehttp/psr7": "<1.8.4|>=2,<2.1.1",
                 "helloxz/imgurl": "<=2.31",
                 "hillelcoren/invoice-ninja": "<5.3.35",
                 "hjue/justwriting": "<=1",
                 "hov/jobfair": "<1.0.13|>=2,<2.0.2",
+                "hyn/multi-tenant": ">=5.6,<5.7.2",
                 "ibexa/post-install": "<=1.0.4",
                 "icecoder/icecoder": "<=8.1",
                 "illuminate/auth": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.10",
@@ -1536,7 +1697,10 @@
                 "ivankristianto/phpwhois": "<=4.3",
                 "jackalope/jackalope-doctrine-dbal": "<1.7.4",
                 "james-heinrich/getid3": "<1.9.21",
-                "joomla/archive": "<1.1.10",
+                "joomla/archive": "<1.1.12|>=2,<2.0.1",
+                "joomla/filesystem": "<1.6.2|>=2,<2.0.1",
+                "joomla/filter": "<1.4.4|>=2,<2.0.1",
+                "joomla/input": ">=2,<2.0.2",
                 "joomla/session": "<1.3.1",
                 "jsmitty12/phpwhois": "<5.1",
                 "kazist/phpwhois": "<=4.2.6",
@@ -1554,7 +1718,15 @@
                 "league/commonmark": "<0.18.3",
                 "league/flysystem": "<1.1.4|>=2,<2.1.1",
                 "lexik/jwt-authentication-bundle": "<2.10.7|>=2.11,<2.11.3",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "librenms/librenms": "<=21.11",
+=======
+                "librenms/librenms": "<22.2.2",
+>>>>>>> Stashed changes
+=======
+                "librenms/librenms": "<22.2.2",
+>>>>>>> Stashed changes
                 "limesurvey/limesurvey": "<3.27.19",
                 "livehelperchat/livehelperchat": "<=3.91",
                 "livewire/livewire": ">2.2.4,<2.2.6",
@@ -1565,12 +1737,13 @@
                 "magento/magento1ee": ">=1,<1.14.4.3",
                 "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2-p.2",
                 "marcwillmann/turn": "<0.3.3",
-                "mautic/core": "<4|= 2.13.1",
+                "matyhtf/framework": "<3.0.6",
+                "mautic/core": "<4.2|= 2.13.1",
                 "mediawiki/core": ">=1.27,<1.27.6|>=1.29,<1.29.3|>=1.30,<1.30.2|>=1.31,<1.31.9|>=1.32,<1.32.6|>=1.32.99,<1.33.3|>=1.33.99,<1.34.3|>=1.34.99,<1.35",
                 "microweber/microweber": "<1.2.11",
                 "miniorange/miniorange-saml": "<1.4.3",
                 "mittwald/typo3_forum": "<1.2.1",
-                "modx/revolution": "<2.8",
+                "modx/revolution": "<= 2.8.3-pl|<2.8",
                 "monolog/monolog": ">=1.8,<1.12",
                 "moodle/moodle": "<3.7.9|>=3.8,<3.8.8|>=3.9,<3.9.5|>=3.10-beta,<3.10.2",
                 "namshi/jose": "<2.2",
@@ -1584,7 +1757,7 @@
                 "nette/nette": ">=2,<2.0.19|>=2.1,<2.1.13",
                 "nilsteampassnet/teampass": "<=2.1.27.36",
                 "nukeviet/nukeviet": "<4.3.4",
-                "nystudio107/craft-seomatic": "<3.3",
+                "nystudio107/craft-seomatic": "<3.4.12",
                 "nzo/url-encryptor-bundle": ">=4,<4.3.2|>=5,<5.0.1",
                 "october/backend": "<1.1.2",
                 "october/cms": "= 1.1.1|= 1.0.471|= 1.0.469|>=1.0.319,<1.0.469",
@@ -1612,16 +1785,36 @@
                 "phpfastcache/phpfastcache": "<6.1.5|>=7,<7.1.2|>=8,<8.0.7",
                 "phpmailer/phpmailer": "<6.5",
                 "phpmussel/phpmussel": ">=1,<1.6",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "phpmyadmin/phpmyadmin": "<4.9.6|>=5,<5.0.3",
                 "phpoffice/phpexcel": "<1.8.2",
+=======
+                "phpmyadmin/phpmyadmin": "<5.1.3",
+                "phpoffice/phpexcel": "<1.8",
+>>>>>>> Stashed changes
+=======
+                "phpmyadmin/phpmyadmin": "<5.1.3",
+                "phpoffice/phpexcel": "<1.8",
+>>>>>>> Stashed changes
                 "phpoffice/phpspreadsheet": "<1.16",
                 "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.7",
                 "phpservermon/phpservermon": "<=3.5.2",
-                "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5.0.10,<5.6.3",
+                "phpunit/phpunit": "<4.8.28|>=5,<5.6.3",
                 "phpwhois/phpwhois": "<=4.2.5",
                 "phpxmlrpc/extras": "<0.6.1",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "pimcore/pimcore": "<10.2.9",
                 "pocketmine/pocketmine-mp": "<4.0.7",
+=======
+                "pimcore/pimcore": "<10.4",
+                "pocketmine/pocketmine-mp": "<4.2.4",
+>>>>>>> Stashed changes
+=======
+                "pimcore/pimcore": "<10.4",
+                "pocketmine/pocketmine-mp": "<4.2.4",
+>>>>>>> Stashed changes
                 "pressbooks/pressbooks": "<5.18",
                 "prestashop/autoupgrade": ">=4,<4.10.1",
                 "prestashop/contactform": ">1.0.1,<4.3",
@@ -1641,23 +1834,51 @@
                 "remdex/livehelperchat": "<3.92",
                 "rmccue/requests": ">=1.6,<1.8",
                 "robrichards/xmlseclibs": "<3.0.4",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+                "rudloff/alltube": "<3.0.3",
+                "s-cart/s-cart": "<6.7.2",
+>>>>>>> Stashed changes
                 "sabberworm/php-css-parser": ">=1,<1.0.1|>=2,<2.0.1|>=3,<3.0.1|>=4,<4.0.1|>=5,<5.0.9|>=5.1,<5.1.3|>=5.2,<5.2.1|>=6,<6.0.2|>=7,<7.0.4|>=8,<8.0.1|>=8.1,<8.1.1|>=8.2,<8.2.1|>=8.3,<8.3.1",
                 "sabre/dav": ">=1.6,<1.6.99|>=1.7,<1.7.11|>=1.8,<1.8.9",
                 "scheb/two-factor-bundle": ">=0,<3.26|>=4,<4.11",
                 "sensiolabs/connect": "<4.2.3",
                 "serluck/phpwhois": "<=4.2.6",
-                "shopware/core": "<=6.4.6",
-                "shopware/platform": "<=6.4.6",
+                "shopware/core": "<=6.4.8.1",
+                "shopware/platform": "<=6.4.8.1",
                 "shopware/production": "<=6.3.5.2",
                 "shopware/shopware": "<5.7.7",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "showdoc/showdoc": "<2.10",
+=======
+                "shopware/storefront": "<=6.4.8.1",
+                "showdoc/showdoc": "<2.10.4",
+>>>>>>> Stashed changes
+=======
+                "shopware/storefront": "<=6.4.8.1",
+                "showdoc/showdoc": "<2.10.4",
+>>>>>>> Stashed changes
                 "silverstripe/admin": ">=1,<1.8.1",
                 "silverstripe/assets": ">=1,<1.4.7|>=1.5,<1.5.2",
                 "silverstripe/cms": "<4.3.6|>=4.4,<4.4.4",
                 "silverstripe/comments": ">=1.3,<1.9.99|>=2,<2.9.99|>=3,<3.1.1",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "silverstripe/framework": "<4.7.4",
                 "silverstripe/graphql": "<3.5.2|>=4-alpha.1,<4-alpha.2",
+=======
+                "silverstripe/framework": "<4.10.1",
+                "silverstripe/graphql": "<3.5.2|>=4-alpha.1,<4-alpha.2|= 4.0.0-alpha1",
+>>>>>>> Stashed changes
+=======
+                "silverstripe/framework": "<4.10.1",
+                "silverstripe/graphql": "<3.5.2|>=4-alpha.1,<4-alpha.2|= 4.0.0-alpha1",
+>>>>>>> Stashed changes
                 "silverstripe/registry": ">=2.1,<2.1.2|>=2.2,<2.2.1",
                 "silverstripe/restfulserver": ">=1,<1.0.9|>=2,<2.0.4",
                 "silverstripe/subsites": ">=2,<2.1.1",
@@ -1676,7 +1897,7 @@
                 "spipu/html2pdf": "<5.2.4",
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
-                "ssddanbrown/bookstack": "<21.12.1",
+                "ssddanbrown/bookstack": "<22.2.3",
                 "stormpath/sdk": ">=0,<9.9.99",
                 "studio-42/elfinder": "<2.1.59",
                 "subrion/cms": "<=4.2.1",
@@ -1684,10 +1905,10 @@
                 "swiftmailer/swiftmailer": ">=4,<5.4.5",
                 "sylius/admin-bundle": ">=1,<1.0.17|>=1.1,<1.1.9|>=1.2,<1.2.2",
                 "sylius/grid": ">=1,<1.1.19|>=1.2,<1.2.18|>=1.3,<1.3.13|>=1.4,<1.4.5|>=1.5,<1.5.1",
-                "sylius/grid-bundle": ">=1,<1.1.19|>=1.2,<1.2.18|>=1.3,<1.3.13|>=1.4,<1.4.5|>=1.5,<1.5.1",
+                "sylius/grid-bundle": "<1.10.1",
                 "sylius/paypal-plugin": ">=1,<1.2.4|>=1.3,<1.3.1",
                 "sylius/resource-bundle": "<1.3.14|>=1.4,<1.4.7|>=1.5,<1.5.2|>=1.6,<1.6.4",
-                "sylius/sylius": "<1.6.9|>=1.7,<1.7.9|>=1.8,<1.8.3|>=1.9,<1.9.5",
+                "sylius/sylius": "<1.9.10|>=1.10,<1.10.11|>=1.11,<1.11.2",
                 "symbiote/silverstripe-multivaluefield": ">=3,<3.0.99",
                 "symbiote/silverstripe-queuedjobs": ">=3,<3.0.2|>=3.1,<3.1.4|>=4,<4.0.7|>=4.1,<4.1.2|>=4.2,<4.2.4|>=4.3,<4.3.3|>=4.4,<4.4.3|>=4.5,<4.5.1|>=4.6,<4.6.4",
                 "symbiote/silverstripe-versionedfiles": "<=2.0.3",
@@ -1712,7 +1933,7 @@
                 "symfony/security-core": ">=2.4,<2.6.13|>=2.7,<2.7.9|>=2.7.30,<2.7.32|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.9",
                 "symfony/security-csrf": ">=2.4,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
                 "symfony/security-guard": ">=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8",
-                "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8|>=5.3,<5.3.2",
+                "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7|>=5.1,<5.2.8|>=5.3,<5.3.2",
                 "symfony/serializer": ">=2,<2.0.11|>=4.1,<4.4.35|>=5,<5.3.12",
                 "symfony/symfony": ">=2,<3.4.49|>=4,<4.4.35|>=5,<5.3.12",
                 "symfony/translation": ">=2,<2.0.17",
@@ -1749,7 +1970,7 @@
                 "usmanhalalit/pixie": "<1.0.3|>=2,<2.0.2",
                 "vanilla/safecurl": "<0.9.2",
                 "verot/class.upload.php": "<=1.0.3|>=2,<=2.0.4",
-                "vrana/adminer": "<4.7.9",
+                "vrana/adminer": "<4.8.1",
                 "wallabag/tcpdf": "<6.2.22",
                 "wanglelecc/laracms": "<=1.0.3",
                 "web-auth/webauthn-framework": ">=3.3,<3.3.4",
@@ -1816,10 +2037,6 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "support": {
-                "issues": "https://github.com/Roave/SecurityAdvisories/issues",
-                "source": "https://github.com/Roave/SecurityAdvisories/tree/latest"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Ocramius",
@@ -1830,7 +2047,15 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "time": "2022-01-25T09:14:18+00:00"
+=======
+            "time": "2022-03-29T22:04:06+00:00"
+>>>>>>> Stashed changes
+=======
+            "time": "2022-03-29T22:04:06+00:00"
+>>>>>>> Stashed changes
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -1881,11 +2106,6 @@
                 "phpcs",
                 "standards"
             ],
-            "support": {
-                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
-                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
-                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
-            },
             "time": "2021-12-12T21:44:58+00:00"
         },
         {
@@ -1932,9 +2152,15 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v5.4.2"
             },
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -1953,16 +2179,16 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.24.0",
+            "version": "v1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9"
+                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/57b712b08eddb97c762a8caa32c84e037892d2e9",
-                "reference": "57b712b08eddb97c762a8caa32c84e037892d2e9",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/4407588e0d3f1f52efb65fbe92babe41f37fe50c",
+                "reference": "4407588e0d3f1f52efb65fbe92babe41f37fe50c",
                 "shasum": ""
             },
             "require": {
@@ -2015,9 +2241,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2032,7 +2255,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T13:58:33+00:00"
+            "time": "2022-03-04T08:16:47+00:00"
         },
         {
             "name": "wp-cli/i18n-command",
@@ -2092,10 +2315,6 @@
             ],
             "description": "Provides internationalization tools for WordPress projects.",
             "homepage": "https://github.com/wp-cli/i18n-command",
-            "support": {
-                "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.9"
-            },
             "time": "2021-07-20T21:25:54+00:00"
         },
         {
@@ -2144,9 +2363,6 @@
             ],
             "description": "A simple YAML loader/dumper class for PHP (WP-CLI fork)",
             "homepage": "https://github.com/mustangostang/spyc/",
-            "support": {
-                "source": "https://github.com/wp-cli/spyc/tree/autoload"
-            },
             "time": "2017-04-25T11:26:20+00:00"
         },
         {
@@ -2197,10 +2413,6 @@
                 "cli",
                 "console"
             ],
-            "support": {
-                "issues": "https://github.com/wp-cli/php-cli-tools/issues",
-                "source": "https://github.com/wp-cli/php-cli-tools/tree/v0.11.13"
-            },
             "time": "2021-07-01T15:08:16+00:00"
         },
         {
@@ -2267,11 +2479,6 @@
                 "cli",
                 "wordpress"
             ],
-            "support": {
-                "docs": "https://make.wordpress.org/cli/handbook/",
-                "issues": "https://github.com/wp-cli/wp-cli/issues",
-                "source": "https://github.com/wp-cli/wp-cli"
-            },
             "time": "2022-01-25T16:31:27+00:00"
         },
         {
@@ -2318,11 +2525,6 @@
                 "standards",
                 "wordpress"
             ],
-            "support": {
-                "issues": "https://github.com/WordPress/WordPress-Coding-Standards/issues",
-                "source": "https://github.com/WordPress/WordPress-Coding-Standards",
-                "wiki": "https://github.com/WordPress/WordPress-Coding-Standards/wiki"
-            },
             "time": "2020-05-13T23:57:56+00:00"
         },
         {
@@ -2368,7 +2570,14 @@
         "wpshapers/wps-prime": 20,
         "wpshapers/wps-blocks": 20,
         "wpshapers/wps-icon": 20,
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
         "wpshapers/gravityforms": 20,
+=======
+=======
+>>>>>>> Stashed changes
+        "fnpen/barista": 20,
+>>>>>>> Stashed changes
         "roave/security-advisories": 20
     },
     "prefer-stable": true,
@@ -2377,5 +2586,5 @@
         "php": ">=7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "1.1.0"
 }
