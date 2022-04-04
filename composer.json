@@ -60,34 +60,15 @@
 		"wpackagist-plugin/imagify": "~1.10.0",
 		"wpackagist-plugin/spinupwp": "~1.3.0",
 		"wpackagist-plugin/woocommerce": "^6.0.0",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-		"wpackagist-plugin/fakerpress":"0.5.1",
-		"wpackagist-plugin/safe-svg":"1.9.9",
-		"wpshapers/wps-prime": "@dev",
-		"wpshapers/wps-blocks": "@dev",
-		"wpshapers/wps-icon": "@dev",
-		"wpshapers/gravityforms":"@dev",
-		"wpackagist-plugin/svg-support":"2.3.19",
-		"wpackagist-plugin/duplicate-post":"4.3"
-=======
 		"wpackagist-plugin/fakerpress":"~0.5.2",
 		"wpackagist-plugin/safe-svg":"^1.9.9",
 		"wpshapers/wps-prime": "@dev",
 		"wpshapers/wps-blocks": "@dev",
 		"wpshapers/wps-icon": "@dev",
-=======
-		"wpackagist-plugin/fakerpress":"~0.5.2",
-		"wpackagist-plugin/safe-svg":"^1.9.9",
-		"wpshapers/wps-prime": "@dev",
-		"wpshapers/wps-blocks": "@dev",
-		"wpshapers/wps-icon": "@dev",
->>>>>>> Stashed changes
 		"wpshapers/gravityforms":"dev-main",
 		"wpackagist-plugin/svg-support":"~2.4.2",
 		"wpackagist-plugin/duplicate-post":"~4.4",
 		"fnpen/barista":"dev-main"
->>>>>>> Stashed changes
 	},
 	"require-dev": {
 		"dekode/coding-standards": "4.0.0",
