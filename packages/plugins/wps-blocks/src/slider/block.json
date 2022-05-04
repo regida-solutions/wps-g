@@ -51,6 +51,5 @@
 	},
 	"style": "file:../../build/slider/style.css",
 	"editorStyle": "file:../../build/slider/editor.css",
-	"script": "file:../../build/slider/frontend.js",
 	"editorScript": "file:../../build/slider/index.js"
 }
