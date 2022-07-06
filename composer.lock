@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e01579c80f739c34a7a482cfc053de7a",
+    "content-hash": "a1cd534f005288c11c0851ee774af203",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -752,7 +752,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/themes/wps-prime",
-                "reference": "80748b5923d8f69017d7f9d749420b5c83663c5e"
+                "reference": "b53d5047e4ff289078d524b67916d43d47a9db80"
             },
             "type": "wordpress-theme",
             "license": [
@@ -2454,7 +2454,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8"
+        "php": ">=7.4"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
