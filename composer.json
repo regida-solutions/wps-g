@@ -51,7 +51,7 @@
 		}
 	},
 	"require": {
-		"php": ">=8",
+		"php": ">=7.4",
 		"boxuk/wp-muplugin-loader": "~1.6.1",
 		"composer/installers": "~1.11.0",
 		"inpsyde/wp-translation-downloader": "~2.0.4",
