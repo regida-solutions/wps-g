@@ -53,6 +53,11 @@ function front_end_assets() {
 		wp_enqueue_script( 'wps-fancybox-core' );
 	}
 
+	if ( is_singular( 'product' ) ) {
+		wp_enqueue_style( 'wps-slider-core' );
+		wp_enqueue_script( 'wps-slider-core' );
+	}
+
 	// Fonts.
 	$fonts_path = get_template_directory() . '/assets/fonts/fonts.css';
 	if ( file_exists( $fonts_path ) ) {
