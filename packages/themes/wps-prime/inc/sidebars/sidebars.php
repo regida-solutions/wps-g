@@ -8,7 +8,7 @@
 
 declare( strict_types=1 );
 
-namespace WpsPrime\Customizer\Header;
+namespace WpsPrime\Sidebars;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );

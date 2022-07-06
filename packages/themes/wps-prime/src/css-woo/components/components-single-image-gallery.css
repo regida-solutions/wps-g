@@ -1,6 +1,6 @@
 .woo-single-image-gallery {
-
 	margin-bottom: var(--spacing-base);
+	overflow: hidden;
 	position: relative;
 	--woo-main-gallery-height: 300px;
 	--woo-thumb-gallery-height: 50px;
