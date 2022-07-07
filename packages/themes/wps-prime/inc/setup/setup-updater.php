@@ -21,7 +21,7 @@ add_action( 'upgrader_process_complete', __NAMESPACE__ . '\\theme_after_update',
  * @param string             $action The type of information being requested from the Theme Installation API.
  * @param object             $args Theme API arguments.
  */
-function theme_info( object $res, string $action, object $args ) { //phpcs:ignore
+function theme_info( $res, string $action, object $args ) { //phpcs:ignore
 
 	// Do nothing if this is not about getting plugin information.
 	if ( 'theme_information' !== $action ) {
