@@ -67,7 +67,7 @@
 		"wpshapers/wps-icon": "@dev",
 		"wpackagist-plugin/svg-support":"~2.4.2",
 		"wpackagist-plugin/duplicate-post":"~4.4",
-		"wpshapers/gravityforms":"dev-main"
+		"wpshapers/gravityforms":"2.6.3.2"
 	},
 	"require-dev": {
 		"dekode/coding-standards": "4.0.0",
