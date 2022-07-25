@@ -3,8 +3,8 @@
 }
 
 .term-description__content {
-	font-size: var(--font-size-small);
-	height: calc(3.2em * var(--global-line-height));
+	font-size: var(--wp--preset--font-size--small);
+	height: calc(3.2em * var(--wp--custom--line-height--global));
 	overflow: hidden;
 }
 
