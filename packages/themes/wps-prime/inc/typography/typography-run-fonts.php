@@ -13,26 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Silence is golden.' );
 }
 
-add_action( 'wp_head', __NAMESPACE__ . '\\google_fonts_preconnect', 5 );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\add_theme_fonts', 99 ); // Add last in style chain.
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\add_theme_fonts' );
-/**
- * Temporary comment out
- * add_filter( 'body_class', __NAMESPACE__ . '\\wps_filter_handler', 10, 4 );
- */
-
-
-/**
- * Preconnect google fonts for faster loading
- *
- * @return void
- */
-function google_fonts_preconnect():void {
-	if ( get_theme_mod( 'wps_custom_font_family_status' ) ) {
-		return;
-	}
-	echo '<link rel="preconnect" href="https://fonts.gstatic.com">';
-}
 
 
 /**

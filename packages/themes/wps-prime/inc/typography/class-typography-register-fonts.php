@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *  We need the list to be accessible globally (Singleton approach)
  *
  * @example $font = Typography_Register_Fonts::get_instance();
- * @example $font->register_fonts(array(array('family' => 'Open Sans','type'   => 'sans-serif','url'    => 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800',)));
+ * @example $font->register_fonts(array(array('family' => 'Open Sans','type'   => 'sans-serif','url'    => THEME_URI . '/assets/font-packs/open-sans.css',)));
  * @example $fontChild = Typography_Register_Fonts::get_instance();
  * @example $fontChild ->remove_font('Open Sans');
  */

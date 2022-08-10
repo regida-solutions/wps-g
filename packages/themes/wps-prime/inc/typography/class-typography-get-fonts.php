@@ -84,9 +84,7 @@ class Typography_Get_Fonts {
 		$font_second = get_theme_mod( 'wps_secondary_font_family' ); // Get selected font family option.
 
 		// Prepare font.
-		$font_main_prep   = false;
 		$font_second_prep = false;
-		$display          = esc_attr( '&display=swap' );
 
 		$font_main_prep = $theme_fonts[ $font_main ]['url'];
 
@@ -97,7 +95,7 @@ class Typography_Get_Fonts {
 
 		// Setup second font.
 		if ( isset( $theme_fonts[ $font_second ]['url'] ) ) {
-			$font_second_prep = str_replace( 'https://fonts.googleapis.com/css2?family=', esc_attr( '&family=' ), $theme_fonts[ $font_second ]['url'] );
+			$font_second_prep = $theme_fonts[ $font_second ]['url'];
 		}
 
 		// Prepare return cases.
@@ -106,18 +104,8 @@ class Typography_Get_Fonts {
 			return [ $theme_fonts[ $font_main ]['url'] ];
 		}
 
-		// Fonts are from the same api we can concatenate in one call.
-		// Fonts are NOT from the same api we send fonts url separately.
-		$output = [];
-
-		$font_string = sprintf(
-			'%s%s%s',
-			$font_main_prep,
-			$font_second_prep,
-			$display
-		);
-
-		return [ $font_string ];
+		// If fonts are NOT the same we send fonts url separately.
+		return [ $font_main_prep, $font_second_prep ];
 	}
 
 	/**
