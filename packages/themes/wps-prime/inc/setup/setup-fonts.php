@@ -182,6 +182,7 @@ $fonts = [
 
 
 	/* Sherif */
+
 	// Source: 'https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900'.
 	[
 		'family'  => 'Merriweather',
@@ -210,7 +211,7 @@ $fonts = [
 		'url'     => THEME_URI . '/assets/font-packs/trirong.css',
 		'weights' => '100,200,300,400,500,600,700,800,900',
 	],
-	//Source: 'https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700'.
+	// Source: 'https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700'.
 	[
 		'family'  => 'Cormorant',
 		'type'    => 'serif',
@@ -254,6 +255,7 @@ $fonts = [
 	],
 
 	/* Cursive */
+
 	// Source: 'https://fonts.googleapis.com/css2?family=Expletus+Sans:wght@400;500;600;700'.
 	[
 		'family'  => 'Expletus Sans',
