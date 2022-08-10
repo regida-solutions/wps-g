@@ -15,7 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup_editor' );
-add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\\allowed_block_types', 10, 2 );
+add_action( 'init', function () {
+	if ( get_option( 'wps_restrict_blocks' ) ) {
+		add_filter( 'allowed_block_types_all', __NAMESPACE__ . '\\allowed_block_types', 10, 2 );
+	}
+});
 
 /**
  * Disable text/background colors in Gutenberg

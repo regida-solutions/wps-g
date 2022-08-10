@@ -203,6 +203,29 @@ function register( object $wp_customize ):void {
 
 	// SETTING.
 	$wp_customize->add_setting(
+		'wps_restrict_blocks',
+		[
+			'default'    => '',
+			'type'       => 'option',
+			'capability' => 'edit_theme_options',
+			'transport'  => 'refresh',
+		]
+	);
+
+	// CONTROL.
+	$wp_customize->add_control(
+		'wps_restrict_blocks',
+		[
+			'type'        => 'checkbox',
+			'label'       => __( 'Restrict blocks availability', 'wps-prime' ),
+			'description' => __( 'Restrict available blocks to a controlled list', 'wps-prime' ),
+			'priority'    => 10,
+			'section'     => 'developer_info_section',
+		]
+	);
+
+	// SETTING.
+	$wp_customize->add_setting(
 		'wps_enable_blocks_list',
 		[
 			'default'           => '',
