@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $has_phone = get_theme_mod( 'header_show_phone', false );
 $has_email = get_theme_mod( 'header_show_email', false );
 
-$phone_main = get_option( 'wps_phone_nr' );
-$email_main = get_option( 'wps_email_address' );
+$phone_main = get_option( 'wps_phone_nr', '' );
+$email_main = get_option( 'wps_email_address', '' );
 
 $has_social  = get_theme_mod( 'header_utility_show_social', false );
 $show_labels = get_theme_mod( 'header_contact_show_labels', false );
