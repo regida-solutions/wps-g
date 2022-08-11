@@ -1,5 +1,6 @@
 [
 	"frontend.js",
+	"editor.js",
 	"shortcode/index.js",
 	"hero/index.js",
 	"hero/style.css",

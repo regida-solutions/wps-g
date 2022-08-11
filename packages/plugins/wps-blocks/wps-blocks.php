@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.2.1' );
+define( 'WPS_BLOCKS_VERSION', '1.2.2' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 define( 'WPS_BLOCKS_UPDATE_FOLDER', 'wps-blocks' );
@@ -110,3 +110,19 @@ function front_end_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\front_end_assets' );
+
+
+/**
+ * Enqueue editor style for the WordPress editor.
+ */
+function editor_assets() {
+	if ( file_exists( __DIR__ . '/build/editor.css' ) ) {
+		wp_enqueue_style( 'wps-blocks-editor-css', esc_url( plugin_dir_url( __FILE__ ) ) . 'build/editor.css', [], WPS_BLOCKS_VERSION );
+	}
+
+	if ( file_exists( __DIR__ . '/build/editor.js' ) ) {
+		wp_enqueue_script( 'wps-blocks-editor-js', esc_url( plugin_dir_url( __FILE__ ) ) . 'build/editor.js', [], WPS_BLOCKS_VERSION, true );
+	}
+}
+
+add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\editor_assets' );
