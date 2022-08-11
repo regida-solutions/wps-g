@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.2.1
+ * Version:         1.2.2
  *
  * @package WpsBlocks
  */
