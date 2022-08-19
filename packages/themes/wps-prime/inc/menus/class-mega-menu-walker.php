@@ -95,7 +95,17 @@ class Mega_Menu_Walker extends \Walker_Nav_Menu {
 			$classes[] = 'menu-item--use-icon';
 
 			$icon_type = get_post_meta( $item->ID, 'menu-item-wps-icon-type', true );
-			$icon      = '[wps_icon icon_family="' . $icon_type . '" icon_class="' . $icon_class . '" html_tag="span"]';
+
+			$icon_block = [
+				'blockName' => 'wps/icon',
+				'attrs'     => [
+					'icon'      => $icon_class,
+					'type'      => $icon_type,
+					'className' => 'menu-item-icon',
+				],
+			];
+
+			$icon = \render_block( $icon_block );
 
 			if ( $icon_position_start ) {
 				$icon_start = $icon . ' ';

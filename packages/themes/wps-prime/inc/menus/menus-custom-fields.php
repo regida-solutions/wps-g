@@ -25,7 +25,7 @@ add_filter( 'manage_nav-menus_columns', __NAMESPACE__ . '\\menu_columns', 99 );
 function menu_settings():array {
 	$settings = [];
 
-	if ( defined( 'WPS_FONTAWESOME_SUPPORT' ) ) {
+	if ( defined( 'WPS_ICON_BLOCKS_VERSION' ) ) {
 		$settings['wps-icon-class'] = [
 			'label' => __( 'Icon Class ex. alien | visit: https://fontawesome.com', 'wps-prime' ),
 			'type'  => 'text',

@@ -41,10 +41,6 @@
 			"type": "composer",
 			"url": "https://wpackagist.org"
 		},
-		"dekode-packages": {
-			"type": "composer",
-			"url": "https://packages.dekodes.no"
-		},
 		"wpshapers-packages": {
 			"type": "composer",
 			"url": "https://regidasolutions.repo.repman.io"
