@@ -39,6 +39,9 @@ function Edit({
 		dimRatio,
 	} = attributes;
 
+	const blockStyle = [];
+	const style = [];
+
 	const classes = classnames([
 		'wps-grid-column',
 		className,
@@ -55,11 +58,20 @@ function Edit({
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
 
-	const style = {};
+	if (width) {
+		const breakingValues = [33];
+		let value = `var(--grid-column-gap) / 2)`;
+
+		if (breakingValues.includes(width)) {
+			value = `(var(--grid-column-gap) / 2) - var(--grid-calc-round-value,0.1%))`;
+		}
+
+		blockStyle['--column-width'] = `calc(${width}% - ${value}`;
+	}
 
 	if (media) {
 		if (media.hasOwnProperty('url')) {
-			style.backgroundImage = `url(${media.url})`;
+			style.push({ backgroundImage: `url(${media.url})` });
 		}
 		if (focalPoint) {
 			if (
@@ -71,29 +83,21 @@ function Edit({
 				}%`;
 			}
 		}
-		style.opacity = dimRatio !== 100 ? `${dimRatio}%` : '';
+		if (dimRatio !== 100) {
+			style.opacity = `${dimRatio}%`;
+		}
 	}
 
 	const marks = [
-		{ value: 5 },
 		{ value: 10 },
-		{ value: 15 },
 		{ value: 20 },
-		{ value: 25 },
 		{ value: 30 },
-		{ value: 35 },
 		{ value: 40 },
-		{ value: 45 },
 		{ value: 50 },
-		{ value: 55 },
 		{ value: 60 },
-		{ value: 65 },
 		{ value: 70 },
-		{ value: 75 },
 		{ value: 80 },
-		{ value: 85 },
 		{ value: 90 },
-		{ value: 95 },
 		{ value: 100 },
 	];
 
@@ -125,7 +129,7 @@ function Edit({
 						resetFallbackValue={null}
 						min={10}
 						max={100}
-						step={5}
+						step={1}
 					/>
 				</PanelBody>
 				<PanelBody
@@ -175,7 +179,7 @@ function Edit({
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...useBlockProps({ className: classes })}>
+			<div {...useBlockProps({ className: classes, style: blockStyle })}>
 				{media ? <div className={classesOverlay} style={style} /> : ''}
 				<div className="wps-grid-column__inner">
 					<InnerBlocks />

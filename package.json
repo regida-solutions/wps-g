@@ -57,6 +57,7 @@
 		]
 	},
 	"dependencies": {
-		"@wordpress/icons": "^6.1.0"
+		"@wordpress/icons": "^6.1.0",
+		"accordion-js": "^3.3.2"
 	}
 }

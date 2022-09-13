@@ -29,5 +29,10 @@
 	"card/editor.css",
 	"image-slider/index.js",
 	"image-slider/style.css",
-	"image-slider/editor.css"
+	"image-slider/editor.css",
+	"accordion/editor.css",
+	"accordion/style.css",
+	"accordion/index.js",
+	"accordion/frontend.js",
+	"accordion-item/index.js"
 ]

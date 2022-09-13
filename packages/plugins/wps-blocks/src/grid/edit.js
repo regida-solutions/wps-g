@@ -1,6 +1,9 @@
 /**
  * WordPress dependencies
  */
+/**
+ * WordPress dependencies
+ */
 import {
 	InnerBlocks,
 	useBlockProps,
@@ -17,6 +20,9 @@ import {
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
+/**
+ * External dependencies
+ */
 /**
  * External dependencies
  */

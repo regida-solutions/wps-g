@@ -31,6 +31,19 @@ function template( array $attributes, string $blocks ): string {
 		! empty( $attributes['verticalAlign'] ) ? 'vertical-align-' . $attributes['verticalAlign'] : '',
 	]);
 
+	$wrapper_styles = '';
+
+	if ( ! empty( $attributes['width'] ) ) {
+
+		$breaking_values = [ 33 ];
+		$value           = 'var(--grid-column-gap) / 2)';
+
+		if ( in_array( (int) $attributes['width'], $breaking_values, true ) ) {
+			$value = '(var(--grid-column-gap) / 2) - var(--grid-calc-round-value,0.1%))';
+		}
+		$wrapper_styles = ' style="--column-width:calc(' . (int) $attributes['width'] . '% - ' . $value . '"';
+	}
+
 	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
 
 	$overlay_classes     = get_names( [
@@ -53,7 +66,7 @@ function template( array $attributes, string $blocks ): string {
 
 	ob_start();
 	?>
-	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>"<?php echo $wrapper_styles; //phpcs:ignore ?>>
 		<?php if ( '' !== $style_overlay_items ) : ?>
 			<div class="<?php echo esc_attr( $overlay_classes ); ?>" style="<?php echo esc_attr( $style_overlay_items ); ?>"></div>
 		<?php endif; ?>

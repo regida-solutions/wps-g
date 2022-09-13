@@ -11,5 +11,5 @@
 }
 
 .is-selected [data-type="wps/grid-column"] {
-	border: 2px dashed #ccc;
+	outline: 2px dashed #ccc;
 }

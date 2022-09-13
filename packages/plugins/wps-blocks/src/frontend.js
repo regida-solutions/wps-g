@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+	// eslint-disable-next-line no-undef
+	if (wp) {
+		return;
+	}
+
 	const effects = () => {
 		return {
 			cube: {

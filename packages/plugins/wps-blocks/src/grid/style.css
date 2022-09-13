@@ -2,7 +2,8 @@
 @import "wps-css-viewports";
 
 .wps-grid-column {
-	--grid-column-width: auto;
+	--grid-calc-round-value: 0.1%;
+	--grid-column-width: 100%;
 	width: 100%;
 }
 
@@ -19,11 +20,11 @@
 
 		& > .wps-grid-column {
 			@media (--viewport-mobile) {
-				flex-basis: var(--grid-column-width) !important;
+				flex-basis: var(--grid-column-width);
 			}
 
 			@media (--viewport-lap) {
-				flex-basis: calc(50% - var(--grid-column-gap) / 2) !important;
+				flex-basis: calc(50% - var(--grid-column-gap) / 2);
 			}
 
 			@media (--viewport-lap-and-up) {
@@ -154,96 +155,17 @@
 	}
 }
 
+@media (--viewport-desktop) {
+	.wps-grid-column { /* Defined directly on the block html */
+		--grid-column-width: var(--column-width, 100%);
+	}
+}
+
 .wps-grid-column[class^="has-width"],
 .wps-grid-column[class*=" has-width"] {
 	flex-basis: var(--grid-column-width) !important;
 	max-width: var(--grid-column-width) !important;
 	width: var(--grid-column-width) !important;
-}
-
-@media (--viewport-desktop) {
-	.wps-grid-column {
-		&.has-width-10 {
-			--grid-column-width: calc(10% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-15 {
-			--grid-column-width: calc(15% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-20 {
-			--grid-column-width: calc(20% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-25 {
-			--grid-column-width: calc(25% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-30 {
-			--grid-column-width: calc(30% - var(--grid-column-gap) / 2);
-		}
-
-		/* 0.42% Micro adjustment for subpixel value bug on calc */
-		&.has-width-33 {
-			--grid-column-width: calc(33.3333333% - (var(--grid-column-gap) / 2) - 0.42%);
-		}
-
-		&.has-width-35 {
-			--grid-column-width: calc(35% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-40 {
-			--grid-column-width: calc(40% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-45 {
-			--grid-column-width: calc(45% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-50 {
-			--grid-column-width: calc(50% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-55 {
-			--grid-column-width: calc(55% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-60 {
-			--grid-column-width: calc(60% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-65 {
-			--grid-column-width: calc(65% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-70 {
-			--grid-column-width: calc(70% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-75 {
-			--grid-column-width: calc(75% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-80 {
-			--grid-column-width: calc(80% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-85 {
-			--grid-column-width: calc(85% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-90 {
-			--grid-column-width: calc(90% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-95 {
-			--grid-column-width: calc(95% - var(--grid-column-gap) / 2);
-		}
-
-		&.has-width-100 {
-			--grid-column-width: calc(100% - var(--grid-column-gap) / 2);
-		}
-	}
 }
 
 .is-full-height {
