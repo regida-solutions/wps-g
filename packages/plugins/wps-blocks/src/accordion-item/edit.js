@@ -25,7 +25,7 @@ function Edit({ attributes, setAttributes }) {
 	return (
 		<div {...useBlockProps()}>
 			<RichText
-				tagName="h3"
+				tagName="h5"
 				className="wps-accordion-item-title"
 				placeholder={__('Title')}
 				value={title}
