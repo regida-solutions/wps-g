@@ -5,7 +5,7 @@ import Accordion from 'accordion-js';
 
 document.addEventListener('DOMContentLoaded', function () {
 	// eslint-disable-next-line no-undef
-	if (wp) {
+	if (wp.editor) {
 		return;
 	}
 	const accordions = Array.from(document.querySelectorAll('.wps-accordion'));
