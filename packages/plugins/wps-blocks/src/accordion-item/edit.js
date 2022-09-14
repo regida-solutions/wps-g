@@ -14,11 +14,6 @@ function Edit({ attributes, setAttributes }) {
 			},
 		],
 	];
-	const INNER_BLOCKS_ALLOWED_BLOCKS = [
-		'core/paragraph',
-		'core/list',
-		'core/buttons',
-	];
 
 	const { title } = attributes;
 
@@ -35,7 +30,6 @@ function Edit({ attributes, setAttributes }) {
 			<InnerBlocks
 				template={INNER_BLOCKS_TEMPLATE}
 				templateLock={false}
-				allowedBlocks={INNER_BLOCKS_ALLOWED_BLOCKS}
 			/>
 		</div>
 	);
