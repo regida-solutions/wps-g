@@ -67,7 +67,7 @@ export const ImageUploaderUI = (attributes) => {
 							allowedTypes={video ? 'video' : 'image'}
 							render={({ open }) => (
 								<p>
-									<Button onClick={open} isDefault>
+									<Button onClick={open} variant="secondary">
 										{__('Replace Image', 'wps-prime')}
 									</Button>
 									<Button

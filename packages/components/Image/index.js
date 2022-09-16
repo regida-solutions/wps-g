@@ -7,12 +7,7 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import {
-	Button,
-	IconButton,
-	FocalPointPicker,
-	PanelBody,
-} from '@wordpress/components';
+import { Button, FocalPointPicker, PanelBody } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 import { dispatch } from '@wordpress/data';
@@ -145,7 +140,7 @@ function Image({
 								allowedTypes={video ? 'video' : 'image'}
 								render={({ open }) => (
 									<p>
-										<IconButton
+										<Button
 											onClick={open}
 											icon="plus"
 											className="add-button custom-media-inserter"
@@ -155,7 +150,7 @@ function Image({
 											}}
 										>
 											{label}
-										</IconButton>
+										</Button>
 									</p>
 								)}
 							/>
@@ -175,7 +170,7 @@ function Image({
 						)}
 						{!setAttributes && shortcode}
 						{isSelected && setAttributes && (
-							<IconButton
+							<Button
 								icon="dismiss"
 								label={__('Remove image', 'wps-prime')}
 								style={{ border: '1px solid #ddd' }}

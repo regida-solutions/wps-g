@@ -9,14 +9,18 @@ import {
 	PanelColorSettings,
 	withColors,
 	ContrastChecker,
+	BlockControls,
+	BlockAlignmentToolbar,
 } from '@wordpress/block-editor';
 import { compose } from '@wordpress/compose';
-import { PanelBody } from '@wordpress/components';
+import { PanelBody, RangeControl } from '@wordpress/components';
 
 /**
  * External dependencies
  */
 import classnames from 'classnames';
+const { isEmpty } = lodash; //eslint-disable-line no-undef
+
 /**
  * Internal dependencies
  */
@@ -37,6 +41,7 @@ function Edit({
 		focalPoint,
 		backgroundBehaviour,
 		dimRatio,
+		innerContentWidth = '',
 	} = attributes;
 
 	const classes = classnames([
@@ -44,21 +49,26 @@ function Edit({
 		className,
 		spacingVertical ? 'has-vertical-spacing' : '',
 		spacingVertical ? `u-padding-vertical-${spacingVertical}` : '',
-		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
+		innerContentWidth ? `inner-content-align${innerContentWidth}` : '',
 		textColor.hasOwnProperty('class') ? textColor.class : '',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
+		!isEmpty(media) && backgroundColor.hasOwnProperty('class')
+			? backgroundColor.class
+			: '',
 	]);
 
 	const classesOverlay = classnames([
 		'wps-section__overlay',
 		media && media.hasOwnProperty('url') ? 'has-background' : '',
-		backgroundColor.hasOwnProperty('class') ? backgroundColor.class : '',
+		isEmpty(media) && backgroundColor.hasOwnProperty('class')
+			? backgroundColor.class
+			: '',
 		backgroundBehaviour ? `background-is-${backgroundBehaviour}` : '',
 	]);
 
 	const style = {};
 
-	if (media) {
+	if (!isEmpty(media)) {
 		if (media.hasOwnProperty('url')) {
 			style.backgroundImage = `url(${media.url})`;
 		}
@@ -72,10 +82,21 @@ function Edit({
 				}%`;
 			}
 		}
-		style.opacity = dimRatio !== 100 ? `${dimRatio}%` : '';
 	}
+	style.opacity = dimRatio !== 100 ? `${dimRatio}%` : '';
+
 	return (
 		<>
+			<BlockControls group="block">
+				<BlockAlignmentToolbar
+					label={__('Inner Content Width')}
+					value={innerContentWidth}
+					controls={['wide', 'full']}
+					onChange={(value) => {
+						setAttributes({ innerContentWidth: value });
+					}}
+				/>
+			</BlockControls>
 			<InspectorControls>
 				<PanelBody
 					title={__('Backgrounds', 'wps-blocks')}
@@ -100,6 +121,22 @@ function Edit({
 							},
 						]}
 					/>
+					{isEmpty(media) && (
+						<RangeControl
+							separatorType="none"
+							isShiftStepEnabled
+							label={__('Opacity')}
+							value={dimRatio}
+							onChange={(value) => {
+								setAttributes({ dimRatio: value });
+							}}
+							allowReset
+							resetFallbackValue={100}
+							min={0}
+							max={100}
+							step={10}
+						/>
+					)}
 					<BackgroundImage
 						media={media}
 						onUpdate={(image) => setAttributes({ media: image })}
@@ -137,7 +174,11 @@ function Edit({
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps({ className: classes })}>
-				{media ? <div className={classesOverlay} style={style} /> : ''}
+				{!isEmpty(media) || backgroundColor ? (
+					<div className={classesOverlay} style={style} />
+				) : (
+					''
+				)}
 				<div className="wps-section__inner">
 					<InnerBlocks />
 				</div>

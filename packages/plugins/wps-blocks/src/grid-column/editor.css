@@ -13,3 +13,7 @@
 .is-selected [data-type="wps/grid-column"] {
 	outline: 2px dashed #ccc;
 }
+
+.wp-block-wps-grid-column > .wps-grid-column__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	--content-width: 100%;
+}

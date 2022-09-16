@@ -23,7 +23,6 @@
 		& > div.wp-block {
 			margin-bottom: var(--site-block-spacing);
 			margin-top: var(--site-block-spacing);
-
 		}
 
 	}
@@ -35,4 +34,24 @@
 		top: 0;
 		width: 100%;
 	}
+}
+
+.wp-block-wps-section {
+	&.is-selected {
+		overflow: visible;
+	}
+
+	&.inner-content-alignwide {
+		& > .wps-section__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--content-width: min(calc(100vw - var(--site-spacing) * 2), var(--site-width));
+
+		}
+	}
+
+	&.inner-content-alignfull {
+		& > .wps-section__inner > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			--content-width: 100%;
+		}
+	}
+
 }
