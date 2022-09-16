@@ -40,7 +40,7 @@ function Edit({
 	} = attributes;
 
 	const blockStyle = [];
-	const style = [];
+	const style = {};
 
 	const classes = classnames([
 		'wps-grid-column',
@@ -71,7 +71,7 @@ function Edit({
 
 	if (media) {
 		if (media.hasOwnProperty('url')) {
-			style.push({ backgroundImage: `url(${media.url})` });
+			style.backgroundImage = `url(${media.url})`;
 		}
 		if (focalPoint) {
 			if (
