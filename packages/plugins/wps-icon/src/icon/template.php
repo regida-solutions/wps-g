@@ -44,9 +44,9 @@ function template( array $attributes ): string {
 			preg_match( '/([a-z]+)([0-9])/', $attributes['fontSize']['id'], $output );
 
 			if ( is_array( $output ) ) {
-				if ( ! empty( $output ) ) {
-					$prepare_class = implode( '-', $output );
-					$size          = 'has-' . $prepare_class . '-font-size';
+				if ( ! empty( $output[1] ) && ! empty( $output[2] ) ) {
+					$size = $output[1] . '-' . $output[2];
+					$size = 'has-' . $size . '-font-size';
 				} else {
 					$size = 'has-' . $attributes['fontSize']['id'] . '-font-size';
 				}
