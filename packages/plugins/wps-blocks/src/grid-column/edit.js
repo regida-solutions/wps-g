@@ -59,14 +59,7 @@ function Edit({
 	]);
 
 	if (width) {
-		const breakingValues = [33];
-		let value = `var(--grid-column-gap) / 2)`;
-
-		if (breakingValues.includes(width)) {
-			value = `(var(--grid-column-gap) / 2) - var(--grid-calc-round-value,0.1%))`;
-		}
-
-		blockStyle['--column-width'] = `calc(${width}% - ${value}`;
+		blockStyle['--column-width'] = `${width}%`;
 	}
 
 	if (media) {

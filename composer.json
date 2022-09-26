@@ -37,13 +37,13 @@
 				"symlink": true
 			}
 		},
-		"wpackagist": {
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		},
 		"wpshapers-packages": {
 			"type": "composer",
 			"url": "https://regidasolutions.repo.repman.io"
+		},
+		"wpackagist": {
+			"type": "composer",
+			"url": "https://wpackagist.org"
 		}
 	},
 	"require": {

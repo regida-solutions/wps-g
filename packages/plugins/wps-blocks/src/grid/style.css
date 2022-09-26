@@ -2,7 +2,7 @@
 @import "wps-css-viewports";
 
 .wps-grid-column {
-	--grid-calc-round-value: 0.1%;
+	--grid-calc-round-value: 0.12%;
 	--grid-column-width: 100%;
 	width: 100%;
 }
@@ -163,7 +163,7 @@
 
 .wps-grid-column[class^="has-width"],
 .wps-grid-column[class*=" has-width"] {
-	flex-basis: var(--grid-column-width) !important;
+	flex-basis: calc(var(--grid-column-width) - var(--grid-column-gap, 0)) !important;
 	max-width: var(--grid-column-width) !important;
 	width: var(--grid-column-width) !important;
 }

@@ -34,14 +34,7 @@ function template( array $attributes, string $blocks ): string {
 	$wrapper_styles = '';
 
 	if ( ! empty( $attributes['width'] ) ) {
-
-		$breaking_values = [ 33 ];
-		$value           = 'var(--grid-column-gap) / 2)';
-
-		if ( in_array( (int) $attributes['width'], $breaking_values, true ) ) {
-			$value = '(var(--grid-column-gap) / 2) - var(--grid-calc-round-value,0.1%))';
-		}
-		$wrapper_styles = ' style="--column-width:calc(' . (int) $attributes['width'] . '% - ' . $value . '"';
+		$wrapper_styles = ' style="--column-width:' . (int) $attributes['width'] . '%"';
 	}
 
 	$anchor = isset( $attributes['anchor'] ) ? ' id="' . esc_attr( $attributes['anchor'] ) . '"' : '';
