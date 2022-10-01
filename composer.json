@@ -94,9 +94,6 @@
 		}
 	},
 	"scripts": {
-		"post-install-cmd": [
-			"cp public/content/plugins/spinupwp/drop-ins/object-cache.php public/content/object-cache.php"
-		],
 		"lint": [
 			"./vendor/bin/phpcs ."
 		],
