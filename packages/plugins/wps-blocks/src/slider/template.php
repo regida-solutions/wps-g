@@ -45,7 +45,7 @@ function template( array $attributes, string $blocks ): string {
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>"<?php echo $anchor.$slider_config; //phpcs:ignore ?>>
+	<div<?php echo $anchor;//phpcs:ignore ?><?php echo $slider_config; //phpcs:ignore ?>class="<?php echo esc_attr( $classes ); ?>">
 		<div class="swiper-wrapper">
 			<?php if ( ! empty( $blocks ) ) : ?>
 				<?php echo $blocks; //phpcs:ignore ?>

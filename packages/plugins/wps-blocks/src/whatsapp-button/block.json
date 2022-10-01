@@ -11,6 +11,9 @@
 	},
 	"keywords": ["Call to action", "Button", "Whatsapp"],
 	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
 		"justification": {
 			"type": "string"
 		},

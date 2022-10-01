@@ -12,6 +12,9 @@
 	},
 	"keywords": ["Slider", "Slides"],
 	"attributes": {
+		"anchor": {
+			"type": "string"
+		},
 		"align": {
 			"type": "string"
 		},

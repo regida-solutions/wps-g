@@ -42,9 +42,11 @@ function template( array $attributes, string $blocks ): string {
 	$number  = $phone_number ? preg_replace( '/[^0-9_+-]/', '', $phone_number ) : '';
 	$url     = 'https://wa.me/' . $number . '?text=' . rawurlencode( $message );
 
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
+
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 	<?php if ( ! $number && is_user_logged_in() ) : ?>
 		<?php esc_html_e( 'Please set whatsapp phone number' ); ?>
 	<?php else : ?>

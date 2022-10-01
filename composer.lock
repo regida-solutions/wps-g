@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a17ed2c90dfce6c89d27f229e7b2b096",
+    "content-hash": "923169ca9f2f26f31f6031cb737fbc32",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -589,6 +589,24 @@
             "homepage": "https://wordpress.org/plugins/fakerpress/"
         },
         {
+            "name": "wpackagist-plugin/gutenberg",
+            "version": "14.2.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/gutenberg/",
+                "reference": "tags/14.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.14.2.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/gutenberg/"
+        },
+        {
             "name": "wpackagist-plugin/imagify",
             "version": "1.10",
             "source": {
@@ -625,24 +643,6 @@
             "homepage": "https://wordpress.org/plugins/safe-svg/"
         },
         {
-            "name": "wpackagist-plugin/spinupwp",
-            "version": "1.4.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/spinupwp/",
-                "reference": "tags/1.4.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/spinupwp.1.4.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/spinupwp/"
-        },
-        {
             "name": "wpackagist-plugin/svg-support",
             "version": "2.4.2",
             "source": {
@@ -662,15 +662,15 @@
         },
         {
             "name": "wpackagist-plugin/woocommerce",
-            "version": "6.9.3",
+            "version": "6.9.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/woocommerce/",
-                "reference": "tags/6.9.3"
+                "reference": "tags/6.9.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/woocommerce.6.9.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.6.9.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -712,11 +712,11 @@
         },
         {
             "name": "wpshapers/wps-blocks",
-            "version": "1.3.4",
+            "version": "1.3.6",
             "dist": {
                 "type": "path",
                 "url": "packages/plugins/wps-blocks",
-                "reference": "e3770aff662043746974454fbf9e38d365bb6577"
+                "reference": "62d848cbdc11b1214542b56aec33fb018a183d2d"
             },
             "type": "wordpress-plugin",
             "license": [
@@ -1413,12 +1413,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "ecbc17ac0817caed746a243e3805dd256be9fcdb"
+                "reference": "3876a8d71543004e414797769c4e2ec33c63f61b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/ecbc17ac0817caed746a243e3805dd256be9fcdb",
-                "reference": "ecbc17ac0817caed746a243e3805dd256be9fcdb",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/3876a8d71543004e414797769c4e2ec33c63f61b",
+                "reference": "3876a8d71543004e414797769c4e2ec33c63f61b",
                 "shasum": ""
             },
             "conflict": {
@@ -1439,6 +1439,7 @@
                 "appwrite/server-ce": "<0.11.1|>=0.12,<0.12.2",
                 "area17/twill": "<1.2.5|>=2,<2.5.3",
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
+                "awesome-support/awesome-support": "<=6.0.7",
                 "aws/aws-sdk-php": ">=3,<3.2.1",
                 "bagisto/bagisto": "<0.1.5",
                 "barrelstrength/sprout-base-email": "<1.2.7",
@@ -1464,7 +1465,7 @@
                 "cart2quote/module-quotation": ">=4.1.6,<=4.4.5|>=5,<5.4.4",
                 "cartalyst/sentry": "<=2.1.6",
                 "catfan/medoo": "<1.7.5",
-                "centreon/centreon": "<20.10.7",
+                "centreon/centreon": "<21.4.16|>=21.10,<21.10.8|>=22,<22.4.1",
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<=3.0.6",
@@ -1480,7 +1481,7 @@
                 "contao/core-bundle": "<4.9.18|>=4.10,<4.11.7|>=4.13,<4.13.3|= 4.10.0",
                 "contao/listing-bundle": ">=4,<4.4.8",
                 "contao/managed-edition": "<=1.5",
-                "craftcms/cms": ">= 4.0.0-RC1, < 4.2.1|<3.7.55.2",
+                "craftcms/cms": "<3.7.55.2|>= 4.0.0-RC1, < 4.2.1",
                 "croogo/croogo": "<3.0.7",
                 "cuyz/valinor": "<0.12",
                 "czproject/git-php": "<4.0.3",
@@ -1499,7 +1500,7 @@
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
                 "dolibarr/dolibarr": "<16|= 12.0.5|>= 3.3.beta1, < 13.0.2",
-                "dompdf/dompdf": "<2",
+                "dompdf/dompdf": "<2.0.1",
                 "drupal/core": ">=7,<7.91|>=8,<9.3.19|>=9.4,<9.4.3",
                 "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
                 "dweeves/magmi": "<=0.7.24",
@@ -1695,7 +1696,7 @@
                 "phpwhois/phpwhois": "<=4.2.5",
                 "phpxmlrpc/extras": "<0.6.1",
                 "pimcore/data-hub": "<1.2.4",
-                "pimcore/pimcore": "<10.5.6",
+                "pimcore/pimcore": "<=10.5.6",
                 "pocketmine/bedrock-protocol": "<8.0.2",
                 "pocketmine/pocketmine-mp": "<4.7.2|>= 4.0.0-BETA5, < 4.4.2",
                 "pressbooks/pressbooks": "<5.18",
@@ -1824,7 +1825,7 @@
                 "topthink/thinkphp": "<=3.2.3",
                 "tribalsystems/zenario": "<9.2.55826",
                 "truckersmp/phpwhois": "<=4.3.1",
-                "twig/twig": "<1.38|>=2,<2.14.11|>=3,<3.3.8",
+                "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
                 "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.38|>=9,<9.5.29|>=10,<10.4.32|>=11,<11.5.16",
                 "typo3/cms-backend": ">=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
                 "typo3/cms-core": ">=6.2,<=6.2.56|>=7,<7.6.58|>=8,<8.7.48|>=9,<9.5.37|>=10,<10.4.32|>=11,<11.5.16",
@@ -1928,7 +1929,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-22T16:04:41+00:00"
+            "time": "2022-09-30T06:26:32+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -2463,10 +2464,10 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "wpshapers/wps-prime": 20,
+        "wpshapers/gravityforms": 20,
         "wpshapers/wps-blocks": 20,
         "wpshapers/wps-icon": 20,
-        "wpshapers/gravityforms": 20,
+        "wpshapers/wps-prime": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

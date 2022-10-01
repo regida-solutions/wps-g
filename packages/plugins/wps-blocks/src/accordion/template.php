@@ -35,7 +35,7 @@ function template( array $attributes, string $blocks ): string {
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>"<?php echo $anchor.$config; //phpcs:ignore ?>>
+	<div<?php echo $anchor; //phpcs:ignore?><?php echo $config; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 		<?php if ( ! empty( $blocks ) ) : ?>
 			<?php echo $blocks; //phpcs:ignore ?>
 		<?php endif; ?>

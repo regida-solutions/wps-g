@@ -61,7 +61,7 @@ function template( array $attributes, string $blocks ): string {
 	}
 	ob_start();
 	?>
-	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 		<?php if ( $shortcode ) : ?>
 		<div class="wps-card__media">
 			<?php echo do_shortcode( $shortcode ); ?>

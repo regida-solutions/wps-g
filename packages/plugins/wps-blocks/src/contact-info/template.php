@@ -45,11 +45,13 @@ function template( array $attributes ): string {
 		$contact_options['wps_email_address_second'] = [ 'type' => 'email' ];
 	}
 
+	$anchor = isset( $attributes['anchor'] ) ? ' id="' . $attributes['anchor'] . '"' : '';
+
 	$options = apply_filters( 'wps_contact_info_block_items', $contact_options );
 
 	ob_start();
 	?>
-	<div class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 		<ul class="wps-contact-info__list">
 		<?php foreach ( $options as $key => $item ) : ?>
 			<?php

@@ -33,7 +33,7 @@ function template( array $attributes, string $blocks ): string {
 
 	ob_start();
 	?>
-	<div<?php echo esc_html( $anchor ); ?> class="<?php echo esc_attr( $classes ); ?>">
+	<div<?php echo $anchor; //phpcs:ignore ?> class="<?php echo esc_attr( $classes ); ?>">
 		<div class="wps-hero__inner">
 			<div class="wps-hero__content">
 				<div class="wps-hero__container">
