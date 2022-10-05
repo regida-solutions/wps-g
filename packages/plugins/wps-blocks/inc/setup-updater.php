@@ -2,7 +2,7 @@
 /**
  * Setup plugin
  *
- * @package WpsIcon
+ * @package WpsBlocks
  */
 
 declare( strict_types=1 );

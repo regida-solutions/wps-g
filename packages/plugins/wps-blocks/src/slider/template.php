@@ -19,7 +19,6 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
  */
 function template( array $attributes, string $blocks ): string {
 
-	wp_enqueue_script( 'wps-slider-core' );
 	wp_enqueue_style( 'wps-slider-core' );
 	wp_enqueue_script( 'wps-slider-init' );
 
