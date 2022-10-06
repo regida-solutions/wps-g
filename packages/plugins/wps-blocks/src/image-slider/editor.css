@@ -23,7 +23,9 @@
 }
 
 .wps-blocks-gallery-item__image {
+	aspect-ratio: 4/3;
 	border: 1px solid #ccc;
+	object-fit: cover;
 	padding: 5px;
 }
 

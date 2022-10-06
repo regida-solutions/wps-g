@@ -16,9 +16,6 @@ import { PanelBody } from '@wordpress/components';
  * External dependencies
  */
 import { Image } from 'components';
-/**
- * External dependencies
- */
 import classnames from 'classnames';
 /**
  * Internal dependencies

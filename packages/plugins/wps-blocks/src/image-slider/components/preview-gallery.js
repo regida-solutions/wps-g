@@ -1,48 +1,27 @@
 /**
  * WordPress dependencies
  */
-import { useSelect } from '@wordpress/data';
-import { store as coreStore } from '@wordpress/core-data';
+import ServerSideRender from '@wordpress/server-side-render';
 
 function PreviewGallery({ images }) {
-	const { getMedia } = useSelect((select) => {
-		return {
-			getMedia: select(coreStore).getMedia,
-		};
-	});
-
-	const gallery = [];
-
-	if (images.length > 0) {
-		images.forEach((imageId) => {
-			gallery.push(getMedia(imageId));
-		});
+	if (images.length === 0) {
+		return null;
 	}
 
-	return (
-		<div className="wps-blocks-gallery">
-			{gallery.map((image, index) => {
-				if (!image) {
-					return null;
-				}
+	const imageList = [];
 
-				const {
-					media_details: mediaDetails = {
-						sizes: { thumbnail: { source_url: '' } },
-					},
-				} = image;
+	images.forEach((image, index) => {
+		const shortcode = `[ssr_image id="${image}" class="wps-blocks-gallery-item__image" size="medium"]`;
+		imageList.push(
+			<div key={index} className="wps-blocks-gallery-item">
+				<ServerSideRender
+					block="wps/shortcode"
+					attributes={{ shortcode }}
+				/>
+			</div>,
+		);
+	});
 
-				return (
-					<div key={index} className="wps-blocks-gallery-item">
-						<img
-							className="wps-blocks-gallery-item__image"
-							src={mediaDetails.sizes.thumbnail.source_url}
-							alt={''}
-						/>
-					</div>
-				);
-			})}
-		</div>
-	);
+	return <div className="wps-blocks-gallery">{imageList}</div>;
 }
 export default PreviewGallery;
