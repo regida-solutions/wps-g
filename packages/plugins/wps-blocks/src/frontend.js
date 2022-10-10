@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const sliders = [
 			...document.getElementsByClassName('wps-slider'),
 			...document.getElementsByClassName('wps-image-slider'),
+			...document.getElementsByClassName('wps-media-slider'),
 		];
 		if (sliders.length > 0) {
 			sliders.forEach((slider) => {

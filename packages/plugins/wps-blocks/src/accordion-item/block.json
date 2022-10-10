@@ -4,7 +4,7 @@
 	"name": "wps/accordion-item",
 	"title": "Accordion Item",
 	"description": "Accordion item.",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "align-left",
 	"parent": [ "wps/accordion" ],
 	"textdomain": "wps-blocks",

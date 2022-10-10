@@ -4,7 +4,7 @@
 	"name": "wps/accordion",
 	"title": "Accordion",
 	"description": "List content in an accordion.",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "editor-aligncenter",
 	"textdomain": "wps-blocks",
 	"supports": {

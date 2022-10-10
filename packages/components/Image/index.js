@@ -1,6 +1,9 @@
 /**
  * WordPress dependencies
  */
+/**
+ * WordPress dependencies
+ */
 import {
 	MediaUpload,
 	MediaUploadCheck,

@@ -6,7 +6,7 @@
  * Author:          WPShapers
  * Author URI:      https://wpshapers.com
  * Text Domain:     wps-blocks
- * Version:         1.3.8
+ * Version:         1.4.0
  *
  * @package WpsBlocks
  */
@@ -15,7 +15,7 @@ declare( strict_types=1 );
 
 namespace WPS\Blocks;
 
-define( 'WPS_BLOCKS_VERSION', '1.3.8' );
+define( 'WPS_BLOCKS_VERSION', '1.4.0' );
 define( 'WPS_BLOCKS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPS_BLOCKS_UPDATE_URL', 'https://zsoltrevay.com/packages' );
 define( 'WPS_BLOCKS_UPDATE_FOLDER', 'wps-blocks' );
@@ -26,6 +26,7 @@ add_filter( 'wps_allowed_block_types', __NAMESPACE__ . '\\allowed_block_types' )
 
 require_once __DIR__ . '/inc/setup-updater.php';
 require_once __DIR__ . '/inc/setup-assets.php';
+require_once __DIR__ . '/inc/setup-editor.php';
 
 /**
  * Remove hero block for now
@@ -37,6 +38,8 @@ define( 'WPS_BLOCKS_LIST', [
 	'section',
 	'slider',
 	'slider-slide',
+	'media-slider',
+	'media-slider-slide',
 	'whatsapp-button',
 	'contact-info',
 	'grid',

@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/whatsapp-button",
 	"title": "Whatsapp Button",
 	"description": "A button used for easy get in touch via whatsapp",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "whatsapp",
 	"supports": {
 		"anchor": true,

@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/shortcode",
 	"title": "Shortcode",
 	"description": "Render shortcode",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {
 		"inserter": false,

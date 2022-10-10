@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/hero",
 	"title": "Hero block",
 	"description": "Display a text image hero block",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {
 		"anchor": true,

@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/grid-column",
 	"title": "Grid column",
 	"description": "Create a grid column to hold elements",
-	"category": "common",
+	"category": "wps-blocks",
 	"parent": [ "wps/grid" ],
 	"icon": "columns",
 	"supports": {

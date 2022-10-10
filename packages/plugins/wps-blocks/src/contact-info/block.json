@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/contact-info",
 	"title": "Contact info",
 	"description": "Display phone and email",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "info-outline",
 	"supports": {
 		"anchor": true,

@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/card",
 	"title": "Card",
 	"description": "A card block containing an image text and button",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {
 		"anchor": true,

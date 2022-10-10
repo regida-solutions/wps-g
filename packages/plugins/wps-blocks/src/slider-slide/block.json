@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/slider-slide",
 	"title": "Slider slide",
 	"description": "A slider slide to wrap content",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "align-center",
 	"supports": {
 		"html": false

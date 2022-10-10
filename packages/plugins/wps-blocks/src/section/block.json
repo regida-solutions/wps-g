@@ -1,9 +1,10 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
 	"name": "wps/section",
 	"title": "Section block",
 	"description": "Create a custom colorful section that can hold other blocks",
-	"category": "common",
+	"category": "wps-blocks",
 	"icon": "cover-image",
 	"supports": {
 		"anchor": true,
