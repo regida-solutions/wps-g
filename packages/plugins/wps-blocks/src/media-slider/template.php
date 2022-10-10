@@ -45,7 +45,7 @@ function template( array $attributes, string $blocks ): string {
 	$wrapper_styles = '';
 
 	if ( ! empty( $attributes['aspectRatio'] ) ) {
-		$wrapper_styles = ' style="--aspect-ratio:' . $attributes['aspectRatio'].'"';
+		$wrapper_styles = ' style="--aspect-ratio:' . $attributes['aspectRatio'] . '"';
 	}
 
 	ob_start();

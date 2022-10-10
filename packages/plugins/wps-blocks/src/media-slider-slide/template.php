@@ -14,7 +14,7 @@ use function WPS\Blocks\Helpers\ClassNames\get_names as get_names;
 /**
  * Render callback template
  *
- * @param array  $attributes Block attributes.
+ * @param array $attributes Block attributes.
  */
 function template( array $attributes ): string {
 
@@ -28,8 +28,8 @@ function template( array $attributes ): string {
 		'wps-media-slider-slide__media',
 	]);
 
-	$x     = $attributes['focalPoint']['x'] ?? 0.5;
-	$y     = $attributes['focalPoint']['y'] ?? 0.5;
+	$x = $attributes['focalPoint']['x'] ?? 0.5;
+	$y = $attributes['focalPoint']['y'] ?? 0.5;
 
 	ob_start();
 	?>
