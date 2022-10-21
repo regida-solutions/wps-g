@@ -8,3 +8,4 @@ wp
 *.lock
 *.md
 package-lock.json
+./packages/plugins/wps-icon/assets/
