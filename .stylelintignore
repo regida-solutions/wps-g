@@ -4,4 +4,3 @@ dist
 build
 vendor
 wp
-./packages/plugins/wps-icon/assets/

@@ -7,6 +7,13 @@
 		}
 	},
 	{
+		"name": "Thin",
+		"attributes": {
+			"value": "thin",
+			"class": "fat"
+		}
+	},
+	{
 		"name": "Light",
 		"attributes": {
 			"value": "light",

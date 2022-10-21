@@ -32,7 +32,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 		return $res;
 	}
 
-	$remote = get_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+	$remote = get_transient( 'wps_icon_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
 
 	if ( false === $remote ) {
 
@@ -47,7 +47,7 @@ function plugin_info( $res, string $action, object $args ) { //phpcs:ignore
 		);
 
 		if ( ! is_wp_error( $remote ) && isset( $remote['response']['code'] ) && 200 === $remote['response']['code'] && ! empty( $remote['body'] ) ) {
-			set_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
+			set_transient( 'wps_icon_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
 		}
 	}
 
@@ -97,7 +97,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		return $transient;
 	}
 
-	$remote = get_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+	$remote = get_transient( 'wps_icon_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
 
 	if ( false === $remote ) {
 		// info.json is the file with the actual plugin information on your server.
@@ -111,7 +111,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 		);
 
 		if ( ! is_wp_error( $remote ) && isset( $remote['response']['code'] ) && 200 === $remote['response']['code'] && ! empty( $remote['body'] ) ) {
-			set_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
+			set_transient( 'wps_icon_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG, $remote, 21600 ); // 6 hours cache.
 		}
 	}
 
@@ -144,7 +144,7 @@ function plugin_push_update( $transient ) { //phpcs:ignore
 function plugin_after_update( \WP_Upgrader $upgrader_object, array $options ):void {
 	if ( 'update' === $options['action'] && 'plugin' === $options['type'] ) {
 		// just clean the cache when new plugin version is installed.
-		delete_transient( 'prefix_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
+		delete_transient( 'wps_icon_upgrade_' . WPS_ICON_BLOCKS_PLUGIN_SLUG );
 	}
 }
 

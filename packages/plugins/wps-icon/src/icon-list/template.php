@@ -57,8 +57,6 @@ function template( array $attributes, string $blocks ): string {
 
 	wp_enqueue_style( 'wps-icon-assets-all' );
 
-	$icon = isset( $attributes['icon'] ) ? 'fa-' . $attributes['icon'] : '';
-
 	// Add list class.
 	$blocks = str_replace( [ '<ul>' ], '<ul class="fa-ul">', $blocks );
 

@@ -23,6 +23,7 @@ define('WPS_ICON_STYLES', [
 	'light',
 	'regular',
 	'solid',
+	'sharp-solid',
 	'thin',
 ]);
 

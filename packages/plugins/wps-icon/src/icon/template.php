@@ -24,8 +24,28 @@ function template( array $attributes ): string {
 	$icon_type_list = file_get_contents( __DIR__ . '/../components/icon-typelist.json' ); // phpcs:ignore
 	$type_list      = json_decode( $icon_type_list, true );
 
-	$icon_type = 'fa-regular';
+	$fa_icon_classes = '';
+
 	if ( isset( $attributes['type'] ) ) {
+
+		// Handle fontawesome special case where we have to generate two classnames for solid-sharp and generate fa-solid fa-sharp.
+		$has_hyphen = substr_count( $attributes['type'], '-' );
+
+		// We have a hyphen in the type, so we split in two classes.
+		if ( 0 !== $has_hyphen ) {
+			$icon_class_names = explode( '-', $attributes['type'] );
+			foreach ( $icon_class_names as $icon_class_name ) {
+				$fa_icon_classes .= 'fa-' . $icon_class_name . ' ';
+			}
+
+			// Remove last whitespace from th end of the string.
+			$fa_icon_classes = rtrim( $fa_icon_classes );
+
+		} else {
+			// No double font classes so just create one.
+			$fa_icon_classes = 'fa-' . esc_attr( $attributes['type'] );
+		}
+
 		$type = array_filter($type_list, function( array $item ) use ( $attributes ):bool {
 			if ( isset( $attributes['type'] ) ) {
 				return $item['attributes']['value'] === $attributes['type'];
@@ -33,8 +53,7 @@ function template( array $attributes ): string {
 			return true;
 		});
 		if ( ! empty( $type ) ) {
-			$type      = wp_list_pluck( array_values( $type ), 'attributes' );
-			$icon_type = $type[0]['class'] ?? '';
+			$type = wp_list_pluck( array_values( $type ), 'attributes' );
 		}
 	}
 
@@ -65,7 +84,7 @@ function template( array $attributes ): string {
 	]);
 
 	$icon_classes = get_names( [
-		$icon_type,
+		$fa_icon_classes,
 		isset( $attributes['icon'] ) ? 'fa-' . $attributes['icon'] : 'fa-font-awesome',
 	]);
 

@@ -4,7 +4,13 @@
 /**
  * External dependencies
  */
+/**
+ * External dependencies
+ */
 import classnames from 'classnames';
+/**
+ * WordPress dependencies
+ */
 import {
 	InspectorControls,
 	useBlockProps,
@@ -22,6 +28,9 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { FontSizeSelect } from 'components/controls';
+/**
+ * Internal dependencies
+ */
 import optionsList from '../components/icon-typelist.json';
 
 function Edit({ attributes, setAttributes, textColor, setTextColor }) {
